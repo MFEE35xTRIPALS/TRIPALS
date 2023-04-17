@@ -1,0 +1,390 @@
+body {
+  /* 封面圖片下方，左右區塊的父層 */
+  section.c-head {
+    div.img2 {
+      height: 55vh;
+      background: url(../../img/sunrise.jpg) no-repeat bottom;
+      background-size: cover;
+      overflow: hidden;
+      clip-path: ellipse(75% 50% at 50% 30%); //-----> 我改了這裡
+      //          左右放大 上下放大 at 垂直中心軸 水平中心軸
+      position: relative;
+    }
+  }
+
+  // 左右分開的區塊的父層
+  section.c-rwd {
+    display: flex;
+
+    /* 左邊區塊 */
+    .c-left {
+      flex-grow: 0;
+      // padding: 1rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* 大頭貼 */
+      .c-head {
+        width: 250px;
+        height: 250px;
+        border-radius: 20px;
+        text-align: center;
+        background-color: $Blue;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        position: relative;
+
+        h4.username {
+          color: white;
+          font-weight: lighter;
+        }
+
+        div.h-img {
+          height: 75%;
+          width: 75%;
+          overflow: hidden;
+          border-radius: 50%;
+          border: 4px white solid;
+
+          img.shot {
+            // 讓圖片寬度符合div寬度
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+      .c-select {
+        ul {
+          padding: 1.5rem;
+          margin-top: 2.5rem;
+          border-top: 3px solid $Blue;
+          font-size: 1.5rem;
+
+          li {
+            padding: 1rem 0;
+            list-style: none;
+            text-align: center;
+            font-weight: 400;
+            transition: all 0.2s;
+
+            &:hover {
+              border-bottom: 2px solid $Blue;
+            }
+            a {
+              color: black;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+    /* 右邊隨選項變動的區塊 */
+    section.c-right {
+      width: 100%;
+      flex-grow: 1;
+
+      /* 每個選項的功能頁 */
+      .c-block {
+        width: 100%;
+        background-color: white;
+
+        .c-title {
+          // border: red 3px solid;
+          display: inline-block;
+          min-width: 300px;
+          padding: 1rem 2rem;
+          font-size: 2.5rem;
+          font-weight: 700;
+          background-color: $Green;
+          box-shadow: 0px 4px 4px rgba(black, 25%);
+        }
+        /* 最新消息 */
+        .a-news {
+          padding: 2rem;
+          max-height: 200px;
+          width: 100%;
+          overflow: auto;
+          background-color: white;
+          /* 最新消息顯示table */
+          .c-myart {
+            text-align: left;
+            tr {
+              td {
+                //   max-width: 3rem;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                padding: 0.5rem;
+                font-size: 1rem;
+                width: auto;
+                // color: $Blue;
+              }
+              &:hover {
+                background-color: rgba($Green, $alpha: 0.3);
+              }
+            }
+            .tbl-accordion-body {
+              display: none;
+            }
+          }
+        }
+        /* 最新消息新增  */
+        .c-form {
+          padding: 2rem 2rem 4rem 3rem;
+          .c-inbox {
+            padding: 0.5rem;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            position: relative;
+            label {
+              font-size: 1.5rem;
+              padding-right: 1rem;
+            }
+            /* input[type="text"]  */
+            .c-textmessage {
+              font-size: 1.25rem;
+              width: 350px;
+              border: none;
+              width: 85%;
+              padding-left: 1rem;
+              &:hover,
+              &:focus {
+                border: 1.5px $Green solid;
+                border-radius: 50px;
+                padding-left: 1rem;
+              }
+            }
+            /* 發布按鈕 */
+            .c-change {
+              padding: 0.25rem 0.85rem;
+              background: $Green;
+              border-radius: 50px;
+              border: $Green 2px solid;
+              position: absolute;
+              right: 20px;
+              bottom: -40px;
+              &:hover {
+                background: white;
+                border: $Green 2px solid;
+              }
+            }
+          }
+          /* 最新消息 - 新增 */
+          .c-textarea {
+            display: flex;
+            flex-direction: column;
+            padding: 0.5rem;
+
+            label {
+              font-size: 1.5rem;
+              padding-bottom: 0.5rem;
+            }
+            .c-textbox {
+              border: 1.5px $Green solid;
+              border-radius: 10px;
+              height: 200px;
+            }
+          }
+        }
+        /* 會員管理 */
+        .a-members {
+          padding: 2rem;
+          height: 600px;
+          width: 100%;
+          overflow: auto;
+          background-color: white;
+          /* 最新消息顯示table */
+          .c-myart {
+            text-align: left;
+
+            tr {
+              td {
+                //   max-width: 3rem;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                padding: 0.5rem;
+                font-size: 1rem;
+                //   width: 100%;
+                // color: $Blue;
+              }
+              &:hover {
+                background-color: rgba($Green, $alpha: 0.3);
+              }
+            }
+          }
+        }
+        /* 文章管理 */
+        .a-totalArt {
+          padding: 2rem;
+          height: 600px;
+          width: 100%;
+          overflow: auto;
+          background-color: white;
+          /* 最新消息顯示table */
+          .a-myart {
+            text-align: left;
+
+            tr {
+              td {
+                max-width: 15rem;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                padding: 0.5rem;
+                font-size: 1rem;
+                width: 100%;
+
+                a {
+                  color: $black;
+                  text-decoration: none;
+                }
+
+                // color: $Blue;
+                button.a-takeOf {
+                  color: $Blue;
+                  border-radius: 50px;
+                  font-weight: bold;
+                  text-align: center;
+                  padding: 0.2rem 0.5rem;
+                  border: 1px solid $Blue;
+                  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                  transition: all 0.2s ease;
+
+                  &:hover {
+                    border: none;
+                    background-color: $Green;
+                  }
+                  &:disabled {
+                    background-color: rgb(182, 182, 182);
+                    color: gray;
+                    border: none;
+                  }
+                }
+              }
+
+              &:hover {
+                background-color: rgba($Green, $alpha: 0.3);
+              }
+
+              &.a-deleteDone {
+                background-color: rgb(178, 178, 178);
+              }
+
+              &.a-takeOfDone {
+                background-color: rgb(221, 221, 221);
+              }
+            }
+          }
+        }
+        /* 標籤管理 */
+        .a-tags {
+          padding-top: 1rem;
+          width: 100%;
+          flex: 3 1 350px;
+          // border: 3px orange solid;
+          ul.tags {
+            li {
+              margin: 6px 4px;
+              padding: 4px 10px;
+              display: inline-block;
+              background-color: $Green;
+              border-radius: 50px;
+              a {
+                font-size: 1.5rem;
+                text-decoration: none;
+                color: white;
+              }
+              &:hover {
+                background-color: $ButtonHover;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  // 螢幕大於992px
+  body {
+    section.c-rwd {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      max-width: 1280px;
+      margin-right: auto;
+      margin-left: auto;
+      height: 100%;
+
+      section.c-left {
+        margin: 0rem 2rem;
+        flex-basis: 350px;
+        position: sticky;
+        top: 8vh;
+        height: fit-content;
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  // 螢幕小於992px
+  body {
+    section.c-rwd {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-items: center;
+
+      section.c-left {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        position: relative;
+
+        div.c-head {
+          width: 20vw;
+          height: 20vw;
+          min-width: 150px;
+          min-height: 150px;
+
+          button.camera {
+            top: 6em;
+            right: 2em;
+          }
+        }
+        div.c-select {
+          ul {
+            border: none;
+            // display: flex;
+            font-size: 20px;
+
+            li {
+              padding: 2px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  // 當螢幕小於400px
+  section.c-rwd {
+    section.c-right {
+      .c-block {
+        .c-title {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
