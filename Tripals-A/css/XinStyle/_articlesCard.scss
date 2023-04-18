@@ -1,0 +1,122 @@
+// 字體變數
+$hoverMore: 1.5rem;
+$cardTitle: 1.25rem;
+$cardUsername:1.15rem;
+$cardLikeicon:1.75rem;
+$cardViewsAndHeart:1rem;
+
+div.onecard {
+  width: 280px;
+  height: fit-content;
+  box-shadow: 0px 4px 4px rgba($black, 0.25);
+  margin: 1rem 0.5rem;
+
+  a.c-cardImg {
+    width: 100%;
+    height: 200px;
+    position: relative;
+
+    &:hover .c-imgCover {
+      display: block;
+    }
+
+    div.c-imgCover {
+      display: none;
+      position: absolute;
+      background-color: rgba($black, 0.3);
+      width: 100%;
+      height: 100%;
+
+
+      p {
+        color: $black;
+        background-color: $white;
+        border-radius: 50px;
+        position: absolute;
+        bottom: 2rem;
+        left: 28%;
+        // right: 50%;
+        font-size: $hoverMore;
+        padding: 0.5rem 2rem;
+        text-align: center;
+        width: fit-content;
+      }
+    }
+
+    img.Img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+
+
+    }
+  }
+
+  div.card_body {
+    // padding: 15px;
+    margin: 1rem;
+
+    div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      a.c-toSelfpage {
+        text-decoration: none;
+        // display: -webkit-box;
+        // -webkit-box-orient: vertical;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        // -webkit-line-clamp: 2;
+
+        h4.card-title {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          color: $black;
+          font-size: $cardTitle;
+          font-weight: bold;
+          margin: 1rem 0;
+          // -webkit-line-clamp: 2;
+        }
+      }
+
+      i.heart {
+        color: $Heart;
+        font-size: $cardLikeicon;
+        cursor: pointer;
+      }
+    }
+
+    a.c-userName {
+      text-decoration: none;
+      color: $black;
+
+      h6 {
+        font-size: $cardUsername;
+
+        img.head {
+          width: 40px;
+          height: 40px;
+          background-color: $Blue;
+          border-radius: 50%;
+          object-fit: cover;
+
+        }
+      }
+    }
+
+    div.viewsAndHeart {
+      color: $black;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: end;
+      font-size: $cardViewsAndHeart;
+
+      p {
+        margin-left: 1rem;
+      }
+    }
+  }
+}

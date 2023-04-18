@@ -18,7 +18,103 @@ p {
   padding: 0;
 }
 
+div.onecard {
+  width: 280px;
+  height: -moz-fit-content;
+  height: fit-content;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 1rem 0.5rem;
+}
+div.onecard a.c-cardImg {
+  width: 100%;
+  height: 200px;
+  position: relative;
+}
+div.onecard a.c-cardImg:hover .c-imgCover {
+  display: block;
+}
+div.onecard a.c-cardImg div.c-imgCover {
+  display: none;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+}
+div.onecard a.c-cardImg div.c-imgCover p {
+  color: black;
+  background-color: white;
+  border-radius: 50px;
+  position: absolute;
+  bottom: 2rem;
+  left: 28%;
+  font-size: 1.5rem;
+  padding: 0.5rem 2rem;
+  text-align: center;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+div.onecard a.c-cardImg img.Img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+div.onecard div.card_body {
+  margin: 1rem;
+}
+div.onecard div.card_body div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+div.onecard div.card_body div a.c-toSelfpage {
+  text-decoration: none;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+div.onecard div.card_body div a.c-toSelfpage h4.card-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: black;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+div.onecard div.card_body div i.heart {
+  color: #ff4848;
+  font-size: 1.75rem;
+  cursor: pointer;
+}
+div.onecard div.card_body a.c-userName {
+  text-decoration: none;
+  color: black;
+}
+div.onecard div.card_body a.c-userName h6 {
+  font-size: 1.15rem;
+}
+div.onecard div.card_body a.c-userName h6 img.head {
+  width: 40px;
+  height: 40px;
+  background-color: #27a2b8;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+div.onecard div.card_body div.viewsAndHeart {
+  color: black;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+  font-size: 1rem;
+}
+div.onecard div.card_body div.viewsAndHeart p {
+  margin-left: 1rem;
+}
+
 body {
+  background-color: #f0e8dc;
   /* 會員封面首圖區塊 */
 }
 body section.c-head div.img2 {
@@ -53,10 +149,6 @@ body section.c-rwd {
   /* 右邊區塊 */
 }
 body section.c-rwd section.c-left {
-  flex-grow: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   /* 大頭貼 */
 }
 body section.c-rwd section.c-left div.c-head {
@@ -203,94 +295,6 @@ body section.c-rwd section.c-right .c-block .c-mylikes {
   justify-content: space-around;
   padding: 2rem;
 }
-body section.c-rwd section.c-right .c-block .c-mylikes div.onecard {
-  width: 250px;
-  margin: 1rem 0.5rem;
-  padding: auto;
-}
-body section.c-rwd section.c-right .c-block .c-mylikes div.onecard div.card {
-  width: 250px;
-  height: -moz-fit-content;
-  height: fit-content;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-body section.c-rwd section.c-right .c-block .c-mylikes div.onecard div.card a.c-cardImg {
-  width: 100%;
-  height: 200px;
-  position: relative;
-}
-body section.c-rwd section.c-right .c-block .c-mylikes div.onecard div.card a.c-cardImg:hover .c-imgCover {
-  display: block;
-}
-body section.c-rwd section.c-right .c-block .c-mylikes div.onecard div.card a.c-cardImg div.c-imgCover {
-  display: none;
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.3);
-  width: 100%;
-  height: 100%;
-}
-body section.c-rwd section.c-right .c-block .c-mylikes div.onecard div.card a.c-cardImg div.c-imgCover p {
-  color: black;
-  background-color: white;
-  padding: 0.5rem 2rem;
-  border-radius: 50px;
-  position: absolute;
-  bottom: 2rem;
-  left: 65px;
-  font-size: 24px;
-  font-weight: bold;
-}
-body section.c-rwd section.c-right .c-block .c-mylikes div.onecard div.card a.c-cardImg img.Img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-body section.c-rwd section.c-right .c-block .c-mylikes div.onecard div.card div.card_body {
-  margin: 1rem;
-}
-body section.c-rwd section.c-right .c-block .c-mylikes div.onecard div.card div.card_body div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-body section.c-rwd section.c-right .c-block .c-mylikes div.onecard div.card div.card_body div a.c-toSelfpage {
-  text-decoration: none;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-body section.c-rwd section.c-right .c-block .c-mylikes div.onecard div.card div.card_body div a.c-toSelfpage h4.card-title {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  color: black;
-}
-body section.c-rwd section.c-right .c-block .c-mylikes div.onecard div.card div.card_body div i.heart {
-  color: #ff4848;
-  font-size: 26px;
-  cursor: pointer;
-}
-body section.c-rwd section.c-right .c-block .c-mylikes div.onecard div.card div.card_body a.c-userName {
-  text-decoration: none;
-  color: black;
-}
-body section.c-rwd section.c-right .c-block .c-mylikes div.onecard div.card div.card_body a.c-userName h6 {
-  font-size: 16px;
-}
-body section.c-rwd section.c-right .c-block .c-mylikes div.onecard div.card div.card_body a.c-userName h6 img.head {
-  width: 40px;
-  height: 40px;
-  background-color: #27a2b8;
-  border-radius: 50%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-body section.c-rwd section.c-right .c-block .c-mylikes div.onecard div.card div.card_body p.views {
-  font-size: 16px;
-  color: #bdcac9;
-  float: right;
-  margin: 0;
-}
 body section.c-rwd section.c-right .c-block .c-mine {
   padding: 2rem;
   height: 600px;
@@ -362,6 +366,10 @@ body section.c-rwd section.c-right .c-block .c-mine .c-myart tr.c-takeOfDone {
     top: 8vh;
     height: -moz-fit-content;
     height: fit-content;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 @media (max-width: 992px) {
@@ -409,159 +417,4 @@ body section.c-rwd section.c-right .c-block .c-mine .c-myart tr.c-takeOfDone {
 #c-likes,
 #c-myarts {
   display: none;
-}
-
-body {
-  background-color: #f0e8dc;
-  /* 個人首圖 + username - 個人封面 */
-}
-body section.selftop {
-  height: 55vh;
-  background: url(https://s3-alpha-sig.figma.com/img/d108/7687/d1647a8897961fe4f95a863fd3f2a376?Expires=1681689600&Signature=OzW-GPXj-2lBoykmLK5J6v5fhuL5lvW~VYnlepF5s0Uo4otzpvlsqw8ekL-G7gPkad7Dz20Qt7BZX71Kc5IskDu9~Il3RR1dW~smfI7gbZ6OgMjlc3pSe-hzoFL4J4f0FBcUjSTdhuTvfEzGSLuMfJc3f9qTLRys2G0UavS2fF5nbKWWJLfFhL-TinNyS4YY2xoytrPi5AmzorbXw8MjO3ERO-w-OK-XD3I-m1gmNzaUSUJjEkJewDMQCVA7Nnqb1zAsRGHO~N2xiaFJVdJViuAQaOVxrf-xpqLQGMaT6aeQB8~Y3oyHA68v-jb5DXbOWkF56B1SAw8ZeSRWoZMjwg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4) no-repeat bottom;
-  background-size: cover;
-  overflow: hidden;
-  -webkit-clip-path: ellipse(75% 50% at 50% 30%);
-          clip-path: ellipse(75% 50% at 50% 30%);
-  position: relative;
-}
-body section.selftop img.selfCover {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-body section.selftop div.selfMessage {
-  position: absolute;
-  height: -moz-fit-content;
-  height: fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  left: 8%;
-  bottom: 30%;
-  display: flex;
-  align-items: center;
-}
-body section.selftop div.selfMessage img.selfShot {
-  width: 10vw;
-  height: 10vw;
-  min-width: 60px;
-  min-height: 60px;
-  max-width: 100px;
-  max-height: 100px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  border-radius: 50%;
-  margin: 1rem;
-  border: 2px white solid;
-}
-body section.selftop div.selfMessage h4.userName {
-  color: white;
-  -webkit-text-stroke: 1px black;
-  text-stroke: 1px black;
-  font-weight: bold;
-}
-body div section.selfIntroduce {
-  text-align: center;
-  padding: 0 5rem;
-}
-body div section.selfArticles {
-  border-top: black 2px solid;
-  margin: 3rem 0;
-}
-body div section.selfArticles h6.articles {
-  font-weight: bold;
-}
-body div section.selfArticles .c-mylikes {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 2rem;
-}
-body div section.selfArticles .c-mylikes div.onecard {
-  width: 250px;
-  margin: 1rem 0.5rem;
-}
-body div section.selfArticles .c-mylikes div.onecard div.card {
-  width: 250px;
-  height: -moz-fit-content;
-  height: fit-content;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-body div section.selfArticles .c-mylikes div.onecard div.card a.c-cardImg {
-  width: 100%;
-  height: 200px;
-  position: relative;
-}
-body div section.selfArticles .c-mylikes div.onecard div.card a.c-cardImg:hover .c-imgCover {
-  display: block;
-}
-body div section.selfArticles .c-mylikes div.onecard div.card a.c-cardImg div.c-imgCover {
-  display: none;
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.3);
-  width: 100%;
-  height: 100%;
-}
-body div section.selfArticles .c-mylikes div.onecard div.card a.c-cardImg div.c-imgCover p {
-  color: black;
-  background-color: white;
-  padding: 0.5rem 2rem;
-  border-radius: 50px;
-  position: absolute;
-  bottom: 2rem;
-  left: 65px;
-  font-size: 24px;
-  font-weight: bold;
-}
-body div section.selfArticles .c-mylikes div.onecard div.card a.c-cardImg img.Img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-body div section.selfArticles .c-mylikes div.onecard div.card div.card_body {
-  margin: 1rem;
-}
-body div section.selfArticles .c-mylikes div.onecard div.card div.card_body div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-body div section.selfArticles .c-mylikes div.onecard div.card div.card_body div a.c-toSelfpage {
-  text-decoration: none;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-body div section.selfArticles .c-mylikes div.onecard div.card div.card_body div a.c-toSelfpage h4.card-title {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  color: black;
-}
-body div section.selfArticles .c-mylikes div.onecard div.card div.card_body div i.fa-heart {
-  color: #ff4848;
-  font-size: 26px;
-  cursor: pointer;
-}
-body div section.selfArticles .c-mylikes div.onecard div.card div.card_body a.c-userName {
-  text-decoration: none;
-  color: black;
-}
-body div section.selfArticles .c-mylikes div.onecard div.card div.card_body a.c-userName h6 {
-  font-size: 16px;
-}
-body div section.selfArticles .c-mylikes div.onecard div.card div.card_body a.c-userName h6 img.head {
-  width: 40px;
-  height: 40px;
-  background-color: #27a2b8;
-  border-radius: 50%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-body div section.selfArticles .c-mylikes div.onecard div.card div.card_body p.views {
-  font-size: 16px;
-  color: #BDCAC9;
-  float: right;
-  margin: 0;
-}/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=clientpage.css.map */
