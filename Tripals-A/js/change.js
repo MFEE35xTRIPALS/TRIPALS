@@ -1,4 +1,12 @@
-// 使用者點擊切換分頁
+/* 最新消息摺疊 */
+$(document).ready(function () {
+  $('[class="my"]').click(function () {
+    $(this).next("tr").toggle();
+    // console.log($(this).parents());
+  });
+});
+
+/* 使用者點擊切換分頁 */
 
 // console.log(a_news);
 let a_news = getComputedStyle(document.querySelector("#a-news")).display;
