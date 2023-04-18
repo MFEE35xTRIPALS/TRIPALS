@@ -1,0 +1,52 @@
+// 使用者點擊切換分頁
+
+// console.log(typeof c_likes);
+let a_news = getComputedStyle(document.querySelector("#a-news")).display;
+let a_members = getComputedStyle(document.querySelector("#a-members")).display;
+let a_atricles = getComputedStyle(
+  document.querySelector("#a-atricles")
+).display;
+let a_tags = getComputedStyle(document.querySelector("#a-tags")).display;
+function toggleDisplay(elementId, displayValue) {
+  document.querySelector(elementId).style.display = displayValue;
+}
+document
+  .querySelector('a[href="#a-news"]')
+  .addEventListener("click", function () {
+    if (a_news == "none") {
+      toggleDisplay("#a-news", "block");
+      toggleDisplay("#a-members", "none");
+      toggleDisplay("#a-atricles", "none");
+      toggleDisplay("#a-tags", "none");
+    }
+  });
+document
+  .querySelector('a[href="#a-members"]')
+  .addEventListener("click", function () {
+    if (a_news == "none") {
+      toggleDisplay("#a-news", "none");
+      toggleDisplay("#a-members", "block");
+      toggleDisplay("#a-atricles", "none");
+      toggleDisplay("#a-tags", "none");
+    }
+  });
+document
+  .querySelector('a[href="#a-atricles"]')
+  .addEventListener("click", function () {
+    if (a_news == "none") {
+      toggleDisplay("#a-news", "none");
+      toggleDisplay("#a-members", "none");
+      toggleDisplay("#a-atricles", "block");
+      toggleDisplay("#a-tags", "none");
+    }
+  });
+document
+  .querySelector('a[href="#a-tags"]')
+  .addEventListener("click", function () {
+    if (a_news == "none") {
+      toggleDisplay("#a-news", "none");
+      toggleDisplay("#a-members", "none");
+      toggleDisplay("#a-atricles", "none");
+      toggleDisplay("#a-tags", "block");
+    }
+  });
