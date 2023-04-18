@@ -147,7 +147,6 @@ body div section.selfArticles .c-mylikes div.onecard {
 }
 body div section.selfArticles .c-mylikes div.onecard div.card {
   width: 250px;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -514,10 +513,8 @@ body section.c-rwd section.c-right .c-block .a-tags ul.tags li:hover {
   body section.c-rwd section.c-left {
     margin: 0rem 2rem;
     flex-basis: 350px;
-    position: -webkit-sticky;
     position: sticky;
     top: 8vh;
-    height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
   }
