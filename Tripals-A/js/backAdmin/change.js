@@ -23,7 +23,7 @@ document
 document
   .querySelector('a[href="#a-members"]')
   .addEventListener("click", function () {
-    if (a_news == "none") {
+    if (a_members == "none") {
       toggleDisplay("#a-news", "none");
       toggleDisplay("#a-members", "block");
       toggleDisplay("#a-atricles", "none");
@@ -33,7 +33,7 @@ document
 document
   .querySelector('a[href="#a-atricles"]')
   .addEventListener("click", function () {
-    if (a_news == "none") {
+    if (a_atricles == "none") {
       toggleDisplay("#a-news", "none");
       toggleDisplay("#a-members", "none");
       toggleDisplay("#a-atricles", "block");
@@ -43,7 +43,7 @@ document
 document
   .querySelector('a[href="#a-tags"]')
   .addEventListener("click", function () {
-    if (a_news == "none") {
+    if (a_tags == "none") {
       toggleDisplay("#a-news", "none");
       toggleDisplay("#a-members", "none");
       toggleDisplay("#a-atricles", "none");
