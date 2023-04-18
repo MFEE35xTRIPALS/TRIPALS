@@ -1,6 +1,6 @@
 // 使用者點擊切換分頁
 
-console.log(a_news);
+// console.log(a_news);
 let a_news = getComputedStyle(document.querySelector("#a-news")).display;
 let a_members = getComputedStyle(document.querySelector("#a-members")).display;
 let a_atricles = getComputedStyle(
