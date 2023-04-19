@@ -31,6 +31,20 @@ $takeofText: 1rem; //->表格內下架
 $lableText: 1.5rem; // -> 後台表單lable
 $ArticleText: 1.15rem; // -> 後台文章管理table
 
+$myarticles_atag:black;//我的文章超連結顏色
+$myarticlesEdit:#27a2b8;//我的文章編輯按鍵
+$myarticlesBtnDisable:gray;//我的文章不能按的按鈕
+$myarticlesBtnDisablebg:rgb(182, 182, 182);//我的文章不能按的按鈕背景
+$myarticlesTakeof:rgb(221, 221, 221);//table 已下架顏色
+$myarticlesDelete:rgb(178, 178, 178);//table 已刪除顏色
+
+
+
+$clientInputText:1.25rem;//會員後台個人資料input的字
+$clientMessagecolor: #b2d5ce;//會員後台的主顏色（input外匡、按鈕顏色、tablehover顏色）
+$MessageBtnHover:white;//會員後台按鈕hovwr顏色
+
+
  
 /* ----- card字體變數 ----- */
 $hoverMore: 1.5rem;//morebtn

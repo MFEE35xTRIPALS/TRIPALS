@@ -373,7 +373,6 @@ button.camera {
 }
 .c-form .c-inbox .c-change:hover {
   background: white;
-  border: #b2d5ce 2px solid;
 }
 .c-form .c-textarea {
   display: flex;
@@ -416,29 +415,27 @@ button.camera {
   text-overflow: ellipsis;
   overflow: hidden;
   padding: 0.5rem;
-  font-size: 1rem;
+  font-size: 1.15rem;
   width: 100%;
 }
 .c-mine .c-myart tr td a {
-  color: #000000;
+  color: black;
   text-decoration: none;
 }
 .c-mine .c-myart tr td a.c-editArt {
   color: #27a2b8;
 }
 .c-mine .c-myart tr td button.c-takeOf {
-  color: #27a2b8;
+  background-color: #b2d5ce;
   border-radius: 50px;
-  font-weight: bold;
+  border: #b2d5ce 2px solid;
   text-align: center;
   padding: 0.2rem 0.5rem;
-  border: 1px solid #27a2b8;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   transition: all 0.2s ease;
 }
 .c-mine .c-myart tr td button.c-takeOf:hover {
-  border: none;
-  background-color: #b2d5ce;
+  background-color: white;
 }
 .c-mine .c-myart tr td button.c-takeOf:disabled {
   background-color: rgb(182, 182, 182);

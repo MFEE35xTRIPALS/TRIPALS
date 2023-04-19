@@ -53,12 +53,12 @@ button.camera {
     position: relative;
 
     label {
-      font-size: 1.5rem;
+      font-size: $lableText;
       padding-right: 1rem;
     }
 
     .c-textmessage {
-      font-size: 1.25rem;
+      font-size: $clientInputText;
       width: 350px;
       border: none;
       width: 85%;
@@ -66,7 +66,7 @@ button.camera {
 
       &:hover,
       &:focus {
-        border: 1.5px $Green solid;
+        border: 1.5px $clientMessagecolor solid;
         border-radius: 50px;
         padding-left: 1rem;
       }
@@ -80,16 +80,16 @@ button.camera {
     /* 儲存按鈕 */
     .c-change {
       padding: 0.25rem 0.85rem;
-      background: $Green;
+      background: $clientMessagecolor;
       border-radius: 50px;
-      border: $Green 2px solid;
+      border: $clientMessagecolor 2px solid;
       position: absolute;
       right: 20px;
       bottom: -40px;
 
       &:hover {
-        background: white;
-        border: $Green 2px solid;
+        background: $MessageBtnHover;
+        // border: $selfMessagecolor 2px solid;
       }
     }
   }
@@ -105,7 +105,7 @@ button.camera {
     }
 
     .c-textbox {
-      border: 1.5px $Green solid;
+      border: 1.5px $clientMessagecolor solid;
       border-radius: 10px;
       height: 200px;
     }
@@ -140,50 +140,52 @@ button.camera {
         text-overflow: ellipsis;
         overflow: hidden;
         padding: 0.5rem;
-        font-size: 1rem;
+        font-size: $ArticleText;
         width: 100%;
 
         a {
-          color: $black;
+          color: $myarticles_atag;
           text-decoration: none;
         }
 
         a.c-editArt {
-          color: $Blue;
+          color: $myarticlesEdit;
         }
         button.c-takeOf {
-          color: $Blue;
+          // color: $myarticlesBtn;
+          background-color: $clientMessagecolor;
           border-radius: 50px;
-          font-weight: bold;
+          border: $clientMessagecolor 2px solid;
+          // font-weight: bold;
           text-align: center;
           padding: 0.2rem 0.5rem;
-          border: 1px solid $Blue;
+          // border: 1px solid $myarticlesBtn;
           filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
           transition: all 0.2s ease;
 
           &:hover {
-            border: none;
-            background-color: $Green;
+            // border: none;
+            background-color: $MessageBtnHover;
           }
 
           &:disabled {
-            background-color: rgb(182, 182, 182);
-            color: gray;
+            background-color: $myarticlesBtnDisablebg;
+            color: $myarticlesBtnDisable;
             border: none;
           }
         }
       }
 
       &:hover {
-        background-color: rgba($Green, $alpha: 0.3);
+        background-color: rgba($clientMessagecolor, $alpha: 0.3);
       }
 
       &.c-deleteDone {
-        background-color: rgb(178, 178, 178);
+        background-color: $myarticlesDelete;
       }
 
       &.c-takeOfDone {
-        background-color: rgb(221, 221, 221);
+        background-color: $myarticlesTakeof;
       }
     }
   }
