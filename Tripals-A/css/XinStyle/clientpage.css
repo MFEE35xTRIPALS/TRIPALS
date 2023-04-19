@@ -1,8 +1,17 @@
 @charset "UTF-8";
+/* ----- color ----- */
+/* ----- font(global) ----- */
+/* ----- font(CRUD-button) ----- */
+/* ----- font(local) ----- */
+/* ----- card字體變數 ----- */
+/* ----- card顏色變數 ----- */
+/* -------- 全域設定 -------- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-weight: normal;
+  font-family: "Sen", sans-serif;
 }
 
 h1,
@@ -12,15 +21,12 @@ h4,
 h5,
 h6,
 p {
-  font-weight: normal;
-  font-family: "Sen", sans-serif;
   margin: 0;
   padding: 0;
 }
 
 div.onecard {
   width: 280px;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -51,7 +57,6 @@ div.onecard a.c-cardImg div.c-imgCover p {
   font-size: 1.5rem;
   padding: 0.5rem 2rem;
   text-align: center;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
 }
@@ -108,53 +113,80 @@ div.onecard div.card_body div.viewsAndHeart {
   margin: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: end;
+  justify-content: flex-end;
   font-size: 1rem;
 }
 div.onecard div.card_body div.viewsAndHeart p {
   margin-left: 1rem;
 }
 
+/* ----- color ----- */
+/* ----- font(global) ----- */
+/* ----- font(CRUD-button) ----- */
+/* ----- font(local) ----- */
+/* ----- card字體變數 ----- */
+/* ----- card顏色變數 ----- */
+/* -------- 全域設定 -------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-weight: normal;
+  font-family: "Sen", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background-color: #f0e8dc;
-  /* 會員封面首圖區塊 */
 }
-body section.c-head div.img2 {
+
+/* 封面圖片 */
+section.c-head div.img2 {
+  width: 100%;
   height: 55vh;
-  background: url(../../img/y-s-LGx9C3nSo5I-unsplash.jpg) no-repeat bottom;
+  background: url(../../img/sunrise.jpg) no-repeat bottom;
   background-size: cover;
   overflow: hidden;
   -webkit-clip-path: ellipse(75% 50% at 50% 30%);
           clip-path: ellipse(75% 50% at 50% 30%);
   position: relative;
-  /* 編輯封面按鈕 */
 }
-body section.c-head div.img2 .edit_cover {
-  position: absolute;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  padding: 0.25rem 1.5rem;
-  right: 8%;
-  top: 50%;
-  font-size: 24px;
-  color: #5db8a6;
-  background-color: rgba(255, 255, 255, 0.7);
-  border: none;
-  border-radius: 50px;
-}
-body section.c-head div.img2 .edit_cover:hover {
-  background-color: white;
-}
-body section.c-rwd {
+
+/* 左右分開的區塊的父層 */
+.c-rwd {
   display: flex;
-  /* 左邊區塊 */
-  /* 右邊區塊 */
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  max-width: 1440px;
+  margin-right: auto;
+  margin-left: auto;
 }
-body section.c-rwd section.c-left {
-  /* 大頭貼 */
+
+/* 左邊區塊 */
+.c-left {
+  flex: 0 1 300px;
+  top: 8vh;
+  position: sticky;
+  height: 100%;
+  margin: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* 大頭貼藍色背景 */
+  /* 左邊選單 */
 }
-body section.c-rwd section.c-left div.c-head {
+.c-left .c-head {
   width: 250px;
   height: 250px;
   border-radius: 20px;
@@ -162,74 +194,65 @@ body section.c-rwd section.c-left div.c-head {
   background-color: #27a2b8;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   position: relative;
+  /* 大頭貼username */
+  /* 大頭貼圈圈 */
 }
-body section.c-rwd section.c-left div.c-head h4.username {
+.c-left .c-head h4.username {
   color: white;
-  font-weight: lighter;
+  font-size: 1.5rem;
+  font-weight: 0;
 }
-body section.c-rwd section.c-left div.c-head div.h-img {
-  height: 75%;
-  width: 75%;
+.c-left .c-head div.h-img {
+  height: 70%;
+  width: 70%;
   overflow: hidden;
   border-radius: 50%;
   border: 4px white solid;
+  /* 大頭貼 */
 }
-body section.c-rwd section.c-left div.c-head div.h-img img.shot {
+.c-left .c-head div.h-img img.shot {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
-body section.c-rwd section.c-left div.c-head button.camera {
-  border: 0.5px white solid;
-  position: absolute;
-  background-color: white;
-  width: 15%;
-  height: 15%;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  top: 160px;
-  right: 50px;
-}
-body section.c-rwd section.c-left div.c-select ul {
+.c-left .c-select ul {
   padding: 1.5rem;
-  margin-top: 2.5rem;
-  border-top: 3px solid #27a2b8;
+  margin: 2.5rem 0 0 0;
+  border-top: 4px solid #27a2b8;
   font-size: 1.75rem;
 }
-body section.c-rwd section.c-left div.c-select ul li {
-  padding: 1rem 0;
+.c-left .c-select ul li {
+  padding: 1rem;
   list-style: none;
-  text-align: center;
   font-weight: 400;
   transition: all 0.2s;
 }
-body section.c-rwd section.c-left div.c-select ul li:hover {
-  border-bottom: #27a2b8 solid 2px;
+.c-left .c-select ul li:hover {
+  border-bottom: 3px solid #27a2b8;
 }
-body section.c-rwd section.c-left div.c-select ul li a {
+.c-left .c-select ul li a {
   color: black;
   text-decoration: none;
 }
-body section.c-rwd section.c-right {
+
+/* 右邊隨選項變動的區塊 */
+.c-right {
+  flex: 1 1 800px;
   width: 100%;
-  flex-grow: 1;
   /* 每個選項的功能頁 */
 }
-body section.c-rwd section.c-right .c-block {
+.c-right .c-block {
   background-color: white;
   width: 100%;
-  /* 個人資料 */
-  /* 我的收藏 */
-  /* 我的文章 */
+  /* 大title */
 }
-body section.c-rwd section.c-right .c-block .c-title {
+.c-right .c-block .c-title {
   display: inline-block;
+  width: 30vw;
   min-width: 300px;
   padding: 1rem 2rem;
   font-size: 2.5rem;
@@ -237,146 +260,8 @@ body section.c-rwd section.c-right .c-block .c-title {
   background-color: #b2d5ce;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-body section.c-rwd section.c-right .c-block .c-form {
-  padding: 2rem 2rem 4rem 3rem;
-}
-body section.c-rwd section.c-right .c-block .c-form .c-inbox {
-  padding: 0.5rem;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  position: relative;
-  /* 儲存按鈕 */
-}
-body section.c-rwd section.c-right .c-block .c-form .c-inbox label {
-  font-size: 1.5rem;
-  padding-right: 1rem;
-}
-body section.c-rwd section.c-right .c-block .c-form .c-inbox .c-textmessage {
-  font-size: 1.25rem;
-  width: 350px;
-  border: none;
-  width: 85%;
-  padding-left: 1rem;
-}
-body section.c-rwd section.c-right .c-block .c-form .c-inbox .c-textmessage:hover, body section.c-rwd section.c-right .c-block .c-form .c-inbox .c-textmessage:focus {
-  border: 1.5px #b2d5ce solid;
-  border-radius: 50px;
-  padding-left: 1rem;
-}
-body section.c-rwd section.c-right .c-block .c-form .c-inbox .c-change {
-  padding: 0.25rem 0.85rem;
-  background: #b2d5ce;
-  border-radius: 50px;
-  border: #b2d5ce 2px solid;
-  position: absolute;
-  right: 20px;
-  bottom: -40px;
-}
-body section.c-rwd section.c-right .c-block .c-form .c-inbox .c-change:hover {
-  background: white;
-  border: #b2d5ce 2px solid;
-}
-body section.c-rwd section.c-right .c-block .c-form .c-textarea {
-  display: flex;
-  flex-direction: column;
-  padding: 0.5rem;
-}
-body section.c-rwd section.c-right .c-block .c-form .c-textarea label {
-  font-size: 1.5rem;
-  padding-bottom: 0.5rem;
-}
-body section.c-rwd section.c-right .c-block .c-form .c-textarea .c-textbox {
-  border: 1.5px #b2d5ce solid;
-  border-radius: 10px;
-  height: 200px;
-}
-body section.c-rwd section.c-right .c-block .c-mylikes {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 2rem;
-}
-body section.c-rwd section.c-right .c-block .c-mine {
-  padding: 2rem;
-  height: 600px;
-  width: 100%;
-  overflow: auto;
-  background-color: white;
-}
-body section.c-rwd section.c-right .c-block .c-mine .c-myart {
-  text-align: left;
-}
-body section.c-rwd section.c-right .c-block .c-mine .c-myart tr td {
-  max-width: 15rem;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  padding: 0.5rem;
-  font-size: 1rem;
-  width: 100%;
-}
-body section.c-rwd section.c-right .c-block .c-mine .c-myart tr td a {
-  color: black;
-  text-decoration: none;
-}
-body section.c-rwd section.c-right .c-block .c-mine .c-myart tr td a.c-editArt {
-  color: #27a2b8;
-}
-body section.c-rwd section.c-right .c-block .c-mine .c-myart tr td button.c-takeOf {
-  color: #27a2b8;
-  border-radius: 50px;
-  font-weight: bold;
-  text-align: center;
-  padding: 0.2rem 0.5rem;
-  border: 1px solid #27a2b8;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  transition: all 0.2s ease;
-}
-body section.c-rwd section.c-right .c-block .c-mine .c-myart tr td button.c-takeOf:hover {
-  border: none;
-  background-color: #b2d5ce;
-}
-body section.c-rwd section.c-right .c-block .c-mine .c-myart tr td button.c-takeOf:disabled {
-  background-color: rgb(182, 182, 182);
-  color: gray;
-  border: none;
-}
-body section.c-rwd section.c-right .c-block .c-mine .c-myart tr:hover {
-  background-color: rgba(178, 213, 206, 0.3);
-}
-body section.c-rwd section.c-right .c-block .c-mine .c-myart tr.c-deleteDone {
-  background-color: rgb(178, 178, 178);
-}
-body section.c-rwd section.c-right .c-block .c-mine .c-myart tr.c-takeOfDone {
-  background-color: rgb(221, 221, 221);
-}
 
-@media (min-width: 992px) {
-  section.c-rwd {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    max-width: 1280px;
-    margin-right: auto;
-    margin-left: auto;
-  }
-  section.c-rwd .c-left {
-    margin: 0 2rem;
-    flex-basis: 350px;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 8vh;
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-    flex-grow: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-}
+/* 螢幕小於992px */
 @media (max-width: 992px) {
   body section.c-rwd {
     display: flex;
@@ -389,36 +274,187 @@ body section.c-rwd section.c-right .c-block .c-mine .c-myart tr.c-takeOfDone {
     align-items: center;
     flex-direction: row;
     position: relative;
-    margin: 1rem;
-    justify-content: center;
+    flex: 0 1 250px;
+    top: 0;
+    margin: 0;
   }
   body section.c-rwd section.c-left div.c-head {
-    width: 20%;
-    height: 20%;
-    min-width: 150px;
-    min-height: 150px;
-  }
-  body section.c-rwd section.c-left div.c-head button.camera {
-    top: 6em;
-    right: 2em;
+    width: 180px;
+    height: 180px;
   }
   body section.c-rwd section.c-left div.c-select ul {
     border: none;
     margin: 0;
+    padding: 0 0 0 1rem;
   }
   body section.c-rwd section.c-left div.c-select ul li {
-    padding: 0;
-  }
-  body section.c-right .c-mylikes {
-    justify-content: center;
+    padding: 0.5rem;
   }
 }
 @media (max-width: 400px) {
+  section.c-rwd .c-select {
+    display: none;
+  }
   section.c-rwd section.c-right .c-block .c-title {
     width: 100%;
     text-align: center;
   }
 }
+/* 編輯封面按鈕 */
+.edit_cover {
+  position: absolute;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 0.25rem 1.5rem;
+  right: 8%;
+  top: 50%;
+  font-size: 24px;
+  color: #5db8a6;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-radius: 50px;
+}
+.edit_cover:hover {
+  background-color: white;
+}
+
+/* 大頭貼相機icon */
+button.camera {
+  border: 0.5px white solid;
+  position: absolute;
+  background-color: white;
+  width: 15%;
+  height: 15%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 160px;
+  right: 50px;
+}
+
+/* 右邊區塊 */
+/* 個人資料 */
+.c-form {
+  padding: 2rem 2rem 4rem 3rem;
+}
+.c-form .c-inbox {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+  /* 儲存按鈕 */
+}
+.c-form .c-inbox label {
+  font-size: 1.5rem;
+  padding-right: 1rem;
+}
+.c-form .c-inbox .c-textmessage {
+  font-size: 1.25rem;
+  width: 350px;
+  border: none;
+  width: 85%;
+  padding-left: 1rem;
+}
+.c-form .c-inbox .c-textmessage:hover, .c-form .c-inbox .c-textmessage:focus {
+  border: 1.5px #b2d5ce solid;
+  border-radius: 50px;
+  padding-left: 1rem;
+}
+.c-form .c-inbox .c-change {
+  padding: 0.25rem 0.85rem;
+  background: #b2d5ce;
+  border-radius: 50px;
+  border: #b2d5ce 2px solid;
+  position: absolute;
+  right: 20px;
+  bottom: -40px;
+}
+.c-form .c-inbox .c-change:hover {
+  background: white;
+  border: #b2d5ce 2px solid;
+}
+.c-form .c-textarea {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+.c-form .c-textarea label {
+  font-size: 1.5rem;
+  padding-bottom: 0.5rem;
+}
+.c-form .c-textarea .c-textbox {
+  border: 1.5px #b2d5ce solid;
+  border-radius: 10px;
+  height: 200px;
+}
+
+/* 我的收藏 */
+.c-mylikes {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 2rem;
+}
+
+/* 我的文章 */
+.c-mine {
+  padding: 2rem;
+  height: 600px;
+  width: 100%;
+  overflow: auto;
+  background-color: white;
+}
+.c-mine .c-myart {
+  text-align: left;
+}
+.c-mine .c-myart tr td {
+  max-width: 15rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: 100%;
+}
+.c-mine .c-myart tr td a {
+  color: #000000;
+  text-decoration: none;
+}
+.c-mine .c-myart tr td a.c-editArt {
+  color: #27a2b8;
+}
+.c-mine .c-myart tr td button.c-takeOf {
+  color: #27a2b8;
+  border-radius: 50px;
+  font-weight: bold;
+  text-align: center;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid #27a2b8;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  transition: all 0.2s ease;
+}
+.c-mine .c-myart tr td button.c-takeOf:hover {
+  border: none;
+  background-color: #b2d5ce;
+}
+.c-mine .c-myart tr td button.c-takeOf:disabled {
+  background-color: rgb(182, 182, 182);
+  color: gray;
+  border: none;
+}
+.c-mine .c-myart tr:hover {
+  background-color: rgba(178, 213, 206, 0.3);
+}
+.c-mine .c-myart tr.c-deleteDone {
+  background-color: rgb(178, 178, 178);
+}
+.c-mine .c-myart tr.c-takeOfDone {
+  background-color: rgb(221, 221, 221);
+}
+
 #c-likes,
 #c-myarts {
   display: none;

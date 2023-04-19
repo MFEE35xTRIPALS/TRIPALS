@@ -1,8 +1,17 @@
 @charset "UTF-8";
+/* ----- color ----- */
+/* ----- font(global) ----- */
+/* ----- font(CRUD-button) ----- */
+/* ----- font(local) ----- */
+/* ----- card字體變數 ----- */
+/* ----- card顏色變數 ----- */
+/* -------- 全域設定 -------- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-weight: normal;
+  font-family: "Sen", sans-serif;
 }
 
 h1,
@@ -12,15 +21,12 @@ h4,
 h5,
 h6,
 p {
-  font-weight: normal;
-  font-family: "Sen", sans-serif;
   margin: 0;
   padding: 0;
 }
 
 div.onecard {
   width: 280px;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -51,7 +57,6 @@ div.onecard a.c-cardImg div.c-imgCover p {
   font-size: 1.5rem;
   padding: 0.5rem 2rem;
   text-align: center;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
 }
@@ -108,7 +113,7 @@ div.onecard div.card_body div.viewsAndHeart {
   margin: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: end;
+  justify-content: flex-end;
   font-size: 1rem;
 }
 div.onecard div.card_body div.viewsAndHeart p {
@@ -136,10 +141,8 @@ body section.selftop img.selfCover {
 }
 body section.selftop div.selfMessage {
   position: absolute;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   left: 8%;
@@ -162,8 +165,7 @@ body section.selftop div.selfMessage img.selfShot {
 }
 body section.selftop div.selfMessage h4.userName {
   color: white;
-  -webkit-text-stroke: 1px black;
-  text-stroke: 1px black;
+  -webkit-text-stroke: 1px #000000;
   font-weight: bold;
 }
 body div section.selfIntroduce {
@@ -171,7 +173,7 @@ body div section.selfIntroduce {
   padding: 0 5rem;
 }
 body div section.selfArticles {
-  border-top: black 2px solid;
+  border-top: #000000 2px solid;
   margin: 3rem 0;
 }
 body div section.selfArticles h6.articles {
