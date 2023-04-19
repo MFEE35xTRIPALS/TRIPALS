@@ -17,7 +17,7 @@ $shotColor: white;
 //右邊title
 $rightTitle: 2.5rem;
 // 右邊title background -> $Green
-$tableText: 1.25rem; // -> 後臺各種table
+$tableText: 1.25rem; // -> 後臺table:最新消息，會員管理
 // 右邊block background -> #ffffff
 
 /* ----- font(CRUD-button) ----- */
@@ -26,9 +26,11 @@ $TrashColor: #ff4848;
 $CancelColor: #fab10c;
 $HoverBg: #ffffff;
 $ButtonText: 1.25rem;
+$takeofText: 1rem; //->表格內下架
 
 /* ----- font(local) ----- */
 $lableText: 1.5rem; // -> 後台表單lable
+$ArticleText: 1.15rem; // -> 後台文章管理table
 
 /* -------- 全域設定 -------- */
 * {
