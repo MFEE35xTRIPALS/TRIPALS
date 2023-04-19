@@ -25,8 +25,24 @@ p {
   padding: 0;
 }
 
+section.selfArticles {
+  border-top: #000000 2px solid;
+  margin: 3rem 0;
+}
+section.selfArticles h6.articles {
+  font-weight: bold;
+}
+section.selfArticles .c-mylikes {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 2rem;
+}
+
 div.onecard {
   width: 280px;
+  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -57,6 +73,7 @@ div.onecard a.c-cardImg div.c-imgCover p {
   font-size: 1.5rem;
   padding: 0.5rem 2rem;
   text-align: center;
+  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
 }
@@ -120,32 +137,6 @@ div.onecard div.card_body div.viewsAndHeart p {
   margin-left: 1rem;
 }
 
-/* ----- color ----- */
-/* ----- font(global) ----- */
-/* ----- font(CRUD-button) ----- */
-/* ----- font(local) ----- */
-/* ----- card字體變數 ----- */
-/* ----- card顏色變數 ----- */
-/* -------- 全域設定 -------- */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-weight: normal;
-  font-family: "Sen", sans-serif;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0;
-  padding: 0;
-}
-
 body {
   background-color: #f0e8dc;
 }
@@ -177,6 +168,7 @@ section.c-head div.img2 {
 .c-left {
   flex: 0 1 300px;
   top: 8vh;
+  position: -webkit-sticky;
   position: sticky;
   height: 100%;
   margin: 0 2rem;
@@ -303,6 +295,7 @@ section.c-head div.img2 {
 /* 編輯封面按鈕 */
 .edit_cover {
   position: absolute;
+  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   padding: 0.25rem 1.5rem;
