@@ -11,7 +11,7 @@ body {
 
 /* 首圖 + 標題 - 旅遊導覽*/
 section.title {
-  margin: 150px 3rem 0 3rem;
+  margin: 3rem 3rem 0 3rem;
   // border: red 3px solid;
 
   /* 首圖區塊 */
@@ -22,10 +22,11 @@ section.title {
     // border: 3px blue solid;
     overflow: hidden;
     h1 {
-      background-color: white;
+      background-color: $white;
       display: inline-block;
       position: relative;
-      font-size: 3rem;
+      font-size: $pageTitle;
+      color: $ButtonHover;
       padding: 0.5rem 0 0.5rem 1rem;
       width: 35vw;
       max-width: 500px;
@@ -39,7 +40,7 @@ section.title {
 
 /* hashtag 熱門度 地區 searchbar */
 section.hashtag {
-  margin: 0 3rem;
+  margin: 0 2rem;
   /* 左邊tags 右邊search-bar */
   div.tag-search {
     //   border: 3px green solid;
@@ -48,6 +49,7 @@ section.hashtag {
     flex-direction: row;
     flex-wrap: wrap;
 
+    /* 左邊tags */
     .left {
       padding-top: 1rem;
       width: 50%;
@@ -55,22 +57,23 @@ section.hashtag {
       // border: 3px orange solid;
       ul.tags {
         li {
-          margin: 6px 4px;
-          padding: 4px 10px;
+          margin: 0.5rem 0.25rem;
+          padding: 0.25rem 0.75rem;
           display: inline-block;
-          background-color: $Green;
+          background-color: $tagsBg;
           border-radius: 50px;
           a {
-            font-size: 1.5rem;
+            font-size: $tagsText;
             text-decoration: none;
             color: $black;
           }
           &:hover {
-            background-color: $ButtonHover;
+            background-color: $tagsHover;
           }
         }
       }
     }
+    /* 右邊search-bar */
     .right {
       flex: 1 1 350px;
       // border: 3px blue solid;
@@ -117,28 +120,28 @@ section.hashtag {
         display: inline-block;
         width: 300px;
         padding: 0.425rem;
-        font-size: 1.5rem;
+        font-size: $inputText;
         text-align: center;
         border: none;
         // color: $ButtonHover;
       }
       button.views {
         padding: 0.25rem;
-        font-size: 1.5rem;
+        font-size: $inputText;
         width: 300px;
         display: inline-block;
-        background-color: $Green;
+        background-color: $inputBgColor1;
         // color: white;
         border: none;
         // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       }
       button.hots {
         padding: 0.25rem;
-        font-size: 1.5rem;
+        font-size: $inputText;
         width: 300px;
         display: inline-block;
         border: none;
-        background-color: white;
+        background-color: $inputBgColor2;
         // color: $ButtonHover;
         // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       }

@@ -31,21 +31,31 @@ $takeofText: 1rem; //->表格內下架
 $lableText: 1.5rem; // -> 後台表單lable
 $ArticleText: 1.15rem; // -> 後台文章管理table
 
- 
 /* ----- card字體變數 ----- */
-$hoverMore: 1.5rem;//morebtn
-$cardTitle: 1.25rem;//文章標題
-$cardUsername:1.15rem;//作者名字
-$cardLikeicon:1.75rem;//喜歡收藏愛心大小
-$cardViewsAndHeart:1rem;//熱門度觀看數顯示
+$hoverMore: 1.5rem; //morebtn
+$cardTitle: 1.25rem; //文章標題
+$cardUsername: 1.15rem; //作者名字
+$cardLikeicon: 1.75rem; //喜歡收藏愛心大小
+$cardViewsAndHeart: 1rem; //熱門度觀看數顯示
 
 /* ----- card顏色變數 ----- */
-$articleTitle:black;
-$moreBtnbg:white;
-$moreBtnText:black;
+$articleTitle: black;
+$moreBtnbg: white;
+$moreBtnText: black;
 $Heart: #ff4848;
-$articleUsername:black;
-$articleViewsAndHeart:black;
+$articleUsername: black;
+$articleViewsAndHeart: black;
+
+/* ----- 旅遊導覽變數 ----- */
+$pageTitle: 3rem;
+// hashtags
+$tagsText: 1.5rem;
+$tagsBg: $Green;
+$tagsHover: $ButtonHover;
+// 地區｜觀看數｜熱門度
+$inputText: 1.5rem;
+$inputBgColor1: $Green;
+$inputBgColor2: white;
 
 /* -------- 全域設定 -------- */
 * {
