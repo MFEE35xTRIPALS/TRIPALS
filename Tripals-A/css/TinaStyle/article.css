@@ -5,6 +5,7 @@
 /* ----- font(local) ----- */
 /* ----- card字體變數 ----- */
 /* ----- card顏色變數 ----- */
+/* ----- 旅遊導覽變數 ----- */
 /* -------- 全域設定 -------- */
 * {
   margin: 0;
@@ -146,7 +147,7 @@ body {
 
 /* 首圖 + 標題 - 旅遊導覽*/
 section.title {
-  margin: 150px 3rem 0 3rem;
+  margin: 3rem 3rem 0 3rem;
   /* 首圖區塊 */
 }
 section.title div.img {
@@ -160,6 +161,7 @@ section.title div.img h1 {
   display: inline-block;
   position: relative;
   font-size: 3rem;
+  color: #5db8a6;
   padding: 0.5rem 0 0.5rem 1rem;
   width: 35vw;
   max-width: 500px;
@@ -169,7 +171,7 @@ section.title div.img h1 {
 
 /* hashtag 熱門度 地區 searchbar */
 section.hashtag {
-  margin: 0 3rem;
+  margin: 0 2rem;
   /* 左邊tags 右邊search-bar */
   /* 地區 觀看數 熱門度 排序鈕 */
 }
@@ -177,6 +179,8 @@ section.hashtag div.tag-search {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  /* 左邊tags */
+  /* 右邊search-bar */
 }
 section.hashtag div.tag-search .left {
   padding-top: 1rem;
@@ -184,8 +188,8 @@ section.hashtag div.tag-search .left {
   flex: 3 1 350px;
 }
 section.hashtag div.tag-search .left ul.tags li {
-  margin: 6px 4px;
-  padding: 4px 10px;
+  margin: 0.5rem 0.25rem;
+  padding: 0.25rem 0.75rem;
   display: inline-block;
   background-color: #b2d5ce;
   border-radius: 50px;
