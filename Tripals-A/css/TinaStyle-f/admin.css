@@ -205,13 +205,14 @@ section.c-head div.img2 {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 20rem;
   padding: 0.5rem;
   font-size: 1rem;
   border: 0.3px #b2d5ce solid;
   font-size: 1.25rem;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
 }
 .c-right .c-block .a-news .c-myart tr td .fa-pen-to-square {
   color: #27a2b8;
