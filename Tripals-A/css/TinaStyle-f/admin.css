@@ -178,6 +178,7 @@ section.c-head div.img2 {
     text-align: center;
   }
 }
+/* 點選前消失 */
 #a-members,
 #a-atricles {
   display: none;
@@ -185,11 +186,11 @@ section.c-head div.img2 {
 
 /* 右邊隨選項變動的區塊 */
 .c-right .c-block {
-  /* 最新消息 */
+  /* 最新消息區塊 */
   /* 最新消息，會員管理 table */
   /* 最新消息新增  */
-  /* 會員管理 */
-  /* 文章管理 */
+  /* 會員管理區塊 */
+  /* 文章管理區塊 */
 }
 .c-right .c-block .a-news {
   padding: 2rem 2rem 0rem 3rem;

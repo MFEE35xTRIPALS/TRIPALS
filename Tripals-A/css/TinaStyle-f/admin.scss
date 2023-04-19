@@ -1,5 +1,6 @@
 @import "backend_left";
 
+/* 點選前消失 */
 #a-members,
 #a-atricles {
   display: none;
@@ -8,7 +9,7 @@
 /* 右邊隨選項變動的區塊 */
 .c-right {
   .c-block {
-    /* 最新消息 */
+    /* 最新消息區塊 */
     .a-news {
       padding: 2rem 2rem 0rem 3rem;
       height: 300px;
@@ -137,7 +138,7 @@
         }
       }
     }
-    /* 會員管理 */
+    /* 會員管理區塊 */
     .a-members {
       padding: 2rem 2rem 0rem 3rem;
       height: 600px;
@@ -145,7 +146,7 @@
       overflow: auto;
       background-color: white;
     }
-    /* 文章管理 */
+    /* 文章管理區塊 */
     .a-totalArt {
       padding: 2rem 2rem 0rem 3rem;
       height: 600px;
