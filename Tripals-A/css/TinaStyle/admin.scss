@@ -12,7 +12,7 @@
     /* 最新消息區塊 */
     .a-news {
       padding: 2rem 2rem 0rem 3rem;
-      height: 300px;
+      max-height: 300px;
       overflow: auto;
     }
     /* 最新消息，會員管理 table */

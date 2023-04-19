@@ -194,7 +194,7 @@ section.c-head div.img2 {
 }
 .c-right .c-block .a-news {
   padding: 2rem 2rem 0rem 3rem;
-  height: 300px;
+  max-height: 300px;
   overflow: auto;
 }
 .c-right .c-block .c-myart thead {
