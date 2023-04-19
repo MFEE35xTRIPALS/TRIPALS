@@ -42,7 +42,6 @@ section.selfArticles .c-mylikes {
 
 div.onecard {
   width: 280px;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -73,7 +72,6 @@ div.onecard a.c-cardImg div.c-imgCover p {
   font-size: 1.5rem;
   padding: 0.5rem 2rem;
   text-align: center;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
 }
@@ -168,7 +166,6 @@ section.c-head div.img2 {
 .c-left {
   flex: 0 1 300px;
   top: 8vh;
-  position: -webkit-sticky;
   position: sticky;
   height: 100%;
   margin: 0 2rem;
@@ -295,14 +292,13 @@ section.c-head div.img2 {
 /* 編輯封面按鈕 */
 .edit_cover {
   position: absolute;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   padding: 0.25rem 1.5rem;
   right: 8%;
   top: 50%;
   font-size: 24px;
-  color: #5db8a6;
+  color: #b2d5ce;
   background-color: rgba(255, 255, 255, 0.7);
   border: none;
   border-radius: 50px;
