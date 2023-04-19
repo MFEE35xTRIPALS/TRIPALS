@@ -10,21 +10,27 @@ $white: white;
 /* ----- font(global) ----- */
 //左邊title -> li
 $leftTitle: 1.75rem;
-$shotName: 1.5rem; // -> 左邊大頭貼username
-//右邊title -> h4
+$leftColor: black;
+//左邊大頭貼username
+$shotName: 1.5rem;
+$shotColor: white;
+//右邊title
 $rightTitle: 2.5rem;
+// 右邊title background -> $Green
 $tableText: 1.25rem; // -> 後臺各種table
+// 右邊block background -> #ffffff
 
 /* ----- font(CRUD-button) ----- */
 $ButtonColor: #65c6c6;
 $TrashColor: #ff4848;
+$CancelColor: #fab10c;
 $HoverBg: #ffffff;
 $ButtonText: 1.25rem;
 
 /* ----- font(local) ----- */
 $lableText: 1.5rem; // -> 後台表單lable
 
-/* ----- 全域設定 ----- */
+/* -------- 全域設定 -------- */
 * {
   margin: 0;
   padding: 0;

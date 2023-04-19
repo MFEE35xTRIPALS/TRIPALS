@@ -3,7 +3,7 @@
 /* ----- font(global) ----- */
 /* ----- font(CRUD-button) ----- */
 /* ----- font(local) ----- */
-/* ----- 全域設定 ----- */
+/* -------- 全域設定 -------- */
 * {
   margin: 0;
   padding: 0;
@@ -186,45 +186,41 @@ section.c-head div.img2 {
 /* 右邊隨選項變動的區塊 */
 .c-right .c-block {
   /* 最新消息 */
+  /* 最新消息顯示table */
   /* 最新消息新增  */
+  /* 會員管理 */
 }
 .c-right .c-block .a-news {
-  border: red 2px solid;
-  padding: 2rem;
+  padding: 2rem 2rem 0rem 3rem;
   height: 300px;
   overflow: auto;
-  /* 最新消息顯示table */
 }
-.c-right .c-block .a-news .c-myart {
-  text-align: left;
-}
-.c-right .c-block .a-news .c-myart thead {
+.c-right .c-block .c-myart thead {
   background-color: rgba(178, 213, 206, 0.3);
 }
-.c-right .c-block .a-news .c-myart tr td {
+.c-right .c-block .c-myart tr td {
+  max-width: 20rem;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  max-width: 20rem;
   padding: 0.5rem;
-  font-size: 1rem;
-  border: 0.3px #b2d5ce solid;
   font-size: 1.25rem;
+  border: 0.3px #b2d5ce solid;
 }
-.c-right .c-block .a-news .c-myart tr td .fa-pen-to-square {
+.c-right .c-block .c-myart tr td .fa-pen-to-square {
   color: #27a2b8;
 }
-.c-right .c-block .a-news .c-myart tr td .fa-trash-can {
+.c-right .c-block .c-myart tr td .fa-trash-can {
   color: #ff4848;
 }
-.c-right .c-block .a-news .c-myart tr .news-c {
+.c-right .c-block .c-myart tr .icon {
+  text-align: center;
+}
+.c-right .c-block .c-myart tr .news-c {
   display: none;
   visibility: collapse;
 }
-.c-right .c-block .a-news .c-myart tr:hover {
+.c-right .c-block .c-myart tr:hover {
   background-color: rgba(178, 213, 206, 0.3);
 }
 .c-right .c-block .c-form {
@@ -239,6 +235,7 @@ section.c-head div.img2 {
   position: relative;
   /* input[type="text"]  */
   /* 發布按鈕 */
+  /* 取消按鈕 */
   /* 刪除按鈕 */
 }
 .c-right .c-block .c-form .c-inbox label {
@@ -256,14 +253,16 @@ section.c-head div.img2 {
   border-radius: 50px;
   padding-left: 1rem;
 }
-.c-right .c-block .c-form .c-inbox .c-change {
+.c-right .c-block .c-form .c-inbox button {
   padding: 0.25rem 0.85rem;
-  background: #65c6c6;
   border-radius: 50px;
-  border: #65c6c6 2px solid;
   position: absolute;
-  right: 20px;
   bottom: -40px;
+}
+.c-right .c-block .c-form .c-inbox .c-change {
+  right: 20px;
+  border: #65c6c6 2px solid;
+  background: #65c6c6;
   color: #ffffff;
 }
 .c-right .c-block .c-form .c-inbox .c-change:hover {
@@ -271,14 +270,21 @@ section.c-head div.img2 {
   background: #ffffff;
   border: #65c6c6 2px solid;
 }
+.c-right .c-block .c-form .c-inbox .c-cancel {
+  right: 115px;
+  border: #fab10c 2px solid;
+  background: #fab10c;
+  color: #ffffff;
+}
+.c-right .c-block .c-form .c-inbox .c-cancel:hover {
+  color: #fab10c;
+  background: #ffffff;
+  border: #fab10c 2px solid;
+}
 .c-right .c-block .c-form .c-inbox .c-delete {
-  padding: 0.25rem 0.85rem;
-  background: #ff4848;
-  border-radius: 50px;
+  right: 210px;
   border: #ff4848 2px solid;
-  position: absolute;
-  right: 120px;
-  bottom: -40px;
+  background: #ff4848;
   color: #ffffff;
 }
 .c-right .c-block .c-form .c-inbox .c-delete:hover {
@@ -301,4 +307,33 @@ section.c-head div.img2 {
   height: 100px;
   font-size: 1.25rem;
   padding: 0.5rem;
+}
+.c-right .c-block .a-members {
+  padding: 2rem 2rem 0rem 3rem;
+  height: 600px;
+  width: 100%;
+  overflow: auto;
+  background-color: white;
+  /* 最新消息顯示table */
+}
+.c-right .c-block .a-members tr td {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding: 0.5rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border: 0.3px #b2d5ce solid;
+  font-size: 1.25rem;
+}
+.c-right .c-block .a-members tr td:nth-child(2) {
+  border: 3px solid red;
+  background-color: red;
+}
+.c-right .c-block .a-members tr .a-nicname {
+  max-width: 5rem;
+}
+.c-right .c-block .a-members tr:hover {
+  background-color: rgba(178, 213, 206, 0.3);
 }/*# sourceMappingURL=admin.css.map */

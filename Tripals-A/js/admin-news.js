@@ -17,13 +17,3 @@ $.ajax({
     });
   },
 });
-// ------ form 顯示 ------
-$(document).ready(function () {
-  $("td").on("click", function () {
-    var row = $(this).closest("tr");
-    console.log(row.children());
-    // console.log($(".c-textmessage").val());
-    $(".c-textmessage").val(row.children()[1].innerHTML);
-    $(".c-textbox").val(row.children()[2].innerHTML);
-  });
-});

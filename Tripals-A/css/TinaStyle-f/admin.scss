@@ -10,46 +10,43 @@
   .c-block {
     /* 最新消息 */
     .a-news {
-      border: red 2px solid;
-      padding: 2rem;
+      padding: 2rem 2rem 0rem 3rem;
       height: 300px;
       overflow: auto;
-
-      /* 最新消息顯示table */
-      .c-myart {
-        text-align: left;
-        thead {
-          background-color: rgba($Green, $alpha: 0.3);
+    }
+    /* 最新消息顯示table */
+    .c-myart {
+      thead {
+        background-color: rgba($Green, $alpha: 0.3);
+      }
+      tr {
+        td {
+          max-width: 20rem;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          padding: 0.5rem;
+          font-size: $tableText;
+          border: 0.3px $Green solid;
+          .fa-pen-to-square {
+            color: $Blue;
+          }
+          .fa-trash-can {
+            color: $Heart;
+          }
         }
-        tr {
-          td {
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            width: fit-content;
-            max-width: 20rem;
-            padding: 0.5rem;
-            font-size: 1rem;
-            // width: fit-content;
-            border: 0.3px $Green solid;
-            font-size: $tableText;
-            .fa-pen-to-square {
-              color: $Blue;
-            }
-            .fa-trash-can {
-              color: $Heart;
-            }
-          }
+        .icon {
+          text-align: center;
+        }
 
-          .news-c {
-            // max-width: 22rem;
-            display: none;
-            visibility: collapse;
-          }
+        .news-c {
+          // max-width: 22rem;
+          display: none;
+          visibility: collapse;
+        }
 
-          &:hover {
-            background-color: rgba($Green, $alpha: 0.3);
-          }
+        &:hover {
+          background-color: rgba($Green, $alpha: 0.3);
         }
       }
     }
@@ -80,14 +77,16 @@
           }
         }
         /* 發布按鈕 */
-        .c-change {
+        button {
           padding: 0.25rem 0.85rem;
-          background: $ButtonColor;
           border-radius: 50px;
-          border: $ButtonColor 2px solid;
           position: absolute;
-          right: 20px;
           bottom: -40px;
+        }
+        .c-change {
+          right: 20px;
+          border: $ButtonColor 2px solid;
+          background: $ButtonColor;
           color: $HoverBg;
           &:hover {
             color: $ButtonColor;
@@ -95,15 +94,23 @@
             border: $ButtonColor 2px solid;
           }
         }
+        /* 取消按鈕 */
+        .c-cancel {
+          right: 115px;
+          border: $CancelColor 2px solid;
+          background: $CancelColor;
+          color: $HoverBg;
+          &:hover {
+            color: $CancelColor;
+            background: $HoverBg;
+            border: $CancelColor 2px solid;
+          }
+        }
         /* 刪除按鈕 */
         .c-delete {
-          padding: 0.25rem 0.85rem;
-          background: $Heart;
-          border-radius: 50px;
+          right: 210px;
           border: $Heart 2px solid;
-          position: absolute;
-          right: 120px;
-          bottom: -40px;
+          background: $Heart;
           color: $HoverBg;
           &:hover {
             color: $Heart;
@@ -128,6 +135,44 @@
           height: 100px;
           font-size: $tableText;
           padding: 0.5rem;
+        }
+      }
+    }
+    /* 會員管理 */
+    .a-members {
+      padding: 2rem 2rem 0rem 3rem;
+
+      height: 600px;
+      width: 100%;
+      overflow: auto;
+      background-color: white;
+      /* 最新消息顯示table */
+
+      tr {
+        td {
+          //   max-width: 3rem;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          padding: 0.5rem;
+          width: fit-content;
+          // max-width: 20rem;
+
+          // width: fit-content;
+          border: 0.3px $Green solid;
+          font-size: $tableText;
+          //   width: 100%;
+          // color: $Blue;
+          &:nth-child(2) {
+            border: 3px solid red;
+            background-color: red;
+          }
+        }
+        .a-nicname {
+          max-width: 5rem;
+        }
+        &:hover {
+          background-color: rgba($Green, $alpha: 0.3);
         }
       }
     }

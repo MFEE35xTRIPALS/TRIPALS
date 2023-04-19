@@ -57,7 +57,7 @@ section.c-head {
     position: relative;
     /* 大頭貼username */
     h4.username {
-      color: white;
+      color: $shotColor;
       font-size: $shotName;
       font-weight: 00;
     }
@@ -96,7 +96,7 @@ section.c-head {
           border-bottom: 3px solid $Blue;
         }
         a {
-          color: black;
+          color: $leftColor;
           text-decoration: none;
         }
       }
