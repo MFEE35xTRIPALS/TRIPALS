@@ -1,0 +1,134 @@
+@import "backend_right";
+
+#a-members,
+#a-atricles {
+  display: none;
+}
+
+/* 右邊隨選項變動的區塊 */
+.c-right {
+  .c-block {
+    /* 最新消息 */
+    .a-news {
+      border: red 2px solid;
+      padding: 2rem;
+      height: 300px;
+      overflow: auto;
+
+      /* 最新消息顯示table */
+      .c-myart {
+        text-align: left;
+        thead {
+          background-color: rgba($Green, $alpha: 0.3);
+        }
+        tr {
+          td {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            padding: 0.5rem;
+            font-size: 1rem;
+            // width: fit-content;
+            border: 0.3px $Green solid;
+            font-size: $tableText;
+            width: fit-content;
+            .fa-pen-to-square {
+              color: $Blue;
+            }
+            .fa-trash-can {
+              color: $Heart;
+            }
+          }
+
+          .news-c {
+            // max-width: 22rem;
+            display: none;
+            visibility: collapse;
+          }
+
+          &:hover {
+            background-color: rgba($Green, $alpha: 0.3);
+          }
+        }
+      }
+    }
+    /* 最新消息新增  */
+    .c-form {
+      padding: 2rem 2rem 4rem 3rem;
+      .c-inbox {
+        padding: 0.5rem;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        position: relative;
+        label {
+          font-size: $lableText;
+          padding-right: 1rem;
+        }
+        /* input[type="text"]  */
+        .c-textmessage {
+          font-size: $tableText;
+          border: none;
+          width: 85%;
+          padding-left: 1rem;
+          &:hover,
+          &:focus {
+            border: 1.5px $Green solid;
+            border-radius: 50px;
+            padding-left: 1rem;
+          }
+        }
+        /* 發布按鈕 */
+        .c-change {
+          padding: 0.25rem 0.85rem;
+          background: $ButtonColor;
+          border-radius: 50px;
+          border: $ButtonColor 2px solid;
+          position: absolute;
+          right: 20px;
+          bottom: -40px;
+          color: $HoverBg;
+          &:hover {
+            color: $ButtonColor;
+            background: $HoverBg;
+            border: $ButtonColor 2px solid;
+          }
+        }
+        /* 刪除按鈕 */
+        .c-delete {
+          padding: 0.25rem 0.85rem;
+          background: $Heart;
+          border-radius: 50px;
+          border: $Heart 2px solid;
+          position: absolute;
+          right: 120px;
+          bottom: -40px;
+          color: $HoverBg;
+          &:hover {
+            color: $Heart;
+            background: $HoverBg;
+            border: $Heart 2px solid;
+          }
+        }
+      }
+      /* 最新消息 - 新增 */
+      .c-textarea {
+        display: flex;
+        flex-direction: column;
+        padding: 0.5rem;
+
+        label {
+          font-size: $lableText;
+          padding-bottom: 0.5rem;
+        }
+        .c-textbox {
+          border: 1.5px $Green solid;
+          border-radius: 10px;
+          height: 100px;
+          font-size: $tableText;
+          padding: 0.5rem;
+        }
+      }
+    }
+  }
+}

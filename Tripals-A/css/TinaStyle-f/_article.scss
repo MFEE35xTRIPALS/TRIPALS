@@ -1,0 +1,269 @@
+body {
+  background-color: $Rice;
+  /* 首圖 + 標題 - 旅遊導覽*/
+  section.title {
+    margin: 150px 3rem 0 3rem;
+    // border: red 3px solid;
+
+    /* 首圖區塊 */
+    div.img {
+      height: 55vh;
+      background: url(../../img/grass.jpg) no-repeat;
+      background-size: cover;
+      // border: 3px blue solid;
+      overflow: hidden;
+      h1 {
+        background-color: white;
+        display: inline-block;
+        position: relative;
+        font-size: 3rem;
+        padding: 0.5rem 0 0.5rem 1rem;
+        width: 35vw;
+        max-width: 500px;
+        top: 20%;
+        margin-left: 3%;
+
+        // border: 3px red solid;
+      }
+    }
+  }
+
+  /* hashtag 熱門度 地區 searchbar */
+  section.hashtag {
+    margin: 0 3rem;
+    /* 左邊tags 右邊search-bar */
+    div.tag-search {
+      //   border: 3px green solid;
+      //   height: 180px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      .left {
+        padding-top: 1rem;
+        width: 50%;
+        flex: 3 1 350px;
+        // border: 3px orange solid;
+        ul.tags {
+          li {
+            margin: 6px 4px;
+            padding: 4px 10px;
+            display: inline-block;
+            background-color: $Green;
+            border-radius: 50px;
+            a {
+              font-size: 1.5rem;
+              text-decoration: none;
+              color: $black;
+            }
+            &:hover {
+              background-color: $ButtonHover;
+            }
+          }
+        }
+      }
+      .right {
+        flex: 1 1 350px;
+        // border: 3px blue solid;
+        padding: 1rem 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+
+        div {
+          form {
+            input {
+              padding: 0rem 1.5rem;
+              font-size: 1.25rem;
+              border-radius: 50px;
+              border: none;
+              box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            }
+            button {
+              padding: 0.25rem 0 0.25rem 0.75rem;
+              font-size: 1.5rem;
+              border: none;
+              background-color: $Rice;
+              color: $Blue;
+            }
+          }
+        }
+      }
+    }
+
+    /* 地區 觀看數 熱門度 排序鈕 */
+    div.sort {
+      //   border-bottom: 4px white solid;
+      // padding-bottom: 2rem;
+      form {
+        padding-top: 1rem;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        select.city {
+          // box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+          display: inline-block;
+          width: 300px;
+          padding: 0.425rem;
+          font-size: 1.5rem;
+          text-align: center;
+          border: none;
+          // color: $ButtonHover;
+        }
+        button.views {
+          padding: 0.25rem;
+          font-size: 1.5rem;
+          width: 300px;
+          display: inline-block;
+          background-color: $Green;
+          // color: white;
+          border: none;
+          // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+        button.hots {
+          padding: 0.25rem;
+          font-size: 1.5rem;
+          width: 300px;
+          display: inline-block;
+          border: none;
+          background-color: white;
+          // color: $ButtonHover;
+          // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+      }
+    }
+  }
+
+  /* 文章顯示區 */
+  div {
+    section.selfArticles {
+      border-top: $black 2px solid;
+      margin: 3rem 0;
+      h6.articles {
+        font-weight: bold;
+      }
+      .c-mylikes {
+        width: 100%;
+        // height: 600px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 2rem;
+        // overflow: auto;
+        // border: red solid 2px;
+
+        // justify-content: left;
+        div.onecard {
+          width: 250px;
+          margin: 1rem 0.5rem;
+          // border: red solid 2px;
+
+          div.card {
+            // margin: 1rem;
+            width: 250px;
+            height: fit-content;
+            // min-height: 390px;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+            a.c-cardImg {
+              width: 100%;
+              height: 200px;
+              position: relative;
+
+              &:hover .c-imgCover {
+                display: block;
+              }
+
+              div.c-imgCover {
+                display: none;
+                position: absolute;
+                background-color: rgba(0, 0, 0, 0.3);
+                width: 100%;
+                height: 100%;
+
+                p {
+                  color: $black;
+                  background-color: $white;
+                  padding: 0.5rem 2rem;
+                  border-radius: 50px;
+                  position: absolute;
+                  bottom: 2rem;
+                  left: 65px;
+                  font-size: 24px;
+                  font-weight: bold;
+                }
+              }
+
+              img.Img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+            }
+
+            div.card_body {
+              // padding: 15px;
+              margin: 1rem;
+
+              div {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                a.c-toSelfpage {
+                  text-decoration: none;
+                  // display: -webkit-box;
+                  // -webkit-box-orient: vertical;
+                  overflow: hidden;
+                  white-space: nowrap;
+                  text-overflow: ellipsis;
+                  // -webkit-line-clamp: 2;
+
+                  h4.card-title {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    color: $black;
+                    // -webkit-line-clamp: 2;
+                  }
+                }
+
+                i.fa-heart {
+                  color: $Heart;
+                  font-size: 26px;
+                  cursor: pointer;
+                }
+              }
+
+              a.c-userName {
+                text-decoration: none;
+                color: $black;
+
+                h6 {
+                  font-size: 16px;
+
+                  img.head {
+                    width: 40px;
+                    height: 40px;
+                    background-color: $Blue;
+                    border-radius: 50%;
+                    object-fit: cover;
+                  }
+                }
+              }
+
+              p.views {
+                font-size: 16px;
+                color: #bdcac9;
+                float: right;
+                margin: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

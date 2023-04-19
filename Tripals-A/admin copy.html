@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- font-awesome 6.4.0-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Google Icon -->
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <!-- bootstrap 5.3.0-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+    <!-- google font sen-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- 我自己的css -->
+    <link rel="stylesheet" href="./css/TinaStyle-f/admin.css" />
+    <!-- jQuery 3.6.0 -->
+    <script src="./js/jquery-3.6.0.js"></script>
+    <title>管理員後台</title>
+  </head>
+  <body>
+    <section class="c-head">
+      <div class="img2">
+        <!-- <form action="">
+          <button class="edit_cover" id="edit_cover">編輯封面</button>
+          <input type="file" id="fileUpload" hidden />
+        </form> -->
+      </div>
+    </section>
+    <section class="c-rwd">
+      <section class="c-left">
+        <div class="c-head">
+          <!-- <form action="">
+            <button class="camera">
+              <i class="fas fa-camera"></i>
+            </button>
+            <input type="file" name="shotUpload" id="shotUpload" hidden />
+          </form> -->
+          <div class="h-img">
+            <img class="shot" src="./img/admin2.png" alt="shot" />
+          </div>
+
+          <h4 class="username">Panda admin</h4>
+        </div>
+        <div class="c-select">
+          <ul>
+            <li><a href="#a-news">最新消息</a></li>
+            <li><a href="#a-members">會員管理</a></li>
+            <li><a href="#a-atricles">文章管理</a></li>
+          </ul>
+        </div>
+      </section>
+      <section class="c-right">
+        <div class="c-block" id="a-news">
+          <h3 class="c-title">最新消息</h3>
+          <div class="a-news">
+            <table class="c-myart">
+              <thead>
+                <tr>
+                  <td>no</td>
+                  <td>標題</td>
+                  <td class="news-c">內文</td>
+                  <td>發布時間</td>
+                  <td colspan="2"></td>
+                </tr>
+              </thead>
+              <tbody class="tbl-accordion-header" id="c-news">
+                <tr>
+                  <td>1</td>
+                  <td>Tripals 版本1.0.2 開放測試中</td>
+                  <td class="news-c">旅遊文章系統上線，快來分享你的旅行文章</td>
+                  <td>2023/04/1</td>
+                  <td><i class="fa-regular fa-pen-to-square"></i></td>
+                  <td><i class="fa-regular fa-trash-can"></i></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <form action="" class="c-form">
+            <div class="c-inbox">
+              <label for="">標題:</label>
+              <input
+                class="c-textmessage"
+                type="text"
+                placeholder="請輸入標題"
+              />
+            </div>
+            <div class="c-textarea">
+              <label for="">內文:</label>
+              <input type="textarea" class="c-textbox" />
+            </div>
+            <div class="c-inbox">
+              <button class="c-change" type="submit">
+                <i class="fa-regular fa-pen-to-square"></i> 發布
+              </button>
+              <button class="c-delete" type="submit">
+                <i class="fa-regular fa-trash-can"></i> 刪除
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="c-block" id="a-members">
+          <h3 class="c-title">會員管理</h3>
+          <div class="a-members">
+            <table class="c-myart">
+              <thead>
+                <tr>
+                  <td>編號</td>
+                  <td>電子信箱</td>
+                  <td>暱稱</td>
+                  <td>狀態</td>
+                  <td>異動日期</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>panada_0419@gmail.com</td>
+                  <td>我愛熊貓</td>
+                  <td><i class="fa-solid fa-toggle-on"></i></td>
+                  <td></td>
+                  <td><i class="fa-regular fa-pen-to-square"></i></td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>panada_0419@gmail.com</td>
+                  <td>我愛熊貓</td>
+                  <td><i class="fa-solid fa-toggle-on"></i></td>
+                  <td></td>
+                  <td><i class="fa-regular fa-pen-to-square"></i></td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>panada_0419@gmail.com</td>
+                  <td>我愛熊貓</td>
+                  <td><i class="fa-solid fa-toggle-on"></i></td>
+                  <td></td>
+                  <td><i class="fa-regular fa-pen-to-square"></i></td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>panada_0419@gmail.com</td>
+                  <td>我愛熊貓</td>
+                  <td><i class="fa-solid fa-toggle-on"></i></td>
+                  <td></td>
+                  <td><i class="fa-regular fa-pen-to-square"></i></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="c-block" id="a-atricles">
+          <h3 class="c-title">文章管理</h3>
+          <div class="a-totalArt">
+            <table class="a-myart">
+              <thead>
+                <tr>
+                  <td>文章標題</td>
+                  <td>檢舉次數</td>
+                  <td>狀態</td>
+                  <td></td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <a href="#">
+                      【彰化｜埔心】果時手作坊。老屋新裝工業風。各式水果塔。水果珍珠奶昔。下午茶新選擇
+                    </a>
+                  </td>
+                  <td>3</td>
+                  <td>已發佈</td>
+                  <td><button class="a-takeOf">下架刪除</button></td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="#">
+                      【彰化｜埔心】果時手作坊。老屋新裝工業風。各式水果塔。水果珍珠奶昔。下午茶新選擇
+                    </a>
+                  </td>
+                  <td>3</td>
+                  <td>已發佈</td>
+                  <td><button class="a-takeOf">下架刪除</button></td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="#">
+                      【彰化｜埔心】果時手作坊。老屋新裝工業風。各式水果塔。水果珍珠奶昔。下午茶新選擇
+                    </a>
+                  </td>
+                  <td>1</td>
+                  <td>已發佈</td>
+                  <td><button class="a-takeOf">下架刪除</button></td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="#">
+                      【彰化｜埔心】果時手作坊。老屋新裝工業風。各式水果塔。水果珍珠奶昔。下午茶新選擇
+                    </a>
+                  </td>
+                  <td>2</td>
+                  <td>已發佈</td>
+                  <td><button class="a-takeOf">下架刪除</button></td>
+                </tr>
+                <tr class="a-takeOfDone">
+                  <td>
+                    <a href="#">
+                      【彰化｜埔心】果時手作坊。老屋新裝工業風。各式水果塔。水果珍珠奶昔。下午茶新選擇
+                    </a>
+                  </td>
+                  <td>2</td>
+                  <td>已下架</td>
+                  <td><button class="a-takeOf">下架刪除</button></td>
+                </tr>
+                <tr class="a-deleteDone">
+                  <td>
+                    <a href="#">
+                      【彰化｜埔心】果時手作坊。老屋新裝工業風。各式水果塔。水果珍珠奶昔。下午茶新選擇
+                    </a>
+                  </td>
+                  <td>5</td>
+                  <td>檢舉刪除</td>
+                  <td><button class="a-takeOf" disabled>下架刪除</button></td>
+                </tr>
+                <tr class="a-deleteDone">
+                  <td>
+                    <a href="#">
+                      【彰化｜埔心】果時手作坊。老屋新裝工業風。各式水果塔。水果珍珠奶昔。下午茶新選擇
+                    </a>
+                  </td>
+                  <td>6</td>
+                  <td>檢舉刪除</td>
+                  <td><button class="a-takeOf" disabled>下架刪除</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </section>
+    <!-- 彈出視窗 - news dialog-->
+    <!-- <dialog id="cat">
+      <form method="post" action="/dog">
+        <input type="hidden" name="id" />
+        備註：<input type="text" name="memo" /> <br /><br />
+        <input type="submit" value="更新寶可夢資料表(test)" />
+      </form>
+    </dialog> -->
+    <!-- 我自己的js -->
+    <!-- <script src="./js/news.js"></script> -->
+    <!-- <script src="./js/toggle.js"></script> -->
+    <script>
+      // $(function () {
+      // 當tr被點選的時候
+      // $("td").on("click", function () {
+      // console.log("OK");
+      // var row = $(this).closest("tr");
+      // var qty = row.find("input").eq(0).val() || 0; //eq(index) -> 抓第index個
+      // var price = row.find("input").eq(1).val() || 0; // 前面若為 null undefine 則取 0
+      // var total = parseInt(qty) * parseInt(price);
+      // row.find("span").text(total);
+      //  總金額
+      // $("#total").val(0); // 總金額歸零，避免累加
+      // $.each($("table tr span"), function (i, elm) {
+      //   console.log($(elm).text()); // jQuery
+      //   //   console.log(elm.innerHTML); // js
+      //   $("#total").val(
+      //     parseInt($("#total").val()) + parseInt($(elm).text() || 0)
+      //   );
+      // });
+      // });
+      // });
+    </script>
+    <script src="./js/admin-change.js"></script>
+    <script src="./js/admin-news.js"></script>
+  </body>
+</html>

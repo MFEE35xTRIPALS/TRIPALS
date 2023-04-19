@@ -1,0 +1,45 @@
+/* ----- color ----- */
+$Rice: #f0e8dc;
+$ButtonHover: #5db8a6;
+$Blue: #27a2b8;
+$Green: #b2d5ce;
+$Heart: #ff4848;
+$black: #000000;
+$white: white;
+
+/* ----- font(global) ----- */
+//左邊title -> li
+$leftTitle: 1.75rem;
+$shotName: 1.5rem; // -> 左邊大頭貼username
+//右邊title -> h4
+$rightTitle: 2.5rem;
+$tableText: 1.25rem; // -> 後臺各種table
+
+/* ----- font(CRUD-button) ----- */
+$ButtonColor: #65c6c6;
+$TrashColor: #ff4848;
+$HoverBg: #ffffff;
+$ButtonText: 1.25rem;
+
+/* ----- font(local) ----- */
+$lableText: 1.5rem; // -> 後台表單lable
+
+/* ----- 全域設定 ----- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-weight: normal;
+  font-family: "Sen", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}

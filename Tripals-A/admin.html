@@ -72,10 +72,8 @@
             <li><a href="#a-news">最新消息</a></li>
             <li><a href="#a-members">會員管理</a></li>
             <li><a href="#a-atricles">文章管理</a></li>
-            <li><a href="#a-tags">標籤管理</a></li>
           </ul>
         </div>
-        <br /><br /><br /><br /><br />
       </section>
       <section class="c-right">
         <div class="c-block" id="a-news">
@@ -85,20 +83,23 @@
               <thead>
                 <tr>
                   <td>no</td>
-                  <td>標題</td>
+                  <td class="news-t">標題</td>
+                  <td class="news-c">內文</td>
                   <td>發佈時間</td>
-                  <td></td>
+                  <td class="news-i"></td>
                 </tr>
               </thead>
               <tbody class="tbl-accordion-header" id="c-news">
-                <tr class="my">
+                <tr>
                   <td>1</td>
-                  <td>Tripals 版本1.0.2 開放測試中</td>
+                  <td class="news-t">
+                    Tripals 版本1.0.2 開放測試中111111111111111111
+                  </td>
+                  <td class="news-c">
+                    旅遊文章系統上線，快來分享你的旅行文章22222222222222
+                  </td>
                   <td>2023/04/1</td>
                   <td><i class="fa-regular fa-pen-to-square"></i></td>
-                </tr>
-                <tr class="tbl-accordion-body">
-                  <td colspan="4">內文在這裡</td>
                 </tr>
               </tbody>
             </table>
@@ -258,50 +259,6 @@
             </table>
           </div>
         </div>
-        <div class="c-block" id="a-tags">
-          <h3 class="c-title">標籤管理</h3>
-          <div class="a-tags">
-            <ul class="tags">
-              <li>
-                <a class="tag" href="#"># 台中</a>
-              </li>
-              <li>
-                <a class="tag" href="#"># 櫻花季</a>
-              </li>
-              <li>
-                <a class="tag" href="#"># 士林夜市</a>
-              </li>
-              <li>
-                <a class="tag" href="#"># 台中必去</a>
-              </li>
-              <li>
-                <a class="tag" href="#"># 音樂祭</a>
-              </li>
-              <li>
-                <a class="tag" href="#"># 青春設計節</a>
-              </li>
-              <li>
-                <a class="tag" href="#"># 深度旅遊</a>
-              </li>
-              <li>
-                <a class="tag" href="#"># 動物友善餐廳</a>
-              </li>
-            </ul>
-          </div>
-          <form action="" class="c-form">
-            <div class="c-inbox">
-              <label for="">標題:</label>
-              <input
-                class="c-textmessage"
-                type="text"
-                placeholder="請輸入標籤"
-              />
-            </div>
-            <div class="c-inbox">
-              <button class="c-change" type="submit">新增</button>
-            </div>
-          </form>
-        </div>
       </section>
     </section>
     <!-- 彈出視窗 - news dialog-->
@@ -337,6 +294,7 @@
       // });
       // });
     </script>
-    <script src="./js/change.js"></script>
+    <script src="./js/admin-change.js"></script>
+    <script src="./js/admin-news.js"></script>
   </body>
 </html>

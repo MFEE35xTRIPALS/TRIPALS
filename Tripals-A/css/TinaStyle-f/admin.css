@@ -1,0 +1,303 @@
+@charset "UTF-8";
+/* ----- color ----- */
+/* ----- font(global) ----- */
+/* ----- font(CRUD-button) ----- */
+/* ----- font(local) ----- */
+/* ----- 全域設定 ----- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-weight: normal;
+  font-family: "Sen", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f0e8dc;
+}
+
+/* 封面圖片 */
+section.c-head div.img2 {
+  width: 100%;
+  height: 55vh;
+  background: url(../../img/sunrise.jpg) no-repeat bottom;
+  background-size: cover;
+  overflow: hidden;
+  -webkit-clip-path: ellipse(75% 50% at 50% 30%);
+          clip-path: ellipse(75% 50% at 50% 30%);
+  position: relative;
+}
+
+/* 左右分開的區塊的父層 */
+.c-rwd {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  max-width: 1440px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* 左邊區塊 */
+.c-left {
+  flex: 0 1 300px;
+  top: 8vh;
+  position: -webkit-sticky;
+  position: sticky;
+  height: 100%;
+  margin: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* 大頭貼藍色背景 */
+  /* 左邊選單 */
+}
+.c-left .c-head {
+  width: 250px;
+  height: 250px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: #27a2b8;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative;
+  /* 大頭貼username */
+  /* 大頭貼圈圈 */
+}
+.c-left .c-head h4.username {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 0;
+}
+.c-left .c-head div.h-img {
+  height: 70%;
+  width: 70%;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 4px white solid;
+  /* 大頭貼 */
+}
+.c-left .c-head div.h-img img.shot {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.c-left .c-select ul {
+  padding: 1.5rem;
+  margin: 2.5rem 0 0 0;
+  border-top: 4px solid #27a2b8;
+  font-size: 1.75rem;
+}
+.c-left .c-select ul li {
+  padding: 1rem;
+  list-style: none;
+  font-weight: 400;
+  transition: all 0.2s;
+}
+.c-left .c-select ul li:hover {
+  border-bottom: 3px solid #27a2b8;
+}
+.c-left .c-select ul li a {
+  color: black;
+  text-decoration: none;
+}
+
+/* 右邊隨選項變動的區塊 */
+.c-right {
+  flex: 1 1 800px;
+  width: 100%;
+  /* 每個選項的功能頁 */
+}
+.c-right .c-block {
+  background-color: white;
+  width: 100%;
+  /* 大title */
+}
+.c-right .c-block .c-title {
+  display: inline-block;
+  width: 30vw;
+  min-width: 300px;
+  padding: 1rem 2rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  background-color: #b2d5ce;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* 螢幕小於992px */
+@media (max-width: 992px) {
+  body section.c-rwd {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  body section.c-rwd section.c-left {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+    flex: 0 1 250px;
+    top: 0;
+    margin: 0;
+  }
+  body section.c-rwd section.c-left div.c-head {
+    width: 180px;
+    height: 180px;
+  }
+  body section.c-rwd section.c-left div.c-select ul {
+    border: none;
+    margin: 0;
+    padding: 0 0 0 1rem;
+  }
+  body section.c-rwd section.c-left div.c-select ul li {
+    padding: 0.5rem;
+  }
+}
+@media (max-width: 400px) {
+  section.c-rwd .c-select {
+    display: none;
+  }
+  section.c-rwd section.c-right .c-block .c-title {
+    width: 100%;
+    text-align: center;
+  }
+}
+#a-members,
+#a-atricles {
+  display: none;
+}
+
+/* 右邊隨選項變動的區塊 */
+.c-right .c-block {
+  /* 最新消息 */
+  /* 最新消息新增  */
+}
+.c-right .c-block .a-news {
+  border: red 2px solid;
+  padding: 2rem;
+  height: 300px;
+  overflow: auto;
+  /* 最新消息顯示table */
+}
+.c-right .c-block .a-news .c-myart {
+  text-align: left;
+}
+.c-right .c-block .a-news .c-myart thead {
+  background-color: rgba(178, 213, 206, 0.3);
+}
+.c-right .c-block .a-news .c-myart tr td {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 0.3px #b2d5ce solid;
+  font-size: 1.25rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.c-right .c-block .a-news .c-myart tr td .fa-pen-to-square {
+  color: #27a2b8;
+}
+.c-right .c-block .a-news .c-myart tr td .fa-trash-can {
+  color: #ff4848;
+}
+.c-right .c-block .a-news .c-myart tr .news-c {
+  display: none;
+  visibility: collapse;
+}
+.c-right .c-block .a-news .c-myart tr:hover {
+  background-color: rgba(178, 213, 206, 0.3);
+}
+.c-right .c-block .c-form {
+  padding: 2rem 2rem 4rem 3rem;
+  /* 最新消息 - 新增 */
+}
+.c-right .c-block .c-form .c-inbox {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+  /* input[type="text"]  */
+  /* 發布按鈕 */
+  /* 刪除按鈕 */
+}
+.c-right .c-block .c-form .c-inbox label {
+  font-size: 1.5rem;
+  padding-right: 1rem;
+}
+.c-right .c-block .c-form .c-inbox .c-textmessage {
+  font-size: 1.25rem;
+  border: none;
+  width: 85%;
+  padding-left: 1rem;
+}
+.c-right .c-block .c-form .c-inbox .c-textmessage:hover, .c-right .c-block .c-form .c-inbox .c-textmessage:focus {
+  border: 1.5px #b2d5ce solid;
+  border-radius: 50px;
+  padding-left: 1rem;
+}
+.c-right .c-block .c-form .c-inbox .c-change {
+  padding: 0.25rem 0.85rem;
+  background: #65c6c6;
+  border-radius: 50px;
+  border: #65c6c6 2px solid;
+  position: absolute;
+  right: 20px;
+  bottom: -40px;
+  color: #ffffff;
+}
+.c-right .c-block .c-form .c-inbox .c-change:hover {
+  color: #65c6c6;
+  background: #ffffff;
+  border: #65c6c6 2px solid;
+}
+.c-right .c-block .c-form .c-inbox .c-delete {
+  padding: 0.25rem 0.85rem;
+  background: #ff4848;
+  border-radius: 50px;
+  border: #ff4848 2px solid;
+  position: absolute;
+  right: 120px;
+  bottom: -40px;
+  color: #ffffff;
+}
+.c-right .c-block .c-form .c-inbox .c-delete:hover {
+  color: #ff4848;
+  background: #ffffff;
+  border: #ff4848 2px solid;
+}
+.c-right .c-block .c-form .c-textarea {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+.c-right .c-block .c-form .c-textarea label {
+  font-size: 1.5rem;
+  padding-bottom: 0.5rem;
+}
+.c-right .c-block .c-form .c-textarea .c-textbox {
+  border: 1.5px #b2d5ce solid;
+  border-radius: 10px;
+  height: 100px;
+  font-size: 1.25rem;
+  padding: 0.5rem;
+}/*# sourceMappingURL=admin.css.map */
