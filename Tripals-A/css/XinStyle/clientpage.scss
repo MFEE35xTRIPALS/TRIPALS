@@ -11,9 +11,11 @@
   padding: 0.25rem 1.5rem;
   right: 8%; //-----> 我改了這裡
   top: 50%; //-----> 我改了這裡
-  font-size: 24px;
-  color: $clientMessagecolor;
-  background-color: rgba(white, 0.7);
+  font-size: $clientBtnfont;
+  // color: $clientMessagecolor;
+  // background-color: rgba(white, 0.7);
+  background: $clientMessagecolor;
+  border: $clientMessagecolor 2px solid;
   border: none;
   border-radius: 50px;
 
@@ -38,6 +40,13 @@ button.camera {
   justify-content: center;
   top: 160px;
   right: 50px;
+}
+@media (max-width: 992px) {
+  button.camera{
+    // border: red solid 2px;
+    top: 110px;
+    right: 40px;
+  }
 }
 
 /* 右邊區塊 */
@@ -86,6 +95,7 @@ button.camera {
       position: absolute;
       right: 20px;
       bottom: -40px;
+      font-size: $clientBtnfont;
 
       &:hover {
         background: $MessageBtnHover;
@@ -162,6 +172,7 @@ button.camera {
           // border: 1px solid $myarticlesBtn;
           filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
           transition: all 0.2s ease;
+          font-size: $takeofText;
 
           &:hover {
             // border: none;

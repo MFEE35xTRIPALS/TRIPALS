@@ -31,6 +31,8 @@ $takeofText: 1rem; //->表格內下架
 $lableText: 1.5rem; // -> 後台表單lable
 $ArticleText: 1.15rem; // -> 後台文章管理table
 
+$clientInputText:1.25rem;//會員後台個人資料input的字
+$clientBtnfont:1.25rem;//會員後台btn字大小
 $myarticles_atag:black;//我的文章超連結顏色
 $myarticlesEdit:#27a2b8;//我的文章編輯按鍵
 $myarticlesBtnDisable:gray;//我的文章不能按的按鈕
@@ -38,9 +40,6 @@ $myarticlesBtnDisablebg:rgb(182, 182, 182);//我的文章不能按的按鈕背�
 $myarticlesTakeof:rgb(221, 221, 221);//table 已下架顏色
 $myarticlesDelete:rgb(178, 178, 178);//table 已刪除顏色
 
-
-
-$clientInputText:1.25rem;//會員後台個人資料input的字
 $clientMessagecolor: #b2d5ce;//會員後台的主顏色（input外匡、按鈕顏色、tablehover顏色）
 $MessageBtnHover:white;//會員後台按鈕hovwr顏色
 
@@ -52,24 +51,15 @@ $cardTitle: 1.25rem;//文章標題
 $cardUsername:1.15rem;//作者名字
 $cardLikeicon:1.75rem;//喜歡收藏愛心大小
 $cardViewsAndHeart:1rem;//熱門度觀看數顯示
-$hoverMore: 1.5rem; //morebtn
-$cardTitle: 1.25rem; //文章標題
-$cardUsername: 1.15rem; //作者名字
-$cardLikeicon: 1.75rem; //喜歡收藏愛心大小
-$cardViewsAndHeart: 1rem; //熱門度觀看數顯示
 
 /* ----- card顏色變數 ----- */
 $articleTitle:black;
 $moreBtnbg:white;
 $moreBtnText:black;
-$articleTitle: black;
-$moreBtnbg: white;
-$moreBtnText: black;
 $Heart: #ff4848;
 $articleUsername:black;
 $articleViewsAndHeart:black;
-$articleUsername: black;
-$articleViewsAndHeart: black;
+
 
 /* ----- 旅遊導覽變數 ----- */
 $pageTitle: 3rem;

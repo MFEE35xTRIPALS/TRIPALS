@@ -101,7 +101,6 @@ div.onecard div.card_body div a.c-toSelfpage h4.card-title {
   text-overflow: ellipsis;
   color: black;
   font-size: 1.25rem;
-  font-weight: bold;
   margin: 1rem 0;
 }
 div.onecard div.card_body div i.heart {
@@ -298,9 +297,9 @@ section.c-head div.img2 {
   padding: 0.25rem 1.5rem;
   right: 8%;
   top: 50%;
-  font-size: 24px;
-  color: #b2d5ce;
-  background-color: rgba(255, 255, 255, 0.7);
+  font-size: 1.25rem;
+  background: #b2d5ce;
+  border: #b2d5ce 2px solid;
   border: none;
   border-radius: 50px;
 }
@@ -323,6 +322,12 @@ button.camera {
   right: 50px;
 }
 
+@media (max-width: 992px) {
+  button.camera {
+    top: 110px;
+    right: 40px;
+  }
+}
 /* 右邊區塊 */
 /* 個人資料 */
 .c-form {
@@ -360,6 +365,7 @@ button.camera {
   position: absolute;
   right: 20px;
   bottom: -40px;
+  font-size: 1.25rem;
 }
 .c-form .c-inbox .c-change:hover {
   background: white;
@@ -423,6 +429,7 @@ button.camera {
   padding: 0.2rem 0.5rem;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   transition: all 0.2s ease;
+  font-size: 1rem;
 }
 .c-mine .c-myart tr td button.c-takeOf:hover {
   background-color: white;

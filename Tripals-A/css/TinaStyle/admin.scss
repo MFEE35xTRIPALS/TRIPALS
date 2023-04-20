@@ -10,17 +10,20 @@
 /* 右邊隨選項變動的區塊 */
 .c-right {
   .c-block {
+
     /* 最新消息區塊 */
     .a-news {
       padding: 2rem 2rem 0rem 3rem;
       max-height: 300px;
       overflow: auto;
     }
+
     /* 最新消息，會員管理 table */
     .c-myart {
       thead {
         background-color: rgba($Green, $alpha: 0.3);
       }
+
       tr {
         td {
           max-width: 18rem;
@@ -30,13 +33,16 @@
           padding: 0.5rem;
           font-size: $tableText;
           border: 0.3px $Green solid;
+
           .fa-pen-to-square {
             color: $Blue;
           }
+
           .fa-trash-can {
             color: $Heart;
           }
         }
+
         .icon {
           text-align: center;
         }
@@ -51,25 +57,30 @@
         }
       }
     }
+
     /* 最新消息新增  */
     .c-form {
       padding: 2rem 2rem 4rem 3rem;
+
       .c-inbox {
         padding: 0.5rem;
         display: flex;
         align-items: center;
         flex-wrap: wrap;
         position: relative;
+
         label {
           font-size: $lableText;
           padding-right: 1rem;
         }
+
         /* input[type="text"]  */
         .c-textmessage {
           font-size: $tableText;
           border: none;
           width: 85%;
           padding-left: 1rem;
+
           &:hover,
           &:focus {
             border: 1.5px $Green solid;
@@ -77,6 +88,7 @@
             padding-left: 1rem;
           }
         }
+
         /* 發布按鈕 */
         button {
           padding: 0.25rem 0.85rem;
@@ -84,35 +96,41 @@
           position: absolute;
           bottom: -40px;
         }
+
         .c-change {
           right: 20px;
           border: $ButtonColor 2px solid;
           background: $ButtonColor;
           color: $HoverBg;
+
           &:hover {
             color: $ButtonColor;
             background: $HoverBg;
             border: $ButtonColor 2px solid;
           }
         }
+
         /* 取消按鈕 */
         .c-cancel {
           right: 115px;
           border: $CancelColor 2px solid;
           background: $CancelColor;
           color: $HoverBg;
+
           &:hover {
             color: $CancelColor;
             background: $HoverBg;
             border: $CancelColor 2px solid;
           }
         }
+
         /* 刪除按鈕 */
         .c-delete {
           right: 210px;
           border: $Heart 2px solid;
           background: $Heart;
           color: $HoverBg;
+
           &:hover {
             color: $Heart;
             background: $HoverBg;
@@ -120,6 +138,7 @@
           }
         }
       }
+
       /* 最新消息 - 新增 */
       .c-textarea {
         display: flex;
@@ -130,6 +149,7 @@
           font-size: $lableText;
           padding-bottom: 0.5rem;
         }
+
         .c-textbox {
           border: 1.5px $Green solid;
           border-radius: 10px;
@@ -139,6 +159,7 @@
         }
       }
     }
+
     /* 會員管理區塊 */
     .a-members {
       padding: 2rem 2rem 0rem 3rem;
@@ -147,6 +168,7 @@
       overflow: auto;
       background-color: white;
     }
+
     /* 文章管理區塊 */
     .a-totalArt {
       padding: 2rem 2rem 0rem 3rem;
@@ -154,6 +176,7 @@
       width: 100%;
       overflow: auto;
       background-color: white;
+
       /* 文章管理 table */
       .a-myart {
         thead {
@@ -179,21 +202,22 @@
 
             // color: $Blue;
             button.a-takeOf {
-              font-size: $takeofText;
-              color: $Blue;
+              background-color: $clientMessagecolor;
               border-radius: 50px;
+              border: $clientMessagecolor 2px solid;
+              text-align: center;
               padding: 0.2rem 0.5rem;
-              border: 1px solid $Blue;
               filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
               transition: all 0.2s ease;
+              font-size: $takeofText;
 
               &:hover {
-                border: none;
-                background-color: $Green;
+                background-color: $MessageBtnHover;
               }
+
               &:disabled {
-                background-color: rgb(182, 182, 182);
-                color: gray;
+                background-color: $myarticlesBtnDisablebg;
+                color: $myarticlesBtnDisable;
                 border: none;
               }
             }
