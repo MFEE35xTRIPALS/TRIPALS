@@ -57,6 +57,7 @@ section.c-head div.img2 {
 .c-left {
   flex: 0 1 300px;
   top: 8vh;
+  position: -webkit-sticky;
   position: sticky;
   height: 100%;
   margin: 0 2rem;
