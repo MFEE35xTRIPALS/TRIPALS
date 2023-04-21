@@ -45,22 +45,11 @@
   </head>
   <body>
     <section class="c-head">
-      <div class="img2">
-        <!-- <form action="">
-          <button class="edit_cover" id="edit_cover">編輯封面</button>
-          <input type="file" id="fileUpload" hidden />
-        </form> -->
-      </div>
+      <div class="img2"></div>
     </section>
     <section class="c-rwd">
       <section class="c-left">
         <div class="c-head">
-          <!-- <form action="">
-            <button class="camera">
-              <i class="fas fa-camera"></i>
-            </button>
-            <input type="file" name="shotUpload" id="shotUpload" hidden />
-          </form> -->
           <div class="h-img">
             <img class="shot" src="./img/admin2.png" alt="shot" />
           </div>
@@ -106,6 +95,7 @@
             </table>
           </div>
           <form class="c-form">
+            <input type="hidden" name="newsno" />
             <div class="c-inbox">
               <label for="">標題:</label>
               <input
@@ -116,22 +106,17 @@
             </div>
             <div class="c-inbox">
               <label for="">日期:</label>
-              <input
-                type="date"
-                data-date=""
-                data-date-format="DD MMMM YYYY"
-                value="2023-04-01"
-              />
+              <input type="date" data-date="" data-date-format="DD MMMM YYYY" />
             </div>
             <div class="c-textarea">
               <label for="">內文:</label>
-              <input type="textarea" class="c-textbox" />
+              <textarea class="c-textbox"></textarea>
             </div>
             <div class="c-inbox">
-              <button class="c-change" type="submit">
-                <i class="fa-regular fa-pen-to-square"></i> 發布
+              <button class="c-change" type="button">
+                <i class="fa-regular fa-pen-to-square"></i><span>發布</span>
               </button>
-              <button class="c-delete" type="submit">
+              <button class="c-delete" type="button">
                 <i class="fa-regular fa-trash-can"></i> 刪除
               </button>
               <button class="c-cancel" type="button">
@@ -287,39 +272,7 @@
         </div>
       </section>
     </section>
-    <!-- 彈出視窗 - news dialog-->
-    <!-- <dialog id="cat">
-      <form method="post" action="/dog">
-        <input type="hidden" name="id" />
-        備註：<input type="text" name="memo" /> <br /><br />
-        <input type="submit" value="更新寶可夢資料表(test)" />
-      </form>
-    </dialog> -->
     <!-- 我自己的js -->
-    <!-- <script src="./js/news.js"></script> -->
-    <!-- <script src="./js/toggle.js"></script> -->
-    <script>
-      // $(function () {
-      // 當tr被點選的時候
-      // $("td").on("click", function () {
-      // console.log("OK");
-      // var row = $(this).closest("tr");
-      // var qty = row.find("input").eq(0).val() || 0; //eq(index) -> 抓第index個
-      // var price = row.find("input").eq(1).val() || 0; // 前面若為 null undefine 則取 0
-      // var total = parseInt(qty) * parseInt(price);
-      // row.find("span").text(total);
-      //  總金額
-      // $("#total").val(0); // 總金額歸零，避免累加
-      // $.each($("table tr span"), function (i, elm) {
-      //   console.log($(elm).text()); // jQuery
-      //   //   console.log(elm.innerHTML); // js
-      //   $("#total").val(
-      //     parseInt($("#total").val()) + parseInt($(elm).text() || 0)
-      //   );
-      // });
-      // });
-      // });
-    </script>
     <script src="./js/admin-change.js"></script>
     <script src="./js/admin-news.js"></script>
   </body>

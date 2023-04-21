@@ -26,7 +26,7 @@
       tr {
         td {
           max-width: 18rem;
-          white-space: nowrap;
+          white-space: auto;
           text-overflow: ellipsis;
           overflow: hidden;
           padding: 0.5rem;
@@ -62,7 +62,9 @@
     /* 最新消息新增  */
     .c-form {
       padding: 2rem 2rem 4rem 3rem;
-
+      input {
+        white-space: normal;
+      }
       .c-inbox {
         padding: 0.5rem;
         display: flex;
