@@ -14,10 +14,8 @@ $.ajax({
       newsTr.append(`<td>${list.title}</td>`);
       newsTr.append(`<td class="news-c">${list.content}</td>`);
       newsTr.append(`<td>${list.date}</td>`);
-      newsTr.append(`<td><i class="fa-regular fa-pen-to-square"></i></td>`);
-      newsTr.append(
-        `<td class="icon"><i class="fa-regular fa-trash-can"></i></td>`
-      );
+      newsTr.append(`<td ><i class="fa-regular fa-pen-to-square"></i></td>`);
+      newsTr.append(`<td ><i class="fa-regular fa-trash-can"></i></td>`);
       $("#c-news").append(newsTr);
     });
   },
