@@ -10,10 +10,12 @@
    │  ├─ Home
    │  │  ├─ components
    │  │  │  └─ 這邊放各頁的元件，如老師說，後面來不及放整頁
+   │  │  ├─ Home.jsx
    │  │  └─ Home.css
    │  └─ Login
    │     ├─ components
    │     │  └─ 這邊放各頁的元件，如老師說，後面來不及放整頁
+   │     ├─ Login.jsx
    │     └─ Login.css
    ├─ index.js (react程式進入點)
    └─ index.css
