@@ -23,7 +23,7 @@ connhelper.connect(function (err) {
 
 page.get("/", function (req, res) {
   var sql =
-    "SELECT newsno,title, content, DATE_FORMAT(`release`, '%Y/%m/%d') `date` FROM `tb_news`;";
+    "SELECT newsno,title, content, DATE_FORMAT(`release`, '%Y-%m-%d') `date` FROM `tb_news`;";
 
   connhelper.query(sql, [], function (err, result, fields) {
     if (err) {

@@ -47,14 +47,3 @@ document
 // $("li").on("click", function () {
 //   console.log($(this).children().prop("href"));
 // });
-
-/* ------------- form 顯示 ------------- */
-$(document).ready(function () {
-  $("tbody td").on("click", function () {
-    var row = $(this).closest("tr");
-    console.log(row.children());
-    // console.log($(".c-textmessage").val());
-    $(".c-textmessage").val(row.children()[1].innerHTML);
-    $(".c-textbox").val(row.children()[2].innerHTML);
-  });
-});
