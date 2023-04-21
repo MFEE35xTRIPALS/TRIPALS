@@ -180,7 +180,9 @@ section.c-head div.img2 {
 }
 /* 點選前消失 */
 #a-members,
-#a-atricles {
+#a-atricles,
+.postBtn,
+.news-c {
   display: none;
 }
 
@@ -201,7 +203,7 @@ section.c-head div.img2 {
   background-color: rgba(178, 213, 206, 0.3);
 }
 .c-right .c-block .c-myart tr td {
-  max-width: 18rem;
+  max-width: 24rem;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -211,15 +213,10 @@ section.c-head div.img2 {
 }
 .c-right .c-block .c-myart tr td .fa-pen-to-square {
   color: #27a2b8;
-  cursor: pointer;
 }
-.c-right .c-block .c-myart tr td .fa-trash-can {
-  color: #ff4848;
+.c-right .c-block .c-myart tr .icon {
+  text-align: center;
   cursor: pointer;
-}
-.c-right .c-block .c-myart tr .news-c {
-  display: none;
-  visibility: collapse;
 }
 .c-right .c-block .c-myart tr:hover {
   background-color: rgba(178, 213, 206, 0.3);
@@ -227,6 +224,9 @@ section.c-head div.img2 {
 .c-right .c-block .c-form {
   padding: 2rem 2rem 4rem 3rem;
   /* 最新消息 - 新增 */
+}
+.c-right .c-block .c-form input {
+  white-space: normal;
 }
 .c-right .c-block .c-form .c-inbox {
   padding: 0.5rem;
@@ -260,35 +260,37 @@ section.c-head div.img2 {
   position: absolute;
   bottom: -40px;
 }
+.c-right .c-block .c-form .c-inbox .c-post,
 .c-right .c-block .c-form .c-inbox .c-change {
   right: 20px;
   border: #65c6c6 2px solid;
   background: #65c6c6;
   color: #ffffff;
 }
+.c-right .c-block .c-form .c-inbox .c-post:hover,
 .c-right .c-block .c-form .c-inbox .c-change:hover {
   color: #65c6c6;
   background: #ffffff;
   border: #65c6c6 2px solid;
 }
-.c-right .c-block .c-form .c-inbox .c-cancel {
+.c-right .c-block .c-form .c-inbox .cancelBtn {
   right: 115px;
   border: #fab10c 2px solid;
   background: #fab10c;
   color: #ffffff;
 }
-.c-right .c-block .c-form .c-inbox .c-cancel:hover {
+.c-right .c-block .c-form .c-inbox .cancelBtn:hover {
   color: #fab10c;
   background: #ffffff;
   border: #fab10c 2px solid;
 }
-.c-right .c-block .c-form .c-inbox .c-delete {
+.c-right .c-block .c-form .c-inbox .deleteBtn {
   right: 210px;
   border: #ff4848 2px solid;
   background: #ff4848;
   color: #ffffff;
 }
-.c-right .c-block .c-form .c-inbox .c-delete:hover {
+.c-right .c-block .c-form .c-inbox .deleteBtn:hover {
   color: #ff4848;
   background: #ffffff;
   border: #ff4848 2px solid;

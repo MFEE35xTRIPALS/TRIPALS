@@ -3,7 +3,9 @@
 
 /* 點選前消失 */
 #a-members,
-#a-atricles {
+#a-atricles,
+.postBtn,
+.news-c {
   display: none;
 }
 
@@ -25,8 +27,8 @@
 
       tr {
         td {
-          max-width: 18rem;
-          white-space: auto;
+          max-width: 24rem;
+          white-space: nowrap;
           text-overflow: ellipsis;
           overflow: hidden;
           padding: 0.5rem;
@@ -35,22 +37,12 @@
 
           .fa-pen-to-square {
             color: $Blue;
-            cursor: pointer;
-          }
-
-          .fa-trash-can {
-            color: $Heart;
-            cursor: pointer;
           }
         }
 
-        // .icon {
-        //   // text-align: center;
-        // }
-
-        .news-c {
-          display: none;
-          visibility: collapse;
+        .icon {
+          text-align: center;
+          cursor: pointer;
         }
 
         &:hover {
@@ -92,7 +84,6 @@
           }
         }
 
-        /* 發布按鈕 */
         button {
           padding: 0.25rem 0.85rem;
           border-radius: 50px;
@@ -100,6 +91,9 @@
           bottom: -40px;
         }
 
+        /* 發布按鈕 */
+
+        .c-post,
         .c-change {
           right: 20px;
           border: $ButtonColor 2px solid;
@@ -114,7 +108,7 @@
         }
 
         /* 取消按鈕 */
-        .c-cancel {
+        .cancelBtn {
           right: 115px;
           border: $CancelColor 2px solid;
           background: $CancelColor;
@@ -128,7 +122,7 @@
         }
 
         /* 刪除按鈕 */
-        .c-delete {
+        .deleteBtn {
           right: 210px;
           border: $Heart 2px solid;
           background: $Heart;

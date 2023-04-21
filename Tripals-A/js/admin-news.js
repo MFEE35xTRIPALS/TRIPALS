@@ -1,6 +1,6 @@
 // console.log($); //確認jQuery
 
-/* ---------------- 最新消息 CRUD ---------------- */
+/* ----------- 最新消息 CRUD ----------- */
 // ----- GET -----
 var renderNews = () => {
   $.ajax({
@@ -11,19 +11,19 @@ var renderNews = () => {
       $("#c-news").empty();
       $.each(data, function (i, list) {
         let newsTr = $("<tr>");
-        newsTr.append(`<td>${list.newsno}</td>`);
+        newsTr.append(`<td class="news-c">${list.newsno}</td>`);
         newsTr.append(`<td>${list.title}</td>`);
         newsTr.append(`<td class="news-c">${list.content}</td>`);
         newsTr.append(`<td>${list.date}</td>`);
         newsTr.append(`<td ><i class="fa-regular fa-pen-to-square"></i></td>`);
-        newsTr.append(`<td ><i class="fa-regular fa-trash-can"></i></td>`);
         $("#c-news").append(newsTr);
       });
     },
   });
 };
 renderNews();
-/* ------------------ form 顯示 ------------------ */
+
+/* ------------- form 顯示 ------------- */
 $(document).ready(function () {
   $("tbody").on("click", "tr", function () {
     // console.log("OK");
@@ -34,21 +34,32 @@ $(document).ready(function () {
     $("input[type='text']").val(row.children()[1].innerHTML);
     $("input[type='date']").val(row.children()[3].innerHTML);
     $("textarea").val(row.children()[2].innerHTML);
-    // console.log($("input[name='newsno']").val());
+    console.log($("input[name='newsno']").val());
+    postBtn();
   });
 });
-/* ------------- form 清除 (按鍵取消) ------------- */
-$(".c-cancel").on("click", function () {
+
+/* ------------- (按鍵取消) ------------- */
+$(".cancelBtn").on("click", function () {
   $("input").val("");
   $("textarea").val("");
+  console.log($("input[name='newsno']").val());
+  postBtn();
 });
 
-/* ------------- form 提交 (按鍵發布) ------------- */
+/* ------------- (按鍵發布) ------------- */
+// 如果點擊表格-> form 出現內容 -> 按鈕會交換
+var postBtn = () => {
+  $("input[name='newsno']").val()
+    ? $(".c-change + .c-post").addClass("postBtn")
+    : $(".c-change + .c-post").removeClass("postBtn");
+};
 // ----- POST 發布 -----
-$(".c-change").on("click", function () {
+$(".c-post").on("click", function () {
+  console.log("OK");
   $.ajax({
-    url: "http://localhost:3000/news",
-    type: "POST",
+    url: "http://localhost:3000/news/post",
+    type: "post",
     data: {
       newsno: $('input[name="newsno"]').val(),
       title: $('input[type="text"]').val(),
@@ -56,8 +67,60 @@ $(".c-change").on("click", function () {
       release: $("input[type='date']").val(),
     },
     success: function (data) {
-      // console.log(data); // 確認有撈到資料
+      console.log(data); // 確認有撈到資料
+      $("input").val("");
+      $("textarea").val("");
+      postBtn();
       renderNews();
     },
   });
 });
+
+/* ------------- (按鍵更新) ------------- */
+// ----- UPDATE 更新 -----
+$(".c-change").on("click", function () {
+  console.log("OK");
+  $.ajax({
+    url: "http://localhost:3000/news/update",
+    type: "post",
+    data: {
+      newsno: $('input[name="newsno"]').val(),
+      title: $('input[type="text"]').val(),
+      content: $("textarea").val(),
+      release: $("input[type='date']").val(),
+    },
+    success: function (data) {
+      console.log(data); // 確認有撈到資料
+      $("input").val("");
+      $("textarea").val("");
+      postBtn();
+      renderNews();
+    },
+  });
+});
+
+/* ------------- (按鍵刪除) ------------- */
+// ----- DELETE 刪除 -----
+$(".deleteBtn").on("click", function () {
+  console.log("OK");
+  $.ajax({
+    url: "http://localhost:3000/news/delete",
+    type: "post",
+    data: {
+      newsno: $('input[name="newsno"]').val(),
+      // title: $('input[type="text"]').val(),
+      // content: $("textarea").val(),
+      // release: $("input[type='date']").val(),
+    },
+    success: function (data) {
+      console.log(data); // 確認有撈到資料
+      $("input").val("");
+      $("textarea").val("");
+      postBtn();
+      renderNews();
+    },
+  });
+});
+
+/* ------------- 半完成 ------------- */
+// 目前userno 尚未處理

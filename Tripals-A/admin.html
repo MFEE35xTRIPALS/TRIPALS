@@ -71,8 +71,8 @@
             <table class="c-myart">
               <thead>
                 <tr>
-                  <td>no</td>
-                  <td class="news-t">標題</td>
+                  <td class="news-c">no</td>
+                  <td>標題</td>
                   <td class="news-c">內文</td>
                   <td>發布時間</td>
                   <td colspan="2"></td>
@@ -80,7 +80,7 @@
               </thead>
               <tbody class="tbl-accordion-header" id="c-news">
                 <tr>
-                  <td>1</td>
+                  <td class="news-c">1</td>
                   <td>Tripals版本1.0.1開放測試中</td>
                   <td class="news-c">
                     這裡有個問題，VScode換行，就會自動加空格？
@@ -89,7 +89,6 @@
                   <td>
                     <i class="fa-regular fa-pen-to-square"></i>
                   </td>
-                  <td><i class="fa-regular fa-trash-can"></i></td>
                 </tr>
               </tbody>
             </table>
@@ -114,12 +113,15 @@
             </div>
             <div class="c-inbox">
               <button class="c-change" type="button">
-                <i class="fa-regular fa-pen-to-square"></i><span>發布</span>
+                <i class="fa-regular fa-pen-to-square"></i> 更新
               </button>
-              <button class="c-delete" type="button">
+              <button class="c-post" type="button">
+                <i class="fa-regular fa-pen-to-square"></i> 發布
+              </button>
+              <button class="deleteBtn" type="button">
                 <i class="fa-regular fa-trash-can"></i> 刪除
               </button>
-              <button class="c-cancel" type="button">
+              <button class="cancelBtn" type="button">
                 <i class="far fa-times-circle"></i> 取消
               </button>
             </div>
