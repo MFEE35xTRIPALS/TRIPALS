@@ -7,15 +7,25 @@ var renderNews = () => {
     url: "http://localhost:3000/news",
     type: "GET",
     success: function (data) {
-      console.log(data); // 確認有撈到資料
+      // console.log(data); // 確認有撈到資料
       $("#c-news").empty();
       $.each(data, function (i, list) {
         let newsTr = $("<tr>");
-        newsTr.append(`<td class="news-c">${list.newsno}</td>`);
+        let sta = "";
+        if (list.status == "F") {
+          newsTr.toggleClass("a-noUse");
+          sta = "已下架";
+        } else {
+          sta = "已發布";
+        }
+        newsTr.append(`<td >${list.newsno}</td>`);
         newsTr.append(`<td>${list.title}</td>`);
         newsTr.append(`<td class="news-c">${list.content}</td>`);
         newsTr.append(`<td>${list.date}</td>`);
-        newsTr.append(`<td ><i class="fa-regular fa-pen-to-square"></i></td>`);
+        newsTr.append(`<td>${sta}</td>`);
+        newsTr.append(
+          `<td class="icon"><i class="fa-regular fa-pen-to-square"></i></td>`
+        );
         $("#c-news").append(newsTr);
       });
     },
@@ -91,6 +101,7 @@ $(".c-change").on("click", function () {
     },
     success: function (data) {
       console.log(data); // 確認有撈到資料
+      alert("公告新增成功");
       $("input").val("");
       $("textarea").val("");
       postBtn();
@@ -108,12 +119,14 @@ $(".deleteBtn").on("click", function () {
     type: "post",
     data: {
       newsno: $('input[name="newsno"]').val(),
+      status: "F",
       // title: $('input[type="text"]').val(),
       // content: $("textarea").val(),
       // release: $("input[type='date']").val(),
     },
     success: function (data) {
       console.log(data); // 確認有撈到資料
+      alert("公告下架成功");
       $("input").val("");
       $("textarea").val("");
       postBtn();
@@ -124,3 +137,38 @@ $(".deleteBtn").on("click", function () {
 
 /* ------------- 半完成 ------------- */
 // 目前userno 尚未處理
+//
+
+//
+/* ----------- 會員管理 CRUD ----------- */
+// ----- GET -----
+var renderMembers = () => {
+  $.ajax({
+    url: "http://localhost:3000/members",
+    type: "GET",
+    success: function (data) {
+      console.log(data); // 確認有撈到資料
+      $("#c-members").empty();
+      $.each(data, function (i, list) {
+        let newsTr = $("<tr>");
+        let sta = "";
+        if (list.status == "T") {
+          sta = "<i class='fa-solid fa-toggle-on'></i>";
+        } else {
+          sta = "<i class='fa-solid fa-toggle-off'></i>";
+          newsTr.toggleClass("a-noUse");
+        }
+        newsTr.append(`<td>${list.userno}</td>`);
+        newsTr.append(`<td>${list.id}</td>`);
+        newsTr.append(`<td>${list.nickname == null ? "" : list.nickname}</td>`);
+        newsTr.append(`<td>${list.date}</td>`);
+        newsTr.append(`<td class="icon">${sta}</td>`);
+        newsTr.append(
+          `<td class="icon"><i class="fa-regular fa-pen-to-square"></i></td>`
+        );
+        $("#c-members").append(newsTr);
+      });
+    },
+  });
+};
+renderMembers();
