@@ -37,7 +37,8 @@ section.c-head div.img2 {
   background: url(../../img/sunrise.jpg) no-repeat bottom;
   background-size: cover;
   overflow: hidden;
-  clip-path: ellipse(75% 50% at 50% 30%);
+  -webkit-clip-path: ellipse(75% 50% at 50% 30%);
+          clip-path: ellipse(75% 50% at 50% 30%);
   position: relative;
 }
 
@@ -59,6 +60,7 @@ section.c-head div.img2 {
   position: sticky;
   height: 100%;
   margin: 0 2rem;
+  z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -95,7 +97,8 @@ section.c-head div.img2 {
 .c-left .c-head div.h-img img.shot {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .c-left .c-select ul {
   padding: 1.5rem;

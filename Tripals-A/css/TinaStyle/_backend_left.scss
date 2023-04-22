@@ -35,6 +35,7 @@ section.c-head {
   // flex-shrink -> 1|0 要不要壓縮
   height: 100%;
   margin: 0 2rem;
+  z-index: 10;
 
   //
   display: flex;

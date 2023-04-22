@@ -18,6 +18,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
+  <!-- jQuery 3.6.0 -->
+  <script src="./js/jquery-3.6.0.js"></script>
   <!-- google font sen-->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -39,18 +41,32 @@
   <section class="c-rwd">
     <section class="c-left">
       <div class="c-head">
-        <form action="">
-          <button class="camera">
-            <i class="fas fa-camera"></i>
-          </button>
+        <button type="button" class="camera">
+          <i class="fas fa-camera"></i>
+        </button>
+        <form action="" enctype="multipart/form-data">
+          <div class="mymodal">
+            <div class="modalContent">
+              <span onclick="closemodal()" class="closemodal">&times;</span>
+              <div class="imgPreviewBorder">
+                <img class="imgPreview" src="./img/admin2.png" alt="大頭貼預覽">
+              </div>
+              <div class="uploadShotBtn">
+                <button class="uploadShot" type="button">上傳照片</button>
+                <button class="uploadShotDone" type="submit">確認上傳</button>
+              </div>
+            </div>
+          </div>
           <input type="file" name="shotUpload" id="shotUpload" hidden />
         </form>
         <div class="h-img">
           <img class="shot" src="./img/admin2.png" alt="shot" />
         </div>
-
         <h4 class="username">panda_0419</h4>
+        <!-- <div class="mymodal" style="height: 50px; width: 50px; border: 2px red solid;"></div> -->
       </div>
+
+
       <div class="c-select">
         <ul>
           <li><a href="#c-message">個人資料</a></li>
@@ -58,7 +74,7 @@
           <li><a href="#c-myarts">我的文章</a></li>
         </ul>
       </div>
-      <br /><br /><br /><br /><br />
+
     </section>
     <section class="c-right">
       <div id="c-message" class="c-block">
@@ -432,6 +448,7 @@
   </section>
   <!-- 我自己的js -->
   <script src="./js/Xinjs.js"></script>
+  <script src="./js/client_AJAX.js"></script>
 </body>
 
 </html>
