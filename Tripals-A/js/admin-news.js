@@ -4,7 +4,7 @@
 // ----- GET -----
 var renderNews = () => {
   $.ajax({
-    url: "http://localhost:3000/news",
+    url: "http://localhost:3000/admin",
     type: "GET",
     success: function (data) {
       // console.log(data); // 確認有撈到資料
@@ -21,6 +21,7 @@ var renderNews = () => {
         newsTr.append(`<td >${list.newsno}</td>`);
         newsTr.append(`<td>${list.title}</td>`);
         newsTr.append(`<td class="news-c">${list.content}</td>`);
+        newsTr.append(`<td>${list.release}</td>`);
         newsTr.append(`<td>${list.date}</td>`);
         newsTr.append(`<td>${sta}</td>`);
         newsTr.append(
@@ -66,9 +67,9 @@ var postBtn = () => {
 };
 // ----- POST 發布 -----
 $(".c-post").on("click", function () {
-  console.log("OK");
+  confirm("發布公告前記得確認文字都沒問題囉?!");
   $.ajax({
-    url: "http://localhost:3000/news/post",
+    url: "http://localhost:3000/admin/post",
     type: "post",
     data: {
       newsno: $('input[name="newsno"]').val(),
@@ -77,7 +78,8 @@ $(".c-post").on("click", function () {
       release: $("input[type='date']").val(),
     },
     success: function (data) {
-      console.log(data); // 確認有撈到資料
+      // console.log(data); // 確認有撈到資料
+      alert("公告發布成功");
       $("input").val("");
       $("textarea").val("");
       postBtn();
@@ -91,7 +93,7 @@ $(".c-post").on("click", function () {
 $(".c-change").on("click", function () {
   console.log("OK");
   $.ajax({
-    url: "http://localhost:3000/news/update",
+    url: "http://localhost:3000/admin/update",
     type: "post",
     data: {
       newsno: $('input[name="newsno"]').val(),
@@ -100,8 +102,8 @@ $(".c-change").on("click", function () {
       release: $("input[type='date']").val(),
     },
     success: function (data) {
-      console.log(data); // 確認有撈到資料
-      alert("公告新增成功");
+      // console.log(data); // 確認有撈到資料
+      alert("公告更新成功");
       $("input").val("");
       $("textarea").val("");
       postBtn();
@@ -111,11 +113,12 @@ $(".c-change").on("click", function () {
 });
 
 /* ------------- (按鍵刪除) ------------- */
-// ----- DELETE 刪除 -----
+// ----- DELETE 下架 -----
 $(".deleteBtn").on("click", function () {
+  confirm("公告下架後則不得重新上架唷！確定要下架嗎？");
   console.log("OK");
   $.ajax({
-    url: "http://localhost:3000/news/delete",
+    url: "http://localhost:3000/admin/delete",
     type: "post",
     data: {
       newsno: $('input[name="newsno"]').val(),
@@ -125,7 +128,7 @@ $(".deleteBtn").on("click", function () {
       // release: $("input[type='date']").val(),
     },
     success: function (data) {
-      console.log(data); // 確認有撈到資料
+      // console.log(data); // 確認有撈到資料
       alert("公告下架成功");
       $("input").val("");
       $("textarea").val("");
