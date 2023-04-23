@@ -12,28 +12,30 @@ editshot.addEventListener("click", function () {
 // 開啟大頭貼modal
 let camera = document.querySelector('.camera');
 camera.addEventListener('click', function () {
-  document.querySelector('.mymodal').style.display='flex';
+  document.querySelector('.mymodal').style.display = 'flex';
 })
 // 關閉大頭貼modal
 function closemodal() {
   document.querySelector('.mymodal').style.display = "none";
 }
 // 大頭貼上傳預覽
-let preview = document.querySelector('.imgPreview');
-let inputFile = document.querySelector('#shotUpload');
+$(document).ready(function () {
+  let preview = document.querySelector('.imgPreview');
+  let inputFile = document.querySelector('#shotUpload');
 
-inputFile.addEventListener('change',function(){
-  let file= inputFile.files[0];
-  // console.log(file);
-  var reader  = new FileReader();
-  reader.readAsDataURL(file);
-  if(file&&inputFile.files){
-    // console.log(reader);
-    reader.onload=function(e){
-      console.log(e)
-      preview.setAttribute("src", e.target.result);
+  inputFile.addEventListener('change', function () {
+    let file = inputFile.files[0];
+    // console.log(file);
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+    if (file && inputFile.files) {
+      // console.log(reader);
+      reader.onloadend = function (e) {
+        console.log(e)
+        preview.setAttribute("src", e.target.result);
+      }
     }
-  }
+  })
 })
 
 

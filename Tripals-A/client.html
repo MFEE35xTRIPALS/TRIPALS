@@ -44,7 +44,7 @@
         <button type="button" class="camera">
           <i class="fas fa-camera"></i>
         </button>
-        <form action="" enctype="multipart/form-data">
+        <form action="" method="post" enctype="multipart/form-data">
           <div class="mymodal">
             <div class="modalContent">
               <span onclick="closemodal()" class="closemodal">&times;</span>
@@ -57,13 +57,12 @@
               </div>
             </div>
           </div>
-          <input type="file" name="shotUpload" id="shotUpload" hidden />
+          <input type="file" name="shotUpload" id="shotUpload" accept=".jpg, .jpeg, .png, .gif" hidden />
         </form>
         <div class="h-img">
           <img class="shot" src="./img/admin2.png" alt="shot" />
         </div>
         <h4 class="username">panda_0419</h4>
-        <!-- <div class="mymodal" style="height: 50px; width: 50px; border: 2px red solid;"></div> -->
       </div>
 
 
@@ -447,8 +446,8 @@
     </section>
   </section>
   <!-- 我自己的js -->
-  <script src="./js/Xinjs.js"></script>
   <script src="./js/client_AJAX.js"></script>
+  <script src="./js/Xinjs.js"></script>
 </body>
 
 </html>
