@@ -45,8 +45,8 @@
           <i class="fas fa-camera"></i>
         </button>
         <form enctype="multipart/form-data">
-          <div class="mymodal">
-            <div class="modalContent">
+          <div class="mymodal" onclick="closemodal()">
+            <div class="modalContent" onclick="event.stopPropagation()">
               <span onclick="closemodal()" class="closemodal">&times;</span>
               <div class="imgPreviewBorder">
                 <img class="imgPreview" src="./img/admin2.png" alt="大頭貼預覽">
