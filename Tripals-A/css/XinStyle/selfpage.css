@@ -43,7 +43,6 @@ section.selfArticles .c-mylikes {
 
 div.onecard {
   width: 280px;
-  height: -moz-fit-content;
   height: fit-content;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   margin: 1rem 0.5rem;
@@ -73,14 +72,12 @@ div.onecard a.c-cardImg div.c-imgCover p {
   font-size: 1.5rem;
   padding: 0.5rem 2rem;
   text-align: center;
-  width: -moz-fit-content;
   width: fit-content;
 }
 div.onecard a.c-cardImg img.Img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 div.onecard div.card_body {
   margin: 1rem;
@@ -120,8 +117,7 @@ div.onecard div.card_body a.c-userName h6 img.head {
   height: 40px;
   background-color: #27a2b8;
   border-radius: 50%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 div.onecard div.card_body div.viewsAndHeart {
   color: black;
@@ -144,21 +140,17 @@ body section.selftop {
   background: url(https://s3-alpha-sig.figma.com/img/d108/7687/d1647a8897961fe4f95a863fd3f2a376?Expires=1681689600&Signature=OzW-GPXj-2lBoykmLK5J6v5fhuL5lvW~VYnlepF5s0Uo4otzpvlsqw8ekL-G7gPkad7Dz20Qt7BZX71Kc5IskDu9~Il3RR1dW~smfI7gbZ6OgMjlc3pSe-hzoFL4J4f0FBcUjSTdhuTvfEzGSLuMfJc3f9qTLRys2G0UavS2fF5nbKWWJLfFhL-TinNyS4YY2xoytrPi5AmzorbXw8MjO3ERO-w-OK-XD3I-m1gmNzaUSUJjEkJewDMQCVA7Nnqb1zAsRGHO~N2xiaFJVdJViuAQaOVxrf-xpqLQGMaT6aeQB8~Y3oyHA68v-jb5DXbOWkF56B1SAw8ZeSRWoZMjwg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4) no-repeat bottom;
   background-size: cover;
   overflow: hidden;
-  -webkit-clip-path: ellipse(75% 50% at 50% 30%);
-          clip-path: ellipse(75% 50% at 50% 30%);
+  clip-path: ellipse(75% 50% at 50% 30%);
   position: relative;
 }
 body section.selftop img.selfCover {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 body section.selftop div.selfMessage {
   position: absolute;
-  height: -moz-fit-content;
   height: fit-content;
-  width: -moz-fit-content;
   width: fit-content;
   left: 8%;
   bottom: 30%;
@@ -172,8 +164,7 @@ body section.selftop div.selfMessage img.selfShot {
   min-height: 60px;
   max-width: 100px;
   max-height: 100px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border-radius: 50%;
   margin: 1rem;
   border: 2px white solid;

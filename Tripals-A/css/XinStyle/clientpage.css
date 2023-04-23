@@ -43,7 +43,6 @@ section.selfArticles .c-mylikes {
 
 div.onecard {
   width: 280px;
-  height: -moz-fit-content;
   height: fit-content;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   margin: 1rem 0.5rem;
@@ -73,14 +72,12 @@ div.onecard a.c-cardImg div.c-imgCover p {
   font-size: 1.5rem;
   padding: 0.5rem 2rem;
   text-align: center;
-  width: -moz-fit-content;
   width: fit-content;
 }
 div.onecard a.c-cardImg img.Img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 div.onecard div.card_body {
   margin: 1rem;
@@ -120,8 +117,7 @@ div.onecard div.card_body a.c-userName h6 img.head {
   height: 40px;
   background-color: #27a2b8;
   border-radius: 50%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 div.onecard div.card_body div.viewsAndHeart {
   color: black;
@@ -146,8 +142,7 @@ section.c-head div.img2 {
   background: url(../../img/sunrise.jpg) no-repeat bottom;
   background-size: cover;
   overflow: hidden;
-  -webkit-clip-path: ellipse(75% 50% at 50% 30%);
-          clip-path: ellipse(75% 50% at 50% 30%);
+  clip-path: ellipse(75% 50% at 50% 30%);
   position: relative;
 }
 
@@ -206,8 +201,7 @@ section.c-head div.img2 {
 .c-left .c-head div.h-img img.shot {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .c-left .c-select ul {
   padding: 1.5rem;
@@ -293,7 +287,6 @@ section.c-head div.img2 {
 /* 編輯封面按鈕 */
 .edit_cover {
   position: absolute;
-  height: -moz-fit-content;
   height: fit-content;
   padding: 0.25rem 1.5rem;
   right: 8%;
@@ -368,8 +361,7 @@ button.camera {
 .mymodal div.modalContent div.imgPreviewBorder img.imgPreview {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .mymodal div.modalContent button.uploadShot,
 .mymodal div.modalContent .uploadShotDone {
@@ -388,6 +380,10 @@ button.camera {
 /* 個人資料 */
 .c-form {
   padding: 2rem 2rem 4rem 3rem;
+  /* 最新消息 - 新增 */
+}
+.c-form input {
+  white-space: normal;
 }
 .c-form .c-inbox {
   padding: 0.5rem;
@@ -395,15 +391,17 @@ button.camera {
   align-items: center;
   flex-wrap: wrap;
   position: relative;
-  /* 儲存按鈕 */
+  /* input[type="text"]  */
 }
 .c-form .c-inbox label {
   font-size: 1.5rem;
   padding-right: 1rem;
 }
+.c-form .c-inbox #bday {
+  padding-left: 1rem;
+}
 .c-form .c-inbox .c-textmessage {
   font-size: 1.25rem;
-  width: 350px;
   border: none;
   width: 85%;
   padding-left: 1rem;
@@ -413,18 +411,20 @@ button.camera {
   border-radius: 50px;
   padding-left: 1rem;
 }
-.c-form .c-inbox .c-change {
+.c-form .c-inbox button {
   padding: 0.25rem 0.85rem;
-  background: #b2d5ce;
   border-radius: 50px;
-  border: #b2d5ce 2px solid;
   position: absolute;
-  right: 20px;
   bottom: -40px;
-  font-size: 1.25rem;
+  border: #65c6c6 2px solid;
+  right: 20px;
+  background: #65c6c6;
+  color: #ffffff;
 }
-.c-form .c-inbox .c-change:hover {
-  background: white;
+.c-form .c-inbox button:hover {
+  color: #65c6c6;
+  background: #ffffff;
+  border: #65c6c6 2px solid;
 }
 .c-form .c-textarea {
   display: flex;
@@ -438,7 +438,9 @@ button.camera {
 .c-form .c-textarea .c-textbox {
   border: 1.5px #b2d5ce solid;
   border-radius: 10px;
-  height: 200px;
+  height: 100px;
+  font-size: 1.25rem;
+  padding: 0.5rem;
 }
 
 /* 我的收藏 */
