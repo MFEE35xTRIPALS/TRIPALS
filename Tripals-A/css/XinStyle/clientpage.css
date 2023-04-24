@@ -338,15 +338,18 @@ button.camera {
 .mymodal div.modalContent {
   background-color: #f0e8dc;
   border-radius: 10px;
-  padding: 20px;
-  width: 400px;
-  height: 60vh;
+  padding: 1rem;
+  width: 300px;
+  height: 300px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   flex-direction: column;
+  position: relative;
 }
 .mymodal div.modalContent span.closemodal {
+  position: absolute;
+  top: 10px;
   align-self: self-end;
   font-size: x-large;
   cursor: pointer;
