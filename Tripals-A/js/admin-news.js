@@ -5,6 +5,8 @@ $('a[href="#a-news"]').on("click", function () {
   $("#a-news").css("display", "block");
   $("#a-members").css("display", "none");
   $("#a-atricles").css("display", "none");
+  $("input").val("");
+  $("textarea").val("");
 });
 $('a[href="#a-members"]').on("click", function () {
   $("#a-news").css("display", "none");
@@ -71,7 +73,7 @@ $(document).ready(function () {
 $(".cancelBtn").on("click", function () {
   $("input").val("");
   $("textarea").val("");
-  console.log($("input[name='newsno']").val());
+  // console.log($("input[name='newsno']").val());
   postBtn();
 });
 
