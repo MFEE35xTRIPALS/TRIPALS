@@ -111,7 +111,7 @@ $(".c-change").on("click", function () {
   console.log("OK");
   $.ajax({
     url: "http://localhost:3000/admin/update",
-    type: "post",
+    type: "PUT",
     data: {
       newsno: $('input[name="newsno"]').val(),
       title: $('input[type="text"]').val(),
@@ -136,7 +136,7 @@ $(".deleteBtn").on("click", function () {
   console.log("OK");
   $.ajax({
     url: "http://localhost:3000/admin/delete",
-    type: "post",
+    type: "DELETE",
     data: {
       newsno: $('input[name="newsno"]').val(),
       status: "F",
