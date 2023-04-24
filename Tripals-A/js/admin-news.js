@@ -1,4 +1,21 @@
 // console.log($); //確認jQuery
+/* ------------- 使用者點擊切換分頁 ------------- */
+/* ------------- 改jQuery ------------- */
+$('a[href="#a-news"]').on("click", function () {
+  $("#a-news").css("display", "block");
+  $("#a-members").css("display", "none");
+  $("#a-atricles").css("display", "none");
+});
+$('a[href="#a-members"]').on("click", function () {
+  $("#a-news").css("display", "none");
+  $("#a-members").css("display", "block");
+  $("#a-atricles").css("display", "none");
+});
+$('a[href="#a-atricles"]').on("click", function () {
+  $("#a-news").css("display", "none");
+  $("#a-members").css("display", "none");
+  $("#a-atricles").css("display", "block");
+});
 
 /* ----------- 最新消息 CRUD ----------- */
 // ----- GET -----
