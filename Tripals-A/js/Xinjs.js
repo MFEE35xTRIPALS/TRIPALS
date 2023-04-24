@@ -18,24 +18,7 @@ camera.addEventListener('click', function () {
 function closemodal() {
   document.querySelector('.mymodal').style.display = "none";
 }
-// 大頭貼上傳預覽
-  let preview = document.querySelector('.imgPreview');
-  let inputFile = document.querySelector('#shotUpload');
 
-  inputFile.addEventListener('change', function () {
-    let file = inputFile.files[0];
-    console.log(file);
-    let reader = new FileReader();
-    reader.readAsDataURL(file);
-    console.log(reader);
-    if (file && inputFile.files) {
-      // console.log(preview);
-      reader.onloadend = function (e) {
-        // console.log(e)
-        preview.setAttribute("src", e.target.result);
-      }
-    }
-  })
 
 
 
