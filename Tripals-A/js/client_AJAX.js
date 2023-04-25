@@ -1,6 +1,6 @@
 $(document).ready(function () {
     // 傳入登入者id
-    let userno = 2;
+    let userno = 3;
 
     function getAvatar() {
         //GET 大頭貼照片
@@ -10,6 +10,9 @@ $(document).ready(function () {
         $.ajax({
             type: "GET",
             url: url + '/client/avatar',
+            data:{
+                userno:userno
+            },
             success: function (data) {
                 // 取得圖片資源成功，顯示圖片
                 avator(url + data.avatar)
