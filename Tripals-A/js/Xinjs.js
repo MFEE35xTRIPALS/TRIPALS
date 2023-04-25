@@ -20,10 +20,6 @@ function closemodal() {
 }
 
 
-
-
-
-
 // 使用者點擊切換分頁
 
 // console.log(typeof c_likes);

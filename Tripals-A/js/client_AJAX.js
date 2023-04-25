@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    // 傳入登入者id
+    let userno = 2;
+
     function getAvatar() {
         //GET 大頭貼照片
         let url = 'http://localhost:3000';
@@ -64,12 +67,12 @@ $(document).ready(function () {
         $('.uploadShotDone').on('click', function () {
             console.log(file);
             let formData = new FormData();
-            formData.append('shotUpload',file);
+            formData.append('shotUpload', file);
             // console.log(formData.get('shotUpload'));//檢查formData是否真的有東西
             $.ajax({
                 url: 'http://localhost:3000/client/upload',
                 type: 'POST',
-                data: formData,
+                data:formData,
                 processData: false,
                 contentType: false,
                 success: function () {
