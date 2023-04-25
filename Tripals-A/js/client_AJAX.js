@@ -32,9 +32,10 @@ $(document).ready(function () {
     // 大頭貼上傳預覽
     let preview = document.querySelector('.imgPreview');
     let inputFile = document.querySelector('#shotUpload');
+    let file;
 
     inputFile.addEventListener('change', (e) => {
-        let file = e.target.files[0];
+        file = e.target.files[0];
         console.log(file);
         let reader = new FileReader();
         reader.readAsDataURL(file);
@@ -46,25 +47,25 @@ $(document).ready(function () {
                 preview.setAttribute("src", e.target.result);
             }
         }
-        $('.uploadShotDone').on('click', function () {
-            console.log(file);
-            let formData = new FormData();
-            formData.append('shotUpload', file);
-            // console.log(formData.get('shotUpload'));//檢查formData是否真的有東西
-            $.ajax({
-                url: 'http://localhost:3000/client/upload',
-                type: 'POST',
-                data:formData,
-                processData: false,
-                contentType: false,
-                success: function (data) {
-                    console.log(data);
-                    alert(data);
-                    getAvatar();
-                },
-            });
-        })
-
+    })
+    $('.uploadShotDone').on('click', function () {
+        console.log(file);
+        let formData = new FormData();
+        formData.append('shotUpload', file);
+        formData.append('', file);
+        // console.log(formData.get('shotUpload'));//檢查formData是否真的有東西
+        $.ajax({
+            url: 'http://localhost:3000/client/upload',
+            type: 'POST',
+            data:formData,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                // console.log(data);
+                alert(data);
+                getAvatar();
+            },
+        });
     })
 });
 
