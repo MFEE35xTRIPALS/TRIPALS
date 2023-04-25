@@ -43,6 +43,7 @@ section.selfArticles .c-mylikes {
 
 div.onecard {
   width: 280px;
+  height: -moz-fit-content;
   height: fit-content;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   margin: 1rem 0.5rem;
@@ -72,12 +73,14 @@ div.onecard a.c-cardImg div.c-imgCover p {
   font-size: 1.5rem;
   padding: 0.5rem 2rem;
   text-align: center;
+  width: -moz-fit-content;
   width: fit-content;
 }
 div.onecard a.c-cardImg img.Img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 div.onecard div.card_body {
   margin: 1rem;
@@ -117,7 +120,8 @@ div.onecard div.card_body a.c-userName h6 img.head {
   height: 40px;
   background-color: #27a2b8;
   border-radius: 50%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 div.onecard div.card_body div.viewsAndHeart {
   color: black;
@@ -142,7 +146,8 @@ section.c-head div.img2 {
   background: url(../../img/sunrise.jpg) no-repeat bottom;
   background-size: cover;
   overflow: hidden;
-  clip-path: ellipse(75% 50% at 50% 30%);
+  -webkit-clip-path: ellipse(75% 50% at 50% 30%);
+          clip-path: ellipse(75% 50% at 50% 30%);
   position: relative;
 }
 
@@ -201,7 +206,8 @@ section.c-head div.img2 {
 .c-left .c-head div.h-img img.shot {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .c-left .c-select ul {
   padding: 1.5rem;
@@ -285,8 +291,44 @@ section.c-head div.img2 {
   }
 }
 /* 編輯封面按鈕 */
+div.bannerModal {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  z-index: 10;
+  width: 100vw;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 1.75rem;
+  display: flex;
+  justify-content: end;
+}
+div.bannerModal button {
+  padding: 0.25rem 1.5rem;
+  margin: 0 1rem;
+  font-size: 1.25rem;
+  background: #b2d5ce;
+  border: #b2d5ce 2px solid;
+  border: none;
+  border-radius: 50px;
+  transition: all 0.2s ease;
+}
+div.bannerModal button.cancel {
+  background: rgba(255, 255, 255, 0.8);
+}
+div.bannerModal button:hover {
+  background-color: white;
+}
+
+img.selfbanner {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .edit_cover {
   position: absolute;
+  height: -moz-fit-content;
   height: fit-content;
   padding: 0.25rem 1.5rem;
   right: 8%;
@@ -364,7 +406,8 @@ button.camera {
 .mymodal div.modalContent div.imgPreviewBorder img.imgPreview {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .mymodal div.modalContent button.uploadShot,
 .mymodal div.modalContent .uploadShotDone {

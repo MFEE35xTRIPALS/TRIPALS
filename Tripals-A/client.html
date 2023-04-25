@@ -1,509 +1,445 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- font-awesome 6.4.0-->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <!-- Google Icon -->
 
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    />
-    <!-- bootstrap 5.3.0-->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-      crossorigin="anonymous"
-    ></script>
-    <!-- jQuery 3.6.0 -->
-    <script src="./js/jquery-3.6.0.js"></script>
-    <!-- google font sen-->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <!-- 我自己的css -->
-    <link rel="stylesheet" href="./css/XinStyle/clientpage.css" />
-    <title>個人後台</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- font-awesome 6.4.0-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Google Icon -->
 
-  <body>
-    <section class="c-head">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <!-- bootstrap 5.3.0-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+  <!-- jQuery 3.6.0 -->
+  <script src="./js/jquery-3.6.0.js"></script>
+  <!-- google font sen-->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap" rel="stylesheet" />
+  <!-- 我自己的css -->
+  <link rel="stylesheet" href="./css/XinStyle/clientpage.css" />
+  <title>個人後台</title>
+</head>
+
+<body>
+  <section class="c-head">
+    <form action="">
+      <div class="bannerModal">
+        <button class="uploadbanner">上傳照片</button>
+        <button class="cancel">取消</button>
+        <button class="bannerDone">確認上傳</button>
+      </div>
       <div class="img2">
-        <form action="">
-          <button class="edit_cover" id="edit_cover">編輯封面</button>
-          <input type="file" id="fileUpload" hidden />
+        <img class="selfbanner" src="./img/y-s-LGx9C3nSo5I-unsplash.jpg" alt="個人頁面" />
+        <button class="edit_cover" id="edit_cover">編輯封面</button>
+        <input type="file" id="fileUpload" hidden />
+      </div>
+    </form>
+  </section>
+  <section class="c-rwd">
+    <section class="c-left">
+      <div class="c-head">
+        <button type="button" class="camera">
+          <i class="fas fa-camera"></i>
+        </button>
+        <form enctype="multipart/form-data">
+          <div class="mymodal" onclick="closemodal()">
+            <div class="modalContent" onclick="event.stopPropagation()">
+              <span onclick="closemodal()" class="closemodal">&times;</span>
+              <div class="imgPreviewBorder">
+                <img class="imgPreview" src="./img/admin2.png" alt="大頭貼預覽" />
+              </div>
+              <div class="uploadShotBtn">
+                <button class="uploadShot" type="button">上傳照片</button>
+                <button class="uploadShotDone" type="button" onclick="closemodal()">確認上傳</button>
+              </div>
+            </div>
+          </div>
+          <input type="file" id="shotUpload" accept=".jpg, .jpeg, .png, .gif" hidden />
         </form>
+        <div class="h-img">
+          <img class="shot" src="./img/admin2.png" alt="shot" />
+        </div>
+        <h4 class="username">userName</h4>
+      </div>
+
+      <div class="c-select">
+        <ul>
+          <li><a href="#c-message">個人資料</a></li>
+          <li><a href="#c-likes">我的收藏</a></li>
+          <li><a href="#c-myarts">我的文章</a></li>
+        </ul>
       </div>
     </section>
-    <section class="c-rwd">
-      <section class="c-left">
-        <div class="c-head">
-          <button type="button" class="camera">
-            <i class="fas fa-camera"></i>
-          </button>
-          <form enctype="multipart/form-data">
-            <div class="mymodal" onclick="closemodal()">
-              <div class="modalContent" onclick="event.stopPropagation()">
-                <span onclick="closemodal()" class="closemodal">&times;</span>
-                <div class="imgPreviewBorder">
-                  <img
-                    class="imgPreview"
-                    src="./img/admin2.png"
-                    alt="大頭貼預覽"
-                  />
-                </div>
-                <div class="uploadShotBtn">
-                  <button class="uploadShot" type="button">上傳照片</button>
-                  <button class="uploadShotDone" type="button" onclick="closemodal()">確認上傳</button>
-                </div>
-              </div>
-            </div>
-            <input
-              type="file"
-              id="shotUpload"
-              accept=".jpg, .jpeg, .png, .gif"
-              hidden
-            />
-          </form>
-          <div class="h-img">
-            <img class="shot" src="./img/admin2.png" alt="shot" />
+    <section class="c-right">
+      <div id="c-message" class="c-block">
+        <h3 class="c-title">個人資料</h3>
+        <form action="" class="c-form">
+          <div class="c-inbox">
+            <label for="email">帳號:</label><span id="id" style="display: none"></span>
+            <input id="email" class="c-textmessage" type="email" />
           </div>
-          <h4 class="username">userName</h4>
-        </div>
+          <div class="c-inbox">
+            <label for="pwd">密碼:</label>
+            <input id="pwd" class="c-textmessage" type="password" />
+          </div>
+          <div class="c-inbox">
+            <label for="nick">暱稱:</label>
+            <input id="nick" class="c-textmessage" type="text" />
+          </div>
+          <div class="c-inbox">
+            <label for="bday">生日:</label>
+            <input id="bday" class="c-date" type="date" />
+          </div>
+          <div class="c-textarea">
+            <label for="myIntro">個人簡介:</label>
+            <textarea id="myIntro" class="c-textbox"></textarea>
+          </div>
+          <div class="c-inbox">
+            <button class="c-change" type="submit">確定修改</button>
+          </div>
+        </form>
+      </div>
+      <div id="c-likes" class="c-block">
+        <h3 class="c-title">我的收藏</h3>
+        <div class="c-mylikes">
+          <div class="onecard card">
+            <a href="#" class="c-cardImg">
+              <div class="c-imgCover">
+                <p>more</p>
+              </div>
+              <img class="Img" src="./img/puppy-1207816_1280.jpg" alt="文章首圖" class="card-img-top" />
+            </a>
 
-        <div class="c-select">
-          <ul>
-            <li><a href="#c-message">個人資料</a></li>
-            <li><a href="#c-likes">我的收藏</a></li>
-            <li><a href="#c-myarts">我的文章</a></li>
-          </ul>
-        </div>
-      </section>
-      <section class="c-right">
-        <div id="c-message" class="c-block">
-          <h3 class="c-title">個人資料</h3>
-          <form action="" class="c-form">
-            <div class="c-inbox">
-              <label for="email">帳號:</label
-              ><span id="id" style="display: none"></span>
-              <input id="email" class="c-textmessage" type="email" />
-            </div>
-            <div class="c-inbox">
-              <label for="pwd">密碼:</label>
-              <input id="pwd" class="c-textmessage" type="password" />
-            </div>
-            <div class="c-inbox">
-              <label for="nick">暱稱:</label>
-              <input id="nick" class="c-textmessage" type="text" />
-            </div>
-            <div class="c-inbox">
-              <label for="bday">生日:</label>
-              <input id="bday" class="c-date" type="date" />
-            </div>
-            <div class="c-textarea">
-              <label for="myIntro">個人簡介:</label>
-              <textarea id="myIntro" class="c-textbox"></textarea>
-            </div>
-            <div class="c-inbox">
-              <button class="c-change" type="submit">確定修改</button>
-            </div>
-          </form>
-        </div>
-        <div id="c-likes" class="c-block">
-          <h3 class="c-title">我的收藏</h3>
-          <div class="c-mylikes">
-            <div class="onecard card">
-              <a href="#" class="c-cardImg">
-                <div class="c-imgCover">
-                  <p>more</p>
-                </div>
-                <img
-                  class="Img"
-                  src="./img/puppy-1207816_1280.jpg"
-                  alt="文章首圖"
-                  class="card-img-top"
-                />
-              </a>
-
-              <div class="card_body">
-                <div>
-                  <a class="c-toSelfpage" href="#">
-                    <h4 class="card-title">
-                      【彰化｜埔心】果時手作坊。老屋新裝工業風。各式水果塔。水果珍珠奶昔。下午茶新選擇
-                    </h4>
-                  </a>
-                  <i class="heart fa-regular fa-heart"></i>
-                </div>
-                <a href="#" class="c-userName">
-                  <h6>
-                    <img src="./img/admin.png" alt="大頭照" class="head" />
-                    UserName
-                  </h6>
+            <div class="card_body">
+              <div>
+                <a class="c-toSelfpage" href="#">
+                  <h4 class="card-title">
+                    【彰化｜埔心】果時手作坊。老屋新裝工業風。各式水果塔。水果珍珠奶昔。下午茶新選擇
+                  </h4>
                 </a>
-                <div class="viewsAndHeart">
-                  <p><i class="fa-regular fa-heart"></i> 1000</p>
-                  <p><i class="fa-regular fa-eye"></i> 1000</p>
-                </div>
+                <i class="heart fa-regular fa-heart"></i>
+              </div>
+              <a href="#" class="c-userName">
+                <h6>
+                  <img src="./img/admin.png" alt="大頭照" class="head" />
+                  UserName
+                </h6>
+              </a>
+              <div class="viewsAndHeart">
+                <p><i class="fa-regular fa-heart"></i> 1000</p>
+                <p><i class="fa-regular fa-eye"></i> 1000</p>
               </div>
             </div>
-            <div class="onecard card">
-              <a href="#" class="c-cardImg">
-                <div class="c-imgCover">
-                  <p>more</p>
-                </div>
-                <img
-                  class="Img"
-                  src="./img/puppy-1207816_1280.jpg"
-                  alt="文章首圖"
-                  class="card-img-top"
-                />
-              </a>
+          </div>
+          <div class="onecard card">
+            <a href="#" class="c-cardImg">
+              <div class="c-imgCover">
+                <p>more</p>
+              </div>
+              <img class="Img" src="./img/puppy-1207816_1280.jpg" alt="文章首圖" class="card-img-top" />
+            </a>
 
-              <div class="card_body">
-                <div>
-                  <a class="c-toSelfpage" href="#">
-                    <h4 class="card-title">
-                      【彰化｜埔心】果時手作坊。老屋新裝工業風。各式水果塔。水果珍珠奶昔。下午茶新選擇
-                    </h4>
-                  </a>
-                  <i class="heart fa-regular fa-heart"></i>
-                </div>
-                <a href="#" class="c-userName">
-                  <h6>
-                    <img src="./img/admin.png" alt="大頭照" class="head" />
-                    UserName
-                  </h6>
+            <div class="card_body">
+              <div>
+                <a class="c-toSelfpage" href="#">
+                  <h4 class="card-title">
+                    【彰化｜埔心】果時手作坊。老屋新裝工業風。各式水果塔。水果珍珠奶昔。下午茶新選擇
+                  </h4>
                 </a>
-                <div class="viewsAndHeart">
-                  <p><i class="fa-regular fa-heart"></i> 1000</p>
-                  <p><i class="fa-regular fa-eye"></i> 1000</p>
-                </div>
+                <i class="heart fa-regular fa-heart"></i>
+              </div>
+              <a href="#" class="c-userName">
+                <h6>
+                  <img src="./img/admin.png" alt="大頭照" class="head" />
+                  UserName
+                </h6>
+              </a>
+              <div class="viewsAndHeart">
+                <p><i class="fa-regular fa-heart"></i> 1000</p>
+                <p><i class="fa-regular fa-eye"></i> 1000</p>
               </div>
             </div>
-            <div class="onecard card">
-              <a href="#" class="c-cardImg">
-                <div class="c-imgCover">
-                  <p>more</p>
-                </div>
-                <img
-                  class="Img"
-                  src="./img/puppy-1207816_1280.jpg"
-                  alt="文章首圖"
-                  class="card-img-top"
-                />
-              </a>
+          </div>
+          <div class="onecard card">
+            <a href="#" class="c-cardImg">
+              <div class="c-imgCover">
+                <p>more</p>
+              </div>
+              <img class="Img" src="./img/puppy-1207816_1280.jpg" alt="文章首圖" class="card-img-top" />
+            </a>
 
-              <div class="card_body">
-                <div>
-                  <a class="c-toSelfpage" href="#">
-                    <h4 class="card-title">
-                      【彰化｜埔心】果時手作坊。老屋新裝工業風。各式水果塔。水果珍珠奶昔。下午茶新選擇
-                    </h4>
-                  </a>
-                  <i class="heart fa-regular fa-heart"></i>
-                </div>
-                <a href="#" class="c-userName">
-                  <h6>
-                    <img src="./img/admin.png" alt="大頭照" class="head" />
-                    UserName
-                  </h6>
+            <div class="card_body">
+              <div>
+                <a class="c-toSelfpage" href="#">
+                  <h4 class="card-title">
+                    【彰化｜埔心】果時手作坊。老屋新裝工業風。各式水果塔。水果珍珠奶昔。下午茶新選擇
+                  </h4>
                 </a>
-                <div class="viewsAndHeart">
-                  <p><i class="fa-regular fa-heart"></i> 1000</p>
-                  <p><i class="fa-regular fa-eye"></i> 1000</p>
-                </div>
+                <i class="heart fa-regular fa-heart"></i>
+              </div>
+              <a href="#" class="c-userName">
+                <h6>
+                  <img src="./img/admin.png" alt="大頭照" class="head" />
+                  UserName
+                </h6>
+              </a>
+              <div class="viewsAndHeart">
+                <p><i class="fa-regular fa-heart"></i> 1000</p>
+                <p><i class="fa-regular fa-eye"></i> 1000</p>
               </div>
             </div>
-            <div class="onecard card">
-              <a href="#" class="c-cardImg">
-                <div class="c-imgCover">
-                  <p>more</p>
-                </div>
-                <img
-                  class="Img"
-                  src="./img/puppy-1207816_1280.jpg"
-                  alt="文章首圖"
-                  class="card-img-top"
-                />
-              </a>
+          </div>
+          <div class="onecard card">
+            <a href="#" class="c-cardImg">
+              <div class="c-imgCover">
+                <p>more</p>
+              </div>
+              <img class="Img" src="./img/puppy-1207816_1280.jpg" alt="文章首圖" class="card-img-top" />
+            </a>
 
-              <div class="card_body">
-                <div>
-                  <a class="c-toSelfpage" href="#">
-                    <h4 class="card-title">
-                      【彰化｜埔心】果時手作坊。老屋新裝工業風。各式水果塔。水果珍珠奶昔。下午茶新選擇
-                    </h4>
-                  </a>
-                  <i class="heart fa-regular fa-heart"></i>
-                </div>
-                <a href="#" class="c-userName">
-                  <h6>
-                    <img src="./img/admin.png" alt="大頭照" class="head" />
-                    UserName
-                  </h6>
+            <div class="card_body">
+              <div>
+                <a class="c-toSelfpage" href="#">
+                  <h4 class="card-title">
+                    【彰化｜埔心】果時手作坊。老屋新裝工業風。各式水果塔。水果珍珠奶昔。下午茶新選擇
+                  </h4>
                 </a>
-                <div class="viewsAndHeart">
-                  <p><i class="fa-regular fa-heart"></i> 1000</p>
-                  <p><i class="fa-regular fa-eye"></i> 1000</p>
-                </div>
+                <i class="heart fa-regular fa-heart"></i>
+              </div>
+              <a href="#" class="c-userName">
+                <h6>
+                  <img src="./img/admin.png" alt="大頭照" class="head" />
+                  UserName
+                </h6>
+              </a>
+              <div class="viewsAndHeart">
+                <p><i class="fa-regular fa-heart"></i> 1000</p>
+                <p><i class="fa-regular fa-eye"></i> 1000</p>
               </div>
             </div>
-            <div class="onecard card">
-              <a href="#" class="c-cardImg">
-                <div class="c-imgCover">
-                  <p>more</p>
-                </div>
-                <img
-                  class="Img"
-                  src="./img/puppy-1207816_1280.jpg"
-                  alt="文章首圖"
-                  class="card-img-top"
-                />
-              </a>
+          </div>
+          <div class="onecard card">
+            <a href="#" class="c-cardImg">
+              <div class="c-imgCover">
+                <p>more</p>
+              </div>
+              <img class="Img" src="./img/puppy-1207816_1280.jpg" alt="文章首圖" class="card-img-top" />
+            </a>
 
-              <div class="card_body">
-                <div>
-                  <a class="c-toSelfpage" href="#">
-                    <h4 class="card-title">
-                      【彰化｜埔心】果時手作坊。老屋新裝工業風。各式水果塔。水果珍珠奶昔。下午茶新選擇
-                    </h4>
-                  </a>
-                  <i class="heart fa-regular fa-heart"></i>
-                </div>
-                <a href="#" class="c-userName">
-                  <h6>
-                    <img src="./img/admin.png" alt="大頭照" class="head" />
-                    UserName
-                  </h6>
+            <div class="card_body">
+              <div>
+                <a class="c-toSelfpage" href="#">
+                  <h4 class="card-title">
+                    【彰化｜埔心】果時手作坊。老屋新裝工業風。各式水果塔。水果珍珠奶昔。下午茶新選擇
+                  </h4>
                 </a>
-                <div class="viewsAndHeart">
-                  <p><i class="fa-regular fa-heart"></i> 1000</p>
-                  <p><i class="fa-regular fa-eye"></i> 1000</p>
-                </div>
+                <i class="heart fa-regular fa-heart"></i>
+              </div>
+              <a href="#" class="c-userName">
+                <h6>
+                  <img src="./img/admin.png" alt="大頭照" class="head" />
+                  UserName
+                </h6>
+              </a>
+              <div class="viewsAndHeart">
+                <p><i class="fa-regular fa-heart"></i> 1000</p>
+                <p><i class="fa-regular fa-eye"></i> 1000</p>
               </div>
             </div>
-            <div class="onecard card">
-              <a href="#" class="c-cardImg">
-                <div class="c-imgCover">
-                  <p>more</p>
-                </div>
-                <img
-                  class="Img"
-                  src="./img/puppy-1207816_1280.jpg"
-                  alt="文章首圖"
-                  class="card-img-top"
-                />
-              </a>
+          </div>
+          <div class="onecard card">
+            <a href="#" class="c-cardImg">
+              <div class="c-imgCover">
+                <p>more</p>
+              </div>
+              <img class="Img" src="./img/puppy-1207816_1280.jpg" alt="文章首圖" class="card-img-top" />
+            </a>
 
-              <div class="card_body">
-                <div>
-                  <a class="c-toSelfpage" href="#">
-                    <h4 class="card-title">
-                      【彰化｜埔心】果時手作坊。老屋新裝工業風。各式水果塔。水果珍珠奶昔。下午茶新選擇
-                    </h4>
-                  </a>
-                  <i class="heart fa-regular fa-heart"></i>
-                </div>
-                <a href="#" class="c-userName">
-                  <h6>
-                    <img src="./img/admin.png" alt="大頭照" class="head" />
-                    UserName
-                  </h6>
+            <div class="card_body">
+              <div>
+                <a class="c-toSelfpage" href="#">
+                  <h4 class="card-title">
+                    【彰化｜埔心】果時手作坊。老屋新裝工業風。各式水果塔。水果珍珠奶昔。下午茶新選擇
+                  </h4>
                 </a>
-                <div class="viewsAndHeart">
-                  <p><i class="fa-regular fa-heart"></i> 1000</p>
-                  <p><i class="fa-regular fa-eye"></i> 1000</p>
-                </div>
+                <i class="heart fa-regular fa-heart"></i>
+              </div>
+              <a href="#" class="c-userName">
+                <h6>
+                  <img src="./img/admin.png" alt="大頭照" class="head" />
+                  UserName
+                </h6>
+              </a>
+              <div class="viewsAndHeart">
+                <p><i class="fa-regular fa-heart"></i> 1000</p>
+                <p><i class="fa-regular fa-eye"></i> 1000</p>
               </div>
             </div>
           </div>
         </div>
-        <div id="c-myarts" class="c-block">
-          <h3 class="c-title">我的文章</h3>
-          <div class="c-mine">
-            <table class="c-myart">
-              <thead>
-                <tr>
-                  <td>文章標題</td>
-                  <td>狀態</td>
-                  <td>觀看數</td>
-                  <td>熱門度</td>
-                  <td>編輯</td>
-                  <td>下架文章</td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
+      </div>
+      <div id="c-myarts" class="c-block">
+        <h3 class="c-title">我的文章</h3>
+        <div class="c-mine">
+          <table class="c-myart">
+            <thead>
+              <tr>
+                <td>文章標題</td>
+                <td>狀態</td>
+                <td>觀看數</td>
+                <td>熱門度</td>
+                <td>編輯</td>
+                <td>下架文章</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  【彰化｜埔心】果時手作坊。老屋新裝工業風。各式水果塔。水果珍珠奶昔。下午茶新選擇
+                </td>
+                <td>編輯中</td>
+                <td><i class="fa-regular fa-eye"></i> 1000</td>
+                <td><i class="fa-regular fa-heart"></i> 1000</td>
+                <td>
+                  <a class="c-editArt" href="#"><i class="fa-regular fa-pen-to-square"></i></a>
+                </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>
+                  【彰化｜埔心】果時手作坊。老屋新裝工業風。各式水果塔。水果珍珠奶昔。下午茶新選擇
+                </td>
+                <td>編輯中</td>
+                <td><i class="fa-regular fa-eye"></i> 1000</td>
+                <td><i class="fa-regular fa-heart"></i> 1000</td>
+                <td>
+                  <a class="c-editArt" href="#"><i class="fa-regular fa-pen-to-square"></i></a>
+                </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="#">
                     【彰化｜埔心】果時手作坊。老屋新裝工業風。各式水果塔。水果珍珠奶昔。下午茶新選擇
-                  </td>
-                  <td>編輯中</td>
-                  <td><i class="fa-regular fa-eye"></i> 1000</td>
-                  <td><i class="fa-regular fa-heart"></i> 1000</td>
-                  <td>
-                    <a class="c-editArt" href="#"
-                      ><i class="fa-regular fa-pen-to-square"></i
-                    ></a>
-                  </td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    【彰化｜埔心】果時手作坊。老屋新裝工業風。各式水果塔。水果珍珠奶昔。下午茶新選擇
-                  </td>
-                  <td>編輯中</td>
-                  <td><i class="fa-regular fa-eye"></i> 1000</td>
-                  <td><i class="fa-regular fa-heart"></i> 1000</td>
-                  <td>
-                    <a class="c-editArt" href="#"
-                      ><i class="fa-regular fa-pen-to-square"></i
-                    ></a>
-                  </td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    <a href="#">
-                      【彰化｜埔心】果時手作坊。老屋新裝工業風。各式水果塔。水果珍珠奶昔。下午茶新選擇
-                    </a>
-                  </td>
-                  <td>已發佈</td>
-                  <td><i class="fa-regular fa-eye"></i> 1000</td>
-                  <td><i class="fa-regular fa-heart"></i> 1000</td>
-                  <td>
-                    <a class="c-editArt" href="#"
-                      ><i class="fa-regular fa-pen-to-square"></i
-                    ></a>
-                  </td>
-                  <td><button class="c-takeOf">下架</button></td>
-                </tr>
-                <tr>
-                  <td>
-                    <a href="#">
-                      【屏東｜六塊厝】阿秀小吃部牛肉麵。眷村好滋味，眷村的回憶
-                    </a>
-                  </td>
-                  <td>已發佈</td>
-                  <td><i class="fa-regular fa-eye"></i> 1000</td>
-                  <td><i class="fa-regular fa-heart"></i> 1000</td>
-                  <td>
-                    <a class="c-editArt" href="#"
-                      ><i class="fa-regular fa-pen-to-square"></i
-                    ></a>
-                  </td>
-                  <td><button class="c-takeOf">下架</button></td>
-                </tr>
-                <tr>
-                  <td>
-                    <a href="#">
-                      【屏東｜六塊厝】阿秀小吃部牛肉麵。眷村好滋味，眷村的回憶
-                    </a>
-                  </td>
-                  <td>已發佈</td>
-                  <td><i class="fa-regular fa-eye"></i> 1000</td>
-                  <td><i class="fa-regular fa-heart"></i> 1000</td>
-                  <td>
-                    <a class="c-editArt" href="#"
-                      ><i class="fa-regular fa-pen-to-square"></i
-                    ></a>
-                  </td>
-                  <td><button class="c-takeOf">下架</button></td>
-                </tr>
-                <tr>
-                  <td>
-                    <a href="#">
-                      【屏東｜六塊厝】阿秀小吃部牛肉麵。眷村好滋味，眷村的回憶
-                    </a>
-                  </td>
-                  <td>已發佈</td>
-                  <td><i class="fa-regular fa-eye"></i> 1000</td>
-                  <td><i class="fa-regular fa-heart"></i> 1000</td>
-                  <td>
-                    <a class="c-editArt" href="#"
-                      ><i class="fa-regular fa-pen-to-square"></i
-                    ></a>
-                  </td>
-                  <td><button class="c-takeOf">下架</button></td>
-                </tr>
-                <tr class="c-takeOfDone">
-                  <td>
-                    <a href="#">
-                      【屏東｜六塊厝】阿秀小吃部牛肉麵。眷村好滋味，眷村的回憶
-                    </a>
-                  </td>
-                  <td>已下架</td>
-                  <td><i class="fa-regular fa-eye"></i> 1000</td>
-                  <td><i class="fa-regular fa-heart"></i> 1000</td>
-                  <td>
-                    <a class="c-editArt" href="#"
-                      ><i class="fa-regular fa-pen-to-square"></i
-                    ></a>
-                  </td>
-                  <td><button class="c-takeOf" disabled>下架</button></td>
-                </tr>
-                <tr class="c-takeOfDone">
-                  <td>
-                    <a href="#">
-                      【屏東｜六塊厝】阿秀小吃部牛肉麵。眷村好滋味，眷村的回憶
-                    </a>
-                  </td>
-                  <td>已下架</td>
-                  <td><i class="fa-regular fa-eye"></i> 1000</td>
-                  <td><i class="fa-regular fa-heart"></i> 1000</td>
-                  <td>
-                    <a class="c-editArt" href="#"
-                      ><i class="fa-regular fa-pen-to-square"></i
-                    ></a>
-                  </td>
-                  <td><button class="c-takeOf" disabled>下架</button></td>
-                </tr>
-                <tr class="c-deleteDone">
-                  <td>
-                    【彰化｜埔心】果時手作坊。老屋新裝工業風。各式水果塔。水果珍珠奶昔。下午茶新選擇
-                  </td>
-                  <td>檢舉刪除</td>
-                  <td><i class="fa-regular fa-eye"></i> 1000</td>
-                  <td><i class="fa-regular fa-heart"></i> 1000</td>
-                  <td>無法編輯</td>
-                  <td><button class="c-takeOf" disabled>下架</button></td>
-                </tr>
-                <tr class="c-deleteDone">
-                  <td>
-                    【彰化｜埔心】果時手作坊。老屋新裝工業風。各式水果塔。水果珍珠奶昔。下午茶新選擇
-                  </td>
-                  <td>檢舉刪除</td>
-                  <td><i class="fa-regular fa-eye"></i> 1000</td>
-                  <td><i class="fa-regular fa-heart"></i> 1000</td>
-                  <td>無法編輯</td>
-                  <td><button class="c-takeOf" disabled>下架</button></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+                  </a>
+                </td>
+                <td>已發佈</td>
+                <td><i class="fa-regular fa-eye"></i> 1000</td>
+                <td><i class="fa-regular fa-heart"></i> 1000</td>
+                <td>
+                  <a class="c-editArt" href="#"><i class="fa-regular fa-pen-to-square"></i></a>
+                </td>
+                <td><button class="c-takeOf">下架</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="#">
+                    【屏東｜六塊厝】阿秀小吃部牛肉麵。眷村好滋味，眷村的回憶
+                  </a>
+                </td>
+                <td>已發佈</td>
+                <td><i class="fa-regular fa-eye"></i> 1000</td>
+                <td><i class="fa-regular fa-heart"></i> 1000</td>
+                <td>
+                  <a class="c-editArt" href="#"><i class="fa-regular fa-pen-to-square"></i></a>
+                </td>
+                <td><button class="c-takeOf">下架</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="#">
+                    【屏東｜六塊厝】阿秀小吃部牛肉麵。眷村好滋味，眷村的回憶
+                  </a>
+                </td>
+                <td>已發佈</td>
+                <td><i class="fa-regular fa-eye"></i> 1000</td>
+                <td><i class="fa-regular fa-heart"></i> 1000</td>
+                <td>
+                  <a class="c-editArt" href="#"><i class="fa-regular fa-pen-to-square"></i></a>
+                </td>
+                <td><button class="c-takeOf">下架</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="#">
+                    【屏東｜六塊厝】阿秀小吃部牛肉麵。眷村好滋味，眷村的回憶
+                  </a>
+                </td>
+                <td>已發佈</td>
+                <td><i class="fa-regular fa-eye"></i> 1000</td>
+                <td><i class="fa-regular fa-heart"></i> 1000</td>
+                <td>
+                  <a class="c-editArt" href="#"><i class="fa-regular fa-pen-to-square"></i></a>
+                </td>
+                <td><button class="c-takeOf">下架</button></td>
+              </tr>
+              <tr class="c-takeOfDone">
+                <td>
+                  <a href="#">
+                    【屏東｜六塊厝】阿秀小吃部牛肉麵。眷村好滋味，眷村的回憶
+                  </a>
+                </td>
+                <td>已下架</td>
+                <td><i class="fa-regular fa-eye"></i> 1000</td>
+                <td><i class="fa-regular fa-heart"></i> 1000</td>
+                <td>
+                  <a class="c-editArt" href="#"><i class="fa-regular fa-pen-to-square"></i></a>
+                </td>
+                <td><button class="c-takeOf" disabled>下架</button></td>
+              </tr>
+              <tr class="c-takeOfDone">
+                <td>
+                  <a href="#">
+                    【屏東｜六塊厝】阿秀小吃部牛肉麵。眷村好滋味，眷村的回憶
+                  </a>
+                </td>
+                <td>已下架</td>
+                <td><i class="fa-regular fa-eye"></i> 1000</td>
+                <td><i class="fa-regular fa-heart"></i> 1000</td>
+                <td>
+                  <a class="c-editArt" href="#"><i class="fa-regular fa-pen-to-square"></i></a>
+                </td>
+                <td><button class="c-takeOf" disabled>下架</button></td>
+              </tr>
+              <tr class="c-deleteDone">
+                <td>
+                  【彰化｜埔心】果時手作坊。老屋新裝工業風。各式水果塔。水果珍珠奶昔。下午茶新選擇
+                </td>
+                <td>檢舉刪除</td>
+                <td><i class="fa-regular fa-eye"></i> 1000</td>
+                <td><i class="fa-regular fa-heart"></i> 1000</td>
+                <td>無法編輯</td>
+                <td><button class="c-takeOf" disabled>下架</button></td>
+              </tr>
+              <tr class="c-deleteDone">
+                <td>
+                  【彰化｜埔心】果時手作坊。老屋新裝工業風。各式水果塔。水果珍珠奶昔。下午茶新選擇
+                </td>
+                <td>檢舉刪除</td>
+                <td><i class="fa-regular fa-eye"></i> 1000</td>
+                <td><i class="fa-regular fa-heart"></i> 1000</td>
+                <td>無法編輯</td>
+                <td><button class="c-takeOf" disabled>下架</button></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-      </section>
+      </div>
     </section>
-    <!-- 我自己的js -->
-    <script src="./js/client_AJAX.js"></script>
-    <script src="./js/Xinjs.js"></script>
-    <script src="./js/client-identity.js"></script>
-  </body>
+  </section>
+  <!-- 我自己的js -->
+  <script src="./js/client_AJAX.js"></script>
+  <script src="./js/Xinjs.js"></script>
+  <script src="./js/client-identity.js"></script>
+</body>
+
 </html>

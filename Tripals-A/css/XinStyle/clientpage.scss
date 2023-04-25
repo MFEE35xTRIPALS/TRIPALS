@@ -3,6 +3,38 @@
 @import "../TinaStyle/backend_left";
 
 /* 編輯封面按鈕 */
+div.bannerModal{
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  z-index: 10;
+  width: 100vw;
+  height: fit-content;
+  padding: 1.75rem;
+  display: flex;
+  justify-content: end;
+  button{
+    padding: 0.25rem 1.5rem;
+    margin: 0 1rem;
+    font-size: $clientBtnfont;
+    background: $clientMessagecolor;
+    border: $clientMessagecolor 2px solid;
+    border: none;
+    border-radius: 50px;
+    transition: all 0.2s ease;
+    &.cancel{
+      background:rgba($color: #ffffff, $alpha: 0.8);
+    }
+    &:hover{
+      background-color: $MessageBtnHover;
+    }
+  }
+
+}
+img.selfbanner {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .edit_cover {
   position: absolute;
   height: fit-content;
