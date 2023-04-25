@@ -52,7 +52,7 @@ $(document).ready(function () {
         console.log(file);
         let formData = new FormData();
         formData.append('shotUpload', file);
-        formData.append('', file);
+        formData.append('userno', userno);
         // console.log(formData.get('shotUpload'));//檢查formData是否真的有東西
         $.ajax({
             url: 'http://localhost:3000/client/upload',
