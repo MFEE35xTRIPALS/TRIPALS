@@ -27,26 +27,7 @@ $(document).ready(function () {
 
     };
     getAvatar();
-    // 上傳圖片
-    // $('.uploadShotDone').submit(function (e) {
-    //     e.preventDefault();
-    //     var formData = new FormData();
-    //     formData.append('avatar', $('#shotUpload')[0].files[0]);
-    //     $.ajax({
-    //         url: 'http://localhost:3000/client/uploadfile',
-    //         type: 'POST',
-    //         data: formData,
-    //         processData: false,
-    //         contentType: false,
-    //         success: function () {
-    //             alert('Upload successful!');
-    //             $('#avatarImg').attr('src', 'http://localhost:3000/client/uploadfile' + new Date().getTime());
-    //         },
-    //         error: function () {
-    //             alert('Upload failed!');
-    //         }
-    //     });
-    // });
+    
     // 大頭貼上傳預覽
     let preview = document.querySelector('.imgPreview');
     let inputFile = document.querySelector('#shotUpload');
@@ -75,9 +56,9 @@ $(document).ready(function () {
                 data:formData,
                 processData: false,
                 contentType: false,
-                success: function () {
-                    console.log('okkkk');
-                    alert('Upload successful!');
+                success: function (data) {
+                    alert(data);
+                    getAvatar();
                 },
             });
         })
