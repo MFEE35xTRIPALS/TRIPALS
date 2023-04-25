@@ -4,14 +4,14 @@ $(document).ready(function () {
 
     function getAvatar() {
         //GET 大頭貼照片
+        $(".shot").attr('src','');
+        $('.imgPreview').attr('src','');
         let url = 'http://localhost:3000';
         $.ajax({
             type: "GET",
             url: url + '/client/avatar',
             success: function (data) {
                 // 取得圖片資源成功，顯示圖片
-                $(".h-img").empty();
-                $('.imgPreviewBorder').empty();
                 avator(url + data.avatar)
                 console.log(data);
             },
@@ -22,11 +22,12 @@ $(document).ready(function () {
         });
     }
     function avator(avatars) {
-        $('.h-img').append(`<img class="shot" src=${avatars} alt="shot" />`);
-        $('.imgPreviewBorder').append(`<img class="imgPreview" src=${avatars} alt="大頭貼預覽">`);
+        $(".shot").attr('src',avatars);
+        $('.imgPreview').attr('src',avatars);
 
     };
     getAvatar();
+
     
     // 大頭貼上傳預覽
     let preview = document.querySelector('.imgPreview');
@@ -57,6 +58,7 @@ $(document).ready(function () {
                 processData: false,
                 contentType: false,
                 success: function (data) {
+                    console.log(data);
                     alert(data);
                     getAvatar();
                 },
@@ -64,5 +66,5 @@ $(document).ready(function () {
         })
 
     })
-
 });
+
