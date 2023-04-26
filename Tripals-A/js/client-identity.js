@@ -8,7 +8,7 @@ var renderID = () => {
     type: "GET",
     success: function (data) {
       dataclear();
-      console.log(data); // 確認有撈到資料
+      // console.log(data); // 確認有撈到資料
       // $("#id").val(data[0].userno);
       $("#email").val(data[0].id);
       $("#pwd").val(data[0].password);
