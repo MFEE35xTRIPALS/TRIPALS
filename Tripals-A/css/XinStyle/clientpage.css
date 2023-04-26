@@ -289,7 +289,7 @@ div.bannerModal {
   width: 100vw;
   height: fit-content;
   padding: 1.75rem;
-  display: flex;
+  display: none;
   justify-content: end;
 }
 div.bannerModal button {

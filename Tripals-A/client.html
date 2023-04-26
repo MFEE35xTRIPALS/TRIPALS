@@ -31,16 +31,16 @@
 
 <body>
   <section class="c-head">
-    <form action="">
+    <form enctype="multipart/form-data">
       <div class="bannerModal">
-        <button class="uploadbanner">上傳照片</button>
-        <button class="cancel">取消</button>
-        <button class="bannerDone">確認上傳</button>
+        <button type="button" class="uploadbanner">上傳照片</button>
+        <button type="button" class="cancel" onclick="closeBanner()">取消</button>
+        <button type="button" class="bannerDone" onclick="closeBanner()">確認上傳</button>
       </div>
       <div class="img2">
         <img class="selfbanner" src="./img/y-s-LGx9C3nSo5I-unsplash.jpg" alt="個人頁面" />
-        <button class="edit_cover" id="edit_cover">編輯封面</button>
-        <input type="file" id="fileUpload" hidden />
+        <button type="button" class="edit_cover" id="edit_cover">編輯封面</button>
+        <input onchange="changePhoto(this)" type="file" id="fileUpload" accept=".jpg, .jpeg, .png, .gif" hidden />
       </div>
     </form>
   </section>
@@ -63,7 +63,7 @@
               </div>
             </div>
           </div>
-          <input type="file" id="shotUpload" accept=".jpg, .jpeg, .png, .gif" hidden />
+          <input onchange="changePhoto(this)" type="file" id="shotUpload" accept=".jpg, .jpeg, .png, .gif" hidden />
         </form>
         <div class="h-img">
           <img class="shot" src="./img/admin2.png" alt="shot" />
@@ -438,7 +438,6 @@
   </section>
   <!-- 我自己的js -->
   <script src="./js/client_AJAX.js"></script>
-  <script src="./js/Xinjs.js"></script>
   <script src="./js/client-identity.js"></script>
 </body>
 
