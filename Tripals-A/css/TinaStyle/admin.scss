@@ -12,6 +12,7 @@
 /* 右邊隨選項變動的區塊 */
 .c-right {
   .c-block {
+    position: relative;
     /* 最新消息區塊 */
     .a-news {
       padding: 2rem 2rem 0rem 3rem;
@@ -61,7 +62,7 @@
 
     /* 最新消息新增  */
     .c-form {
-      padding: 2rem 2rem 4rem 3rem;
+      padding: 2rem 2.5rem 4rem 2.5rem;
       input {
         white-space: normal;
       }
@@ -79,7 +80,7 @@
 
         /* input[type="text"]  */
         .c-textmessage {
-          font-size: $tableText;
+          font-size: $InputText;
           border: none;
           width: 85%;
           padding-left: 1rem;
@@ -91,16 +92,19 @@
             padding-left: 1rem;
           }
         }
+      }
+      .c-button {
+        padding: 0.5rem;
+        position: relative;
 
         button {
-          padding: 0.25rem 0.85rem;
+          padding: 0.25rem 0.75rem;
           border-radius: 50px;
           position: absolute;
-          bottom: -40px;
+          // bottom: -40px;
         }
 
         /* 發布按鈕 */
-
         .c-post,
         .c-change {
           right: 20px;
@@ -159,7 +163,7 @@
           border: 1.5px $Green solid;
           border-radius: 10px;
           height: 100px;
-          font-size: $tableText;
+          font-size: $InputText;
           padding: 0.5rem;
         }
       }
@@ -172,6 +176,89 @@
       width: 100%;
       overflow: auto;
       background-color: white;
+    }
+
+    /* 會員管理-彈出視窗*/
+    .mymodal {
+      // display: none;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      div.content {
+        background-color: $Rice;
+        border-radius: 10px;
+        padding: 1rem;
+        width: 300px;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        position: relative;
+        font-size: $lableText;
+        span.close-btn {
+          position: absolute;
+          top: 10px;
+          align-self: self-end;
+          font-size: x-large;
+          cursor: pointer;
+        }
+
+        button {
+          padding: 0.25rem 0.75rem;
+          border-radius: 50px;
+          // position: absolute;
+          // bottom: -40px;
+        }
+        /* 更新按鈕 */
+        .c-change {
+          // right: 20px;
+          border: $ButtonColor 2px solid;
+          background: $ButtonColor;
+          color: $HoverBg;
+
+          &:hover {
+            color: $ButtonColor;
+            background: $HoverBg;
+            border: $ButtonColor 2px solid;
+          }
+        }
+        /* 取消按鈕 */
+        .cancelBtn {
+          // right: 115px;
+          border: $CancelColor 2px solid;
+          background: $CancelColor;
+          color: $HoverBg;
+
+          &:hover {
+            color: $CancelColor;
+            background: $HoverBg;
+            border: $CancelColor 2px solid;
+          }
+        }
+
+        button.uploadShot,
+        .uploadShotDone {
+          padding: 0.25rem 0.85rem;
+          background: $clientMessagecolor;
+          border-radius: 50px;
+          border: $clientMessagecolor 2px solid;
+          font-size: $clientBtnfont;
+
+          &:hover {
+            background: $MessageBtnHover;
+            // border: $selfMessagecolor 2px solid;
+          }
+        }
+      }
     }
 
     /* 文章管理區塊 */

@@ -3,7 +3,7 @@
 @import "../TinaStyle/backend_left";
 
 /* 編輯封面按鈕 */
-div.bannerModal{
+div.bannerModal {
   background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   z-index: 10;
@@ -12,7 +12,7 @@ div.bannerModal{
   padding: 1.75rem;
   display: flex;
   justify-content: end;
-  button{
+  button {
     padding: 0.25rem 1.5rem;
     margin: 0 1rem;
     font-size: $clientBtnfont;
@@ -21,14 +21,13 @@ div.bannerModal{
     border: none;
     border-radius: 50px;
     transition: all 0.2s ease;
-    &.cancel{
-      background:rgba($color: #ffffff, $alpha: 0.8);
+    &.cancel {
+      background: rgba($color: #ffffff, $alpha: 0.8);
     }
-    &:hover{
+    &:hover {
       background-color: $MessageBtnHover;
     }
   }
-
 }
 img.selfbanner {
   width: 100%;
@@ -234,7 +233,7 @@ button.camera {
 
     /* input[type="text"]  */
     .c-textmessage {
-      font-size: $tableText;
+      font-size: $InputText;
       border: none;
       width: 85%;
       padding-left: 1rem;
@@ -264,7 +263,7 @@ button.camera {
     }
   }
 
-  /* 最新消息 - 新增 */
+  /* 個人資料 - 新增 */
   .c-textarea {
     display: flex;
     flex-direction: column;
@@ -279,7 +278,7 @@ button.camera {
       border: 1.5px $Green solid;
       border-radius: 10px;
       height: 100px;
-      font-size: $tableText;
+      font-size: $InputText;
       padding: 0.5rem;
     }
   }
