@@ -273,6 +273,7 @@ section.c-head div.img2 {
   padding: 0.25rem 0.75rem;
   border-radius: 50px;
   position: absolute;
+  font-size: 1rem;
 }
 .c-right .c-block .c-form .c-button .c-post,
 .c-right .c-block .c-form .c-button .c-change {
@@ -349,7 +350,7 @@ section.c-head div.img2 {
   border-radius: 10px;
   padding: 1rem;
   width: 300px;
-  height: 500px;
+  height: 350px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -359,14 +360,17 @@ section.c-head div.img2 {
   /* 更新按鈕 */
   /* 取消按鈕 */
 }
-.c-right .c-block .mymodal div.content span.close-btn {
-  position: absolute;
-  top: 10px;
-  align-self: self-end;
-  font-size: x-large;
-  cursor: pointer;
+.c-right .c-block .mymodal div.content label {
+  padding: 0.25rem 0;
+}
+.c-right .c-block .mymodal div.content input {
+  border-radius: 20px;
+  border: 1.5px #27a2b8 solid;
+  padding-left: 1rem;
+  font-size: 1.25rem;
 }
 .c-right .c-block .mymodal div.content button {
+  font-size: 1rem;
   padding: 0.25rem 0.75rem;
   border-radius: 50px;
 }
@@ -389,18 +393,6 @@ section.c-head div.img2 {
   color: #fab10c;
   background: #ffffff;
   border: #fab10c 2px solid;
-}
-.c-right .c-block .mymodal div.content button.uploadShot,
-.c-right .c-block .mymodal div.content .uploadShotDone {
-  padding: 0.25rem 0.85rem;
-  background: #b2d5ce;
-  border-radius: 50px;
-  border: #b2d5ce 2px solid;
-  font-size: 1.25rem;
-}
-.c-right .c-block .mymodal div.content button.uploadShot:hover,
-.c-right .c-block .mymodal div.content .uploadShotDone:hover {
-  background: white;
 }
 .c-right .c-block .a-totalArt {
   padding: 2rem 2rem 0rem 3rem;

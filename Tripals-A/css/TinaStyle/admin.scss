@@ -101,6 +101,7 @@
           padding: 0.25rem 0.75rem;
           border-radius: 50px;
           position: absolute;
+          font-size: $ButtonText;
           // bottom: -40px;
         }
 
@@ -197,22 +198,25 @@
         border-radius: 10px;
         padding: 1rem;
         width: 300px;
-        height: 500px;
+        height: 350px;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
         position: relative;
         font-size: $lableText;
-        span.close-btn {
-          position: absolute;
-          top: 10px;
-          align-self: self-end;
-          font-size: x-large;
-          cursor: pointer;
-        }
 
+        label {
+          padding: 0.25rem 0;
+        }
+        input {
+          border-radius: 20px;
+          border: 1.5px $Blue solid;
+          padding-left: 1rem;
+          font-size: $InputText;
+        }
         button {
+          font-size: $ButtonText;
           padding: 0.25rem 0.75rem;
           border-radius: 50px;
           // position: absolute;
@@ -242,20 +246,6 @@
             color: $CancelColor;
             background: $HoverBg;
             border: $CancelColor 2px solid;
-          }
-        }
-
-        button.uploadShot,
-        .uploadShotDone {
-          padding: 0.25rem 0.85rem;
-          background: $clientMessagecolor;
-          border-radius: 50px;
-          border: $clientMessagecolor 2px solid;
-          font-size: $clientBtnfont;
-
-          &:hover {
-            background: $MessageBtnHover;
-            // border: $selfMessagecolor 2px solid;
           }
         }
       }

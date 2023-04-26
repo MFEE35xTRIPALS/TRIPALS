@@ -185,26 +185,6 @@
               </tbody>
             </table>
           </div>
-          <dialog open class="mymodal">
-            <div class="content">
-              <span class="close-btn" href="#">x</span>
-              <h3>會員管理</h3>
-              <form>
-                <label for="d-email">電子信箱</label
-                ><input name="d-email" type="email" />
-                <label for="d-pwd">密碼</label
-                ><input name="d-pwd" type="password" />
-              </form>
-              <div class="button">
-                <button class="c-change" type="button">
-                  <i class="fa-regular fa-pen-to-square"></i> 更新
-                </button>
-                <button class="cancelBtn" type="button">
-                  <i class="far fa-times-circle"></i> 取消
-                </button>
-              </div>
-            </div>
-          </dialog>
         </div>
         <div class="c-block" id="a-atricles">
           <h3 class="c-title">文章管理</h3>
@@ -294,6 +274,26 @@
           </div>
         </div>
       </section>
+      <!-- 會員資料的彈出視窗 -->
+      <dialog class="mymodal">
+        <div class="content">
+          <h4>會員資料修改</h4>
+          <form>
+            <label for="d-email">電子信箱</label
+            ><input name="d-email" type="email" />
+            <label for="d-pwd">密碼</label
+            ><input name="d-pwd" type="password" />
+          </form>
+          <div class="button">
+            <button class="c-change" type="button">
+              <i class="fa-regular fa-pen-to-square"></i> 更新
+            </button>
+            <button class="cancelBtn" type="button">
+              <i class="far fa-times-circle"></i> 取消
+            </button>
+          </div>
+        </div>
+      </dialog>
     </section>
     <!-- 我自己的js -->
     <!-- <script src="./js/admin-change.js"></script> -->
