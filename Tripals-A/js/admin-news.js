@@ -20,6 +20,8 @@ $('a[href="#a-atricles"]').on("click", function () {
 });
 
 /* ----------- 最新消息 CRUD ----------- */
+var allNews;
+var allMembers;
 // ----- GET -----
 var renderNews = () => {
   $.ajax({
@@ -29,6 +31,7 @@ var renderNews = () => {
       // console.log(data); // 確認有撈到資料
       $("#c-news").empty();
       $.each(data, function (i, list) {
+        allNews = list;
         let newsTr = $("<tr>");
         let sta = "";
         if (list.status == "F") {
@@ -53,19 +56,30 @@ var renderNews = () => {
 };
 renderNews();
 
-/* ------------- form 顯示 ------------- */
 $(document).ready(function () {
-  $("tbody").on("click", "tr", function () {
+  /* ------------- form 顯示 ------------- */
+  $("#c-news").on("click", "tr", function () {
     // console.log("OK");
-    var row = $(this).closest("tr");
+    let row = $(this).closest("tr");
     // console.log(row.children());
     // console.log($(".c-textmessage").val());
     $("input[name='newsno']").val(row.children()[0].innerHTML);
     $("input[type='text']").val(row.children()[1].innerHTML);
     $("input[type='date']").val(row.children()[3].innerHTML);
     $("textarea").val(row.children()[2].innerHTML);
-    console.log($("input[name='newsno']").val());
+    // console.log($("input[name='newsno']").val());
     postBtn();
+  });
+  /* ------------- 會員管理dialog ------------- */
+  $("#c-members").on("click", "tr", function () {
+    document.querySelector("#m-change").style.display = "flex";
+    // console.log("OK");
+    let row = $(this).closest("tr");
+    document.querySelector("#m-change").showModal();
+    let memberId = row.children()[0].innerHTML;
+    $("input[name='d-id']").val(memberId);
+    $("input[name='d-email']").val(row.children()[1].innerHTML);
+    $("input[name='d-pwd']").val(row.children()[2].innerHTML);
   });
 });
 
@@ -73,6 +87,12 @@ $(document).ready(function () {
 $(".cancelBtn").on("click", function () {
   $("input").val("");
   $("textarea").val("");
+  // console.log($("input[name='newsno']").val());
+  postBtn();
+});
+$(".d-cancel").on("click", function () {
+  document.querySelector("#m-change").style.display = "none";
+
   // console.log($("input[name='newsno']").val());
   postBtn();
 });
@@ -163,6 +183,7 @@ $(".deleteBtn").on("click", function () {
 
 //
 /* ----------- 會員管理 CRUD ----------- */
+
 // ----- GET -----
 var renderMembers = () => {
   $.ajax({
@@ -172,6 +193,7 @@ var renderMembers = () => {
       console.log(data); // 確認有撈到資料
       $("#c-members").empty();
       $.each(data, function (i, list) {
+        allMembers = list;
         let newsTr = $("<tr>");
         let sta = "";
         if (list.status == "T") {
@@ -194,3 +216,4 @@ var renderMembers = () => {
   });
 };
 renderMembers();
+console.log(allMembers);

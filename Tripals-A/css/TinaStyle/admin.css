@@ -191,7 +191,6 @@ section.c-head div.img2 {
   /* 最新消息，會員管理 table */
   /* 最新消息新增  */
   /* 會員管理區塊 */
-  /* 會員管理-彈出視窗*/
   /* 文章管理區塊 */
 }
 .c-right .c-block .a-news {
@@ -332,67 +331,71 @@ section.c-head div.img2 {
   width: 100%;
   overflow: auto;
   background-color: white;
+  /* 會員管理-彈出視窗*/
 }
-.c-right .c-block .mymodal {
+.c-right .c-block .a-members dialog {
   position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
   z-index: 10;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
-.c-right .c-block .mymodal div.content {
+.c-right .c-block .a-members dialog div.content {
   background-color: #f0e8dc;
+  border: none;
   border-radius: 10px;
-  padding: 1rem;
+  padding: 1.5rem;
   width: 300px;
   height: 350px;
+  top: 30%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   position: relative;
   font-size: 1.5rem;
-  /* 更新按鈕 */
-  /* 取消按鈕 */
 }
-.c-right .c-block .mymodal div.content label {
+.c-right .c-block .a-members dialog div.content label {
   padding: 0.25rem 0;
 }
-.c-right .c-block .mymodal div.content input {
+.c-right .c-block .a-members dialog div.content input {
   border-radius: 20px;
   border: 1.5px #27a2b8 solid;
   padding-left: 1rem;
   font-size: 1.25rem;
+  width: 100%;
 }
-.c-right .c-block .mymodal div.content button {
+.c-right .c-block .a-members dialog div.content .d-button {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-around;
+  /* 更新按鈕 */
+  /* 取消按鈕 */
+}
+.c-right .c-block .a-members dialog div.content .d-button button {
   font-size: 1rem;
   padding: 0.25rem 0.75rem;
   border-radius: 50px;
 }
-.c-right .c-block .mymodal div.content .c-change {
+.c-right .c-block .a-members dialog div.content .d-button .d-change {
   border: #65c6c6 2px solid;
   background: #65c6c6;
   color: #ffffff;
 }
-.c-right .c-block .mymodal div.content .c-change:hover {
+.c-right .c-block .a-members dialog div.content .d-button .d-change:hover {
   color: #65c6c6;
   background: #ffffff;
   border: #65c6c6 2px solid;
 }
-.c-right .c-block .mymodal div.content .cancelBtn {
+.c-right .c-block .a-members dialog div.content .d-button .d-cancel {
   border: #fab10c 2px solid;
   background: #fab10c;
   color: #ffffff;
 }
-.c-right .c-block .mymodal div.content .cancelBtn:hover {
+.c-right .c-block .a-members dialog div.content .d-button .d-cancel:hover {
   color: #fab10c;
   background: #ffffff;
   border: #fab10c 2px solid;
+}
+.c-right .c-block .a-members dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .c-right .c-block .a-totalArt {
   padding: 2rem 2rem 0rem 3rem;
