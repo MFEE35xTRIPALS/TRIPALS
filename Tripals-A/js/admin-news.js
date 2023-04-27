@@ -74,6 +74,7 @@ $(document).ready(function () {
   $("#c-members").on("click", "tr", function () {
     // console.log("OK");
     let row = $(this).closest("tr");
+    console.log(row.children());
     document.querySelector("#m-change").showModal();
     let memberId = row.children()[0].innerHTML;
     $("input[name='d-id']").val(memberId);
@@ -86,12 +87,6 @@ $(document).ready(function () {
 $(".cancelBtn").on("click", function () {
   $("input").val("");
   $("textarea").val("");
-  // console.log($("input[name='newsno']").val());
-  postBtn();
-});
-$(".d-cancel").on("click", function () {
-  document.querySelector("#m-change").close();
-
   // console.log($("input[name='newsno']").val());
   postBtn();
 });
@@ -189,7 +184,7 @@ var renderMembers = () => {
     url: "http://localhost:3000/members",
     type: "GET",
     success: function (data) {
-      console.log(data); // 確認有撈到資料
+      // console.log(data); // 確認有撈到資料
       $("#c-members").empty();
       $.each(data, function (i, list) {
         allMembers = list;
@@ -203,6 +198,7 @@ var renderMembers = () => {
         }
         newsTr.append(`<td>${list.userno}</td>`);
         newsTr.append(`<td>${list.id}</td>`);
+        newsTr.append(`<td class="news-c"> ${list.password}</td>`);
         newsTr.append(`<td>${list.nickname == null ? "" : list.nickname}</td>`);
         newsTr.append(`<td>${list.date}</td>`);
         newsTr.append(`<td class="icon">${sta}</td>`);
@@ -215,4 +211,35 @@ var renderMembers = () => {
   });
 };
 renderMembers();
-console.log(allMembers);
+// console.log(allMembers);
+
+/* ------------- (按鍵取消) ------------- */
+$(".d-cancel").on("click", function () {
+  document.querySelector("#m-change").close();
+
+  // console.log($("input[name='newsno']").val());
+  postBtn();
+});
+
+/* ------------- (按鍵更新) ------------- */
+$(".d-change").on("click", function () {
+  confirm("確定要變更會員資料嗎？");
+  $.ajax({
+    url: "http://localhost:3000/members/update",
+    type: "put",
+    data: {
+      userno: $('input[name="d-id"]').val(),
+      id: $('input[name="d-email"]').val(),
+      password: $('input[name="d-pwd"]').val(),
+    },
+    success: function (data) {
+      // console.log(data); // 確認有撈到資料
+      document.querySelector("#m-change").close();
+      alert("資料修改成功");
+      // $("input").val("");
+      // $("textarea").val("");
+
+      renderMembers();
+    },
+  });
+});

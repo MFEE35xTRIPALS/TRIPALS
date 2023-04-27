@@ -335,22 +335,20 @@ section.c-head div.img2 {
 }
 .c-right .c-block .a-members dialog {
   position: fixed;
-  z-index: 10;
-}
-.c-right .c-block .a-members dialog div.content {
   background-color: #f0e8dc;
-  border: none;
   border-radius: 10px;
-  padding: 1.5rem;
+  border: none;
   width: 300px;
   height: 350px;
-  top: 30%;
+  padding: 1.5rem;
+  font-size: 1.5rem;
+  margin: auto;
+}
+.c-right .c-block .a-members dialog div.content {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  position: relative;
-  font-size: 1.5rem;
 }
 .c-right .c-block .a-members dialog div.content label {
   padding: 0.25rem 0;
@@ -363,7 +361,7 @@ section.c-head div.img2 {
   width: 100%;
 }
 .c-right .c-block .a-members dialog div.content .d-button {
-  padding: 1rem;
+  padding: 2rem 1rem 0 1rem;
   display: flex;
   justify-content: space-around;
   /* 更新按鈕 */

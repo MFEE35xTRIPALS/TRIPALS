@@ -179,32 +179,21 @@
       background-color: white;
       /* 會員管理-彈出視窗*/
       dialog {
-        // // display: none;
         position: fixed;
-        // left: 0;
-        // top: 0;
-        // width: 100%;
-        // height: 100%;
-        z-index: 10;
-        // // background-color: rgba(0, 0, 0, 0.5);
-        // display: flex;
-        // justify-content: center;
-        // align-items: center;
+        background-color: $Rice;
+        border-radius: 10px;
+        border: none;
+        width: 300px;
+        height: 350px;
+        padding: 1.5rem;
+        font-size: $lableText;
+        margin: auto;
 
         div.content {
-          background-color: $Rice;
-          border: none;
-          border-radius: 10px;
-          padding: 1.5rem;
-          width: 300px;
-          height: 350px;
-          top: 30%;
           display: flex;
           flex-direction: column;
           justify-content: space-around;
           align-items: center;
-          position: relative;
-          font-size: $lableText;
 
           label {
             padding: 0.25rem 0;
@@ -217,7 +206,7 @@
             width: 100%;
           }
           .d-button {
-            padding: 1rem;
+            padding: 2rem 1rem 0 1rem;
             display: flex;
             justify-content: space-around;
             button {
