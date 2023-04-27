@@ -72,7 +72,6 @@ $(document).ready(function () {
   });
   /* ------------- 會員管理dialog ------------- */
   $("#c-members").on("click", "tr", function () {
-    document.querySelector("#m-change").style.display = "flex";
     // console.log("OK");
     let row = $(this).closest("tr");
     document.querySelector("#m-change").showModal();
@@ -91,7 +90,7 @@ $(".cancelBtn").on("click", function () {
   postBtn();
 });
 $(".d-cancel").on("click", function () {
-  document.querySelector("#m-change").style.display = "none";
+  document.querySelector("#m-change").close();
 
   // console.log($("input[name='newsno']").val());
   postBtn();
