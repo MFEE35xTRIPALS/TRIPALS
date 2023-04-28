@@ -1,5 +1,5 @@
 // 傳入登入者id
-let userno = 7;
+let userno = 6;
 
 // 使用者點擊.edit_cover元素時，觸發 fileUpload 元件的點擊事件
 let editButton = document.querySelector(".uploadbanner");
@@ -159,9 +159,14 @@ $(document).ready(function () {
       processData: false,
       contentType: false,
       success: function (data) {
-        // console.log(data);
-        alert(JSON.stringify(data));
-        getAvatar();
+        console.log(data);
+        alert(data.myPhotoAlert);
+        if (data.myPhotoAlert == "大頭貼修改完成") {
+          photoesAvatar(data.avatarData.avatar);
+        }else if(data.myPhotoAlert == '封面照片修改完成'){
+          photoes(data.bannerData.banner);
+        }                                                                                                                                                                                                                                                                                             {}
+
       },
       error: function (err) {
         // 發生錯誤，顯示錯誤訊息
@@ -177,7 +182,7 @@ $(document).ready(function () {
   // ----- GET -----
   var renderID = () => {
     $.ajax({
-      url: url+"/client/identity",
+      url: url + "/client/identity",
       type: "GET",
       data: {
         userno: userno,
@@ -187,12 +192,12 @@ $(document).ready(function () {
         console.log(data); // 確認有撈到資料
         if (data[0].banner !== null) {
           $(".selfbanner").attr("src", "");
-          photoes(url + data[0].banner + "?temp=" + Math.random());
-          originBanner = url + data[0].banner + "?temp=" + Math.random();
+          photoes(data[0].banner);
+          originBanner = previewBanner.getAttribute("src");
         }
         if (data[0].avatar !== null) {
           $(".shot,.imgPreview").attr("src", "");
-          photoesAvatar(url + data[0].avatar + "?temp=" + Math.random());
+          photoesAvatar(data[0].avatar);
           originAvatar = preview.getAttribute("src");
         }
         $("#id").val(data[0].userno);
@@ -214,10 +219,10 @@ $(document).ready(function () {
   renderID();
 
   function photoes(banner) {
-    $(".selfbanner").attr("src", banner);
+    $(".selfbanner").attr("src", url + banner + "?temp=" + Math.random());
   }
   function photoesAvatar(avatars) {
-    $(".shot,.imgPreview").attr("src", avatars);
+    $(".shot,.imgPreview").attr("src", url + avatars + "?temp=" + Math.random());
   } //每次url都給不同參數讓瀏覽器不要使用緩存的圖片
   function dataclear() {
     $("#id").text(), $("#email").val("");
