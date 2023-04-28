@@ -121,42 +121,6 @@ $(document).ready(function () {
   }
 
   let url = "http://localhost:3000";
-  function getAvatar() {
-    //GET 照片
-    $.ajax({
-      type: "GET",
-      url: url + "/client/avatar",
-      data: {
-        userno: userno,
-      },
-      success: function (data) {
-        // 取得圖片資源成功，顯示圖片
-        console.log(data);
-        if (data.banner !== null) {
-          $(".selfbanner").attr("src", "");
-          photoes(url + data.banner + "?temp=" + Math.random());
-          originBanner = url + data.banner + "?temp=" + Math.random();
-        }
-        if (data.avatar !== null) {
-          $(".shot,.imgPreview").attr("src", "");
-          photoesAvatar(url + data.avatar + "?temp=" + Math.random());
-          originAvatar = preview.getAttribute("src");
-        }
-      },
-      error: function (err) {
-        // 發生錯誤，顯示錯誤訊息
-        console.error(err);
-      },
-    });
-  }
-  function photoes(banner) {
-    $(".selfbanner").attr("src", banner);
-  }
-  function photoesAvatar(avatars) {
-    $(".shot,.imgPreview").attr("src", avatars);
-  } //每次url都給不同參數讓瀏覽器不要使用緩存的圖片
-  getAvatar();
-
   let uploadShotDone = document.querySelector(".uploadShotDone");
   let bannerDone = document.querySelector(".bannerDone");
   uploadShotDone.addEventListener("click", function (e) {
@@ -205,67 +169,85 @@ $(document).ready(function () {
       },
     });
   }
-});
 
-// ----------------------------------------------------------------
-// console.log($); // 確認jQuery
-// ---------------------- 這裡是個人資料讀取 -------------------------- //
-// let userno; // 之後要改這裡！
-var url = "http://localhost:3000";
-// ----- GET -----
-var renderID = () => {
-  $.ajax({
-    url: "http://localhost:3000/client/identity",
-    type: "GET",
-    data: {
-      userno: userno,
-    },
-    success: function (data) {
-      dataclear();
-      console.log(data); // 確認有撈到資料
-      $("#id").val(data[0].userno);
-      $("#email").text(data[0].id);
-      $("#pwd").val(data[0].password);
-      $("#nick").val(data[0].nickname);
-      $("#bday").val(data[0].birthday);
-      $("#myIntro").val(data[0].intro);
-      $(".username").text(
-        data[0].nickname ? data[0].nickname : data[0].username
-      );
-    },
-  });
-};
-renderID();
+  // ----------------------------------------------------------------
+  // console.log($); // 確認jQuery
+  // ---------------------- 這裡是個人資料讀取 -------------------------- //
+  // let userno; // 之後要改這裡！
+  // ----- GET -----
+  var renderID = () => {
+    $.ajax({
+      url: url+"/client/identity",
+      type: "GET",
+      data: {
+        userno: userno,
+      },
+      success: function (data) {
+        dataclear();
+        console.log(data); // 確認有撈到資料
+        if (data[0].banner !== null) {
+          $(".selfbanner").attr("src", "");
+          photoes(url + data[0].banner + "?temp=" + Math.random());
+          originBanner = url + data[0].banner + "?temp=" + Math.random();
+        }
+        if (data[0].avatar !== null) {
+          $(".shot,.imgPreview").attr("src", "");
+          photoesAvatar(url + data[0].avatar + "?temp=" + Math.random());
+          originAvatar = preview.getAttribute("src");
+        }
+        $("#id").val(data[0].userno);
+        $("#email").text(data[0].id);
+        $("#pwd").val(data[0].password);
+        $("#nick").val(data[0].nickname);
+        $("#bday").val(data[0].birthday);
+        $("#myIntro").val(data[0].intro);
+        $(".username").text(
+          data[0].nickname ? data[0].nickname : data[0].username
+        );
+      },
+      error: function (err) {
+        // 發生錯誤，顯示錯誤訊息
+        console.error(err);
+      },
+    });
+  };
+  renderID();
 
-function dataclear() {
-  $("#id").text(), $("#email").val("");
-  $("#pwd").val("");
-  $("#nick").val("");
-  $("#bday").val("");
-  $("#myIntro").val("");
-}
+  function photoes(banner) {
+    $(".selfbanner").attr("src", banner);
+  }
+  function photoesAvatar(avatars) {
+    $(".shot,.imgPreview").attr("src", avatars);
+  } //每次url都給不同參數讓瀏覽器不要使用緩存的圖片
+  function dataclear() {
+    $("#id").text(), $("#email").val("");
+    $("#pwd").val("");
+    $("#nick").val("");
+    $("#bday").val("");
+    $("#myIntro").val("");
+  }
 
-/* ------------- (按鍵儲存) ------------- */
-$(".c-change").on("click", function () {
-  console.log($("#nick").val());
-  // alert("ＯＫ");
-  $.ajax({
-    url: url + "/client/identity/update",
-    type: "post",
-    data: {
-      userno: userno, //  我有設變數在上面
-      // userno: $("#id").val(),
-      id: $("#email").text(),
-      password: $("#pwd").val(),
-      nickname: $("#nick").val(),
-      birthday: $("#bday").val(),
-      intro: $("#myIntro").val(),
-    },
-    success: function (data) {
-      console.log(data); // 確認有撈到資料
-      dataclear();
-      alert("更新成功");
-      renderID();
-    },
+  /* ------------- (按鍵儲存) ------------- */
+  $(".c-change").on("click", function () {
+    console.log($("#nick").val());
+    // alert("ＯＫ");
+    $.ajax({
+      url: url + "/client/identity/update",
+      type: "post",
+      data: {
+        userno: userno, //  我有設變數在上面
+        // userno: $("#id").val(),
+        password: $("#pwd").val(),
+        nickname: $("#nick").val(),
+        birthday: $("#bday").val(),
+        intro: $("#myIntro").val(),
+      },
+      success: function (data) {
+        console.log(data); // 確認有撈到資料
+        dataclear();
+        alert("更新成功");
+        renderID();
+      },
+    });
   });
 });
