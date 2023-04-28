@@ -157,13 +157,13 @@ $(document).ready(function () {
   let bannerDone = document.querySelector('.bannerDone');
   uploadShotDone.addEventListener('click', function (e) {
     console.log(file);
-    if (file) { uploadPhoto(e.target.className) } else {
+    if (file) { uploadPhoto(e.target.className);file=undefined; } else {
       alert('請至少選擇一個圖檔上傳,限制圖檔格式為：.jpg, .jpeg, .png, .gif');
     };
   })
   bannerDone.addEventListener('click', function (e) {
     console.log(file);
-    if (file) { uploadPhoto(e.target.className) } else {
+    if (file) { uploadPhoto(e.target.className);file=undefined; } else {
       alert('請至少選擇一個圖檔上傳,限制圖檔格式為：.jpg, .jpeg, .png, .gif');
     };
   })
