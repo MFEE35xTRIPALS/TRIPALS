@@ -98,17 +98,22 @@ $(document).ready(function () {
   let originBanner = previewBanner.getAttribute('src');
   document.querySelector('.cancel').addEventListener('click', function () {
     previewBanner.setAttribute('src', originBanner)
-    // file=undefined;
+    console.log('kk')
+    file=undefined;
     // console.log('kkk:' + originBanner)
   })
   let originAvatar = preview.getAttribute('src');
-  let reoriginAvatar = document.querySelectorAll('[onclick="closemodal()"]');
-  reoriginAvatar.forEach(function (value) {
-    value.addEventListener('click', function () {
+  let reoriginAvatarBtn = document.querySelector('.mymodal');
+  let reoriginAvatarBtn2 = document.querySelector('.closemodal');
+
+  reoriginAvatarBtn.addEventListener('click', ()=>{reoriginAvatar()});
+  reoriginAvatarBtn2.addEventListener('click',()=>{reoriginAvatar()});
+    function reoriginAvatar() {
       preview.setAttribute('src', originAvatar);
-      // file=undefined;
-    })
-  })
+      console.log('kk')
+      file=undefined;
+    }
+  
 
   let url = 'http://localhost:3000';
   function getAvatar() {
