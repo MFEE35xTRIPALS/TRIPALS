@@ -13,63 +13,66 @@ editshot.addEventListener("click", function () {
 });
 
 // 開啟modal----------------------------------------------
-let camera = document.querySelector('.camera');
-let openBanner = document.querySelector('.edit_cover');
-camera.addEventListener('click', function () {
-  document.querySelector('.mymodal').style.display = 'flex';
-})
-openBanner.addEventListener('click', function () {
-  document.querySelector('.bannerModal').style.display = 'flex';
-})
+let camera = document.querySelector(".camera");
+let openBanner = document.querySelector(".edit_cover");
+camera.addEventListener("click", function () {
+  document.querySelector(".mymodal").style.display = "flex";
+});
+openBanner.addEventListener("click", function () {
+  document.querySelector(".bannerModal").style.display = "flex";
+});
 // ------------------------------------------------------
 // 關閉modal----------------------------------------------
 function closemodal() {
-  document.querySelector('.mymodal').style.display = "none";
-
+  document.querySelector(".mymodal").style.display = "none";
 }
 // -------------------------------------------------------
 
 function closeBanner() {
-  document.querySelector('.bannerModal').style.display = "none";
+  document.querySelector(".bannerModal").style.display = "none";
 }
-
 
 // 使用者點擊切換分頁
 
 // console.log(typeof c_likes);
-let c_likes = getComputedStyle(document.querySelector('#c-likes')).display;
-let c_message = getComputedStyle(document.querySelector('#c-message')).display;
-let c_myarts = getComputedStyle(document.querySelector('#c-myarts')).display;
+let c_likes = getComputedStyle(document.querySelector("#c-likes")).display;
+let c_message = getComputedStyle(document.querySelector("#c-message")).display;
+let c_myarts = getComputedStyle(document.querySelector("#c-myarts")).display;
 function toggleDisplay(elementId, displayValue) {
   document.querySelector(elementId).style.display = displayValue;
 }
-document.querySelector('a[href="#c-likes"]').addEventListener('click', function () {
-  if (c_likes == 'none') {
-    toggleDisplay('#c-likes', 'block');
-    toggleDisplay('#c-message', 'none');
-    toggleDisplay('#c-myarts', 'none');
-  }
-});
-document.querySelector('a[href="#c-myarts"]').addEventListener('click', function () {
-  if (c_myarts == 'none') {
-    toggleDisplay('#c-likes', 'none');
-    toggleDisplay('#c-message', 'none');
-    toggleDisplay('#c-myarts', 'block');
-  }
-});
-document.querySelector('a[href="#c-message"]').addEventListener('click', function () {
-  console.log(c_message)
-  if (c_message == 'block') {
-    toggleDisplay('#c-likes', 'none');
-    toggleDisplay('#c-message', 'block');
-    toggleDisplay('#c-myarts', 'none');
-  }
-});
-
+document
+  .querySelector('a[href="#c-likes"]')
+  .addEventListener("click", function () {
+    if (c_likes == "none") {
+      toggleDisplay("#c-likes", "block");
+      toggleDisplay("#c-message", "none");
+      toggleDisplay("#c-myarts", "none");
+    }
+  });
+document
+  .querySelector('a[href="#c-myarts"]')
+  .addEventListener("click", function () {
+    if (c_myarts == "none") {
+      toggleDisplay("#c-likes", "none");
+      toggleDisplay("#c-message", "none");
+      toggleDisplay("#c-myarts", "block");
+    }
+  });
+document
+  .querySelector('a[href="#c-message"]')
+  .addEventListener("click", function () {
+    console.log(c_message);
+    if (c_message == "block") {
+      toggleDisplay("#c-likes", "none");
+      toggleDisplay("#c-message", "block");
+      toggleDisplay("#c-myarts", "none");
+    }
+  });
 
 // 大頭貼上傳預覽-----------------------------------------
-let preview = document.querySelector('.imgPreview');
-let previewBanner = document.querySelector('.selfbanner');
+let preview = document.querySelector(".imgPreview");
+let previewBanner = document.querySelector(".selfbanner");
 let file;
 
 function changePhoto(element) {
@@ -82,102 +85,112 @@ function changePhoto(element) {
   if (file) {
     // console.log(preview);
     reader.onloadend = function (e) {
-      console.log(e.target)
-      if (element.id == 'shotUpload') {
+      console.log(e.target);
+      if (element.id == "shotUpload") {
         preview.setAttribute("src", e.target.result);
-      } else if (element.id == 'fileUpload') {
+      } else if (element.id == "fileUpload") {
         previewBanner.setAttribute("src", e.target.result);
-
       }
-    }
+    };
   }
 }
 
 $(document).ready(function () {
   // 恢復原廠banner
-  let originBanner = previewBanner.getAttribute('src');
-  document.querySelector('.cancel').addEventListener('click', function () {
-    previewBanner.setAttribute('src', originBanner)
-    console.log('kk')
-    file=undefined;
+  let originBanner = previewBanner.getAttribute("src");
+  document.querySelector(".cancel").addEventListener("click", function () {
+    previewBanner.setAttribute("src", originBanner);
+    console.log("kk");
+    file = undefined;
     // console.log('kkk:' + originBanner)
-  })
-  let originAvatar = preview.getAttribute('src');
-  let reoriginAvatarBtn = document.querySelector('.mymodal');
-  let reoriginAvatarBtn2 = document.querySelector('.closemodal');
+  });
+  let originAvatar = preview.getAttribute("src");
+  let reoriginAvatarBtn = document.querySelector(".mymodal");
+  let reoriginAvatarBtn2 = document.querySelector(".closemodal");
 
-  reoriginAvatarBtn.addEventListener('click', ()=>{reoriginAvatar()});
-  reoriginAvatarBtn2.addEventListener('click',()=>{reoriginAvatar()});
-    function reoriginAvatar() {
-      preview.setAttribute('src', originAvatar);
-      console.log('kk')
-      file=undefined;
-    }
-  
+  reoriginAvatarBtn.addEventListener("click", () => {
+    reoriginAvatar();
+  });
+  reoriginAvatarBtn2.addEventListener("click", () => {
+    reoriginAvatar();
+  });
+  function reoriginAvatar() {
+    preview.setAttribute("src", originAvatar);
+    console.log("kk");
+    file = undefined;
+  }
 
-  let url = 'http://localhost:3000';
+  let url = "http://localhost:3000";
   function getAvatar() {
     //GET 照片
     $.ajax({
       type: "GET",
-      url: url + '/client/avatar',
+      url: url + "/client/avatar",
       data: {
-        userno: userno
+        userno: userno,
       },
       success: function (data) {
         // 取得圖片資源成功，顯示圖片
         console.log(data);
         if (data.banner !== null) {
-          $(".selfbanner").attr('src', '');
-          photoes(url + data.banner + '?temp=' + Math.random());
-          originBanner = url + data.banner + '?temp=' + Math.random();
+          $(".selfbanner").attr("src", "");
+          photoes(url + data.banner + "?temp=" + Math.random());
+          originBanner = url + data.banner + "?temp=" + Math.random();
         }
         if (data.avatar !== null) {
-          $(".shot,.imgPreview").attr('src', '');
-          photoesAvatar(url + data.avatar + '?temp=' + Math.random());
-          originAvatar = preview.getAttribute('src');
+          $(".shot,.imgPreview").attr("src", "");
+          photoesAvatar(url + data.avatar + "?temp=" + Math.random());
+          originAvatar = preview.getAttribute("src");
         }
       },
       error: function (err) {
         // 發生錯誤，顯示錯誤訊息
         console.error(err);
-      }
+      },
     });
   }
   function photoes(banner) {
-    $(".selfbanner").attr('src', banner);
-  };
+    $(".selfbanner").attr("src", banner);
+  }
   function photoesAvatar(avatars) {
-    $(".shot,.imgPreview").attr('src', avatars);
-  }//每次url都給不同參數讓瀏覽器不要使用緩存的圖片
+    $(".shot,.imgPreview").attr("src", avatars);
+  } //每次url都給不同參數讓瀏覽器不要使用緩存的圖片
   getAvatar();
 
-
-  let uploadShotDone = document.querySelector('.uploadShotDone');
-  let bannerDone = document.querySelector('.bannerDone');
-  uploadShotDone.addEventListener('click', function (e) {
+  let uploadShotDone = document.querySelector(".uploadShotDone");
+  let bannerDone = document.querySelector(".bannerDone");
+  uploadShotDone.addEventListener("click", function (e) {
     console.log(file);
-    if (file) { uploadPhoto(e.target.className);file=undefined; } else {
-      alert('請至少選擇一個圖檔上傳,限制圖檔格式為：.jpg, .jpeg, .png, .gif');
-    };
-  })
-  bannerDone.addEventListener('click', function (e) {
+    if (file) {
+      uploadPhoto(e.target.className);
+      file = undefined;
+    } else {
+      alert("請至少選擇一個圖檔上傳,限制圖檔格式為：.jpg, .jpeg, .png, .gif");
+    }
+  });
+  bannerDone.addEventListener("click", function (e) {
     console.log(file);
-    if (file) { uploadPhoto(e.target.className);file=undefined; } else {
-      alert('請至少選擇一個圖檔上傳,限制圖檔格式為：.jpg, .jpeg, .png, .gif');
-    };
-  })
+    if (file) {
+      uploadPhoto(e.target.className);
+      file = undefined;
+    } else {
+      alert("請至少選擇一個圖檔上傳,限制圖檔格式為：.jpg, .jpeg, .png, .gif");
+    }
+  });
   function uploadPhoto(target) {
     // console.log(target);
     // console.log(file);
 
     let formData = new FormData();
-    formData.append('shotUpload', file);
-    formData.append('userno', userno);
+    formData.append("shotUpload", file);
+    formData.append("userno", userno);
     // console.log(formData.get('shotUpload'));//檢查formData是否真的有東西
     $.ajax({
-      url: (target == 'uploadShotDone') ? url + '/client/upload' : url + '/client/uploadBanner',
-      type: 'POST',
+      url:
+        target == "uploadShotDone"
+          ? url + "/client/upload"
+          : url + "/client/uploadBanner",
+      type: "POST",
       data: formData,
       processData: false,
       contentType: false,
@@ -189,12 +202,70 @@ $(document).ready(function () {
       error: function (err) {
         // 發生錯誤，顯示錯誤訊息
         console.error(err);
-      }
+      },
     });
-
   }
 });
 
+// ----------------------------------------------------------------
+// console.log($); // 確認jQuery
+// ---------------------- 這裡是個人資料讀取 -------------------------- //
+// let userno; // 之後要改這裡！
+var url = "http://localhost:3000";
+// ----- GET -----
+var renderID = () => {
+  $.ajax({
+    url: "http://localhost:3000/client/identity",
+    type: "GET",
+    data: {
+      userno: userno,
+    },
+    success: function (data) {
+      dataclear();
+      console.log(data); // 確認有撈到資料
+      $("#id").val(data[0].userno);
+      $("#email").val(data[0].id);
+      $("#pwd").val(data[0].password);
+      $("#nick").val(data[0].nickname);
+      $("#bday").val(data[0].birthday);
+      $("#myIntro").val(data[0].intro);
+      $(".username").text(
+        data[0].nickname ? data[0].nickname : data[0].username
+      );
+    },
+  });
+};
+renderID();
 
+function dataclear() {
+  $("#id").val(), $("#email").val("");
+  $("#pwd").val("");
+  $("#nick").val("");
+  $("#bday").val("");
+  $("#myIntro").val("");
+}
 
-
+/* ------------- (按鍵儲存) ------------- */
+$(".c-change").on("click", function () {
+  console.log($("#nick").val());
+  // alert("ＯＫ");
+  $.ajax({
+    url: url + "/client/identity/update",
+    type: "post",
+    data: {
+      userno: userno, //  我有設變數在上面
+      // userno: $("#id").val(),
+      id: $("#email").val(),
+      password: $("#pwd").val(),
+      nickname: $("#nick").val(),
+      birthday: $("#bday").val(),
+      intro: $("#myIntro").val(),
+    },
+    success: function (data) {
+      console.log(data); // 確認有撈到資料
+      dataclear();
+      alert("更新成功");
+      renderID();
+    },
+  });
+});

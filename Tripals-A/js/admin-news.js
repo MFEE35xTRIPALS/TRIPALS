@@ -20,12 +20,13 @@ $('a[href="#a-atricles"]').on("click", function () {
 });
 
 /* ----------- 最新消息 CRUD ----------- */
-var allNews;
+var userno = 1;
 var allMembers;
-// ----- GET -----
+var url = "http://localhost:3000";
+// ----- GET News -----
 var renderNews = () => {
   $.ajax({
-    url: "http://localhost:3000/admin",
+    url: url + "/admin",
     type: "GET",
     success: function (data) {
       // console.log(data); // 確認有撈到資料
@@ -59,10 +60,8 @@ renderNews();
 $(document).ready(function () {
   /* ------------- form 顯示 ------------- */
   $("#c-news").on("click", "tr", function () {
-    // console.log("OK");
     let row = $(this).closest("tr");
     // console.log(row.children());
-    // console.log($(".c-textmessage").val());
     $("input[name='newsno']").val(row.children()[0].innerHTML);
     $("input[type='text']").val(row.children()[1].innerHTML);
     $("input[type='date']").val(row.children()[3].innerHTML);
@@ -72,9 +71,8 @@ $(document).ready(function () {
   });
   /* ------------- 會員管理dialog ------------- */
   $("#c-members").on("click", "tr", function () {
-    // console.log("OK");
     let row = $(this).closest("tr");
-    console.log(row.children());
+    // console.log(row.children());
     document.querySelector("#m-change").showModal();
     let memberId = row.children()[0].innerHTML;
     $("input[name='d-id']").val(memberId);
@@ -87,11 +85,10 @@ $(document).ready(function () {
 $(".cancelBtn").on("click", function () {
   $("input").val("");
   $("textarea").val("");
-  // console.log($("input[name='newsno']").val());
   postBtn();
 });
 
-/* ------------- (按鍵發布) ------------- */
+/* ------------- () ------------- */
 // 如果點擊表格-> form 出現內容 -> 按鈕會交換
 var postBtn = () => {
   $("input[name='newsno']").val()
@@ -100,25 +97,27 @@ var postBtn = () => {
 };
 // ----- POST 發布 -----
 $(".c-post").on("click", function () {
-  confirm("發布公告前記得確認文字都沒問題囉?!");
-  $.ajax({
-    url: "http://localhost:3000/admin/post",
-    type: "post",
-    data: {
-      newsno: $('input[name="newsno"]').val(),
-      title: $('input[type="text"]').val(),
-      content: $("textarea").val(),
-      release: $("input[type='date']").val(),
-    },
-    success: function (data) {
-      // console.log(data); // 確認有撈到資料
-      alert("公告發布成功");
-      $("input").val("");
-      $("textarea").val("");
-      postBtn();
-      renderNews();
-    },
-  });
+  let result = confirm("發布公告前記得確認文字都沒問題囉?!");
+  if (result) {
+    $.ajax({
+      url: "http://localhost:3000/admin/post",
+      type: "post",
+      data: {
+        newsno: $('input[name="newsno"]').val(),
+        title: $('input[type="text"]').val(),
+        content: $("textarea").val(),
+        release: $("input[type='date']").val(),
+      },
+      success: function (data) {
+        // console.log(data); // 確認有撈到資料
+        alert("公告發布成功");
+        $("input").val("");
+        $("textarea").val("");
+        postBtn();
+        renderNews();
+      },
+    });
+  }
 });
 
 /* ------------- (按鍵更新) ------------- */
