@@ -1,5 +1,5 @@
 // 傳入登入者id
-let userno = 5;
+let userno = 7;
 
 // 使用者點擊.edit_cover元素時，觸發 fileUpload 元件的點擊事件
 let editButton = document.querySelector(".uploadbanner");
