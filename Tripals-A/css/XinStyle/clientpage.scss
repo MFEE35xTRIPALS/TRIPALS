@@ -142,75 +142,6 @@ button.camera {
 
 /* 右邊區塊 */
 /* 個人資料 */
-// .c-form {
-//   padding: 2rem 2rem 4rem 3rem;
-
-//   .c-inbox {
-//     padding: 0.5rem;
-//     display: flex;
-//     align-items: center;
-//     flex-wrap: wrap;
-//     position: relative;
-
-//     label {
-//       font-size: $lableText;
-//       padding-right: 1rem;
-//     }
-
-//     .c-textmessage {
-//       font-size: $clientInputText;
-//       width: 350px;
-//       border: none;
-//       width: 85%;
-//       padding-left: 1rem;
-
-//       &:hover,
-//       &:focus {
-//         border: 1.5px $clientMessagecolor solid;
-//         border-radius: 50px;
-//         padding-left: 1rem;
-//       }
-//     }
-
-//     // .c-date {
-//     //   // width: 25px;
-//     //   // padding: 0.5rem;
-//     // }
-
-//     /* 儲存按鈕 */
-//     .c-change {
-//       padding: 0.25rem 0.85rem;
-//       background: $clientMessagecolor;
-//       border-radius: 50px;
-//       border: $clientMessagecolor 2px solid;
-//       position: absolute;
-//       right: 20px;
-//       bottom: -40px;
-//       font-size: $clientBtnfont;
-
-//       &:hover {
-//         background: $MessageBtnHover;
-//         // border: $selfMessagecolor 2px solid;
-//       }
-//     }
-//   }
-
-//   .c-textarea {
-//     display: flex;
-//     flex-direction: column;
-//     padding: 0.5rem;
-
-//     label {
-//       font-size: 1.5rem;
-//       padding-bottom: 0.5rem;
-//     }
-
-//     .c-textbox {
-//       border: 1.5px $clientMessagecolor solid;
-//       border-radius: 10px;
-//     }
-//   }
-// }
 .c-form {
   padding: 2rem 2rem 4rem 3rem;
   input {
@@ -231,6 +162,13 @@ button.camera {
       padding-left: 1rem;
     }
 
+    /* 帳號改成span */
+    .c-mail {
+      font-size: $InputText;
+      border: none;
+      width: 85%;
+      padding-left: 1rem;
+    }
     /* input[type="text"]  */
     .c-textmessage {
       font-size: $InputText;

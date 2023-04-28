@@ -37,8 +37,7 @@ section.c-head div.img2 {
   background: url(../../img/sunrise.jpg) no-repeat bottom;
   background-size: cover;
   overflow: hidden;
-  -webkit-clip-path: ellipse(75% 50% at 50% 30%);
-          clip-path: ellipse(75% 50% at 50% 30%);
+  clip-path: ellipse(75% 50% at 50% 30%);
   position: relative;
 }
 
@@ -97,8 +96,7 @@ section.c-head div.img2 {
 .c-left .c-head div.h-img img.shot {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .c-left .c-select ul {
   padding: 1.5rem;
@@ -334,8 +332,9 @@ section.c-head div.img2 {
   overflow: auto;
   background-color: white;
   /* 會員管理-彈出視窗*/
+  /* 會員管理-彈出視窗*/
 }
-.c-right .c-block .a-members dialog {
+.c-right .c-block .a-members dialog.m-change {
   position: fixed;
   background-color: #f0e8dc;
   border-radius: 10px;
@@ -346,55 +345,117 @@ section.c-head div.img2 {
   font-size: 1.5rem;
   margin: auto;
 }
-.c-right .c-block .a-members dialog div.content {
+.c-right .c-block .a-members dialog.m-change div.content {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
 }
-.c-right .c-block .a-members dialog div.content label {
+.c-right .c-block .a-members dialog.m-change div.content label {
   padding: 0.25rem 0;
 }
-.c-right .c-block .a-members dialog div.content input {
+.c-right .c-block .a-members dialog.m-change div.content input {
   border-radius: 20px;
   border: 1.5px #27a2b8 solid;
   padding-left: 1rem;
   font-size: 1.25rem;
   width: 100%;
 }
-.c-right .c-block .a-members dialog div.content .d-button {
+.c-right .c-block .a-members dialog.m-change div.content .d-button {
   padding: 2rem 1rem 0 1rem;
   display: flex;
   justify-content: space-around;
   /* 更新按鈕 */
   /* 取消按鈕 */
 }
-.c-right .c-block .a-members dialog div.content .d-button button {
+.c-right .c-block .a-members dialog.m-change div.content .d-button button {
   font-size: 1rem;
   padding: 0.25rem 0.75rem;
   border-radius: 50px;
 }
-.c-right .c-block .a-members dialog div.content .d-button .d-change {
+.c-right .c-block .a-members dialog.m-change div.content .d-button .d-change {
   border: #65c6c6 2px solid;
   background: #65c6c6;
   color: #ffffff;
 }
-.c-right .c-block .a-members dialog div.content .d-button .d-change:hover {
+.c-right .c-block .a-members dialog.m-change div.content .d-button .d-change:hover {
   color: #65c6c6;
   background: #ffffff;
   border: #65c6c6 2px solid;
 }
-.c-right .c-block .a-members dialog div.content .d-button .d-cancel {
+.c-right .c-block .a-members dialog.m-change div.content .d-button .d-cancel {
   border: #fab10c 2px solid;
   background: #fab10c;
   color: #ffffff;
 }
-.c-right .c-block .a-members dialog div.content .d-button .d-cancel:hover {
+.c-right .c-block .a-members dialog.m-change div.content .d-button .d-cancel:hover {
   color: #fab10c;
   background: #ffffff;
   border: #fab10c 2px solid;
 }
-.c-right .c-block .a-members dialog::backdrop {
+.c-right .c-block .a-members dialog.m-change::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.c-right .c-block .a-members dialog.m-okay {
+  position: fixed;
+  background-color: #f0e8dc;
+  border-radius: 10px;
+  border: none;
+  width: 300px;
+  height: 350px;
+  padding: 1.5rem;
+  font-size: 1.5rem;
+  margin: auto;
+}
+.c-right .c-block .a-members dialog.m-okay div.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.c-right .c-block .a-members dialog.m-okay div.content label {
+  padding: 0.25rem 0;
+}
+.c-right .c-block .a-members dialog.m-okay div.content input {
+  border-radius: 20px;
+  border: 1.5px #27a2b8 solid;
+  padding-left: 1rem;
+  font-size: 1.25rem;
+  width: 100%;
+}
+.c-right .c-block .a-members dialog.m-okay div.content .d-button {
+  padding: 2rem 1rem 0 1rem;
+  display: flex;
+  justify-content: space-around;
+  /* 更新按鈕 */
+  /* 取消按鈕 */
+}
+.c-right .c-block .a-members dialog.m-okay div.content .d-button button {
+  font-size: 1rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+}
+.c-right .c-block .a-members dialog.m-okay div.content .d-button .d-change {
+  border: #65c6c6 2px solid;
+  background: #65c6c6;
+  color: #ffffff;
+}
+.c-right .c-block .a-members dialog.m-okay div.content .d-button .d-change:hover {
+  color: #65c6c6;
+  background: #ffffff;
+  border: #65c6c6 2px solid;
+}
+.c-right .c-block .a-members dialog.m-okay div.content .d-button .d-cancel {
+  border: #fab10c 2px solid;
+  background: #fab10c;
+  color: #ffffff;
+}
+.c-right .c-block .a-members dialog.m-okay div.content .d-button .d-cancel:hover {
+  color: #fab10c;
+  background: #ffffff;
+  border: #fab10c 2px solid;
+}
+.c-right .c-block .a-members dialog.m-okay::backdrop {
   background-color: rgba(0, 0, 0, 0.5);
 }
 .c-right .c-block .a-totalArt {

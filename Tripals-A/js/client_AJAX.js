@@ -224,7 +224,7 @@ var renderID = () => {
       dataclear();
       console.log(data); // 確認有撈到資料
       $("#id").val(data[0].userno);
-      $("#email").val(data[0].id);
+      $("#email").text(data[0].id);
       $("#pwd").val(data[0].password);
       $("#nick").val(data[0].nickname);
       $("#bday").val(data[0].birthday);
@@ -238,7 +238,7 @@ var renderID = () => {
 renderID();
 
 function dataclear() {
-  $("#id").val(), $("#email").val("");
+  $("#id").text(), $("#email").val("");
   $("#pwd").val("");
   $("#nick").val("");
   $("#bday").val("");
@@ -255,7 +255,7 @@ $(".c-change").on("click", function () {
     data: {
       userno: userno, //  我有設變數在上面
       // userno: $("#id").val(),
-      id: $("#email").val(),
+      id: $("#email").text(),
       password: $("#pwd").val(),
       nickname: $("#nick").val(),
       birthday: $("#bday").val(),
