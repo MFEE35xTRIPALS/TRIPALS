@@ -178,7 +178,7 @@
       overflow: auto;
       background-color: white;
       /* 會員管理-彈出視窗*/
-      dialog.m-change {
+      dialog#m-change {
         position: fixed;
         background-color: $Rice;
         border-radius: 10px;
@@ -249,76 +249,76 @@
         }
       }
       /* 會員管理-彈出視窗*/
-      dialog.m-okay {
-        position: fixed;
-        background-color: $Rice;
-        border-radius: 10px;
-        border: none;
-        width: 300px;
-        height: 350px;
-        padding: 1.5rem;
-        font-size: $lableText;
-        margin: auto;
+      // dialog.m-okay {
+      //   position: fixed;
+      //   background-color: $Rice;
+      //   border-radius: 10px;
+      //   border: none;
+      //   width: 300px;
+      //   height: 350px;
+      //   padding: 1.5rem;
+      //   font-size: $lableText;
+      //   margin: auto;
 
-        div.content {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-around;
-          align-items: center;
+      //   div.content {
+      //     display: flex;
+      //     flex-direction: column;
+      //     justify-content: space-around;
+      //     align-items: center;
 
-          label {
-            padding: 0.25rem 0;
-          }
-          input {
-            border-radius: 20px;
-            border: 1.5px $Blue solid;
-            padding-left: 1rem;
-            font-size: $InputText;
-            width: 100%;
-          }
-          .d-button {
-            padding: 2rem 1rem 0 1rem;
-            display: flex;
-            justify-content: space-around;
-            button {
-              font-size: $ButtonText;
-              padding: 0.25rem 0.75rem;
-              border-radius: 50px;
-              // position: absolute;
-              // bottom: -40px;
-            }
-            /* 更新按鈕 */
-            .d-change {
-              // right: 20px;
-              border: $ButtonColor 2px solid;
-              background: $ButtonColor;
-              color: $HoverBg;
+      //     label {
+      //       padding: 0.25rem 0;
+      //     }
+      //     input {
+      //       border-radius: 20px;
+      //       border: 1.5px $Blue solid;
+      //       padding-left: 1rem;
+      //       font-size: $InputText;
+      //       width: 100%;
+      //     }
+      //     .d-button {
+      //       padding: 2rem 1rem 0 1rem;
+      //       display: flex;
+      //       justify-content: space-around;
+      //       button {
+      //         font-size: $ButtonText;
+      //         padding: 0.25rem 0.75rem;
+      //         border-radius: 50px;
+      //         // position: absolute;
+      //         // bottom: -40px;
+      //       }
+      //       /* 更新按鈕 */
+      //       .d-change {
+      //         // right: 20px;
+      //         border: $ButtonColor 2px solid;
+      //         background: $ButtonColor;
+      //         color: $HoverBg;
 
-              &:hover {
-                color: $ButtonColor;
-                background: $HoverBg;
-                border: $ButtonColor 2px solid;
-              }
-            }
-            /* 取消按鈕 */
-            .d-cancel {
-              // right: 115px;
-              border: $CancelColor 2px solid;
-              background: $CancelColor;
-              color: $HoverBg;
+      //         &:hover {
+      //           color: $ButtonColor;
+      //           background: $HoverBg;
+      //           border: $ButtonColor 2px solid;
+      //         }
+      //       }
+      //       /* 取消按鈕 */
+      //       .d-cancel {
+      //         // right: 115px;
+      //         border: $CancelColor 2px solid;
+      //         background: $CancelColor;
+      //         color: $HoverBg;
 
-              &:hover {
-                color: $CancelColor;
-                background: $HoverBg;
-                border: $CancelColor 2px solid;
-              }
-            }
-          }
-        }
-        &::backdrop {
-          background-color: rgba(0, 0, 0, 0.5);
-        }
-      }
+      //         &:hover {
+      //           color: $CancelColor;
+      //           background: $HoverBg;
+      //           border: $CancelColor 2px solid;
+      //         }
+      //       }
+      //     }
+      //   }
+      //   &::backdrop {
+      //     background-color: rgba(0, 0, 0, 0.5);
+      //   }
+      // }
     }
 
     /* 文章管理區塊 */
