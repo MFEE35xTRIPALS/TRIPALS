@@ -19,17 +19,15 @@ $('a[href="#a-atricles"]').on("click", function () {
   $("#a-atricles").css("display", "block");
 });
 
-/* ----------- 最新消息 CRUD ----------- */
+/* ----------- 最新消息+會員管理 CRUD ----------- */
 var userno = 1;
-var allMembers;
 var url = "http://localhost:3000";
-// ----- GET News -----
+// ----- render News -----
 var renderNews = () => {
   $.ajax({
-    url: url + "/admin",
+    url: url + "/admin/news",
     type: "GET",
     success: function (data) {
-      console.log(data); // 確認有撈到資料
       $("#c-news").empty();
       $.each(data, function (i, list) {
         allNews = list;
@@ -45,7 +43,7 @@ var renderNews = () => {
         newsTr.append(`<td>${list.title}</td>`);
         newsTr.append(`<td class="news-c">${list.content}</td>`);
         newsTr.append(`<td>${list.release}</td>`);
-        newsTr.append(`<td>${list.date}</td>`);
+        newsTr.append(`<td>${list.userid}</td>`);
         newsTr.append(`<td class="icon">${sta}</td>`);
         newsTr.append(
           `<td class="icon"><i class="fa-regular fa-pen-to-square"></i></td>`
@@ -57,8 +55,44 @@ var renderNews = () => {
 };
 renderNews();
 
+// ----- render Members -----
+var renderMembers = () => {
+  $.ajax({
+    url: url + "/admin/members",
+    type: "GET",
+    data: {
+      userno: userno,
+    },
+    success: function (data) {
+      console.log(data); // 確認有撈到資料
+      $(".username").text(data[1][0].username);
+      $("#c-members").empty();
+      $.each(data[0], function (i, list) {
+        let newsTr = $("<tr>");
+        let sta = "";
+        if (list.status == "T") {
+          sta = "<i class='fa-solid fa-toggle-on'></i>";
+        } else {
+          sta = "<i class='fa-solid fa-toggle-off'></i>";
+          newsTr.toggleClass("a-noUse");
+        }
+        newsTr.append(`<td>${list.userno}</td>`);
+        newsTr.append(`<td>${list.id}</td>`);
+        newsTr.append(`<td class="news-c"> ${list.password}</td>`);
+        newsTr.append(`<td>${list.nickname == null ? "" : list.nickname}</td>`);
+        newsTr.append(`<td>${list.date}</td>`);
+        newsTr.append(`<td class="icon">${sta}</td>`);
+
+        $("#c-members").append(newsTr);
+      });
+    },
+  });
+};
+renderMembers();
+// console.log(allMembers);
+
 $(document).ready(function () {
-  /* ------------- form 顯示 ------------- */
+  /* -------------- form 顯示 -------------- */
   $("#c-news").on("click", "tr", function () {
     let row = $(this).closest("tr");
     // console.log(row.children());
@@ -66,7 +100,6 @@ $(document).ready(function () {
     $("input[type='text']").val(row.children()[1].innerHTML);
     $("input[type='date']").val(row.children()[3].innerHTML);
     $("textarea").val(row.children()[2].innerHTML);
-    // console.log($("input[name='newsno']").val());
     postBtn();
   });
   /* ------------- 會員管理dialog ------------- */
@@ -81,14 +114,19 @@ $(document).ready(function () {
   });
 });
 
-/* ------------- (按鍵取消) ------------- */
+/* ------------- (按鍵取消｜News) ------------- */
 $(".cancelBtn").on("click", function () {
   $("input").val("");
   $("textarea").val("");
   postBtn();
 });
+/* ------------- (按鍵取消｜Members) ------------- */
+$(".d-cancel").on("click", function () {
+  document.querySelector("#m-change").close();
+  postBtn();
+});
 
-/* ------------- () ------------- */
+/* ------------- (更新按鈕｜發布按鈕) ------------- */
 // 如果點擊表格-> form 出現內容 -> 按鈕會交換
 var postBtn = () => {
   $("input[name='newsno']").val()
@@ -100,7 +138,7 @@ $(".c-post").on("click", function () {
   let result = confirm("發布公告前記得確認文字都沒問題囉?!");
   if (result) {
     $.ajax({
-      url: "http://localhost:3000/admin/post",
+      url: url + "/admin/news/post",
       type: "post",
       data: {
         newsno: $('input[name="newsno"]').val(),
@@ -125,7 +163,7 @@ $(".c-post").on("click", function () {
 $(".c-change").on("click", function () {
   console.log("OK");
   $.ajax({
-    url: "http://localhost:3000/admin/update",
+    url: url + "/admin/members/update",
     type: "PUT",
     data: {
       newsno: $('input[name="newsno"]').val(),
@@ -150,7 +188,7 @@ $(".deleteBtn").on("click", function () {
   confirm("公告下架後則不得重新上架唷！確定要下架嗎？");
   console.log("OK");
   $.ajax({
-    url: "http://localhost:3000/admin/delete",
+    url: url + "/admin/news/delete",
     type: "DELETE",
     data: {
       newsno: $('input[name="newsno"]').val(),
@@ -170,65 +208,13 @@ $(".deleteBtn").on("click", function () {
   });
 });
 
-/* ------------- 半完成 ------------- */
-// 目前userno 尚未處理
-//
-
-//
 /* ----------- 會員管理 CRUD ----------- */
-
-// ----- GET -----
-var renderMembers = () => {
-  $.ajax({
-    url: "http://localhost:3000/members",
-    type: "GET",
-    success: function (data) {
-      // console.log(data); // 確認有撈到資料
-      $("#c-members").empty();
-      $.each(data, function (i, list) {
-        allMembers = list;
-        let newsTr = $("<tr>");
-        let sta = "";
-        if (list.status == "T") {
-          sta = "<i class='fa-solid fa-toggle-on'></i>";
-        } else {
-          sta = "<i class='fa-solid fa-toggle-off'></i>";
-          newsTr.toggleClass("a-noUse");
-        }
-        newsTr.append(`<td>${list.userno}</td>`);
-        newsTr.append(`<td>${list.id}</td>`);
-        newsTr.append(`<td class="news-c"> ${list.password}</td>`);
-        newsTr.append(`<td>${list.nickname == null ? "" : list.nickname}</td>`);
-        newsTr.append(`<td>${list.date}</td>`);
-        newsTr.append(`<td class="icon">${sta}</td>`);
-
-        $("#c-members").append(newsTr);
-      });
-    },
-  });
-};
-renderMembers();
-// console.log(allMembers);
-
-/* ------------- (按鍵取消) ------------- */
-$(".d-cancel").on("click", function () {
-  document.querySelector("#m-change").close();
-
-  // console.log($("input[name='newsno']").val());
-  postBtn();
-});
-$(".d-cancel").on("click", function () {
-  document.querySelector("#m-change").close();
-
-  // console.log($("input[name='newsno']").val());
-  postBtn();
-});
 
 /* ------------- (按鍵更新) ------------- */
 $(".d-change").on("click", function () {
   confirm("確定要變更會員資料嗎？");
   $.ajax({
-    url: "http://localhost:3000/members/update",
+    url: url + "admin/members/update",
     type: "put",
     data: {
       userno: $('input[name="d-id"]').val(),
