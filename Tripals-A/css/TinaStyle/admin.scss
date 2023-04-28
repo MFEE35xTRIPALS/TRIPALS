@@ -42,23 +42,26 @@
         .icon {
           color: $Blue;
           text-align: center;
-          cursor: pointer;
         }
         &:hover {
           background-color: rgba($Green, $alpha: 0.3);
         }
+        i {
+          cursor: pointer;
+        }
       }
       /* no use */ //tr
       .a-noUse {
-        background-color: rgb(178, 178, 178);
+        // background-color: rgb(178, 178, 178);
+        text-decoration: line-through;
+        color: gray;
 
         // background-color: rgb(221, 221, 221);
-        color: gray;
         .icon {
           color: gray;
         }
         &:hover {
-          background-color: rgba(gray, $alpha: 0.3);
+          // background-color: rgba(gray, $alpha: 0.3);
         }
       }
     }

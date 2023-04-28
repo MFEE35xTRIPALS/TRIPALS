@@ -37,16 +37,16 @@ var renderNews = () => {
         let sta = "";
         if (list.status == "F") {
           newsTr.toggleClass("a-noUse");
-          sta = "已下架";
+          sta = "<i class='fa-solid fa-toggle-off'></i>";
         } else {
-          sta = "已發布";
+          sta = "<i class='fa-solid fa-toggle-on'></i>";
         }
-        newsTr.append(`<td >${list.newsno}</td>`);
+        newsTr.append(`<td class="news-c">${list.newsno}</td>`);
         newsTr.append(`<td>${list.title}</td>`);
         newsTr.append(`<td class="news-c">${list.content}</td>`);
         newsTr.append(`<td>${list.release}</td>`);
         newsTr.append(`<td>${list.date}</td>`);
-        newsTr.append(`<td>${sta}</td>`);
+        newsTr.append(`<td class="icon">${sta}</td>`);
         newsTr.append(
           `<td class="icon"><i class="fa-regular fa-pen-to-square"></i></td>`
         );

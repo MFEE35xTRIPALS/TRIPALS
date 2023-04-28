@@ -218,20 +218,19 @@ section.c-head div.img2 {
 .c-right .c-block .c-myart tr .icon {
   color: #27a2b8;
   text-align: center;
-  cursor: pointer;
 }
 .c-right .c-block .c-myart tr:hover {
   background-color: rgba(178, 213, 206, 0.3);
 }
+.c-right .c-block .c-myart tr i {
+  cursor: pointer;
+}
 .c-right .c-block .c-myart .a-noUse {
-  background-color: rgb(178, 178, 178);
+  text-decoration: line-through;
   color: gray;
 }
 .c-right .c-block .c-myart .a-noUse .icon {
   color: gray;
-}
-.c-right .c-block .c-myart .a-noUse:hover {
-  background-color: rgba(128, 128, 128, 0.3);
 }
 .c-right .c-block .c-form {
   padding: 2rem 2.5rem 4rem 2.5rem;
