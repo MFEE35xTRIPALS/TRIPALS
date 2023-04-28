@@ -219,6 +219,12 @@ $(".d-cancel").on("click", function () {
   // console.log($("input[name='newsno']").val());
   postBtn();
 });
+$(".d-cancel").on("click", function () {
+  document.querySelector("#m-change").close();
+
+  // console.log($("input[name='newsno']").val());
+  postBtn();
+});
 
 /* ------------- (按鍵更新) ------------- */
 $(".d-change").on("click", function () {
@@ -235,6 +241,7 @@ $(".d-change").on("click", function () {
       // console.log(data); // 確認有撈到資料
       document.querySelector("#m-change").close();
       alert("資料修改成功");
+      // document.querySelector("#d-okay").showModal();
       // $("input").val("");
       // $("textarea").val("");
 
