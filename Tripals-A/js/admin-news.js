@@ -29,7 +29,7 @@ var renderNews = () => {
     url: url + "/admin",
     type: "GET",
     success: function (data) {
-      // console.log(data); // 確認有撈到資料
+      console.log(data); // 確認有撈到資料
       $("#c-news").empty();
       $.each(data, function (i, list) {
         allNews = list;
@@ -201,9 +201,7 @@ var renderMembers = () => {
         newsTr.append(`<td>${list.nickname == null ? "" : list.nickname}</td>`);
         newsTr.append(`<td>${list.date}</td>`);
         newsTr.append(`<td class="icon">${sta}</td>`);
-        newsTr.append(
-          `<td class="icon"><i class="fa-regular fa-pen-to-square"></i></td>`
-        );
+
         $("#c-members").append(newsTr);
       });
     },

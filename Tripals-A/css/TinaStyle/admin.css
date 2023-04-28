@@ -197,8 +197,10 @@ section.c-head div.img2 {
   padding: 2rem 2rem 0rem 3rem;
   max-height: 300px;
   overflow: auto;
+  box-shadow: -5px -5px 5px rgba(0, 0, 0, 0.2) inset;
 }
 .c-right .c-block .c-myart {
+  width: 100%;
   /* no use */
 }
 .c-right .c-block .c-myart thead {
@@ -331,7 +333,6 @@ section.c-head div.img2 {
   width: 100%;
   overflow: auto;
   background-color: white;
-  /* 會員管理-彈出視窗*/
   /* 會員管理-彈出視窗*/
 }
 .c-right .c-block .a-members dialog#m-change {

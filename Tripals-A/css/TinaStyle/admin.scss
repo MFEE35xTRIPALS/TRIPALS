@@ -18,10 +18,13 @@
       padding: 2rem 2rem 0rem 3rem;
       max-height: 300px;
       overflow: auto;
+      box-shadow: -5px -5px 5px rgba(0, 0, 0, 0.2) inset;
     }
 
     /* 最新消息，會員管理 table */
     .c-myart {
+      // margin: auto;
+      width: 100%;
       thead {
         background-color: rgba($Green, $alpha: 0.3);
       }
@@ -248,77 +251,6 @@
           background-color: rgba(0, 0, 0, 0.5);
         }
       }
-      /* 會員管理-彈出視窗*/
-      // dialog.m-okay {
-      //   position: fixed;
-      //   background-color: $Rice;
-      //   border-radius: 10px;
-      //   border: none;
-      //   width: 300px;
-      //   height: 350px;
-      //   padding: 1.5rem;
-      //   font-size: $lableText;
-      //   margin: auto;
-
-      //   div.content {
-      //     display: flex;
-      //     flex-direction: column;
-      //     justify-content: space-around;
-      //     align-items: center;
-
-      //     label {
-      //       padding: 0.25rem 0;
-      //     }
-      //     input {
-      //       border-radius: 20px;
-      //       border: 1.5px $Blue solid;
-      //       padding-left: 1rem;
-      //       font-size: $InputText;
-      //       width: 100%;
-      //     }
-      //     .d-button {
-      //       padding: 2rem 1rem 0 1rem;
-      //       display: flex;
-      //       justify-content: space-around;
-      //       button {
-      //         font-size: $ButtonText;
-      //         padding: 0.25rem 0.75rem;
-      //         border-radius: 50px;
-      //         // position: absolute;
-      //         // bottom: -40px;
-      //       }
-      //       /* 更新按鈕 */
-      //       .d-change {
-      //         // right: 20px;
-      //         border: $ButtonColor 2px solid;
-      //         background: $ButtonColor;
-      //         color: $HoverBg;
-
-      //         &:hover {
-      //           color: $ButtonColor;
-      //           background: $HoverBg;
-      //           border: $ButtonColor 2px solid;
-      //         }
-      //       }
-      //       /* 取消按鈕 */
-      //       .d-cancel {
-      //         // right: 115px;
-      //         border: $CancelColor 2px solid;
-      //         background: $CancelColor;
-      //         color: $HoverBg;
-
-      //         &:hover {
-      //           color: $CancelColor;
-      //           background: $HoverBg;
-      //           border: $CancelColor 2px solid;
-      //         }
-      //       }
-      //     }
-      //   }
-      //   &::backdrop {
-      //     background-color: rgba(0, 0, 0, 0.5);
-      //   }
-      // }
     }
 
     /* 文章管理區塊 */
