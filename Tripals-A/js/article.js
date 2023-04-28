@@ -1,4 +1,4 @@
-/* h1 Type animation */
+/* ------------- h1 Type animation ------------- */
 new TypeIt("#ml6", {
   strings: "Start your Trip.",
   waitUntilVisible: true,
