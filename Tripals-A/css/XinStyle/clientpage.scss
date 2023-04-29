@@ -173,7 +173,7 @@ button.camera {
     .c-textmessage {
       font-size: $InputText;
       border: none;
-      width: 85%;
+      width: 35%;
       padding-left: 1rem;
 
       &:hover,
@@ -181,6 +181,14 @@ button.camera {
         border: 1.5px $Green solid;
         border-radius: 50px;
         padding-left: 1rem;
+      }
+    }
+    #m-pwd {
+      color: $Heart;
+      i {
+        padding-left: 1rem;
+        font-size: 1.5rem;
+        color: #34b233;
       }
     }
 

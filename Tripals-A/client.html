@@ -137,7 +137,14 @@
             </div>
             <div class="c-inbox">
               <label for="pwd">密碼:</label>
-              <input id="pwd" class="c-textmessage" type="password" />
+              <input
+                id="pwd"
+                class="c-textmessage"
+                type="password"
+                placeholder="請輸入密碼"
+                pattern="[a-zA-Z0-9]{6,}"
+              />
+              <span id="m-pwd"></span>
             </div>
             <div class="c-inbox">
               <label for="nick">暱稱:</label>

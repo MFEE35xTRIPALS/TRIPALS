@@ -1,5 +1,6 @@
 // 傳入登入者id
 let userno = 6;
+let url = "http://localhost:3000";
 
 // 使用者點擊.edit_cover元素時，觸發 fileUpload 元件的點擊事件
 let editButton = document.querySelector(".uploadbanner");
@@ -120,7 +121,6 @@ $(document).ready(function () {
     file = undefined;
   }
 
-  let url = "http://localhost:3000";
   let uploadShotDone = document.querySelector(".uploadShotDone");
   let bannerDone = document.querySelector(".bannerDone");
   uploadShotDone.addEventListener("click", function (e) {
@@ -163,10 +163,11 @@ $(document).ready(function () {
         alert(data.myPhotoAlert);
         if (data.myPhotoAlert == "大頭貼修改完成") {
           photoesAvatar(data.avatarData.avatar);
-        }else if(data.myPhotoAlert == '封面照片修改完成'){
+        } else if (data.myPhotoAlert == "封面照片修改完成") {
           photoes(data.bannerData.banner);
-        }                                                                                                                                                                                                                                                                                             {}
-
+        }
+        {
+        }
       },
       error: function (err) {
         // 發生錯誤，顯示錯誤訊息
@@ -189,7 +190,7 @@ $(document).ready(function () {
       },
       success: function (data) {
         dataclear();
-        console.log(data); // 確認有撈到資料
+        // console.log(data); // 確認有撈到資料
         if (data[0].banner !== null) {
           $(".selfbanner").attr("src", "");
           photoes(data[0].banner);
@@ -222,7 +223,10 @@ $(document).ready(function () {
     $(".selfbanner").attr("src", url + banner + "?temp=" + Math.random());
   }
   function photoesAvatar(avatars) {
-    $(".shot,.imgPreview").attr("src", url + avatars + "?temp=" + Math.random());
+    $(".shot,.imgPreview").attr(
+      "src",
+      url + avatars + "?temp=" + Math.random()
+    );
   } //每次url都給不同參數讓瀏覽器不要使用緩存的圖片
   function dataclear() {
     $("#id").text(), $("#email").val("");
@@ -231,28 +235,46 @@ $(document).ready(function () {
     $("#bday").val("");
     $("#myIntro").val("");
   }
+  /* ------------- (自動偵測密碼限制) ------------- */
+  let oktoPost = true;
+  $("#pwd").on("input", () => {
+    if (!$("#pwd").val()) {
+      $("#m-pwd").text("*必填欄位");
+      oktoPost = false;
+    } else if (!/^(?=.*[a-zA-Z])(?=.*\d).{6,}$/.test($("#pwd").val())) {
+      $("#m-pwd").text("*密碼長度6以上，並包含至少一個英數字");
+      oktoPost = false;
+    } else {
+      $("#m-pwd").html(' <i class="fa-solid fa-circle-check"></i>');
+      oktoPost = true;
+    }
+  });
 
   /* ------------- (按鍵儲存) ------------- */
+
   $(".c-change").on("click", function () {
-    console.log($("#nick").val());
-    // alert("ＯＫ");
-    $.ajax({
-      url: url + "/client/identity/update",
-      type: "post",
-      data: {
-        userno: userno, //  我有設變數在上面
-        // userno: $("#id").val(),
-        password: $("#pwd").val(),
-        nickname: $("#nick").val(),
-        birthday: $("#bday").val(),
-        intro: $("#myIntro").val(),
-      },
-      success: function (data) {
-        console.log(data); // 確認有撈到資料
-        dataclear();
-        alert("更新成功");
-        renderID();
-      },
-    });
+    if (oktoPost) {
+      // alert("GOGO");
+      $.ajax({
+        url: url + "/client/identity/update",
+        type: "post",
+        data: {
+          userno: userno, //  我有設變數在上面
+          // userno: $("#id").val(),
+          password: $("#pwd").val(),
+          nickname: $("#nick").val(),
+          birthday: $("#bday").val(),
+          intro: $("#myIntro").val(),
+        },
+        success: function (data) {
+          console.log(data); // 確認有撈到資料
+          dataclear();
+          renderID();
+          alert("更新成功");
+        },
+      });
+    } else {
+      alert("請輸入正確格式密碼");
+    }
   });
 });

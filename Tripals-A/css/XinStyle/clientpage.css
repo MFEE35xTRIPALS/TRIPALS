@@ -443,13 +443,21 @@ button.camera {
 .c-form .c-inbox .c-textmessage {
   font-size: 1.25rem;
   border: none;
-  width: 85%;
+  width: 35%;
   padding-left: 1rem;
 }
 .c-form .c-inbox .c-textmessage:hover, .c-form .c-inbox .c-textmessage:focus {
   border: 1.5px #b2d5ce solid;
   border-radius: 50px;
   padding-left: 1rem;
+}
+.c-form .c-inbox #m-pwd {
+  color: #ff4848;
+}
+.c-form .c-inbox #m-pwd i {
+  padding-left: 1rem;
+  font-size: 1.5rem;
+  color: #34b233;
 }
 .c-form .c-inbox button {
   padding: 0.25rem 0.85rem;
