@@ -263,7 +263,7 @@ section.c-head div.img2 {
 .c-right .c-block .c-form .c-inbox .c-textmessage {
   font-size: 1.25rem;
   border: none;
-  width: 85%;
+  width: 50%;
   padding-left: 1rem;
 }
 .c-right .c-block .c-form .c-inbox .c-textmessage:hover, .c-right .c-block .c-form .c-inbox .c-textmessage:focus {

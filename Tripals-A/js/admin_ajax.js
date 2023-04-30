@@ -133,6 +133,22 @@ var postBtn = () => {
     ? $(".c-change + .c-post").addClass("postBtn")
     : $(".c-change + .c-post").removeClass("postBtn");
 };
+/* ------------- (自動偵測必填欄位) ------------- */
+let oktoPost = true;
+$("input").on("input", () => {
+  if (!$("#pwd").val()) {
+    $("#a-title").text("*必填欄位");
+    $("#a-date").text("*必填欄位");
+    $("#a-content").text("*必填欄位");
+    oktoPost = false;
+  } else if (!/^(?=.*[a-zA-Z])(?=.*\d).{6,}$/.test($("#pwd").val())) {
+    $("#m-pwd").text("*密碼長度6以上，並包含至少一個英數字");
+    oktoPost = false;
+  } else {
+    $("#m-pwd").html(' <i class="fa-solid fa-circle-check"></i>');
+    oktoPost = true;
+  }
+});
 // ----- POST 發布 -----
 $(".c-post").on("click", function () {
   let result = confirm("發布公告前記得確認文字都沒問題囉?!");
