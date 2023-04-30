@@ -26,6 +26,13 @@ p {
   padding: 0;
 }
 
+/* 設定字型 */
+@font-face {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-style: normal;
+  src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.woff2) format("woff2"), url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.woff) format("woff"), url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.ttf) format("truetype");
+}
 section.selfArticles {
   border-top: #000000 2px solid;
   margin: 3rem 0;
@@ -233,6 +240,13 @@ section.hashtag div.sort form select.city {
   font-size: 1.75rem;
   text-align: center;
   border: none;
+  font-family: "Font Awesome 5 Free", "Sen";
+  background-color: white;
+  color: #65c6c6;
+  border: #65c6c6 2px solid;
+}
+section.hashtag div.sort form select.city option {
+  font-family: "Font Awesome 5 Free", "Sen";
 }
 section.hashtag div.sort form button.views {
   padding: 0.25rem;
@@ -250,4 +264,9 @@ section.hashtag div.sort form button.hots {
   display: inline-block;
   border: none;
   background-color: white;
+  color: #65c6c6;
+  border: #65c6c6 2px solid;
+}
+section.hashtag div.sort form button.hots i {
+  color: #ff4848;
 }/*# sourceMappingURL=article.css.map */

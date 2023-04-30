@@ -124,6 +124,13 @@ section.hashtag {
         font-size: $inputText;
         text-align: center;
         border: none;
+        font-family: "Font Awesome 5 Free", "Sen";
+        background-color: $inputBgColor2;
+        color: $inputBgColor1;
+        border: $inputBgColor1 2px solid;
+        option {
+          font-family: "Font Awesome 5 Free", "Sen";
+        }
         // color: $ButtonHover;
       }
       button.views {
@@ -132,8 +139,10 @@ section.hashtag {
         width: 300px;
         display: inline-block;
         background-color: $inputBgColor1;
-        color: white;
+        color: $inputBgColor2;
         border: none;
+        // border: $inputBgColor2 2px solid;
+
         // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       }
       button.hots {
@@ -143,7 +152,11 @@ section.hashtag {
         display: inline-block;
         border: none;
         background-color: $inputBgColor2;
-        // color: $ButtonHover;
+        color: $inputBgColor1;
+        border: $inputBgColor1 2px solid;
+        i {
+          color: $Heart;
+        }
         // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       }
     }
