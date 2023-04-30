@@ -3,6 +3,7 @@ $Rice: #f0e8dc;
 $ButtonHover: #5db8a6;
 $Blue: #27a2b8;
 $Green: #b2d5ce;
+$Green2: #65c6c6;
 $black: #000000;
 $white: white;
 
@@ -60,13 +61,14 @@ $articleViewsAndHeart: black;
 
 /* ----- 旅遊導覽變數 ----- */
 $pageTitle: 3rem;
+$pageColor: $Blue;
 // hashtags
 $tagsText: 1.5rem;
-$tagsBg: $Green;
-$tagsHover: $ButtonHover;
+$tagsBg: $Green2;
+$tagsHover: $Green2;
 // 地區｜觀看數｜熱門度
-$inputText: 1.5rem;
-$inputBgColor1: $Green;
+$inputText: 1.75rem;
+$inputBgColor1: $Green2;
 $inputBgColor2: white;
 
 /* -------- 全域設定 -------- */

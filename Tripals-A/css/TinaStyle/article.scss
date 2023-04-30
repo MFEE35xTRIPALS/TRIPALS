@@ -26,7 +26,7 @@ section.title {
       display: inline-block;
       position: relative;
       font-size: $pageTitle;
-      color: $ButtonHover;
+      color: $pageColor;
       padding: 0.5rem 0 0.5rem 1rem;
       width: 35vw;
       max-width: 500px;
@@ -60,15 +60,16 @@ section.hashtag {
           margin: 0.5rem 0.25rem;
           padding: 0.25rem 0.75rem;
           display: inline-block;
-          background-color: $tagsBg;
           border-radius: 50px;
-          a {
-            font-size: $tagsText;
-            text-decoration: none;
-            color: $black;
-          }
+          border: $tagsBg 2px solid;
+          background: $tagsBg;
+          color: $HoverBg;
+          font-size: $tagsText;
+          cursor: pointer;
           &:hover {
-            background-color: $tagsHover;
+            background: $HoverBg;
+            color: $tagsBg;
+            border: $tagsBg 2px solid;
           }
         }
       }
@@ -131,7 +132,7 @@ section.hashtag {
         width: 300px;
         display: inline-block;
         background-color: $inputBgColor1;
-        // color: white;
+        color: white;
         border: none;
         // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       }

@@ -154,7 +154,7 @@ section.title div.img h1 {
   display: inline-block;
   position: relative;
   font-size: 3rem;
-  color: #5db8a6;
+  color: #27a2b8;
   padding: 0.5rem 0 0.5rem 1rem;
   width: 35vw;
   max-width: 500px;
@@ -184,16 +184,17 @@ section.hashtag div.tag-search .left ul.tags li {
   margin: 0.5rem 0.25rem;
   padding: 0.25rem 0.75rem;
   display: inline-block;
-  background-color: #b2d5ce;
   border-radius: 50px;
-}
-section.hashtag div.tag-search .left ul.tags li a {
+  border: #65c6c6 2px solid;
+  background: #65c6c6;
+  color: #ffffff;
   font-size: 1.5rem;
-  text-decoration: none;
-  color: #000000;
+  cursor: pointer;
 }
 section.hashtag div.tag-search .left ul.tags li:hover {
-  background-color: #5db8a6;
+  background: #ffffff;
+  color: #65c6c6;
+  border: #65c6c6 2px solid;
 }
 section.hashtag div.tag-search .right {
   flex: 1 1 350px;
@@ -229,21 +230,22 @@ section.hashtag div.sort form select.city {
   display: inline-block;
   width: 300px;
   padding: 0.425rem;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   text-align: center;
   border: none;
 }
 section.hashtag div.sort form button.views {
   padding: 0.25rem;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   width: 300px;
   display: inline-block;
-  background-color: #b2d5ce;
+  background-color: #65c6c6;
+  color: white;
   border: none;
 }
 section.hashtag div.sort form button.hots {
   padding: 0.25rem;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   width: 300px;
   display: inline-block;
   border: none;
