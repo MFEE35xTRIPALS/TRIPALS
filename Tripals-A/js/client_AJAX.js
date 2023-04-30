@@ -191,12 +191,12 @@ $(document).ready(function () {
       success: function (data) {
         dataclear();
         // console.log(data); // 確認有撈到資料
-        if (data[0].banner !== null) {
+        if (data[0].banner) {
           $(".selfbanner").attr("src", "");
           photoes(data[0].banner);
           originBanner = previewBanner.getAttribute("src");
         }
-        if (data[0].avatar !== null) {
+        if (data[0].avatar) {
           $(".shot,.imgPreview").attr("src", "");
           photoesAvatar(data[0].avatar);
           originAvatar = preview.getAttribute("src");
