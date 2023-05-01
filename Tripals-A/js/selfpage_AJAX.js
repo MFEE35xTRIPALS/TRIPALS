@@ -28,15 +28,11 @@ $(document).ready(function () {
           data.authormessage[0].nickname ? data.authormessage[0].nickname : data.authormessage[0].username,
           data.authormessage[0].intro);
         $.each(data.cardmessage, function (i, value) {
-          
+
           cards(value.articleno,
             value.image ? url + value.image : "./img/puppy-1207816_1280.jpg",
             value.title,
-
-
-            checkArrayForNumber(data.usermessage.map((value)=>parseInt(value)),value.articleno),
-
-
+            checkArrayForNumber(data.usermessage.map((value) => parseInt(value)), value.articleno),
             value.userno,
             value.avatar ? url + value.avatar : "./img/admin2.png",
             value.nickname ? value.nickname : value.username,
@@ -49,7 +45,32 @@ $(document).ready(function () {
       }
     });
   }
-  getCards()
+  getCards();
+
+  $('.c-mylikes').on("click", ".heart", function () {
+    // 找到點擊的 i 元素所在的 card_body 元素
+    console.log('kkk')
+    var onecard = $(this).closest(".onecard");
+    console.log(onecard);
+    // 在該元素中查找 input 元素
+    var articlenoinput = onecard.find(".articleno");
+    console.log(articlenoinput.val());
+    $.ajax({
+        type: "POST",
+        url: url + '/selfpage/updateLikes',
+        data: {
+          userno: userno,
+          articleno: articlenoinput.val()
+        },
+        success:function(data){
+          console.log(data);
+          getCards();
+        }
+      })
+
+  });
+
+
 });
 function checkArrayForNumber(arr, num) {
   if (arr.includes(num)) {
@@ -62,7 +83,7 @@ function checkArrayForNumber(arr, num) {
 function cards(articleno, img, title, heart, autherno, shot, userName, likes, views) {
   let mycards = `<div class="onecard card">
   <a href="#" class="c-cardImg">
-  <input type='hidden' value=${articleno}>
+  <input class='articleno' type='hidden' value=${articleno}>
     <div class="c-imgCover">
       <p>more</p>
     </div>
@@ -81,7 +102,7 @@ function cards(articleno, img, title, heart, autherno, shot, userName, likes, vi
       <i class="heart fa-regular ${heart} fa-heart"></i>
     </div>
     <a href="#" class="c-userName">
-    <input type='hidden' value=${autherno}>
+    <input class='autherno' type='hidden' value=${autherno}>
       <h6>
         <img src=${shot} alt="大頭照" class="head" />
         ${userName}
