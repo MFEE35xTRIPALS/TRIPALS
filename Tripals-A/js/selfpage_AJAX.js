@@ -1,10 +1,11 @@
 // 登入使用者編號
-let userno = 5;
-let authorno = 3;
+let userno = 6;
+let authorno = 1;
 
 $(document).ready(function () {
   // console.log($);
   let url = 'http://localhost:3000';
+  // let usercollect = 'http://localhost:3000';
   function getCards() {
     //GET 整頁的資料
     $(".selfCover").attr("src", "");
@@ -32,7 +33,7 @@ $(document).ready(function () {
           cards(value.articleno,
             value.image ? url + value.image : "./img/puppy-1207816_1280.jpg",
             value.title,
-            checkArrayForNumber(data.usermessage.map((value) => parseInt(value)), value.articleno),
+            data.usermessage?checkArrayForNumber(data.usermessage.map((value) => parseInt(value)), value.articleno):'',
             value.userno,
             value.avatar ? url + value.avatar : "./img/admin2.png",
             value.nickname ? value.nickname : value.username,
@@ -54,7 +55,7 @@ $(document).ready(function () {
     console.log(onecard);
     // 在該元素中查找 input 元素
     var articlenoinput = onecard.find(".articleno");
-    console.log(articlenoinput.val());
+    // console.log(articlenoinput.val());
     $.ajax({
         type: "POST",
         url: url + '/selfpage/updateLikes',
