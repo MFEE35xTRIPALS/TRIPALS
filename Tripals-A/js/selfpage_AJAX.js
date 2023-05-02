@@ -1,6 +1,9 @@
 // 登入使用者編號
-let userno = 5;
-let authorno = 1;
+let userno;
+if (true) {
+  userno = 4;
+}
+let authorno = 2;
 
 $(document).ready(function () {
   // console.log($);
@@ -22,7 +25,7 @@ $(document).ready(function () {
       },
       success: function (data) {
         // 取得圖片資源成功，顯示圖片
-        // console.log(data);
+        // console.log(data.usermessage);
         userProfile(data.authormessage[0].banner ? url + data.authormessage[0].banner : "./img/y-s-LGx9C3nSo5I-unsplash.jpg",
           data.authormessage[0].avatar ? url + data.authormessage[0].avatar : "./img/admin2.png",
           data.authormessage[0].nickname ? data.authormessage[0].nickname : data.authormessage[0].username,
@@ -32,7 +35,7 @@ $(document).ready(function () {
           cards(value.articleno,
             value.image ? url + value.image : "./img/puppy-1207816_1280.jpg",
             value.title,
-            data.usermessage?checkArrayForNumber(data.usermessage.map((value)=>value.articleno), value.articleno):'',
+            data.usermessage ? checkArrayForNumber(data.usermessage.map((value) => value.articleno), value.articleno) : '',
             value.userno,
             value.avatar ? url + value.avatar : "./img/admin2.png",
             value.nickname ? value.nickname : value.username,
@@ -49,30 +52,33 @@ $(document).ready(function () {
 
   $('.c-mylikes').on("click", ".heart", function (e) {
     // 找到點擊的 i 元素所在的 card_body 元素
-    console.log(e.target.classList);
-    // if(e.target.classList.contains('fas')){
-    //   console.log('找到fas')
-    // }else{
-    //   console.log('沒找到fas')
-    // }
-    var onecard = $(this).closest(".onecard");
-    console.log(onecard);
-    // 在該元素中查找 input 元素
-    var articlenoinput = onecard.find(".articleno");
-    // console.log(articlenoinput.val());
-    $.ajax({
+    if (userno) {
+      console.log(e.target.classList);
+      // if(e.target.classList.contains('fas')){
+      //   console.log('找到fas')
+      // }else{
+      //   console.log('沒找到fas')
+      // }
+      var onecard = $(this).closest(".onecard");
+      console.log(onecard);
+      // 在該元素中查找 input 元素
+      var articlenoinput = onecard.find(".articleno");
+      $.ajax({
         type: "POST",
-        url: e.target.classList.contains('fas')?url + '/selfpage/deleteLikes':url + '/selfpage/insertLikes',
+        url: e.target.classList.contains('fas') ? url + '/selfpage/deleteLikes' : url + '/selfpage/insertLikes',
         data: {
           userno: userno,
           articleno: articlenoinput.val()
         },
-        success:async function(data){
+        success: async function (data) {
           // console.log(data);
           e.target.classList.toggle('fas');
           alert(data);
         }
       })
+    }else{
+      confirm('需要登入後才可收藏文章，是否前往登入頁面？')
+    }
 
   });
 
@@ -80,6 +86,7 @@ $(document).ready(function () {
 });
 function checkArrayForNumber(arr, num) {
   if (arr.includes(num)) {
+    // console.log(arr);
     // console.log('有包含'+num);
     return 'fas';
   } else {
