@@ -37,7 +37,6 @@ var renderNews = () => {
           newsTr.toggleClass("a-noUse");
           sta = "已下架";
           // 不cross
-          // sta = "<i class='fa-solid fa-toggle-off'></i>";
         } else {
           // sta = "<i class='fa-solid fa-toggle-on'></i>";
           sta = "上架中";
@@ -47,7 +46,7 @@ var renderNews = () => {
         newsTr.append(`<td class="news-c">${list.content}</td>`);
         newsTr.append(`<td>${list.release}</td>`);
         newsTr.append(`<td>${list.userid}</td>`);
-        newsTr.append(`<td class="icon">${sta}</td>`);
+        newsTr.append(`<td class="icon" >${sta}</td>`);
         newsTr.append(
           `<td class="icon"><i class="fa-regular fa-pen-to-square"></i></td>`
         );
@@ -72,7 +71,7 @@ var renderMembers = () => {
       $("#c-members").empty();
       $.each(data[0], function (i, list) {
         let newsTr = $("<tr>");
-        let sta = "";
+        // let sta = "";
         // if (list.status == "T") {
         //   sta = "<i class='fa-solid fa-toggle-on'></i>";
         // } else {
@@ -84,7 +83,7 @@ var renderMembers = () => {
         newsTr.append(`<td class="news-c"> ${list.password}</td>`);
         newsTr.append(`<td>${list.nickname == null ? "" : list.nickname}</td>`);
         newsTr.append(`<td>${list.date}</td>`);
-        newsTr.append(`<td class="icon">${sta}</td>`);
+        // newsTr.append(`<td class="icon">${sta}</td>`);
 
         $("#c-members").append(newsTr);
       });
@@ -97,11 +96,10 @@ renderMembers();
 $(document).ready(function () {
   /* -------------- form 顯示 -------------- */
   $("#c-news").on("click", "tr", function () {
-    $.each("tr", function (i, list) {});
-
     let row = $(this).closest("tr");
-    // console.log(row.children());
+    $("#c-news tr").removeClass("chose");
     row.toggleClass("chose");
+    // console.log(row.children());
     $("input[name='newsno']").val(row.children()[0].innerHTML);
     $("input[type='text']").val(row.children()[1].innerHTML);
     $("input[type='date']").val(row.children()[3].innerHTML);
@@ -125,6 +123,7 @@ $(".cancelBtn").on("click", function () {
   $("input").val("");
   $("textarea").val("");
   postBtn();
+  $("#c-news tr").removeClass("chose");
 });
 /* ------------- (按鍵取消｜Members) ------------- */
 $(".d-cancel").on("click", function () {

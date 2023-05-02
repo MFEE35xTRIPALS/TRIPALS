@@ -207,7 +207,7 @@ section.c-head div.img2 {
   box-shadow: -5px -5px 5px rgba(0, 0, 0, 0.2) inset;
 }
 .c-right .c-block .c-myart {
-  width: 100%;
+  width: 80%;
   /* no use */
   /* 點選 */
 }
@@ -237,12 +237,13 @@ section.c-head div.img2 {
   text-decoration: line-through;
   color: gray;
 }
-.c-right .c-block .c-myart .a-noUse .icon {
+.c-right .c-block .c-myart .a-noUse td.icon {
   color: gray;
+  text-decoration: none;
 }
 .c-right .c-block .c-myart .chose {
   background-color: rgba(178, 213, 206, 0.3);
-  color: red;
+  color: #27a2b8;
 }
 .c-right .c-block .c-form {
   padding: 2rem 2.5rem 4rem 2.5rem;

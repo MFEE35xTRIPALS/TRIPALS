@@ -24,7 +24,7 @@
     /* 最新消息，會員管理 table */
     .c-myart {
       // margin: auto;
-      width: 100%;
+      width: 80%;
       thead {
         background-color: rgba($Green, $alpha: 0.3);
       }
@@ -46,6 +46,7 @@
         &:hover {
           background-color: rgba($Green, $alpha: 0.3);
         }
+
         i {
           cursor: pointer;
         }
@@ -56,18 +57,15 @@
         text-decoration: line-through;
         color: gray;
 
-        // background-color: rgb(221, 221, 221);
-        .icon {
+        td.icon {
           color: gray;
+          text-decoration: none;
         }
-        // &:hover {
-        //   // background-color: rgba(gray, $alpha: 0.3);
-        // }
       }
       /* 點選 */ //tr
       .chose {
         background-color: rgba($Green, $alpha: 0.3);
-        color: red;
+        color: $Blue;
       }
     }
 
