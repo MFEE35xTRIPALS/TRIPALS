@@ -53,7 +53,6 @@
       }
       /* no use */ //tr
       .a-noUse {
-        // background-color: rgb(178, 178, 178);
         text-decoration: line-through;
         color: gray;
       }
@@ -183,11 +182,16 @@
 
     /* 會員管理區塊 */
     .a-members {
-      padding: 2rem 2rem 0rem 3rem;
-      height: 600px;
+      padding: 1rem 2rem 0rem 3rem;
+      max-height: 500px;
       width: 100%;
       overflow: auto;
       background-color: white;
+      .totalMember {
+        padding: 1rem 1rem;
+        color: $Blue;
+      }
+
       /* 會員管理-彈出視窗*/
       dialog#m-change {
         position: fixed;
