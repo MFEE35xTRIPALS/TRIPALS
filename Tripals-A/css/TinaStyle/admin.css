@@ -209,6 +209,7 @@ section.c-head div.img2 {
 .c-right .c-block .c-myart {
   width: 100%;
   /* no use */
+  /* 點選 */
 }
 .c-right .c-block .c-myart thead {
   background-color: rgba(178, 213, 206, 0.3);
@@ -238,6 +239,10 @@ section.c-head div.img2 {
 }
 .c-right .c-block .c-myart .a-noUse .icon {
   color: gray;
+}
+.c-right .c-block .c-myart .chose {
+  background-color: rgba(178, 213, 206, 0.3);
+  color: red;
 }
 .c-right .c-block .c-form {
   padding: 2rem 2.5rem 4rem 2.5rem;

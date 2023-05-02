@@ -64,6 +64,11 @@
         //   // background-color: rgba(gray, $alpha: 0.3);
         // }
       }
+      /* 點選 */ //tr
+      .chose {
+        background-color: rgba($Green, $alpha: 0.3);
+        color: red;
+      }
     }
 
     /* 最新消息新增  */

@@ -35,9 +35,12 @@ var renderNews = () => {
         let sta = "";
         if (list.status == "F") {
           newsTr.toggleClass("a-noUse");
-          sta = "<i class='fa-solid fa-toggle-off'></i>";
+          sta = "已下架";
+          // 不cross
+          // sta = "<i class='fa-solid fa-toggle-off'></i>";
         } else {
-          sta = "<i class='fa-solid fa-toggle-on'></i>";
+          // sta = "<i class='fa-solid fa-toggle-on'></i>";
+          sta = "上架中";
         }
         newsTr.append(`<td class="news-c">${list.newsno}</td>`);
         newsTr.append(`<td>${list.title}</td>`);
@@ -70,12 +73,12 @@ var renderMembers = () => {
       $.each(data[0], function (i, list) {
         let newsTr = $("<tr>");
         let sta = "";
-        if (list.status == "T") {
-          sta = "<i class='fa-solid fa-toggle-on'></i>";
-        } else {
-          sta = "<i class='fa-solid fa-toggle-off'></i>";
-          newsTr.toggleClass("a-noUse");
-        }
+        // if (list.status == "T") {
+        //   sta = "<i class='fa-solid fa-toggle-on'></i>";
+        // } else {
+        //   sta = "<i class='fa-solid fa-toggle-off'></i>";
+        //   newsTr.toggleClass("a-noUse");
+        // }
         newsTr.append(`<td>${list.userno}</td>`);
         newsTr.append(`<td>${list.id}</td>`);
         newsTr.append(`<td class="news-c"> ${list.password}</td>`);
@@ -94,8 +97,11 @@ renderMembers();
 $(document).ready(function () {
   /* -------------- form 顯示 -------------- */
   $("#c-news").on("click", "tr", function () {
+    $.each("tr", function (i, list) {});
+
     let row = $(this).closest("tr");
     // console.log(row.children());
+    row.toggleClass("chose");
     $("input[name='newsno']").val(row.children()[0].innerHTML);
     $("input[type='text']").val(row.children()[1].innerHTML);
     $("input[type='date']").val(row.children()[3].innerHTML);
@@ -136,17 +142,16 @@ var postBtn = () => {
 /* ------------- (自動偵測必填欄位) ------------- */
 let oktoPost = true;
 $(".c-post").on("click", function () {
-$("input,textarea").on("input", function () {
-  /* 顯示必填文字 */
-  let showMessage = $(this).next("span");
-  if (!$(this).val()) {
-    showMessage.html("*必填欄位");
-  } else {
-    showMessage.html("");
-  }
-});
-if($())
-// ----- POST 發布 -----
+  $("input,textarea").on("input", function () {
+    /* 顯示必填文字 */
+    let showMessage = $(this).next("span");
+    if (!$(this).val()) {
+      showMessage.html("*必填欄位");
+    } else {
+      showMessage.html("");
+    }
+  });
+  // ----- POST 發布 -----
   let result = confirm("發布公告前記得確認文字都沒問題囉?!");
   if (result) {
     $.ajax({
