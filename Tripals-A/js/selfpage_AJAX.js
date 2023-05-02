@@ -50,12 +50,11 @@ $(document).ready(function () {
   $('.c-mylikes').on("click", ".heart", function (e) {
     // 找到點擊的 i 元素所在的 card_body 元素
     console.log(e.target.classList);
-    if(e.target.classList.contains('fas')){
-      console.log('找到fas')
-    }else{
-      console.log('沒找到fas')
-
-    }
+    // if(e.target.classList.contains('fas')){
+    //   console.log('找到fas')
+    // }else{
+    //   console.log('沒找到fas')
+    // }
     var onecard = $(this).closest(".onecard");
     console.log(onecard);
     // 在該元素中查找 input 元素
@@ -68,9 +67,10 @@ $(document).ready(function () {
           userno: userno,
           articleno: articlenoinput.val()
         },
-        success:function(data){
-          console.log(data);
-          getCards();
+        success:async function(data){
+          // console.log(data);
+          e.target.classList.toggle('fas');
+          alert(data);
         }
       })
 
