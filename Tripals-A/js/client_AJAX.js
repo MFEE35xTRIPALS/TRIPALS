@@ -236,7 +236,7 @@ $(document).ready(function () {
     $("#myIntro").val("");
   }
   /* ------------- (自動偵測密碼限制) ------------- */
-  let oktoPost = true;
+  let oktoPost = false;
   $("#pwd").on("input", () => {
     if (!$("#pwd").val()) {
       $("#m-pwd").text("*必填欄位");
@@ -254,13 +254,11 @@ $(document).ready(function () {
 
   $(".c-change").on("click", function () {
     if (oktoPost) {
-      // alert("GOGO");
       $.ajax({
         url: url + "/client/identity/update",
         type: "post",
         data: {
           userno: userno, //  我有設變數在上面
-          // userno: $("#id").val(),
           password: $("#pwd").val(),
           nickname: $("#nick").val(),
           birthday: $("#bday").val(),
