@@ -34,23 +34,33 @@ var renderNews = () => {
         let newsTr = $("<tr>");
         let sta = "";
         if (list.status == "F") {
-          newsTr.toggleClass("a-noUse");
+          // newsTr.toggleClass("a-noUse");
+          // 已下架，全劃線
           sta = "已下架";
-          // 不cross
+          newsTr.append(`<td class="news-c a-noUse">${list.newsno}</td>`);
+          newsTr.append(`<td class="a-noUse">${list.title}</td>`);
+          newsTr.append(`<td class="news-c a-noUse">${list.content}</td>`);
+          newsTr.append(`<td class="a-noUse">${list.release}</td>`);
+          newsTr.append(`<td class="a-noUse">${list.userid}</td>`);
+          newsTr.append(`<td class="x-icon" >${sta}</td>`);
+          newsTr.append(
+            `<td class="icon"><i class="fa-regular fa-pen-to-square"></i></td>`
+          );
+          $("#c-news").append(newsTr);
         } else {
           // sta = "<i class='fa-solid fa-toggle-on'></i>";
           sta = "上架中";
+          newsTr.append(`<td class="news-c">${list.newsno}</td>`);
+          newsTr.append(`<td>${list.title}</td>`);
+          newsTr.append(`<td class="news-c">${list.content}</td>`);
+          newsTr.append(`<td>${list.release}</td>`);
+          newsTr.append(`<td>${list.userid}</td>`);
+          newsTr.append(`<td class="icon" >${sta}</td>`);
+          newsTr.append(
+            `<td class="icon"><i class="fa-regular fa-pen-to-square"></i></td>`
+          );
+          $("#c-news").append(newsTr);
         }
-        newsTr.append(`<td class="news-c">${list.newsno}</td>`);
-        newsTr.append(`<td>${list.title}</td>`);
-        newsTr.append(`<td class="news-c">${list.content}</td>`);
-        newsTr.append(`<td>${list.release}</td>`);
-        newsTr.append(`<td>${list.userid}</td>`);
-        newsTr.append(`<td class="icon" >${sta}</td>`);
-        newsTr.append(
-          `<td class="icon"><i class="fa-regular fa-pen-to-square"></i></td>`
-        );
-        $("#c-news").append(newsTr);
       });
     },
   });
@@ -71,20 +81,11 @@ var renderMembers = () => {
       $("#c-members").empty();
       $.each(data[0], function (i, list) {
         let newsTr = $("<tr>");
-        // let sta = "";
-        // if (list.status == "T") {
-        //   sta = "<i class='fa-solid fa-toggle-on'></i>";
-        // } else {
-        //   sta = "<i class='fa-solid fa-toggle-off'></i>";
-        //   newsTr.toggleClass("a-noUse");
-        // }
         newsTr.append(`<td>${list.userno}</td>`);
         newsTr.append(`<td>${list.id}</td>`);
         newsTr.append(`<td class="news-c"> ${list.password}</td>`);
         newsTr.append(`<td>${list.nickname == null ? "" : list.nickname}</td>`);
         newsTr.append(`<td>${list.date}</td>`);
-        // newsTr.append(`<td class="icon">${sta}</td>`);
-
         $("#c-members").append(newsTr);
       });
     },
