@@ -1,5 +1,5 @@
 // 傳入登入者id
-let userno = 6;
+let userno = 5;
 let url = "http://localhost:3000";
 
 // 使用者點擊.edit_cover元素時，觸發 fileUpload 元件的點擊事件
