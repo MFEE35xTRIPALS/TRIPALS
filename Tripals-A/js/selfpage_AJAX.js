@@ -70,10 +70,10 @@ $(document).ready(function () {
           userno: userno,
           articleno: articlenoinput.val()
         },
-        success: async function (data) {
+        success: function (data) {
           // console.log(data);
           e.target.classList.toggle('fas');
-          alert(data);
+          // alert(data);
         }
       })
     }else{
