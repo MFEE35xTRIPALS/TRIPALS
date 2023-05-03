@@ -39,7 +39,7 @@ $(document).ready(function () {
             value.userno,
             value.avatar ? url + value.avatar : "./img/admin2.png",
             value.nickname ? value.nickname : value.username,
-            value.like_count, value.view_count)
+            value.count, value.view_count)
         });
       },
       error: function (err) {
