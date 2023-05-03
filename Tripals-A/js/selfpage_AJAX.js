@@ -35,7 +35,7 @@ $(document).ready(function () {
           cards(value.articleno,
             value.image ? url + value.image : "./img/puppy-1207816_1280.jpg",
             value.title,
-            data.usermessage ? checkArrayForNumber(data.usermessage.map((value) => value.articleno), value.articleno) : '',
+            data.usermessage.includes(value.articleno)?'fas':'',
             value.userno,
             value.avatar ? url + value.avatar : "./img/admin2.png",
             value.nickname ? value.nickname : value.username,
@@ -75,28 +75,22 @@ $(document).ready(function () {
           console.log(data.likesCount);
           e.target.classList.toggle('fas');
           onecard.find('.viewsAndHeart p:first').empty();
-          onecard.find('.viewsAndHeart p:first').html(`<i class="fa-regular fa-heart"> ${data.likesCount.collect}</i>`);
+          onecard.find('.viewsAndHeart p:first').html(`<i class="fa-regular fa-heart"></i> ${data.likesCount.collect}`);
           // alert(data);
         }
       })
     }else{
-      confirm('需要登入後才可收藏文章，是否前往登入頁面？')
+    if(confirm('需要登入後才可收藏文章，是否前往登入頁面？')){
+      window.location='./client.html';
+    }else{
+      return;
+    };
     }
 
   });
 
 
 });
-function checkArrayForNumber(arr, num) {
-  if (arr.includes(num)) {
-    // console.log(arr);
-    // console.log('有包含'+num);
-    return 'fas';
-  } else {
-    // console.log('沒有包含'+num);
-    return '';
-  }
-}
 
 function cards(articleno, img, title, heart, autherno, shot, userName, likes, views) {
   let mycards = `<div class="onecard card">
@@ -127,8 +121,8 @@ function cards(articleno, img, title, heart, autherno, shot, userName, likes, vi
       </h6>
     </a>
     <div class="viewsAndHeart">
-      <p><i class="fa-regular fa-heart"> ${likes}</i></p>
-      <p><i class="fa-regular fa-eye"> ${views}</i></p>
+      <p><i class="fa-regular fa-heart"></i> ${likes}</p>
+      <p><i class="fa-regular fa-eye"></i> ${views}</p>
     </div>
   </div>
 </div>`;
