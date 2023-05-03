@@ -60,7 +60,8 @@ $(document).ready(function () {
       //   console.log('沒找到fas')
       // }
       var onecard = $(this).closest(".onecard");
-      console.log(onecard);
+      // console.log(onecard);
+      console.log(onecard.find('.viewsAndHeart p:first'));
       // 在該元素中查找 input 元素
       var articlenoinput = onecard.find(".articleno");
       $.ajax({
@@ -71,8 +72,10 @@ $(document).ready(function () {
           articleno: articlenoinput.val()
         },
         success: function (data) {
-          // console.log(data);
+          console.log(data.likesCount);
           e.target.classList.toggle('fas');
+          onecard.find('.viewsAndHeart p:first').empty();
+          onecard.find('.viewsAndHeart p:first').html(`<i class="fa-regular fa-heart"> ${data.likesCount.collect}</i>`);
           // alert(data);
         }
       })
@@ -124,8 +127,8 @@ function cards(articleno, img, title, heart, autherno, shot, userName, likes, vi
       </h6>
     </a>
     <div class="viewsAndHeart">
-      <p><i class="fa-regular fa-heart"></i>${likes}</p>
-      <p><i class="fa-regular fa-eye"></i>${views}</p>
+      <p><i class="fa-regular fa-heart"> ${likes}</i></p>
+      <p><i class="fa-regular fa-eye"> ${views}</i></p>
     </div>
   </div>
 </div>`;
