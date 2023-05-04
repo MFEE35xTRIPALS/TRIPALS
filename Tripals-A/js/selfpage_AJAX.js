@@ -16,6 +16,7 @@ $(document).ready(function () {
     $('.selfShot').attr("src", "");
     $('.userName').text('');
     $('.selfIntroduce p').text('');
+    // $('.c-mylikes').empty();
     $.ajax({
       type: "GET",
       url: url + '/selfpage/cards',

@@ -1,5 +1,5 @@
 // 傳入登入者id
-let userno = 2;
+let userno = 4;
 let url = "http://localhost:3000";
 
 // 使用者點擊.edit_cover元素時，觸發 fileUpload 元件的點擊事件
@@ -189,27 +189,37 @@ $(document).ready(function () {
         userno: userno,
       },
       success: function (data) {
-        dataclear();
-        // console.log(data); // 確認有撈到資料
-        if (data[0].banner) {
+        dataclear();//清空個人資料
+        console.log(data.userLikes); // 確認有撈到資料
+        if (data.userMessage[0].banner) {
           $(".selfbanner").attr("src", "");
-          photoes(data[0].banner);
+          photoes(data.userMessage[0].banner);
           originBanner = previewBanner.getAttribute("src");
         }
-        if (data[0].avatar) {
+        if (data.userMessage[0].avatar) {
           $(".shot,.imgPreview").attr("src", "");
-          photoesAvatar(data[0].avatar);
+          photoesAvatar(data.userMessage[0].avatar);
           originAvatar = preview.getAttribute("src");
         }
-        $("#id").val(data[0].userno);
-        $("#email").text(data[0].id);
-        $("#pwd").val(data[0].password);
-        $("#nick").val(data[0].nickname);
-        $("#bday").val(data[0].birthday);
-        $("#myIntro").val(data[0].intro);
+        $("#id").val(data.userMessage[0].userno);
+        $("#email").text(data.userMessage[0].id);
+        $("#pwd").val(data.userMessage[0].password);
+        $("#nick").val(data.userMessage[0].nickname);
+        $("#bday").val(data.userMessage[0].birthday);
+        $("#myIntro").val(data.userMessage[0].intro);
         $(".username").text(
-          data[0].nickname ? data[0].nickname : data[0].username
+          data.userMessage[0].nickname ? data.userMessage[0].nickname : data.userMessage[0].username
         );
+        $.each(data.userLikes, function (i, value) {
+          cards(value.articleno,
+            value.image ? url + value.image : "./img/puppy-1207816_1280.jpg",
+            value.title,
+            'fas',
+            value.userno,
+            value.avatar ? url + value.avatar : "./img/admin2.png",
+            value.nickname ? value.nickname : value.username,
+            value.count, value.view_count)
+        });
       },
       error: function (err) {
         // 發生錯誤，顯示錯誤訊息
@@ -276,3 +286,36 @@ $(document).ready(function () {
     }
   });
 });
+function cards(articleno, img, title, heart, autherno, shot, userName, likes, views) {
+  let mycards = `<div class="onecard card">
+  <input class='articleno' type='hidden' value=${articleno}>
+  <a href="#" class="c-cardImg">
+    <div class="c-imgCover">
+      <span>more</span>
+    </div>
+    <img
+      class="Img"
+      src=${img}
+      alt="文章首圖"
+    />
+  </a>
+  <div class="card_body">
+    <div>
+      <a class="c-toSelfpage" href="#">
+        <h4 class="card-title">${title}
+        </h4>
+      </a>
+      <i class="heart fa-regular ${heart} fa-heart"></i>
+    </div>
+      <h6 data-autherno=${autherno}>
+        <img src=${shot} alt="大頭照" class="head" />
+        ${userName}
+      </h6>
+    <div class="viewsAndHeart">
+      <p><i class="fa-regular fa-heart"></i> ${likes}</p>
+      <p><i class="fa-regular fa-eye"></i> ${views}</p>
+    </div>
+  </div>
+</div>`;
+  $('.c-mylikes').append(mycards);
+}
