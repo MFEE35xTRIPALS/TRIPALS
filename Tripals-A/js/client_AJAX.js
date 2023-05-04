@@ -82,7 +82,7 @@ function changePhoto(element) {
   file = element.files[0];
   let reader = new FileReader();
   reader.readAsDataURL(file);
-  console.log(file);
+  // console.log(file);
   if (file) {
     // console.log(preview);
     reader.onloadend = function (e) {

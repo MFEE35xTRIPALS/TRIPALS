@@ -238,6 +238,9 @@ button.camera {
   justify-content: space-around;
   padding: 2rem;
   min-height: 70vh;
+  p{
+    font-size: $cardTitle;
+  }
 }
 
 /* 我的文章 */

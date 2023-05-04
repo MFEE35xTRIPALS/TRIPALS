@@ -505,6 +505,9 @@ button.camera {
   padding: 2rem;
   min-height: 70vh;
 }
+.c-mylikes p {
+  font-size: 1.25rem;
+}
 
 /* 我的文章 */
 .c-mine {
