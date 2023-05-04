@@ -3,7 +3,8 @@ let userno;
 if (true) {
   userno = 4;
 }
-let authorno = JSON.parse(sessionStorage.getItem('atherno'));
+let authorno = 2;
+// let authorno = JSON.parse(sessionStorage.getItem('atherno'));
 
 $(document).ready(function () {
   // console.log($);
@@ -24,7 +25,7 @@ $(document).ready(function () {
       },
       success: function (data) {
         // 取得圖片資源成功，顯示圖片
-        // console.log(data.usermessage);
+        // console.log(data);
         userProfile(data.authormessage[0].banner ? url + data.authormessage[0].banner : "./img/y-s-LGx9C3nSo5I-unsplash.jpg",
           data.authormessage[0].avatar ? url + data.authormessage[0].avatar : "./img/admin2.png",
           data.authormessage[0].nickname ? data.authormessage[0].nickname : data.authormessage[0].username,
@@ -93,7 +94,7 @@ $(document).ready(function () {
     var onecard = $(this).closest(".onecard");
     // console.log(onecard.find('.articleno').val());
     sessionStorage.setItem('articleno', JSON.stringify(onecard.find('.articleno').val()));
-    window.location='./client.html';//之後要改成要去的瀏覽文章頁面
+    window.location = './client.html';//之後要改成要去的瀏覽文章頁面
     $.ajax({
       type: "POST",
       url: url + '/selfpage/updateViews',
@@ -109,7 +110,7 @@ $(document).ready(function () {
   $('.c-mylikes').on("click", 'h6', function (e) {
     console.log($(this)[0].dataset.autherno);
     sessionStorage.setItem('atherno', JSON.stringify($(this)[0].dataset.autherno));
-    window.location='./selfpage.html';
+    window.location = './selfpage.html';
     // console.log(onecard.find('.articleno').val());
     // window.location='./client.html';
 
