@@ -146,7 +146,6 @@ var postBtn = () => {
     : $(".c-change + .c-post").removeClass("postBtn");
 };
 /* ------------- (自動偵測必填欄位) ------------- */
-let okPush = false;
 $("input,textarea").on("input", function () {
   /* 顯示必填文字 */
   let showMessage = $(this).next("span");
@@ -159,6 +158,7 @@ $("input,textarea").on("input", function () {
 
 // // ----- POST 發布 -----
 $(".c-post").on("click", function () {
+  $("");
   if (
     !(
       $(".c-textmessage").val() &&
