@@ -3,7 +3,7 @@ let userno;
 if (true) {
   userno = 4;
 }
-let authorno = 6;
+let authorno = 2;
 
 $(document).ready(function () {
   // console.log($);
@@ -86,17 +86,33 @@ $(document).ready(function () {
 
   });
 
-  $('.c-mylikes').on("click", "a", function (e) {
-    console.log(e.target.classList);
+  $('.c-mylikes').on("click", 'a', function (e) {
+    e.preventDefault();
+    // console.log(e.currentTarget);
+    console.log($(this));
     var onecard = $(this).closest(".onecard");
+    // console.log(onecard.find('.articleno').val());
+    sessionStorage.setItem('articleno', JSON.stringify(onecard.find('.articleno').val()));
+    window.location='./client.html';
+    $.ajax({
+      type: "POST",
+      url: url + '/selfpage/updateViews',
+      data: {
+        articleno: onecard.find('.articleno').val()
+      },
+      // success: function (data) {
+
+      // }
+    })
   })
+
 
 });
 
 function cards(articleno, img, title, heart, autherno, shot, userName, likes, views) {
   let mycards = `<div class="onecard card">
-  <a href="#" class="c-cardImg">
   <input class='articleno' type='hidden' value=${articleno}>
+  <a href="#" class="c-cardImg">
     <div class="c-imgCover">
       <span>more</span>
     </div>
@@ -114,13 +130,11 @@ function cards(articleno, img, title, heart, autherno, shot, userName, likes, vi
       </a>
       <i class="heart fa-regular ${heart} fa-heart"></i>
     </div>
-    <a href="#" class="c-userName">
     <input class='autherno' type='hidden' value=${autherno}>
-      <h6>
+      <h6 data-autherno=${autherno}>
         <img src=${shot} alt="大頭照" class="head" />
         ${userName}
       </h6>
-    </a>
     <div class="viewsAndHeart">
       <p><i class="fa-regular fa-heart"></i> ${likes}</p>
       <p><i class="fa-regular fa-eye"></i> ${views}</p>
@@ -128,6 +142,7 @@ function cards(articleno, img, title, heart, autherno, shot, userName, likes, vi
   </div>
 </div>`;
   $('.c-mylikes').append(mycards);
+  // $('h6').data('authorno');
 }
 function userProfile(banner, shot, userName, intro) {
   $(".selfCover").attr("src", banner);
