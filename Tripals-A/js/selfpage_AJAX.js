@@ -3,7 +3,7 @@ let userno;
 if (true) {
   userno = 4;
 }
-let authorno = 2;
+let authorno = JSON.parse(sessionStorage.getItem('atherno'));
 
 $(document).ready(function () {
   // console.log($);
@@ -78,7 +78,7 @@ $(document).ready(function () {
       })
     } else {
       if (confirm('需要登入後才可收藏文章，是否前往登入頁面？')) {
-        window.location = './client.html';
+        window.location = './client.html';//之後要改成要去的登入頁面
       } else {
         return;
       };
@@ -93,7 +93,7 @@ $(document).ready(function () {
     var onecard = $(this).closest(".onecard");
     // console.log(onecard.find('.articleno').val());
     sessionStorage.setItem('articleno', JSON.stringify(onecard.find('.articleno').val()));
-    window.location='./client.html';
+    window.location='./client.html';//之後要改成要去的瀏覽文章頁面
     $.ajax({
       type: "POST",
       url: url + '/selfpage/updateViews',
@@ -104,6 +104,15 @@ $(document).ready(function () {
 
       // }
     })
+  })
+
+  $('.c-mylikes').on("click", 'h6', function (e) {
+    console.log($(this)[0].dataset.autherno);
+    sessionStorage.setItem('atherno', JSON.stringify($(this)[0].dataset.autherno));
+    window.location='./selfpage.html';
+    // console.log(onecard.find('.articleno').val());
+    // window.location='./client.html';
+
   })
 
 
@@ -130,7 +139,6 @@ function cards(articleno, img, title, heart, autherno, shot, userName, likes, vi
       </a>
       <i class="heart fa-regular ${heart} fa-heart"></i>
     </div>
-    <input class='autherno' type='hidden' value=${autherno}>
       <h6 data-autherno=${autherno}>
         <img src=${shot} alt="大頭照" class="head" />
         ${userName}
