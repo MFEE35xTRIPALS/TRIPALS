@@ -1,6 +1,7 @@
 body {
   background-color: $Rice;
 }
+
 /* 封面圖片 */
 section.c-head {
   div.img2 {
@@ -27,6 +28,7 @@ section.c-head {
   margin-right: auto;
   margin-left: auto;
 }
+
 /* 左邊區塊 */
 .c-left {
   // flex: 0 1 300px;
@@ -54,12 +56,14 @@ section.c-head {
     justify-content: space-evenly;
     align-items: center;
     position: relative;
+
     /* 大頭貼username */
     h4.username {
       color: $shotColor;
       font-size: $shotName;
       font-weight: 00;
     }
+
     /* 大頭貼圈圈 */
     div.h-img {
       height: 70%;
@@ -77,6 +81,7 @@ section.c-head {
       }
     }
   }
+
   /* 左邊選單 */
   .c-select {
     ul {
@@ -94,6 +99,7 @@ section.c-head {
         &:hover {
           border-bottom: 3px solid $Blue;
         }
+
         a {
           color: $leftColor;
           text-decoration: none;
@@ -102,14 +108,18 @@ section.c-head {
     }
   }
 }
+
 /* 右邊隨選項變動的區塊 */
 .c-right {
   // flex: 1 1 800px;
   width: 100%;
+
   /* 每個選項的功能頁 */
   .c-block {
     background-color: white;
     width: 100%;
+    min-height: 70vh;
+
     /* 大title */
     .c-title {
       display: inline-block;
@@ -167,8 +177,10 @@ section.c-head {
 }
 
 @media (max-width: 400px) {
+
   // 當螢幕小於400px
   section.c-rwd {
+
     // .c-select {
     //   display: none;
     // }

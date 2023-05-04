@@ -1,7 +1,7 @@
 // 登入使用者編號
 let userno;
 if (true) {
-  userno = 4;
+  userno = 2;
 }
 // let authorno = 2;
 let authorno = JSON.parse(sessionStorage.getItem('atherno'));
@@ -16,7 +16,7 @@ $(document).ready(function () {
     $('.selfShot').attr("src", "");
     $('.userName').text('');
     $('.selfIntroduce p').text('');
-    // $('.c-mylikes').empty();
+
     $.ajax({
       type: "GET",
       url: url + '/selfpage/cards',
@@ -54,11 +54,6 @@ $(document).ready(function () {
     // 找到點擊的 i 元素所在的 card_body 元素
     if (userno) {
       console.log(e.target.classList);
-      // if(e.target.classList.contains('fas')){
-      //   console.log('找到fas')
-      // }else{
-      //   console.log('沒找到fas')
-      // }
       var onecard = $(this).closest(".onecard");
       // console.log(onecard);
       // 在該元素中查找 input 元素
@@ -112,8 +107,6 @@ $(document).ready(function () {
     console.log($(this)[0].dataset.autherno);
     sessionStorage.setItem('atherno', JSON.stringify($(this)[0].dataset.autherno));
     window.location = './selfpage.html';
-    // console.log(onecard.find('.articleno').val());
-    // window.location='./client.html';
 
   })
 

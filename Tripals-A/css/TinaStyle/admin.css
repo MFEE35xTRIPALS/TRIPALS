@@ -44,7 +44,8 @@ section.c-head div.img2 {
   background: url(../../img/sunrise.jpg) no-repeat bottom;
   background-size: cover;
   overflow: hidden;
-  clip-path: ellipse(75% 50% at 50% 30%);
+  -webkit-clip-path: ellipse(75% 50% at 50% 30%);
+          clip-path: ellipse(75% 50% at 50% 30%);
   position: relative;
 }
 
@@ -102,7 +103,8 @@ section.c-head div.img2 {
 .c-left .c-head div.h-img img.shot {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .c-left .c-select ul {
   padding: 1.5rem;
@@ -132,6 +134,7 @@ section.c-head div.img2 {
 .c-right .c-block {
   background-color: white;
   width: 100%;
+  min-height: 70vh;
   /* 大title */
 }
 .c-right .c-block .c-title {

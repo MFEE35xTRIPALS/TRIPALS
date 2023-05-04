@@ -1,5 +1,5 @@
 // 傳入登入者id
-let userno = 4;
+let userno = 2;
 let url = "http://localhost:3000";
 
 // 使用者點擊.edit_cover元素時，觸發 fileUpload 元件的點擊事件
@@ -166,8 +166,6 @@ $(document).ready(function () {
         } else if (data.myPhotoAlert == "封面照片修改完成") {
           photoes(data.bannerData.banner);
         }
-        {
-        }
       },
       error: function (err) {
         // 發生錯誤，顯示錯誤訊息
@@ -175,6 +173,54 @@ $(document).ready(function () {
       },
     });
   }
+  $('.c-mylikes').on("click", 'h6', function () {
+    console.log($(this)[0].dataset.autherno);
+    sessionStorage.setItem('atherno', JSON.stringify($(this)[0].dataset.autherno));
+    window.location = './selfpage.html';
+  });
+  $('.c-mylikes').on("click", ".heart", function (e) {
+    // 找到點擊的 i 元素所在的 card_body 元素
+    console.log(e.target.classList);
+    var onecard = $(this).closest(".onecard");
+    // console.log(onecard);
+    // 在該元素中查找 input 元素
+    var articlenoinput = onecard.find(".articleno");
+    $.ajax({
+      type: "POST",
+      url: e.target.classList.contains('fas') ? url + '/selfpage/deleteLikes' : url + '/selfpage/insertLikes',
+      data: {
+        userno: userno,
+        articleno: articlenoinput.val()
+      },
+      success: function (data) {
+        console.log(data.likesCount);
+        e.target.classList.toggle('fas');
+        onecard.find('.viewsAndHeart p:first').empty();
+        onecard.find('.viewsAndHeart p:first').html(`<i class="fa-regular fa-heart"></i> ${data.likesCount.collect}`);
+        // alert(data);
+      }
+    })
+
+  });
+  $('.c-mylikes').on("click", 'a', function (e) {
+    e.preventDefault();
+    // console.log(e.currentTarget);
+    console.log($(this));
+    var onecard = $(this).closest(".onecard");
+    // console.log(onecard.find('.articleno').val());
+    sessionStorage.setItem('articleno', JSON.stringify(onecard.find('.articleno').val()));
+    window.location = './client.html';//之後要改成要去的瀏覽文章頁面
+    $.ajax({
+      type: "POST",
+      url: url + '/selfpage/updateViews',
+      data: {
+        articleno: onecard.find('.articleno').val()
+      },
+      // success: function (data) {
+
+      // }
+    })
+  })
 
   // ----------------------------------------------------------------
   // console.log($); // 確認jQuery
@@ -210,6 +256,9 @@ $(document).ready(function () {
         $(".username").text(
           data.userMessage[0].nickname ? data.userMessage[0].nickname : data.userMessage[0].username
         );
+        if (!data.userLikes[0]) {
+          $('.c-mylikes').html('<p>目前收藏文章數：0</p>');
+        }
         $.each(data.userLikes, function (i, value) {
           cards(value.articleno,
             value.image ? url + value.image : "./img/puppy-1207816_1280.jpg",
@@ -220,6 +269,7 @@ $(document).ready(function () {
             value.nickname ? value.nickname : value.username,
             value.count, value.view_count)
         });
+
       },
       error: function (err) {
         // 發生錯誤，顯示錯誤訊息
@@ -229,22 +279,7 @@ $(document).ready(function () {
   };
   renderID();
 
-  function photoes(banner) {
-    $(".selfbanner").attr("src", url + banner + "?temp=" + Math.random());
-  }
-  function photoesAvatar(avatars) {
-    $(".shot,.imgPreview").attr(
-      "src",
-      url + avatars + "?temp=" + Math.random()
-    );
-  } //每次url都給不同參數讓瀏覽器不要使用緩存的圖片
-  function dataclear() {
-    $("#id").text(), $("#email").val("");
-    $("#pwd").val("");
-    $("#nick").val("");
-    $("#bday").val("");
-    $("#myIntro").val("");
-  }
+
   /* ------------- (自動偵測密碼限制) ------------- */
   let oktoPost = false;
   $("#pwd").on("input", () => {
@@ -286,6 +321,22 @@ $(document).ready(function () {
     }
   });
 });
+function photoes(banner) {
+  $(".selfbanner").attr("src", url + banner + "?temp=" + Math.random());
+}
+function photoesAvatar(avatars) {
+  $(".shot,.imgPreview").attr(
+    "src",
+    url + avatars + "?temp=" + Math.random()
+  );
+} //每次url都給不同參數讓瀏覽器不要使用緩存的圖片
+function dataclear() {
+  $("#id").text(), $("#email").val("");
+  $("#pwd").val("");
+  $("#nick").val("");
+  $("#bday").val("");
+  $("#myIntro").val("");
+}
 function cards(articleno, img, title, heart, autherno, shot, userName, likes, views) {
   let mycards = `<div class="onecard card">
   <input class='articleno' type='hidden' value=${articleno}>
