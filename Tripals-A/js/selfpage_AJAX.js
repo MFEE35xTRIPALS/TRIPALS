@@ -3,8 +3,8 @@ let userno;
 if (true) {
   userno = 4;
 }
-let authorno = 2;
-// let authorno = JSON.parse(sessionStorage.getItem('atherno'));
+// let authorno = 2;
+let authorno = JSON.parse(sessionStorage.getItem('atherno'));
 
 $(document).ready(function () {
   // console.log($);
@@ -107,7 +107,7 @@ $(document).ready(function () {
     })
   })
 
-  $('.c-mylikes').on("click", 'h6', function (e) {
+  $('.c-mylikes').on("click", 'h6', function () {
     console.log($(this)[0].dataset.autherno);
     sessionStorage.setItem('atherno', JSON.stringify($(this)[0].dataset.autherno));
     window.location = './selfpage.html';

@@ -46,6 +46,27 @@ $(document).ready(function () {
       },
     });
   });
+
+  /* --------------- 跳轉作者個人頁面 --------------- */
+  $('.c-mylikes').on("click", 'h6', function () {
+    console.log($(this)[0].dataset.autherno);
+    sessionStorage.setItem('atherno', JSON.stringify($(this)[0].dataset.autherno));
+    window.location = './selfpage.html';
+  })
+
+  /* --------------- 瀏覽數計數器 --------------- */
+  $('.c-mylikes').on("click", 'a', function (e) {
+    e.preventDefault();
+    var onecard = $(this).closest(".onecard");
+    sessionStorage.setItem('articleno', JSON.stringify(onecard.find('.articleno').val()));
+    $.ajax({
+      type: "POST",
+      url: url + '/selfpage/updateViews',
+      data: {
+        articleno: onecard.find('.articleno').val()
+      },
+    })
+  })
 });
 /* ----------------- location ----------------- */
 $("select").on("change", function () {
@@ -135,6 +156,7 @@ $(".c-mylikes").on("click", ".heart", function (e) {
       return;
     }
   }
+
 });
 
 function cards(data, heart) {
@@ -162,13 +184,10 @@ function cards(data, heart) {
       </a>
       <i class="heart fa-regular fa-heart ${heart}"></i>
     </div>
-    <a href="#" class="c-userName">
-    <input class='autherno' type='hidden' value=${data.autherno}>
-      <h6>
+      <h6 data-autherno=${data.userno}>
         <img src=${avatar} alt="大頭照" class="head" />
         ${data.username}
       </h6>
-    </a>
     <div class="viewsAndHeart">
       <p><i class="fa-regular fa-heart"></i> ${data.like_count}</p>
       <p><i class="fa-regular fa-eye"></i> ${data.view_count}</p>
