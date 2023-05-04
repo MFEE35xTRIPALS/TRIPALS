@@ -62,7 +62,6 @@ section.c-head div.img2 {
 
 /* 左邊區塊 */
 .c-left {
-  flex: 0 1 300px;
   top: 8vh;
   position: sticky;
   height: 100%;
@@ -129,7 +128,6 @@ section.c-head div.img2 {
 
 /* 右邊隨選項變動的區塊 */
 .c-right {
-  flex: 1 1 800px;
   width: 100%;
   /* 每個選項的功能頁 */
 }

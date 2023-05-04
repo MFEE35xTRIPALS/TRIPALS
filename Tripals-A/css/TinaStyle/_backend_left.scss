@@ -29,7 +29,7 @@ section.c-head {
 }
 /* 左邊區塊 */
 .c-left {
-  flex: 0 1 300px;
+  // flex: 0 1 300px;
   top: 8vh; //-> sticky 關鍵
   position: sticky;
   // flex-shrink -> 1|0 要不要壓縮
@@ -104,7 +104,7 @@ section.c-head {
 }
 /* 右邊隨選項變動的區塊 */
 .c-right {
-  flex: 1 1 800px;
+  // flex: 1 1 800px;
   width: 100%;
   /* 每個選項的功能頁 */
   .c-block {
