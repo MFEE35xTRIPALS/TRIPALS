@@ -3,7 +3,7 @@ let userno;
 if (true) {
   userno = 4;
 }
-let authorno = 2;
+let authorno = 6;
 
 $(document).ready(function () {
   // console.log($);
@@ -15,7 +15,6 @@ $(document).ready(function () {
     $('.selfShot').attr("src", "");
     $('.userName').text('');
     $('.selfIntroduce p').text('');
-    $('.c-mylikes').empty();
     $.ajax({
       type: "GET",
       url: url + '/selfpage/cards',
@@ -35,7 +34,7 @@ $(document).ready(function () {
           cards(value.articleno,
             value.image ? url + value.image : "./img/puppy-1207816_1280.jpg",
             value.title,
-            data.usermessage.includes(value.articleno)?'fas':'',
+            data.usermessage.includes(value.articleno) ? 'fas' : '',
             value.userno,
             value.avatar ? url + value.avatar : "./img/admin2.png",
             value.nickname ? value.nickname : value.username,
@@ -49,7 +48,6 @@ $(document).ready(function () {
     });
   }
   getCards();
-
   $('.c-mylikes').on("click", ".heart", function (e) {
     // 找到點擊的 i 元素所在的 card_body 元素
     if (userno) {
@@ -61,7 +59,6 @@ $(document).ready(function () {
       // }
       var onecard = $(this).closest(".onecard");
       // console.log(onecard);
-      console.log(onecard.find('.viewsAndHeart p:first'));
       // 在該元素中查找 input 元素
       var articlenoinput = onecard.find(".articleno");
       $.ajax({
@@ -79,16 +76,20 @@ $(document).ready(function () {
           // alert(data);
         }
       })
-    }else{
-    if(confirm('需要登入後才可收藏文章，是否前往登入頁面？')){
-      window.location='./client.html';
-    }else{
-      return;
+    } else {
+      if (confirm('需要登入後才可收藏文章，是否前往登入頁面？')) {
+        window.location = './client.html';
+      } else {
+        return;
+      };
     };
-    }
 
   });
 
+  $('.c-mylikes').on("click", "a", function (e) {
+    console.log(e.target.classList);
+    var onecard = $(this).closest(".onecard");
+  })
 
 });
 
