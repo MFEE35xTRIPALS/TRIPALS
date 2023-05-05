@@ -230,7 +230,25 @@ $(document).ready(function () {
       // success: function (data) {
 
       // }
-    });
+    })
+  })
+  $('.c-mine tbody').on("click", ".trash", function (e) {
+    // console.log(e.target.dataset.articleno);
+    if (confirm('文章刪除後即無法復原,確定要刪除嗎？')) {
+      $.ajax({
+        type: "POST",
+        url: url + '/',
+        data: {
+          articleno: e.target.dataset.articleno
+        },
+        // success: function (data) {
+
+        // }
+      })
+    } else {
+      return;
+    }
+
   });
 
   // ----------------------------------------------------------------
@@ -245,8 +263,8 @@ $(document).ready(function () {
         userno: userno,
       },
       success: function (data) {
-        dataclear(); //清空個人資料
-        // console.log(data.userLikes); // 確認有撈到資料
+        dataclear();//清空個人資料
+        console.log(data.selfarticles); // 確認有撈到資料
         if (data.userMessage[0].banner) {
           $(".selfbanner").attr("src", "");
           photoes(data.userMessage[0].banner);
@@ -284,6 +302,10 @@ $(document).ready(function () {
             value.view_count
           );
         });
+        $.each(data.selfarticles, function (i, value) {
+          selfarticles(value.status, value.articleno, value.title, value.view_count, value.count);
+        })
+
       },
       error: function (err) {
         // 發生錯誤，顯示錯誤訊息
@@ -390,4 +412,34 @@ function cards(
   </div>
 </div>`;
   $(".c-mylikes").append(mycards);
+}
+function selfarticles(status, articleno, title, views, likes) {
+  // $("#c-members").empty();
+  let selfarticlesTr = $("<tr>");
+  let titles;
+  let articlestatus;
+  let editArticles;
+  if (status == 'show') {
+    titles = `<td><a href="/${articleno}">${title} </a></td>`;
+    articlestatus = '已發佈';
+    editArticles = `<a class="c-editArt" href="/${articleno}"><i class="fa-regular fa-pen-to-square"></i></a>
+    <i data-articleno=${articleno} class="fa-regular fa-trash-can trash"></i>`
+  } else if (status == 'draft') {
+    titles = `<td>${title}</td>`;
+    articlestatus = '草稿';
+    editArticles = `<a class="c-editArt" href="/${articleno}"><i class="fa-regular fa-pen-to-square"></i></a>
+    <i data-articleno=${articleno} class="fa-regular fa-trash-can trash"></i>`
+  } else if (status == 'report') {
+    titles = `<td>${title}</td>`;
+    articlestatus = '檢舉刪除';
+    editArticles = `無法編輯`;
+    selfarticlesTr.addClass('c-deleteDone')
+  }
+  selfarticlesTr.append(`${titles}`);
+  selfarticlesTr.append(`<td><i class="fa-regular fa-eye"></i> ${views}</td>`);
+  selfarticlesTr.append(`<td><i class="fa-regular fa-heart"></i> ${likes}</td>`);
+  selfarticlesTr.append(`<td>${articlestatus}</td>`);
+  selfarticlesTr.append(`<td>${editArticles}</td>`);
+  $(".c-mine tbody").append(selfarticlesTr);
+
 }
