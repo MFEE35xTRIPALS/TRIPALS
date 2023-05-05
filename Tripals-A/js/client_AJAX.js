@@ -173,12 +173,15 @@ $(document).ready(function () {
       },
     });
   }
-  $('.c-mylikes').on("click", 'h6', function () {
+  $(".c-mylikes").on("click", "h6", function () {
     console.log($(this)[0].dataset.autherno);
-    sessionStorage.setItem('atherno', JSON.stringify($(this)[0].dataset.autherno));
-    window.location = './selfpage.html';
+    sessionStorage.setItem(
+      "atherno",
+      JSON.stringify($(this)[0].dataset.autherno)
+    );
+    window.location = "./selfpage.html";
   });
-  $('.c-mylikes').on("click", ".heart", function (e) {
+  $(".c-mylikes").on("click", ".heart", function (e) {
     // 找到點擊的 i 元素所在的 card_body 元素
     console.log(e.target.classList);
     var onecard = $(this).closest(".onecard");
@@ -187,45 +190,52 @@ $(document).ready(function () {
     var articlenoinput = onecard.find(".articleno");
     $.ajax({
       type: "POST",
-      url: e.target.classList.contains('fas') ? url + '/selfpage/deleteLikes' : url + '/selfpage/insertLikes',
+      url: e.target.classList.contains("fas")
+        ? url + "/selfpage/deleteLikes"
+        : url + "/selfpage/insertLikes",
       data: {
         userno: userno,
-        articleno: articlenoinput.val()
+        articleno: articlenoinput.val(),
       },
       success: function (data) {
         console.log(data.likesCount);
-        e.target.classList.toggle('fas');
-        onecard.find('.viewsAndHeart p:first').empty();
-        onecard.find('.viewsAndHeart p:first').html(`<i class="fa-regular fa-heart"></i> ${data.likesCount.collect}`);
+        e.target.classList.toggle("fas");
+        onecard.find(".viewsAndHeart p:first").empty();
+        onecard
+          .find(".viewsAndHeart p:first")
+          .html(
+            `<i class="fa-regular fa-heart"></i> ${data.likesCount.collect}`
+          );
         // alert(data);
-      }
-    })
-
+      },
+    });
   });
-  $('.c-mylikes').on("click", 'a', function (e) {
+  $(".c-mylikes").on("click", "a", function (e) {
     e.preventDefault();
     // console.log(e.currentTarget);
     console.log($(this));
     var onecard = $(this).closest(".onecard");
     // console.log(onecard.find('.articleno').val());
-    sessionStorage.setItem('articleno', JSON.stringify(onecard.find('.articleno').val()));
-    window.location = './client.html';//之後要改成要去的瀏覽文章頁面
+    sessionStorage.setItem(
+      "articleno",
+      JSON.stringify(onecard.find(".articleno").val())
+    );
+    window.location = "./client.html"; //之後要改成要去的瀏覽文章頁面
     $.ajax({
       type: "POST",
-      url: url + '/selfpage/updateViews',
+      url: url + "/selfpage/updateViews",
       data: {
-        articleno: onecard.find('.articleno').val()
+        articleno: onecard.find(".articleno").val(),
       },
       // success: function (data) {
 
       // }
-    })
-  })
+    });
+  });
 
   // ----------------------------------------------------------------
   // console.log($); // 確認jQuery
   // ---------------------- 這裡是個人資料讀取 -------------------------- //
-  // let userno; // 之後要改這裡！
   // ----- GET -----
   var renderID = () => {
     $.ajax({
@@ -235,7 +245,7 @@ $(document).ready(function () {
         userno: userno,
       },
       success: function (data) {
-        dataclear();//清空個人資料
+        dataclear(); //清空個人資料
         // console.log(data.userLikes); // 確認有撈到資料
         if (data.userMessage[0].banner) {
           $(".selfbanner").attr("src", "");
@@ -254,22 +264,26 @@ $(document).ready(function () {
         $("#bday").val(data.userMessage[0].birthday);
         $("#myIntro").val(data.userMessage[0].intro);
         $(".username").text(
-          data.userMessage[0].nickname ? data.userMessage[0].nickname : data.userMessage[0].username
+          data.userMessage[0].nickname
+            ? data.userMessage[0].nickname
+            : data.userMessage[0].username
         );
         if (!data.userLikes[0]) {
-          $('.c-mylikes').html('<p>目前收藏文章數：0</p>');
+          $(".c-mylikes").html("<p>目前收藏文章數：0</p>");
         }
         $.each(data.userLikes, function (i, value) {
-          cards(value.articleno,
+          cards(
+            value.articleno,
             value.image ? url + value.image : "./img/puppy-1207816_1280.jpg",
             value.title,
-            'fas',
+            "fas",
             value.userno,
             value.avatar ? url + value.avatar : "./img/admin2.png",
             value.nickname ? value.nickname : value.username,
-            value.count, value.view_count)
+            value.count,
+            value.view_count
+          );
         });
-
       },
       error: function (err) {
         // 發生錯誤，顯示錯誤訊息
@@ -279,10 +293,10 @@ $(document).ready(function () {
   };
   renderID();
 
-
   /* ------------- (自動偵測密碼限制) ------------- */
-  let oktoPost = false;
+  let oktoPost = true;
   $("#pwd").on("input", () => {
+    oktoPost = false;
     if (!$("#pwd").val()) {
       $("#m-pwd").text("*必填欄位");
       oktoPost = false;
@@ -325,10 +339,7 @@ function photoes(banner) {
   $(".selfbanner").attr("src", url + banner + "?temp=" + Math.random());
 }
 function photoesAvatar(avatars) {
-  $(".shot,.imgPreview").attr(
-    "src",
-    url + avatars + "?temp=" + Math.random()
-  );
+  $(".shot,.imgPreview").attr("src", url + avatars + "?temp=" + Math.random());
 } //每次url都給不同參數讓瀏覽器不要使用緩存的圖片
 function dataclear() {
   $("#id").text(), $("#email").val("");
@@ -337,7 +348,17 @@ function dataclear() {
   $("#bday").val("");
   $("#myIntro").val("");
 }
-function cards(articleno, img, title, heart, autherno, shot, userName, likes, views) {
+function cards(
+  articleno,
+  img,
+  title,
+  heart,
+  autherno,
+  shot,
+  userName,
+  likes,
+  views
+) {
   let mycards = `<div class="onecard card">
   <input class='articleno' type='hidden' value=${articleno}>
   <a href="#" class="c-cardImg">
@@ -368,5 +389,5 @@ function cards(articleno, img, title, heart, autherno, shot, userName, likes, vi
     </div>
   </div>
 </div>`;
-  $('.c-mylikes').append(mycards);
+  $(".c-mylikes").append(mycards);
 }

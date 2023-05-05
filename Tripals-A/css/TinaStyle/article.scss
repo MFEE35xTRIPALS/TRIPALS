@@ -163,15 +163,18 @@ section.hashtag {
   display: flex;
   justify-content: center;
 }
+
 .search {
-  background-color: #f0e8dc;
+  &:not(:focus-within) {
+    --transition-time-input: 0.2s 0s;
+  }
   $root: &;
 
   border-radius: 50px;
   border: 2px solid transparent;
   display: flex;
   transition: border-color 0.2s linear,
-    padding 0.3s 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    padding 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
   &__input {
     background: transparent;
@@ -181,8 +184,8 @@ section.hashtag {
     opacity: 0;
     outline: none;
     padding: 0;
-    transition: width 0.3s 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-      padding 0.3s 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s 0.25s linear;
+    transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+      padding 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s linear;
     width: 0;
 
     &::placeholder {
@@ -198,7 +201,8 @@ section.hashtag {
   }
 
   // 放大鏡
-  &__label {
+  &__label,
+  &__submit {
     color: #27a2b8;
     cursor: pointer;
     display: block;
@@ -214,27 +218,27 @@ section.hashtag {
     }
   }
 
-  // &__label {
-  //   transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.1s;
-  // }
+  &__label {
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.1s;
+  }
 
-  // &__submit {
-  //   background: none;
-  //   border-radius: 50%;
-  //   border: none;
-  //   box-shadow: 0 0 0 4px inset transparent;
-  //   display: none;
-  //   outline: none;
-  //   transition: color 0.1s, box-shadow 0.1s;
+  &__submit {
+    background: none;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 0 0 4px inset transparent;
+    display: none;
+    outline: none;
+    transition: color 0.1s, box-shadow 0.1s;
 
-  //   svg {
-  //     transform: scale(0.5);
-  //   }
+    svg {
+      transform: scale(0.5);
+    }
 
-  //   &:focus {
-  //     box-shadow: 0 0 0 4px inset #27a2b8;
-  //   }
-  // }
+    &:focus {
+      box-shadow: 0 0 0 4px inset #27a2b8;
+    }
+  }
 
   &:focus-within {
     border-color: #27a2b8;
@@ -243,29 +247,29 @@ section.hashtag {
       &__input {
         opacity: 1;
         padding: 0 1rem 0 2rem;
-        width: 100%;
+        width: calc(2rem * 10);
       }
 
       &__label {
         transform: scale(0.5);
       }
 
-      // &__submit {
-      //   animation: unhide 0.2s steps(1, end);
-      //   height: auto;
-      // }
+      &__submit {
+        animation: unhide 0.2s steps(1, end);
+        display: block;
+      }
     }
   }
 }
 
-// @keyframes unhide {
-//   from {
-//     height: 0;
-//     opacity: 1;
-//   }
+@keyframes unhide {
+  from {
+    height: 0;
+    opacity: 1;
+  }
 
-//   to {
-//     height: auto;
-//     opacity: 1;
-//   }
-// }
+  to {
+    height: auto;
+    opacity: 1;
+  }
+}

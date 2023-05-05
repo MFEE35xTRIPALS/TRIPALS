@@ -267,11 +267,13 @@ section.hashtag div.sort button.hots i {
 }
 
 .search {
-  background-color: #f0e8dc;
   border-radius: 50px;
   border: 2px solid transparent;
   display: flex;
-  transition: border-color 0.2s linear, padding 0.3s 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border-color 0.2s linear, padding 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.search:not(:focus-within) {
+  --transition-time-input: 0.2s 0s;
 }
 .search__input {
   background: transparent;
@@ -281,7 +283,7 @@ section.hashtag div.sort button.hots i {
   opacity: 0;
   outline: none;
   padding: 0;
-  transition: width 0.3s 0.25s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s 0.25s linear;
+  transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1), padding 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s linear;
   width: 0;
 }
 .search__input::-moz-placeholder {
@@ -297,7 +299,7 @@ section.hashtag div.sort button.hots i {
   position: relative;
   width: 3rem;
 }
-.search__label {
+.search__label, .search__submit {
   color: #27a2b8;
   cursor: pointer;
   display: block;
@@ -306,8 +308,26 @@ section.hashtag div.sort button.hots i {
   position: absolute;
   width: 100%;
 }
-.search__label:hover, .search__label:focus, .search__label:active {
+.search__label:hover, .search__label:focus, .search__label:active, .search__submit:hover, .search__submit:focus, .search__submit:active {
   color: #27a2b8;
+}
+.search__label {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.1s;
+}
+.search__submit {
+  background: none;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 0 0 4px inset transparent;
+  display: none;
+  outline: none;
+  transition: color 0.1s, box-shadow 0.1s;
+}
+.search__submit svg {
+  transform: scale(0.5);
+}
+.search__submit:focus {
+  box-shadow: 0 0 0 4px inset #27a2b8;
 }
 .search:focus-within {
   border-color: #27a2b8;
@@ -315,8 +335,23 @@ section.hashtag div.sort button.hots i {
 .search:focus-within .search__input {
   opacity: 1;
   padding: 0 1rem 0 2rem;
-  width: 100%;
+  width: 20rem;
 }
 .search:focus-within .search__label {
   transform: scale(0.5);
+}
+.search:focus-within .search__submit {
+  animation: unhide 0.2s steps(1, end);
+  display: block;
+}
+
+@keyframes unhide {
+  from {
+    height: 0;
+    opacity: 1;
+  }
+  to {
+    height: auto;
+    opacity: 1;
+  }
 }/*# sourceMappingURL=article.css.map */

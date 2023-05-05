@@ -30,8 +30,6 @@ $(document).ready(function () {
   $("#tags").on("click", "li", function () {
     tagno($(this).data().tagno); // 將tagno存到session
     var hashtagno = sessionStorage.getItem("tagno");
-    // console.log("小火龍是" + $(this).data().tagno);
-    // console.log("皮卡丘是" + apple);
     $.ajax({
       url: url + `/articles/hashtags/${hashtagno}`,
       type: "post",
@@ -75,7 +73,8 @@ $(document).ready(function () {
   });
 });
 /* ----------------- location ----------------- */
-$(".search__label").on("click", function () {
+$(".city").on("change", function () {
+  console.log($("select").val());
   var city = $("select").val();
   $.ajax({
     url: url + `/articles/city`,
@@ -203,37 +202,22 @@ function cards(data, heart) {
 }
 
 /* ----------------- Search Bar ----------------- */
-// $(".c-mylikes").on("click", ".heart", function (e) {
-//   // 使用者有無登入的判斷
-//   if (userno) {
-//     var onecard = $(this).closest(".onecard"); // card 本體
-
-//     var articlenoinput = onecard.find(".articleno");
-//     $.ajax({
-//       type: "POST",
-//       url: e.target.classList.contains("fas")
-//         ? url + "/selfpage/deleteLikes"
-//         : url + "/selfpage/insertLikes",
-//       data: {
-//         userno: userno,
-//         articleno: articlenoinput.val(),
-//       },
-//       success: function (data) {
-//         e.target.classList.toggle("fas");
-//         onecard.find(".viewsAndHeart p:first").empty();
-//         onecard
-//           .find(".viewsAndHeart p:first")
-//           .html(
-//             `<i class="fa-regular fa-heart"></i> ${data.likesCount.collect}`
-//           );
-//         // alert(data);
-//       },
-//     });
-//   } else {
-//     if (confirm("需要登入後才可收藏文章，是否前往登入頁面？")) {
-//       window.location = "./client.html";
-//     } else {
-//       return;
-//     }
-//   }
-// });
+$(".search__submit").on("click", function (e) {
+  var search = $("input").val();
+  $.ajax({
+    type: "POST",
+    url: url + "/articles/search",
+    data: {
+      userno: userno,
+      search: search,
+    },
+    success: function (data) {
+      $(".c-mylikes").empty();
+      var likes = data[1].map((value) => value.articleno);
+      $.each(data[0], function (i, list) {
+        let heart = likes.includes(list.articleno) ? "fas" : "";
+        cards(list, heart);
+      });
+    },
+  });
+});
