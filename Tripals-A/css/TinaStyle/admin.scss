@@ -13,6 +13,7 @@
 .c-right {
   .c-block {
     position: relative;
+
     /* 最新消息區塊 */
     .a-news {
       padding: 2rem 2rem 0rem 3rem;
@@ -27,6 +28,7 @@
       width: 80%;
       position: sticky;
       top: 0;
+
       thead {
         background-color: rgba($Green, $alpha: 0.3);
       }
@@ -40,11 +42,18 @@
           padding: 0.5rem;
           font-size: $tableText;
           border: 0.3px $Green solid;
+          text-align: center;
+
+          &:nth-of-type(2) {
+            text-align: left;
+          }
         }
+
         .icon {
           color: $Blue;
           text-align: center;
         }
+
         &:hover {
           background-color: rgba($Green, $alpha: 0.3);
         }
@@ -53,16 +62,21 @@
           cursor: pointer;
         }
       }
-      /* no use */ //tr
+
+      /* no use */
+      //tr
       .a-noUse {
         text-decoration: line-through;
         color: gray;
       }
+
       .x-icon {
         color: gray;
         text-decoration: none;
       }
-      /* 點選 */ //tr
+
+      /* 點選 */
+      //tr
       .chose {
         background-color: rgba($Green, $alpha: 0.3);
         color: $Blue;
@@ -72,9 +86,11 @@
     /* 最新消息新增  */
     .c-form {
       padding: 2rem 2.5rem 4rem 2.5rem;
+
       input {
         white-space: normal;
       }
+
       .c-inbox {
         padding: 0.5rem;
         display: flex;
@@ -102,6 +118,7 @@
           }
         }
       }
+
       .c-button {
         padding: 0.5rem;
         position: relative;
@@ -177,6 +194,7 @@
           padding: 0.5rem;
         }
       }
+
       span {
         color: $Heart;
       }
@@ -189,6 +207,7 @@
       width: 100%;
       overflow: auto;
       background-color: white;
+
       .totalMember {
         padding: 1rem 1rem;
         color: $Blue;
@@ -215,6 +234,7 @@
           label {
             padding: 0.25rem 0;
           }
+
           input {
             border-radius: 20px;
             border: 1.5px $Blue solid;
@@ -222,10 +242,12 @@
             font-size: $InputText;
             width: 100%;
           }
+
           .d-button {
             padding: 2rem 1rem 0 1rem;
             display: flex;
             justify-content: space-around;
+
             button {
               font-size: $ButtonText;
               padding: 0.25rem 0.75rem;
@@ -233,6 +255,7 @@
               // position: absolute;
               // bottom: -40px;
             }
+
             /* 更新按鈕 */
             .d-change {
               // right: 20px;
@@ -246,6 +269,7 @@
                 border: $ButtonColor 2px solid;
               }
             }
+
             /* 取消按鈕 */
             .d-cancel {
               // right: 115px;
@@ -261,6 +285,7 @@
             }
           }
         }
+
         &::backdrop {
           background-color: rgba(0, 0, 0, 0.5);
         }

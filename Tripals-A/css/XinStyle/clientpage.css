@@ -542,6 +542,10 @@ button.camera {
   font-size: 1.15rem;
   border: 0.3px #b2d5ce solid;
   width: 100%;
+  text-align: center;
+}
+.c-mine .c-myart tr td:first-child {
+  text-align: left;
 }
 .c-mine .c-myart tr td a {
   color: black;

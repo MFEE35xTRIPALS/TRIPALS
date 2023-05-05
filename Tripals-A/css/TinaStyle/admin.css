@@ -225,6 +225,10 @@ section.c-head div.img2 {
   padding: 0.5rem;
   font-size: 1.25rem;
   border: 0.3px #b2d5ce solid;
+  text-align: center;
+}
+.c-right .c-block .c-myart tr td:nth-of-type(2) {
+  text-align: left;
 }
 .c-right .c-block .c-myart tr .icon {
   color: #27a2b8;

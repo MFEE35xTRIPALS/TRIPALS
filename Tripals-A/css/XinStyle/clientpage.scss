@@ -281,6 +281,11 @@ button.camera {
         font-size: $ArticleText;
         border: 0.3px $Green solid;
         width: 100%;
+        text-align: center;
+
+        &:first-child {
+          text-align: left;
+        }
 
         a {
           color: $myarticles_atag;
