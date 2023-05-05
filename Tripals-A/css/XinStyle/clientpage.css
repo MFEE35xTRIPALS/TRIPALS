@@ -530,6 +530,9 @@ button.camera {
 .c-mine .c-myart {
   text-align: left;
 }
+.c-mine .c-myart thead {
+  background-color: rgba(178, 213, 206, 0.3);
+}
 .c-mine .c-myart tr td {
   max-width: 15rem;
   white-space: nowrap;
@@ -537,6 +540,7 @@ button.camera {
   overflow: hidden;
   padding: 0.5rem;
   font-size: 1.15rem;
+  border: 0.3px #b2d5ce solid;
   width: 100%;
 }
 .c-mine .c-myart tr td a {

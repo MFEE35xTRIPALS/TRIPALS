@@ -1,7 +1,7 @@
 // 登入使用者編號
 let userno;
 if (true) {
-  userno = 2;
+  userno = 4;
 }
 // let authorno = 2;
 let authorno = JSON.parse(sessionStorage.getItem('atherno'));

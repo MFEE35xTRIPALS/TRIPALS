@@ -1,5 +1,5 @@
 // 傳入登入者id
-let userno = 2;
+let userno = 4;
 let url = "http://localhost:3000";
 
 // 使用者點擊.edit_cover元素時，觸發 fileUpload 元件的點擊事件
@@ -236,7 +236,7 @@ $(document).ready(function () {
       },
       success: function (data) {
         dataclear();//清空個人資料
-        console.log(data.userLikes); // 確認有撈到資料
+        // console.log(data.userLikes); // 確認有撈到資料
         if (data.userMessage[0].banner) {
           $(".selfbanner").attr("src", "");
           photoes(data.userMessage[0].banner);
