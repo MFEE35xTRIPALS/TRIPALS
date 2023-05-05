@@ -1,0 +1,125 @@
+@charset "UTF-8";
+/* ----- color ----- */
+/* ----- font(global) ----- */
+/* ----- font(CRUD-button) ----- */
+/* ----- font(local) ----- */
+/* ----- card字體變數 ----- */
+/* ----- card顏色變數 ----- */
+/* ----- 旅遊導覽變數 ----- */
+/* -------- 全域設定 -------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-weight: normal;
+  font-family: "Sen", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+/* 設定字型 */
+@font-face {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-style: normal;
+  src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.woff2) format("woff2"), url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.woff) format("woff"), url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.ttf) format("truetype");
+}
+.container {
+  align-items: center;
+  background: #f0e8dc;
+  display: flex;
+  justify-content: center;
+}
+
+.search {
+  background-color: #f0e8dc;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  display: flex;
+  transition: border-color 0.2s linear, padding 0.3s 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.search__input {
+  background: transparent;
+  border: none;
+  color: #27a2b8;
+  font-size: 2rem;
+  opacity: 0;
+  outline: none;
+  padding: 0;
+  transition: width 0.3s 0.25s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s 0.25s linear;
+  width: 0;
+}
+.search__input::placeholder {
+  color: #27a2b8;
+  opacity: 0.75;
+}
+.search__icon-container {
+  height: 4rem;
+  position: relative;
+  width: 4rem;
+}
+.search__label, .search__submit {
+  color: #27a2b8;
+  cursor: pointer;
+  display: block;
+  height: 100%;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+}
+.search__label:hover, .search__label:focus, .search__label:active, .search__submit:hover, .search__submit:focus, .search__submit:active {
+  color: #27a2b8;
+}
+.search__label {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.1s;
+}
+.search__submit {
+  background: none;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 0 0 4px inset transparent;
+  display: none;
+  outline: none;
+  transition: color 0.1s, box-shadow 0.1s;
+}
+.search__submit svg {
+  transform: scale(0.5);
+}
+.search__submit:focus {
+  box-shadow: 0 0 0 4px inset #27a2b8;
+}
+.search:focus-within {
+  border-color: #27a2b8;
+}
+.search:focus-within .search__input {
+  opacity: 1;
+  padding: 0 1rem 0 2rem;
+  width: 24rem;
+}
+.search:focus-within .search__label {
+  transform: scale(0.5);
+}
+.search:focus-within .search__submit {
+  animation: unhide 0.2s steps(1, end);
+  display: block;
+}
+
+@keyframes unhide {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: auto;
+    opacity: 1;
+  }
+}/*# sourceMappingURL=try.css.map */

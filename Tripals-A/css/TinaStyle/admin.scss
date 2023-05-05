@@ -25,6 +25,8 @@
     .c-myart {
       // margin: auto;
       width: 80%;
+      position: sticky;
+      top: 0;
       thead {
         background-color: rgba($Green, $alpha: 0.3);
       }

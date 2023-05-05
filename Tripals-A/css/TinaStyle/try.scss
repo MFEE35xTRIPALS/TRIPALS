@@ -1,0 +1,122 @@
+@import "fontstyle";
+
+// *,
+// *::before,
+// *::after {
+//   box-sizing: border-box;
+//   font-family: "Sen", sans-serif;
+//   font-weight: 400;
+// }
+
+.container {
+  align-items: center;
+  background: #f0e8dc;
+  display: flex;
+  justify-content: center;
+}
+.search {
+  background-color: #f0e8dc;
+
+  border-radius: 50%;
+  border: 2px solid transparent;
+  display: flex;
+  transition: border-color 0.2s linear,
+    padding 0.3s 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+  //   &__input {
+  //     background: transparent;
+  //     border: none;
+  //     color: #27a2b8;
+  //     font-size: 2rem;
+  //     opacity: 0;
+  //     outline: none;
+  //     padding: 0;
+  //     transition: width 0.3s 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+  //       padding 0.3s 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s 0.25s linear;
+  //     width: 0;
+
+  //     &::placeholder {
+  //       color: #27a2b8;
+  //       opacity: 0.75;
+  //     }
+  //   }
+
+  //   &__icon-container {
+  //     height: calc(2rem + 2rem);
+  //     position: relative;
+  //     width: calc(2rem + 2rem);
+  //   }
+
+  &__label,
+  &__submit {
+    color: #27a2b8;
+    cursor: pointer;
+    display: block;
+    height: 100%;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+    // top: 20px;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: #27a2b8;
+    }
+  }
+
+  &__label {
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.1s;
+  }
+
+  &__submit {
+    background: none;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 0 0 4px inset transparent;
+    display: none;
+    outline: none;
+    transition: color 0.1s, box-shadow 0.1s;
+
+    svg {
+      transform: scale(0.5);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 4px inset #27a2b8;
+    }
+  }
+
+  &:focus-within {
+    border-color: #27a2b8;
+
+    #{$root} {
+      &__input {
+        opacity: 1;
+        padding: 0 1rem 0 2rem;
+        width: calc(2rem * 12);
+      }
+
+      &__label {
+        transform: scale(0.5);
+      }
+
+      &__submit {
+        animation: unhide 0.2s steps(1, end);
+        display: block;
+      }
+    }
+  }
+}
+
+@keyframes unhide {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+
+  to {
+    height: auto;
+    opacity: 1;
+  }
+}

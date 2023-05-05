@@ -209,6 +209,8 @@ section.c-head div.img2 {
 }
 .c-right .c-block .c-myart {
   width: 80%;
+  position: sticky;
+  top: 0;
   /* no use */
   /* 點選 */
 }
