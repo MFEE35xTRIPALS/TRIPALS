@@ -98,6 +98,10 @@
         flex-wrap: wrap;
         position: relative;
 
+        .c-date {
+          padding-left: 1rem;
+        }
+
         label {
           font-size: $lableText;
           padding-right: 1rem;

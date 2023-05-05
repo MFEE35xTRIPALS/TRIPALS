@@ -267,6 +267,9 @@ section.c-head div.img2 {
   position: relative;
   /* input[type="text"]  */
 }
+.c-right .c-block .c-form .c-inbox .c-date {
+  padding-left: 1rem;
+}
 .c-right .c-block .c-form .c-inbox label {
   font-size: 1.5rem;
   padding-right: 1rem;
