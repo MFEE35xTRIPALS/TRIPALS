@@ -322,6 +322,10 @@
               text-decoration: none;
             }
 
+            i {
+              color: $CancelColor;
+            }
+
             // color: $Blue;
             button.a-takeOf {
               background-color: $clientMessagecolor;
@@ -350,12 +354,19 @@
           }
 
           &.a-deleteDone {
-            background-color: rgb(178, 178, 178);
+            background-color: white;
+            color: gray;
+
+            td:nth-of-type(1),
+            td:nth-of-type(2) {
+              text-decoration: line-through;
+
+            }
           }
 
-          &.a-takeOfDone {
-            background-color: rgb(221, 221, 221);
-          }
+          // &.a-takeOfDone {
+          //   background-color: rgb(221, 221, 221);
+          // }
         }
       }
     }

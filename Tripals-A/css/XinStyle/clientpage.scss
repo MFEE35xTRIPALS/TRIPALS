@@ -288,6 +288,8 @@ button.camera {
           text-align: left;
         }
 
+
+
         a {
           color: $myarticles_atag;
           text-decoration: none;
@@ -295,36 +297,39 @@ button.camera {
 
         a.c-editArt {
           color: $myarticlesEdit;
+          margin: 0 0.5rem;
         }
 
         i.trash {
           color: $TrashColor;
+          cursor: pointer;
+          margin: 0 0.5rem;
         }
 
-        button.c-takeOf {
-          // color: $myarticlesBtn;
-          background-color: $clientMessagecolor;
-          border-radius: 50px;
-          border: $clientMessagecolor 2px solid;
-          // font-weight: bold;
-          text-align: center;
-          padding: 0.2rem 0.5rem;
-          // border: 1px solid $myarticlesBtn;
-          filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-          transition: all 0.2s ease;
-          font-size: $takeofText;
+        // button.c-takeOf {
+        //   // color: $myarticlesBtn;
+        //   background-color: $clientMessagecolor;
+        //   border-radius: 50px;
+        //   border: $clientMessagecolor 2px solid;
+        //   // font-weight: bold;
+        //   text-align: center;
+        //   padding: 0.2rem 0.5rem;
+        //   // border: 1px solid $myarticlesBtn;
+        //   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        //   transition: all 0.2s ease;
+        //   font-size: $takeofText;
 
-          &:hover {
-            // border: none;
-            background-color: $MessageBtnHover;
-          }
+        //   &:hover {
+        //     // border: none;
+        //     background-color: $MessageBtnHover;
+        //   }
 
-          &:disabled {
-            background-color: $myarticlesBtnDisablebg;
-            color: $myarticlesBtnDisable;
-            border: none;
-          }
-        }
+        //   &:disabled {
+        //     background-color: $myarticlesBtnDisablebg;
+        //     color: $myarticlesBtnDisable;
+        //     border: none;
+        //   }
+        // }
       }
 
       &:hover {
@@ -332,12 +337,23 @@ button.camera {
       }
 
       &.c-deleteDone {
-        background-color: $myarticlesDelete;
+        &:hover {
+          background-color: #ffffff;
+        }
+
+        color: gray;
+
+        td:nth-of-type(1),
+        td:nth-of-type(2),
+        td:nth-of-type(3) {
+          text-decoration: line-through;
+
+        }
       }
 
-      &.c-takeOfDone {
-        background-color: $myarticlesTakeof;
-      }
+      // &.c-takeOfDone {
+      //   background-color: $myarticlesTakeof;
+      // }
     }
   }
 }
