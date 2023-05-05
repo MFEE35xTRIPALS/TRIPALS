@@ -301,21 +301,6 @@ button.camera {
           color: $TrashColor;
         }
 
-        .deleteBtn {
-          border: $Heart 2px solid;
-          background: $Heart;
-          color: white;
-          border-radius: 50px;
-          width: 30px;
-          height: 30px;
-
-          &:hover {
-            color: $Heart;
-            background: $HoverBg;
-            border: $Heart 2px solid;
-          }
-        }
-
         button.c-takeOf {
           // color: $myarticlesBtn;
           background-color: $clientMessagecolor;
