@@ -554,6 +554,22 @@ button.camera {
 .c-mine .c-myart tr td a.c-editArt {
   color: #27a2b8;
 }
+.c-mine .c-myart tr td i.trash {
+  color: #ff4848;
+}
+.c-mine .c-myart tr td .deleteBtn {
+  border: #ff4848 2px solid;
+  background: #ff4848;
+  color: white;
+  border-radius: 50px;
+  width: 30px;
+  height: 30px;
+}
+.c-mine .c-myart tr td .deleteBtn:hover {
+  color: #ff4848;
+  background: #ffffff;
+  border: #ff4848 2px solid;
+}
 .c-mine .c-myart tr td button.c-takeOf {
   background-color: #b2d5ce;
   border-radius: 50px;

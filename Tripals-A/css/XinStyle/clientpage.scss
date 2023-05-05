@@ -267,6 +267,7 @@ button.camera {
   .c-myart {
     text-align: left;
 
+
     thead {
       background-color: rgba($Green, $alpha: 0.3);
     }
@@ -294,6 +295,25 @@ button.camera {
 
         a.c-editArt {
           color: $myarticlesEdit;
+        }
+
+        i.trash {
+          color: $TrashColor;
+        }
+
+        .deleteBtn {
+          border: $Heart 2px solid;
+          background: $Heart;
+          color: white;
+          border-radius: 50px;
+          width: 30px;
+          height: 30px;
+
+          &:hover {
+            color: $Heart;
+            background: $HoverBg;
+            border: $Heart 2px solid;
+          }
         }
 
         button.c-takeOf {
