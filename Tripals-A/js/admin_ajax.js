@@ -100,6 +100,39 @@ var renderMembers = () => {
 renderMembers();
 // console.log(allMembers);
 
+// ----- render 管理文章 -----
+function manageArtilcles() {
+  $.ajax({
+    type: 'GET',
+    url: url + `/admin/manageArtilcles`,
+    success: function (data) {
+      console.log(data);
+      $.each(data, function (i, value) {
+        let articleTr = $("<tr>");
+
+        articleTr.append(value.status == 'show' ? `<td><a href="#">${value.title}</a></td>` : `<td>${value.title}</td>`);
+        articleTr.append(`<td><i class="fas fa-exclamation-triangle"></i>${value.report_count}</td>`);
+
+        let articlestatus;
+        if (value.status == 'show') {
+          articlestatus = '已發佈'
+        } else if (value.status == "draft") {
+          articlestatus = '草稿'
+        } else {
+          articlestatus = '檢舉刪除'
+        }
+        articleTr.append(`<td>${articlestatus}</td>`);
+        articleTr.append(`<td><button class="a-takeOf">${value.status == 'report' ? '重新上架' : '下架'}</button></td>`);
+        if (value.status == "report") {
+          articleTr.addClass('a-deleteDone')
+        }
+        $(".a-myart tbody").append(articleTr);
+      });
+    }
+  })
+}
+manageArtilcles();
+
 $(document).ready(function () {
   /* -------------- form 顯示 -------------- */
   $("#c-news").on("click", "tr", function () {
