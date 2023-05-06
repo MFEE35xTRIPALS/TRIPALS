@@ -107,12 +107,13 @@ function manageArtilcles() {
     url: url + `/admin/manageArtilcles`,
     success: function (data) {
       console.log(data);
+      if (!data[0]) {
+        $(".a-myart tbody").html("<p>目前被檢舉文章數：0</p>");
+      }
       $.each(data, function (i, value) {
-        let articleTr = $("<tr>");
-
+        let articleTr = $("<tr>")
         articleTr.append(value.status == 'show' ? `<td><a href="#">${value.title}</a></td>` : `<td>${value.title}</td>`);
         articleTr.append(`<td><i class="fas fa-exclamation-triangle"></i>${value.report_count}</td>`);
-
         let articlestatus;
         if (value.status == 'show') {
           articlestatus = '已發佈'
@@ -122,7 +123,7 @@ function manageArtilcles() {
           articlestatus = '檢舉刪除'
         }
         articleTr.append(`<td>${articlestatus}</td>`);
-        articleTr.append(`<td><button class="a-takeOf">${value.status == 'report' ? '重新上架' : '下架'}</button></td>`);
+        articleTr.append(`<td><button data-takeOf=${value.articleno} class="a-takeOf" ${value.status == 'report' ? 'disabled' : ''}>下架</button></td>`);
         if (value.status == "report") {
           articleTr.addClass('a-deleteDone')
         }
@@ -307,4 +308,25 @@ $(".d-change").on("click", function () {
       },
     });
   }
+});
+
+/* ------------- (文章管理下架） ------------- */
+// ----- Update 下架 -----
+$('.a-myart tbody').on("click", ".a-takeOf", function (e) {
+  console.log(e.currentTarget.dataset.takeof);
+  if (confirm('文章下架後即無法復原,確定要下架文章嗎？')) {
+    $.ajax({
+      type: "PUT",
+      url: url + '/admin/takeOf',
+      data: {
+        articleno: e.currentTarget.dataset.takeof
+      },
+      success: function (data) {
+        console.log(data)
+      }
+    })
+  } else {
+    return;
+  }
+
 });
