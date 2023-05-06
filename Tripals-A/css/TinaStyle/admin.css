@@ -135,6 +135,7 @@ section.c-head div.img2 {
   background-color: white;
   width: 100%;
   min-height: 70vh;
+  padding-bottom: 1rem;
   /* 大title */
 }
 .c-right .c-block .c-title {
@@ -423,18 +424,22 @@ section.c-head div.img2 {
   background-color: rgba(0, 0, 0, 0.5);
 }
 .c-right .c-block .a-totalArt {
-  padding: 2rem 2rem 0rem 3rem;
-  height: 600px;
-  width: 100%;
-  overflow: auto;
+  height: 70vh;
+  width: 90%;
+  overflow-y: scroll;
   background-color: white;
+  margin: 2rem;
   /* 文章管理 table */
 }
 .c-right .c-block .a-totalArt .a-myart thead {
-  background-color: rgba(178, 213, 206, 0.3);
+  background-color: #b2d5ce;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 .c-right .c-block .a-totalArt .a-myart tr td {
-  max-width: 18rem;
+  border: 0.3px #b2d5ce solid;
+  max-width: 20rem;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -442,7 +447,6 @@ section.c-head div.img2 {
   font-size: 1.25rem;
   width: -moz-fit-content;
   width: fit-content;
-  border: 0.3px #b2d5ce solid;
   text-align: center;
 }
 .c-right .c-block .a-totalArt .a-myart tr td:nth-of-type(2) {

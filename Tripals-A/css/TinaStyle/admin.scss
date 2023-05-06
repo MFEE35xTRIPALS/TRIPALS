@@ -293,28 +293,32 @@
 
     /* 文章管理區塊 */
     .a-totalArt {
-      padding: 2rem 2rem 0rem 3rem;
-      height: 600px;
-      width: 100%;
-      overflow: auto;
+      height: 70vh;
+      width: 90%;
+      overflow-y: scroll;
       background-color: white;
+      margin: 2rem;
 
       /* 文章管理 table */
       .a-myart {
+
         thead {
-          background-color: rgba($Green, $alpha: 0.3);
+          background-color: $Green;
+          position: sticky;
+          top: 0;
+          z-index: 2;
         }
 
         tr {
           td {
-            max-width: 18rem;
+            border: 0.3px $Green solid;
+            max-width: 20rem;
             white-space: nowrap;
             text-overflow: ellipsis;
             overflow: hidden;
             padding: 0.5rem;
             font-size: $tableText;
             width: fit-content;
-            border: 0.3px $Green solid;
             text-align: center;
 
             &:nth-of-type(2) {

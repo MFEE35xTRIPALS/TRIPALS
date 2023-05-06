@@ -258,29 +258,30 @@ button.camera {
 
 /* 我的文章 */
 .c-mine {
-  padding: 2rem;
-  height: 600px;
-  width: 100%;
-  overflow: auto;
+  height: 70vh;
+  overflow: hidden;
   background-color: white;
+  overflow-y: scroll;
+  margin: 2rem;
 
   .c-myart {
     text-align: left;
 
-
     thead {
-      background-color: rgba($Green, $alpha: 0.3);
+      background-color: $Green;
+      position: sticky;
+      top: 0;
     }
 
     tr {
       td {
-        max-width: 15rem;
+        border: 0.3px $Green solid;
+        max-width: 10rem;
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
         padding: 0.5rem;
         font-size: $ArticleText;
-        border: 0.3px $Green solid;
         width: 100%;
         text-align: center;
 
