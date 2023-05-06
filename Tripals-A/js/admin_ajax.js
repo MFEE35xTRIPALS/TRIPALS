@@ -113,7 +113,7 @@ function manageArtilcles() {
       $.each(data, function (i, value) {
         let articleTr = $("<tr>")
         articleTr.append(`<td>${value.articleno}</td>`);
-        articleTr.append(value.status == 'show' ? `<td><a href="#">${value.title}</a></td>` : `<td>${value.title}</td>`);
+        articleTr.append(value.status == 'show' ? `<td><a href="/${value.articleno}">${value.title}</a></td>` : `<td>${value.title}</td>`);
         articleTr.append(`<td><i class="fas fa-exclamation-triangle"></i>${value.report_count}</td>`);
         let articlestatus;
         if (value.status == 'show') {
