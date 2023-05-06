@@ -313,11 +313,11 @@
             overflow: hidden;
             padding: 0.5rem;
             font-size: $tableText;
-            width: 100%;
+            width: fit-content;
             border: 0.3px $Green solid;
             text-align: center;
 
-            &:nth-of-type(1) {
+            &:nth-of-type(2) {
               text-align: left;
             }
 
@@ -366,7 +366,8 @@
             color: gray;
 
             td:nth-of-type(1),
-            td:nth-of-type(2) {
+            td:nth-of-type(2),
+            td:nth-of-type(3) {
               text-decoration: line-through;
 
             }

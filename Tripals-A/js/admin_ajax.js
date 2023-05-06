@@ -112,6 +112,7 @@ function manageArtilcles() {
       }
       $.each(data, function (i, value) {
         let articleTr = $("<tr>")
+        articleTr.append(`<td>${value.articleno}</td>`);
         articleTr.append(value.status == 'show' ? `<td><a href="#">${value.title}</a></td>` : `<td>${value.title}</td>`);
         articleTr.append(`<td><i class="fas fa-exclamation-triangle"></i>${value.report_count}</td>`);
         let articlestatus;
@@ -322,7 +323,9 @@ $('.a-myart tbody').on("click", ".a-takeOf", function (e) {
         articleno: e.currentTarget.dataset.takeof
       },
       success: function (data) {
-        console.log(data)
+        $(".a-myart tbody").empty();
+        manageArtilcles();
+        alert(data);
       }
     })
   } else {
