@@ -5,7 +5,7 @@ new TypeIt("#ml6", {
   waitUntilVisible: true,
 }).go();
 /* ------------- CRUD ajax ------------- */
-var url = "http://localhost:3000";
+var url = "http://localhost:8000";
 
 /* ------------- hashtag random 8 ------------- */
 

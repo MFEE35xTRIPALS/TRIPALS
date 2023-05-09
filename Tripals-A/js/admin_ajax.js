@@ -21,7 +21,7 @@ $('a[href="#a-atricles"]').on("click", function () {
 
 /* ----------- 最新消息+會員管理 CRUD ----------- */
 var userno = 1;
-var url = "http://localhost:3000";
+var url = "http://localhost:8000";
 // ----- render News -----
 var renderNews = () => {
   $.ajax({
@@ -103,7 +103,7 @@ renderMembers();
 // ----- render 管理文章 -----
 function manageArtilcles() {
   $.ajax({
-    type: 'GET',
+    type: "GET",
     url: url + `/admin/manageArtilcles`,
     success: function (data) {
       console.log(data);
@@ -111,27 +111,37 @@ function manageArtilcles() {
         $(".a-myart tbody").html("<p>目前被檢舉文章數：0</p>");
       }
       $.each(data, function (i, value) {
-        let articleTr = $("<tr>")
+        let articleTr = $("<tr>");
         articleTr.append(`<td>${value.articleno}</td>`);
-        articleTr.append(value.status == 'show' ? `<td><a href="/${value.articleno}">${value.title}</a></td>` : `<td>${value.title}</td>`);
-        articleTr.append(`<td><i class="fas fa-exclamation-triangle"></i>${value.report_count}</td>`);
+        articleTr.append(
+          value.status == "show"
+            ? `<td><a href="/${value.articleno}">${value.title}</a></td>`
+            : `<td>${value.title}</td>`
+        );
+        articleTr.append(
+          `<td><i class="fas fa-exclamation-triangle"></i>${value.report_count}</td>`
+        );
         let articlestatus;
-        if (value.status == 'show') {
-          articlestatus = '已發佈'
+        if (value.status == "show") {
+          articlestatus = "已發佈";
         } else if (value.status == "draft") {
-          articlestatus = '草稿'
+          articlestatus = "草稿";
         } else {
-          articlestatus = '檢舉刪除'
+          articlestatus = "檢舉刪除";
         }
         articleTr.append(`<td>${articlestatus}</td>`);
-        articleTr.append(`<td><button data-takeOf=${value.articleno} class="a-takeOf" ${value.status == 'report' ? 'disabled' : ''}>下架</button></td>`);
+        articleTr.append(
+          `<td><button data-takeOf=${value.articleno} class="a-takeOf" ${
+            value.status == "report" ? "disabled" : ""
+          }>下架</button></td>`
+        );
         if (value.status == "report") {
-          articleTr.addClass('a-deleteDone')
+          articleTr.addClass("a-deleteDone");
         }
         $(".a-myart tbody").append(articleTr);
       });
-    }
-  })
+    },
+  });
 }
 manageArtilcles();
 
@@ -313,23 +323,22 @@ $(".d-change").on("click", function () {
 
 /* ------------- (文章管理下架） ------------- */
 // ----- Update 下架 -----
-$('.a-myart tbody').on("click", ".a-takeOf", function (e) {
+$(".a-myart tbody").on("click", ".a-takeOf", function (e) {
   console.log(e.currentTarget.dataset.takeof);
-  if (confirm('文章下架後即無法復原,確定要下架文章嗎？')) {
+  if (confirm("文章下架後即無法復原,確定要下架文章嗎？")) {
     $.ajax({
       type: "PUT",
-      url: url + '/admin/takeOf',
+      url: url + "/admin/takeOf",
       data: {
-        articleno: e.currentTarget.dataset.takeof
+        articleno: e.currentTarget.dataset.takeof,
       },
       success: function (data) {
         $(".a-myart tbody").empty();
         manageArtilcles();
         alert(data);
-      }
-    })
+      },
+    });
   } else {
     return;
   }
-
 });
