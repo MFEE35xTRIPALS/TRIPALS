@@ -1,13 +1,14 @@
 import React from "react";
 
 
+
 class Footer extends React.Component {
     render(){
         return (
         <footer>
         <div className="container">
           <div id="footerLogo">
-            <img src="./media/LOGO.svg" alt="" />
+            <img src="" alt="" />
             <h5>Copyright@Tripals All Rights Reserved.</h5>
           </div>
           <div id="footerNav">
