@@ -1,9 +1,81 @@
-import './CSS/Header.css';
-
+import React, { useEffect } from 'react';
+import './CSS/hamburgers.css';
 
 const Header = () => {
+  useEffect(() => {
+    const handleNavMouseOver = (event) => {
+      event.target.textContent = event.target.getAttribute('data-zh');
+    };
+
+    const handleNavMouseOut = (event) => {
+      event.target.textContent = event.target.getAttribute('data-en');
+    };
+
+    const handleScroll = () => {
+      const navLinks = document.querySelectorAll('.navWord');
+      const scrollY = window.scrollY;
+
+      if (scrollY > 900 && scrollY < 3400) {
+        navLinks.forEach((link) => {
+          link.style.color = '#578F52';
+        });
+      } else {
+        navLinks.forEach((link) => {
+          link.style.color = '#ffffff';
+        });
+      }
+    };
+
+    const handleHamburgerClick = () => {
+      const hamburger = document.querySelector('.hamburger');
+      hamburger.classList.toggle('is-active');
+    };
+
+    const handleNavLinkClick = () => {
+      const navContent = document.querySelector('#navbarContent');
+      const navToggler = document.querySelector('.navbar-toggler');
+      if (navContent.classList.contains('show')) {
+        navContent.classList.remove('show');
+      }
+      if (navToggler.classList.contains('is-active')) {
+        navToggler.classList.remove('is-active');
+      }
+    };
+
+    const navItems = document.querySelectorAll('ul a[data-en]');
+    navItems.forEach((item) => {
+      item.addEventListener('mouseover', handleNavMouseOver);
+      item.addEventListener('mouseout', handleNavMouseOut);
+    });
+
+    window.addEventListener('scroll', handleScroll);
+
+    const hamburger = document.querySelector('.hamburger');
+    if (hamburger) {
+      hamburger.addEventListener('click', handleHamburgerClick);
+    }
+
+    const navToggles = document.querySelectorAll('.nav-link');
+    navToggles.forEach((element) => {
+      element.addEventListener('click', handleNavLinkClick);
+    });
+
+    return () => {
+      navItems.forEach((item) => {
+        item.removeEventListener('mouseover', handleNavMouseOver);
+        item.removeEventListener('mouseout', handleNavMouseOut);
+      });
+      window.removeEventListener('scroll', handleScroll);
+      if (hamburger) {
+        hamburger.removeEventListener('click', handleHamburgerClick);
+      }
+      navToggles.forEach((element) => {
+        element.removeEventListener('click', handleNavLinkClick);
+      });
+    };
+  }, []);
+
     return (
-        //navBar 
         <header className="fixed-top">
             <nav className="navbar navbar-expand-lg navbar-light">
                 <div className="container-fluid">
