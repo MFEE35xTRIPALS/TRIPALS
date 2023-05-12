@@ -1,0 +1,21 @@
+@import "./_module.scss";
+
+body {
+	background-color: $colorRice;
+}
+
+.edit-container {
+	background-color: $colorRice;
+	padding-top: 3rem;
+	.edit-card-main {
+		padding: 0 2rem 0 2rem;
+		.accordion-header {
+			// 您的修改樣式
+			display: flex;
+			justify-content: center;
+		}
+	}
+	.edit-card-content {
+		padding: 0 2rem 2rem 2rem;
+	}
+}

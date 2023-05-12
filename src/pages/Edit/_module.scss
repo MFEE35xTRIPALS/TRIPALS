@@ -1,0 +1,13 @@
+// variable
+// font-size
+$editSize: 1.25rem;
+// color
+$colorRice: #f0e8dc;
+
+// 按鈕區
+@mixin edit-btn {
+	color: white;
+	border-radius: 2rem;
+	font-size: $editSize;
+	margin: 0 0.5rem;
+}
