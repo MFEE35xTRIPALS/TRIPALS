@@ -2,7 +2,7 @@ import styles from "./EditNavbar.module.scss";
 
 const EditNavbar = () => {
 	return (
-		<nav className={`navbar ${styles["edit-bar"]}`}>
+		<nav className={`navbar fixed-top ${styles["edit-bar"]}`}>
 			<div className="container-fluid justify-content-end">
 				<div className="d-flex">
 					<button type="button" className={`btn ${styles["edit-draft-btn"]}`}>

@@ -4,16 +4,13 @@
 .edit-bar {
 	background-color: $colorRice;
 	.edit-draft-btn {
-		background-color: #65c6c6;
-		@include edit-btn;
+		@include edit-btn(#65c6c6);
 	}
 	.edit-show-btn {
-		background-color: #fab10c;
-		@include edit-btn;
+		@include edit-btn(#fab10c);
 	}
 	.edit-delete-btn {
-		background-color: #ff4848;
-		@include edit-btn;
+		@include edit-btn(#ff4848);
 	}
 	.image-box {
 		width: 3rem;
