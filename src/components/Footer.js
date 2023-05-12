@@ -1,12 +1,8 @@
 import React, { Component } from "react";
-import Logo from '../media/LOGO.svg';
+
 
 
 class Footer extends Component {
-  state = {
-    url: "http://localhost:8000",
-    userno: 1,
-  };
   render() {
     return (
       <div>
@@ -14,7 +10,7 @@ class Footer extends Component {
         <footer>
           <div className="container">
             <div id="footerLogo">
-              <img src={Logo} alt="" />
+              <img src='../media/LOGO.svg' alt="" />
               <h5>Copyright@Tripals All Rights Reserved.</h5>
             </div>
             <div id="footerNav">
@@ -23,12 +19,12 @@ class Footer extends Component {
                   <a className="footer_en" href="#">
                     TOP
                   </a>
-                  <a className="footer_ch" href="#">
+                  <a className="footer_ch" href="#main">
                     首頁
                   </a>
                 </li>
                 <li>
-                  <a className="footer_en" href="#">
+                  <a className="footer_en" href="#news">
                     NEWS
                   </a>
                   <a className="footer_ch" href="#">
