@@ -2,18 +2,20 @@ import React from "react";
 
 
 
+
+
 class Footer extends React.Component {
-    render(){
-        return (
-        <footer>
+  render() {
+    return (
+      <footer>
         <div className="container">
           <div id="footerLogo">
-            <img src="" alt="" />
+            <img src="../media/LOGO.svg" alt="" />
             <h5>Copyright@Tripals All Rights Reserved.</h5>
           </div>
           <div id="footerNav">
             <ul className="footer_nav nav">
-              <li>  
+              <li>
                 <a className="footer_en" href="#">TOP</a>
                 <a className="footer_ch" href="#">首頁</a>
               </li>
@@ -41,8 +43,8 @@ class Footer extends React.Component {
           </div>
         </div>
       </footer>
-        )
-    }
+    )
+  }
 }
 
 
