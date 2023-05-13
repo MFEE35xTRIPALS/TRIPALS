@@ -1,5 +1,5 @@
 import CardSpot from "./CardSpot";
-import styles from "../Edit.module.scss";
+import styles from "./CardMain.module.scss";
 
 const CardContent = () => {
 	return (

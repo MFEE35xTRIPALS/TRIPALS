@@ -1,4 +1,4 @@
-import styles from "../Edit.module.scss";
+import styles from "./CardContent.module.scss";
 
 const CardSpot = () => {
 	return (

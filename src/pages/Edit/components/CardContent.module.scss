@@ -1,0 +1,35 @@
+@import "../_share";
+
+.content-title {
+	display: flex;
+	justify-content: space-between;
+	padding: 1rem 1.25rem;
+	.btn-delete {
+		// 設定 inline-flex 元素能根據內容自適應大小
+		display: inline-flex;
+		max-width: 20px;
+		height: 20px;
+		border: none;
+		background: none;
+		outline: none;
+		padding: 0;
+
+		& > i {
+			font-size: 24px;
+			transition: all 0.2s ease-in;
+		}
+		&:hover > i {
+			color: #ff4848;
+		}
+	}
+	span {
+		font-size: $editSize;
+	}
+	.edit-accordion-button {
+		// 您的修改樣式
+		display: flex !important;
+		justify-content: center;
+		width: unset;
+		padding: 0;
+	}
+}
