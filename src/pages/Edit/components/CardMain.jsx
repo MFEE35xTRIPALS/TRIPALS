@@ -1,4 +1,4 @@
-import styles from "./CardMain.module.scss";
+import styles from "../Edit.module.scss";
 
 const CardMain = () => {
 	return (
