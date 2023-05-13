@@ -1,4 +1,5 @@
 import styles from "../Edit.module.scss";
+import CardImage from "./CardImage";
 
 const CardSpot = () => {
 	return (
@@ -13,7 +14,7 @@ const CardSpot = () => {
 					</button>
 					<span>文章標題</span>
 					<button
-						className={`accordion-button collapse show d-flex text-center ${styles["edit-accordion-button"]}`}
+						className={`accordion-button collapse show d-flex text-center ${styles["edit-accordion-btn"]}`}
 						type="button"
 						data-bs-toggle="collapse"
 						data-bs-target="#card-content-1"
@@ -28,9 +29,7 @@ const CardSpot = () => {
 				data-bs-parent="#accordionContent"
 			>
 				<div className="accordion-body">
-					Placeholder content for this accordion, which is intended to
-					demonstrate the <code>.accordion-flush</code> class. This is the first
-					item's accordion body.
+					<CardImage />
 				</div>
 			</div>
 		</div>
