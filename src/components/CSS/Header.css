@@ -1,5 +1,6 @@
 header {
   position: sticky;
+  display: flex;
   top: 100%;
   left: 0;
   transition: background-color 0.5s ease;
