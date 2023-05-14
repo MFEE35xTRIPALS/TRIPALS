@@ -10,7 +10,7 @@ body {
 
 // 頁面容器
 .edit-container {
-	height: 100vh; // 先給100vh佔位
+	// height: 100vh; // 先給100vh佔位
 	background-color: $colorRice;
 	padding-top: 6rem; // navbar 是fixed-top 所以要向上推
 	// 卡片容器
@@ -46,6 +46,8 @@ body {
 		.edit-accordion-btn {
 			font-size: $editSize; // 主要標題的大小
 		}
+
+		// 圖片區塊
 		.edit-image-content {
 			.edit-image {
 				width: 100%;
@@ -56,7 +58,7 @@ body {
 				.btn-upload {
 					mix-blend-mode: normal;
 					background-color: #ffffff;
-					padding: 0.5rem;
+					padding: 0.2rem 0.5rem;
 					border: 3px solid $btnUploadColor;
 					border-radius: 10px;
 					color: $btnUploadColor;
@@ -72,7 +74,33 @@ body {
 				}
 			}
 		}
-		// 內容專用
+
+		// input共用樣式
+		input {
+			width: 100%;
+			border: none;
+			background-color: rgba(220, 220, 220, 0.8);
+			border-radius: 1rem;
+			padding: 0 0.5rem;
+		}
+
+		// content區塊
+		.info-content {
+			@include detail($fz: 1.25rem);
+			display: inline-flex;
+			margin-top: 1rem;
+			textarea {
+				height: 8rem;
+				width: 100%;
+				border: none;
+				background-color: rgba(220, 220, 220, 0.8);
+				border-radius: 1rem;
+				resize: none;
+				padding: 0 0.5rem;
+			}
+		}
+
+		// 主內容
 		.edit-card-main {
 			.edit-accordion-btn {
 				display: flex !important;
@@ -95,9 +123,48 @@ body {
 					position: absolute;
 				}
 			}
+			.edit-main-info {
+				margin-top: 1rem;
+				padding: 1.5rem;
+				// height: 45vh;
+				background-color: white;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				flex-direction: column;
+
+				.main-info-title {
+					@include detail(2rem);
+				}
+				.main-info-tag {
+					@include detail(1.25rem);
+					margin-top: 2rem;
+					.main-info-tag-input {
+						display: flex;
+						span {
+							margin-right: 0.5rem;
+							color: #65c6c6;
+						}
+						select {
+							padding: 0 0.5rem;
+							margin-left: 1rem;
+							border: #65c6c6 2px solid;
+							border-radius: 1rem;
+						}
+					}
+					&::after {
+						display: block;
+						width: 100%;
+						content: "";
+						border-bottom: #65c6c6 2px solid;
+						margin-top: 1rem;
+					}
+				}
+			}
 		}
+		// 景點
 		.edit-card-content {
-			// padding: 0 2rem 2rem 2rem;
+			// 標題 中間那一塊
 			.content-title {
 				display: flex;
 				justify-content: space-between;
@@ -129,6 +196,46 @@ body {
 					justify-content: center;
 					width: unset;
 					padding: 0;
+				}
+			}
+
+			//底下編輯區
+			.edit-content-info {
+				margin-top: 1rem;
+				padding: 1.5rem;
+				// height: 45vh;
+				background-color: white;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				flex-direction: column;
+				input {
+					width: 100%;
+					border: none;
+					background-color: rgba(220, 220, 220, 0.8);
+					border-radius: 1rem;
+				}
+
+				.content-info-location {
+					display: flex;
+					justify-content: space-between;
+					@include detail(1rem);
+					input {
+						width: 75%;
+						// border: 2px black solid;
+					}
+					.edit-add-location-btn {
+						@include edit-btn(#578f52);
+						margin: 0;
+					}
+				}
+
+				.content-info-title {
+					margin-top: 1rem;
+					@include detail(1rem);
+					input {
+						padding: 0.5rem;
+					}
 				}
 			}
 		}

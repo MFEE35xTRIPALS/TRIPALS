@@ -6,9 +6,6 @@ const CardContent = () => {
 		<div className={`${styles["edit-card-content"]}`}>
 			<div className="accordion accordion-flush" id="accordionContent">
 				<CardSpot />
-				<CardSpot />
-				<CardSpot />
-				<CardSpot />
 			</div>
 		</div>
 	);

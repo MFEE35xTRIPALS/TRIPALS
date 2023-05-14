@@ -1,5 +1,6 @@
 import styles from "../Edit.module.scss";
 import CardImage from "./CardImage";
+import InfoContent from "./InfoContent";
 
 const CardSpot = () => {
 	return (
@@ -30,6 +31,18 @@ const CardSpot = () => {
 			>
 				<div className="accordion-body">
 					<CardImage />
+					<div className={styles["edit-content-info"]}>
+						<div class={styles["content-info-location"]}>
+							<input class="" type="text" placeholder="請輸入地址或景點名稱" />
+							<button className={`btn ${styles["edit-add-location-btn"]}`}>
+								新增地址
+							</button>
+						</div>
+						<div class={styles["content-info-title"]}>
+							<input class="" type="text" placeholder="新增景點名稱" />
+						</div>
+						<InfoContent />
+					</div>
 				</div>
 			</div>
 		</div>
