@@ -5,7 +5,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Swiper from 'swiper';
 import 'swiper/css';
-import backgroundImage from './media/popular.jpg';
+// import backgroundImage from './media/popular.jpg';
 
 
 function Home() {
@@ -63,7 +63,7 @@ function Home() {
         <Fragment>
             <section id="main">
                 <div className="divVideo">
-                    <video autoplay muted loop>
+                    <video autoPlay muted loop>
                         <source src="./media/video01.mp4" type="video/mp4" />
                     </video>
                     <div className="videoContent">
@@ -162,7 +162,7 @@ function Home() {
                 <img src="./media/WhiteCloud.png" id="whiteCloud" alt="" />
             </section>
             {/* 熱門文章 */}
-            <section id="popular" style={{ backgroundImage: `url(${backgroundImage})` }}>
+            <section id="popular">
     <div data-aos="fade-right" data-aos-offset="300" data-aos-duration="1000" data-aos-easing="ease-in-sine"
       className="popular-title">
       <h1>POPULAR</h1>
@@ -263,26 +263,26 @@ function Home() {
     <svg id="ship" className="handwriting" viewBox="0 0 171 308" fill="none" transform="translate(700, 50)">
       <path
         d="M101.807 60.3831C53.1404 105.05 -30.9929 194.783 21.8071 196.383C74.6071 197.983 133.14 197.05 155.807 196.383C163.14 90.3831 167.407 -85.2169 125.807 60.3831C84.2071 205.983 75.6407 234.383 76.3074 240.383C43.6407 229.716 -5.79281 222.783 11.8071 248.383C29.4071 273.983 50.3071 268.883 28.3071 282.883L125.807 302.383L165.807 274.383C165.807 260.383 81.821 239.691 65.8071 237.671"
-        stroke="url(#paint0_linear_757_1539)" stroke-width="9" stroke-linecap="round" />
+        stroke="url(#paint0_linear_757_1539)" strokeWidth="9" strokeLinecap="round" />
       <defs>
         <linearGradient id="paint0_linear_757_1539" x1="40.5" y1="36.5" x2="128.5" y2="302"
           gradientUnits="userSpaceOnUse">
-          <stop stop-color="#4CEBCE" />
-          <stop offset="0.354167" stop-color="#5EF2D5" />
-          <stop offset="1" stop-color="#3AD2F3" />
+          <stop stopColor="#4CEBCE" />
+          <stop offset="0.354167" stopColor="#5EF2D5" />
+          <stop offset="1" stopColor="#3AD2F3" />
         </linearGradient>
       </defs>
     </svg>
     <svg id="wave" className="handwriting" viewBox="0 0 1267 78" fill="none" transform="translate(550, -5)">
       <path
         d="M4 12.842C67.1605 22.6835 212.851 36.4616 290.328 12.842C367.805 -10.7776 485.424 18.4657 534.549 36.0399C569.638 44.4754 670.975 58.816 795.612 48.6932C951.408 36.0399 1136.68 27.6043 1263 74"
-        stroke="url(#paint0_linear_757_1540)" stroke-width="8" stroke-linecap="round" />
+        stroke="url(#paint0_linear_757_1540)" strokeWidth="8" strokeLinecap="round" />
       <defs>
         <linearGradient id="paint0_linear_757_1540" x1="-10" y1="4.00005" x2="1302" y2="105.5"
           gradientUnits="userSpaceOnUse">
-          <stop offset="0.0483313" stop-color="#BAF9EC" stop-opacity="0.86" />
-          <stop offset="0.457428" stop-color="#5FF3D6" stop-opacity="0.78" />
-          <stop offset="1" stop-color="#43D9F3" />
+          <stop offset="0.0483313" stopColor="#BAF9EC" stopOpacity="0.86" />
+          <stop offset="0.457428" stopColor="#5FF3D6" stopOpacity="0.78" />
+          <stop offset="1" stopColor="#43D9F3" />
         </linearGradient>
       </defs>
     </svg>
