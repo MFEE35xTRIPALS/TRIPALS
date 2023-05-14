@@ -1,0 +1,236 @@
+@charset "UTF-8";
+html,
+body {
+  height: auto;
+  margin: 0;
+  padding: 0;
+  background-color: #F0E8DC;
+}
+
+nav {
+  position: fixed;
+}
+
+#content {
+  padding-top: 56px;
+  position: relative;
+  display: inline-block;
+}
+#content hr {
+  border-width: 2px;
+  color: #65C6C6;
+}
+#content .section-guide-panel {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  padding: 20px 0 0 20px;
+}
+#content .section-guide-panel .section-panel-inner {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+#content .section-guide-panel .section-panel-inner > div {
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 24px rgb(0, 0, 0);
+  margin-bottom: 60px;
+}
+#content .section-guide-panel .section-panel-inner .accordion-item {
+  padding-bottom: 10px;
+}
+#content .section-guide-panel .section-panel-inner .section-panel-intro {
+  position: relative;
+  top: 0;
+  left: 0;
+  max-width: 590px;
+}
+#content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro .image-placeholder {
+  border-radius: 8px;
+  height: 100%;
+  width: 100%;
+}
+#content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #placeTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #placeTitle h3 {
+  margin: 0;
+}
+#content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #placeTitle p {
+  color: #49c4c4;
+  margin-left: 10px;
+  margin-bottom: 0rem;
+}
+#content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #placeTitle .titlei {
+  margin-left: auto;
+  font-size: 1.5em;
+}
+#content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #placeTitle .titlei:hover {
+  cursor: pointer;
+}
+#content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #placeTitle .titlei #likePost {
+  color: red;
+}
+#content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #placeTitle .titlei #reportPost {
+  color: rgb(209, 209, 12);
+}
+#content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #placeTag {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+#content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #placeTag button {
+  margin: 0.5rem 0.25rem;
+  padding: 0.25rem 0.75rem;
+  display: inline-block;
+  border-radius: 50px;
+  border: #65c6c6 2px solid;
+  background: #65c6c6;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+#content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #placeTag button:hover {
+  background: white;
+  color: #65c6c6;
+  border: #65c6c6 2px solid;
+}
+#content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #placeTag .fa {
+  font-size: 36px;
+  margin-right: 10px;
+  color: #5DB8A6;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  align-items: center;
+}
+#content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #placeTag .fa:hover {
+  cursor: pointer;
+}
+#content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #author {
+  display: flex;
+  align-items: center;
+}
+#content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #author #authorPhoto {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  margin: 0 5px;
+}
+#content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #author #authorName {
+  margin: 0 5px;
+  font-size: 16px;
+  font-weight: 800;
+}
+#content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #count {
+  display: inline-flex;
+  float: right;
+}
+#content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #count i {
+  color: #5DB8A6;
+  font-size: 18px;
+  margin-right: 10px;
+}
+#content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #count p {
+  color: #5DB8A6;
+  font-size: 16px;
+  margin-right: 10px;
+}
+@media (max-width: 767px) {
+  #content .section-guide-panel .section-panel-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 隱藏區塊標題 */
+    /* 顯示展開的區塊內容 */
+  }
+  #content .section-guide-panel .section-panel-inner .accordion-header.d-md-none {
+    display: block;
+  }
+  #content .section-guide-panel .section-panel-inner .accordion-collapse.collapse.show {
+    display: block;
+  }
+  #content .section-guide-panel .section-panel-inner > div {
+    box-shadow: none;
+    min-width: 400px;
+  }
+  #content .section-guide-panel .section-panel-inner .accordion {
+    max-height: -moz-max-content;
+    max-height: max-content;
+  }
+}
+#content .section-map-wapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 100;
+}
+@media (max-width: 767px) {
+  #content .section-map-wapper {
+    position: relative;
+    width: 95%;
+    height: 300px;
+    margin: 0 auto;
+  }
+}
+
+footer {
+  position: sticky;
+  background-color: #84B085;
+  z-index: 200;
+}
+footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  height: 250px;
+}
+footer .container #footerLogo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+footer .container #footerLogo img {
+  width: 20rem;
+}
+footer .container #footerLogo h5 {
+  font-family: "Sen";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 1rem;
+  color: #ffffff;
+}
+footer .container #footerNav li .footer_en {
+  display: block;
+  text-decoration: none;
+  font-family: "Sen", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 1.25rem;
+  margin: 0 20px;
+  /* identical to box height */
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+footer .container #footerNav li .footer_ch {
+  display: block;
+  text-decoration: none;
+  font-family: "Sen", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}/*# sourceMappingURL=style.css.map */
