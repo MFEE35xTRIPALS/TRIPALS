@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useState } from 'react';
 
+function BearLogo() {
+  const [imageSrc, setImageSrc] = useState('../media/Bear.svg');
 
-const BearLogo = () => {
-    return (
-        <a href="#"><img id="bear" src="../media/Bear.svg" onmouseover="changeImage()" onmouseout="changeImage()" alt="" /></a>
-    )
+  const handleImageChange = () => {
+    setImageSrc(prevSrc =>
+      prevSrc.match('../media/Bear.svg')
+        ? '../media/heartBear.svg'
+        : '../media/Bear.svg'
+    );
+  };
+
+  return (
+    <div>
+      <img id="bear" src={imageSrc} alt="Bear" />
+      <button onClick={handleImageChange}>Change Image</button>
+    </div>
+  );
 }
+
 
 export default BearLogo;
