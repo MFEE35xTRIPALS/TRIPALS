@@ -305,8 +305,6 @@
             #target-div2 {
                 display: flex;
                 flex-direction: row;
-                align-items: start;
-                align-items: center;
                 position: absolute;
                 top: 28rem;
                 left: 10rem;
@@ -314,7 +312,6 @@
                 font-style: normal;
                 font-weight: 700;
                 font-size: 2rem;
-                line-height: 43px;
                 color: #ffffff;
 
                 @media (max-width: 1500px) {
@@ -326,7 +323,6 @@
             #target-div3 {
                 display: flex;
                 flex-direction: row;
-
                 align-items: start;
                 position: absolute;
                 align-items: center;
@@ -651,6 +647,13 @@
                 .user {
                     display: flex;
                     flex-direction: row;
+
+                    img {
+                        width: 3rem;
+                        height: 3rem;
+                        border-radius: 50%;
+                        overflow: hidden;
+                    }
 
                     P {
                         font-family: "Sen";

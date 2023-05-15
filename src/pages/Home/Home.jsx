@@ -66,6 +66,7 @@ function Home() {
     document.getElementById("target-div1").innerHTML = content1;
     document.getElementById("target-div2").innerHTML = content2;
     document.getElementById("target-div3").innerHTML = content3;
+    console.log(content1);
   };
   return (
     <Fragment>
@@ -199,9 +200,9 @@ function Home() {
                   return (
                     <div
                       id="slideA"
-                      style={{
-                        backgroundImage: `url (${url + article.image})`,
-                      }}
+                      // style={{
+                      //   backgroundImage: `url (${url + article.image})`,
+                      // }}
                       className="swiper-slide"
                       key={i}
                     >
@@ -211,7 +212,13 @@ function Home() {
 
                       <div className="articleA-topText2 d-flex justify-content-center">
                         <div className="popularUser">
-                          <img src={url + article.avatar} alt="userAvatar" />
+                          <img style={{
+                            width: '3rem',
+                            height: '3rem',
+                            borderRadius: '50%',
+                            overflow: 'hidden',
+                          }} src={url + article.avatar} alt="userAvatar" />
+
                           <p>{article.username}</p>
                         </div>
                       </div>
@@ -219,7 +226,7 @@ function Home() {
                       <div className="articleA-topText3">
                         <div className="likeAndViews">
                           <i className="fa-solid fa-heart"></i>
-                          {article.like_count}
+                          {article.like_count} &nbsp;
                           <i className="fa-regular fa-eye"></i>
                           {article.view_count}
                         </div>
@@ -228,7 +235,7 @@ function Home() {
                   );
                 })}
 
-                {/* <div
+                <div
                   id="slideB"
                   className="swiper-slide"
                   style={{ backgroundImage: "url(./media/recommend-4.png)" }}
@@ -269,7 +276,7 @@ function Home() {
                       <i className="fa-regular fa-eye"></i>14894
                     </div>
                   </div>
-                </div> */}
+                </div>
               </div>
               {/* Add Pagination  */}
               <div className="swiper-pagination"></div>
@@ -283,9 +290,6 @@ function Home() {
               <i className="fas fa-chevron-left"></i>
             </div>
           </div>
-          {/* <Helmet>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
-      </Helmet> */}
         </section>
       </section>
 
@@ -365,17 +369,23 @@ function Home() {
           data-aos-once="false"
           className="container"
         >
-          <div className="card text-white">
-            <img src="./media/recommend-6.png" className="card-img" alt="..." />
-            <div className="card-img-overlay">
-              <h5 className="card-title">文章標題...</h5>
-              <div className="user">
-                <img className="avatar" src="./media/Bear.svg" alt="" />
-                <p className="card-text">hercyC</p>
-              </div>
-            </div>
-          </div>
-          <div className="card text-white">
+          {recommend.map((recommendArticle, i) => {
+            return (
+              <div className="card text-white" key={i}>
+                <img src={url + recommendArticle.image} className="card-img" alt="..." />
+                <div className="card-img-overlay">
+                  <h5 className="card-title">{recommendArticle.title}</h5>
+                  <div className="user">
+                    <img className="avatar" src={url + recommendArticle.avatar} alt="" />
+                    <p className="card-text">{recommendArticle.username}</p>
+                  </div>
+                </div>
+              </div>)
+          }
+
+          )}
+
+          {/* <div className="card text-white">
             <img src="./media/recommend-2.png" className="card-img" alt="..." />
             <div className="card-img-overlay">
               <h5 className="card-title">文章標題...</h5>
@@ -438,7 +448,7 @@ function Home() {
                 <p className="card-text">hercyC</p>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
     </Fragment>

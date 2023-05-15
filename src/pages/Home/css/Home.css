@@ -267,8 +267,6 @@
 #popular section#article .container #target-div2 {
   display: flex;
   flex-direction: row;
-  align-items: start;
-  align-items: center;
   position: absolute;
   top: 28rem;
   left: 10rem;
@@ -276,7 +274,6 @@
   font-style: normal;
   font-weight: 700;
   font-size: 2rem;
-  line-height: 43px;
   color: #ffffff;
 }
 @media (max-width: 1500px) {
@@ -586,6 +583,12 @@
 #recommend .container .card .card-img-overlay .user {
   display: flex;
   flex-direction: row;
+}
+#recommend .container .card .card-img-overlay .user img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  overflow: hidden;
 }
 #recommend .container .card .card-img-overlay .user P {
   font-family: "Sen";
