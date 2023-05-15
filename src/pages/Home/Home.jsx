@@ -1,11 +1,9 @@
 import React, { Fragment, useEffect } from 'react';
-// import { Helmet } from 'react-helmet';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Swiper from 'swiper';
 
-// import backgroundImage from './media/popular.jpg';
 
 
 function Home() {
