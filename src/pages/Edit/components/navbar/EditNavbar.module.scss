@@ -3,6 +3,9 @@
 // nav
 .edit-bar {
 	background-color: $colorRice;
+	.edit-add-location-btn {
+		@include edit-btn(#f68d51);
+	}
 	.edit-draft-btn {
 		@include edit-btn(#65c6c6);
 	}

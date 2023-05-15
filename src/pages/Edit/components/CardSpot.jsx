@@ -1,14 +1,20 @@
 import styles from "../Edit.module.scss";
 import CardSpotImage from "./CardSpotImage";
 import SpotInfoContent from "./SpotInfoContent";
+import GoogleMapInput from "./GoogleMapInput";
 
-const CardSpot = ({ main_articleno, spot, onSpotChange }) => {
+const CardSpot = ({ main_articleno, spot, onSpotChange, onDeleteSpot }) => {
 	// console.log(main_articleno);
 	const handleInputChange = (event) => {
 		const { name, value } = event.target;
-		console.log(event.target);
+		// console.log(event.target);
 		const updatedSpot = { ...spot, [name]: value };
 		onSpotChange(updatedSpot);
+	};
+
+	// 在需要觸發刪除操作的地方呼叫 onDeleteSpot
+	const handleDelete = () => {
+		onDeleteSpot(main_articleno, spot.contentno);
 	};
 
 	return (
@@ -18,10 +24,14 @@ const CardSpot = ({ main_articleno, spot, onSpotChange }) => {
 			<h2 className="accordion-header">
 				<hr />
 				<div className={styles["content-title"]}>
-					<button className={styles["btn-delete"]} aria-label="Delete">
+					<button
+						className={styles["btn-delete"]}
+						aria-label="Delete"
+						onClick={handleDelete}
+					>
 						<i className="fa-solid fa-circle-xmark"></i>
 					</button>
-					<span>{spot.title ? spot.title : ""}</span>
+					<span>{spot.title ? spot.title : `地點`}</span>
 					<button //collapse show
 						className={`accordion-button collapsed d-flex text-center ${styles["edit-accordion-btn"]}`}
 						type="button"
@@ -45,7 +55,8 @@ const CardSpot = ({ main_articleno, spot, onSpotChange }) => {
 					/>
 					<div className={styles["edit-content-info"]}>
 						<div className={styles["content-info-location"]}>
-							<input type="text" placeholder="請輸入地址或景點名稱" />
+							{/* <input type="text" placeholder="請輸入地址或景點名稱" /> */}
+							<GoogleMapInput />
 							<button className={`btn ${styles["edit-add-location-btn"]}`}>
 								新增地址
 							</button>
