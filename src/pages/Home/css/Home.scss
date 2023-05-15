@@ -400,7 +400,11 @@
                         font-weight: 800;
                         font-size: 1.2rem;
                         color: #ffffff;
-                    }
+                        
+                        p {
+                          margin-left: 1rem;
+                        }
+                      }
 
                     #slideA {
                         // background-image: url(../media/recommend-2.png);
@@ -647,6 +651,7 @@
                 .user {
                     display: flex;
                     flex-direction: row;
+                
 
                     img {
                         width: 3rem;
@@ -662,6 +667,7 @@
                         font-size: 1rem;
                         color: #ffffff;
                         align-self: center;
+                        margin-left: 1rem;
                     }
                 }
             }

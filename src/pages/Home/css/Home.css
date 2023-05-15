@@ -358,6 +358,9 @@
   font-size: 1.2rem;
   color: #ffffff;
 }
+#popular section#article .container .swiper-container .swiper-wrapper .popularUser p {
+  margin-left: 1rem;
+}
 #popular section#article .container .swiper-container .swiper-wrapper #slideA {
   box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.7);
   position: relative;
@@ -597,6 +600,7 @@
   font-size: 1rem;
   color: #ffffff;
   align-self: center;
+  margin-left: 1rem;
 }
 
 .card:hover {

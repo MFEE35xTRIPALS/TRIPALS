@@ -107,7 +107,6 @@ function Home() {
               id="accordionFlushExample"
             >
               {news.map((newsList, i) => {
-                console.log(popular);
                 return (
                   <div className="accordion-item" key={i}>
                     <h2 className="accordion-header" id="flush-headingOne">
@@ -200,13 +199,11 @@ function Home() {
                   return (
                     <div
                       id="slideA"
-                      // style={{
-                      //   backgroundImage: `url (${url + article.image})`,
-                      // }}
                       className="swiper-slide"
                       key={i}
                     >
                       <div className="articleA-topText1 d-flex justify-content-center mt-2">
+                        <img src={url + article.image} />
                         <h1>{article.title}</h1>
                       </div>
 
@@ -258,7 +255,7 @@ function Home() {
                     </div>
                   </div>
                 </div>
-
+{/* 
                 <div id="slideC" className="swiper-slide">
                   <div className="articleC-topText1 d-flex justify-content-center mt-2">
                     <h1>文章標題...3</h1>
@@ -276,7 +273,7 @@ function Home() {
                       <i className="fa-regular fa-eye"></i>14894
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
               {/* Add Pagination  */}
               <div className="swiper-pagination"></div>
@@ -372,11 +369,11 @@ function Home() {
           {recommend.map((recommendArticle, i) => {
             return (
               <div className="card text-white" key={i}>
-                <img src={url + recommendArticle.image} className="card-img" alt="..." />
+                <img src={recommendArticle.image ? url + recommendArticle.image : "./media/recommend-5.png"} className="card-img" alt="..." />
                 <div className="card-img-overlay">
                   <h5 className="card-title">{recommendArticle.title}</h5>
                   <div className="user">
-                    <img className="avatar" src={url + recommendArticle.avatar} alt="" />
+                    <img className="avatar" src={recommendArticle.avatar ? url + recommendArticle.avatar : "./media/bear.svg"} alt="" />
                     <p className="card-text">{recommendArticle.username}</p>
                   </div>
                 </div>
