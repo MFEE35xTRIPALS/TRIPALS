@@ -14,6 +14,12 @@ const options = {
   gestureHandling: 'greedy'
   };
 class MapComponent extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { spots:props.spots };
+  }
+
+
   render() {
 
     return (

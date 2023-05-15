@@ -69,11 +69,13 @@ nav {
 #content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #placeTitle .titlei {
   margin-left: auto;
   font-size: 1.5em;
+  display: flex;
+  justify-content: space-between;
 }
 #content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #placeTitle .titlei:hover {
   cursor: pointer;
 }
-#content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #placeTitle .titlei #likePost {
+#content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #placeTitle .titlei #Likepost {
   color: red;
 }
 #content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #placeTitle .titlei #reportPost {
@@ -139,6 +141,7 @@ nav {
 #content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #count p {
   color: #5DB8A6;
   font-size: 16px;
+  margin-left: 5px;
   margin-right: 10px;
 }
 @media (max-width: 767px) {

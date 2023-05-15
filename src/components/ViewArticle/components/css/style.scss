@@ -54,6 +54,7 @@ nav {
                 box-shadow: 0 4px 24px rgba(0, 0, 0, 1);
                 margin-bottom: 60px;
             }
+
             .accordion-item {
                 padding-bottom: 10px;
             }
@@ -92,12 +93,14 @@ nav {
                             .titlei {
                                 margin-left: auto;
                                 font-size: 1.5em;
+                                display: flex;
+                                justify-content: space-between;
 
                                 &:hover {
                                     cursor: pointer;
                                 }
 
-                                #likePost {
+                                #Likepost {
                                     color: red;
                                 }
 
@@ -171,15 +174,17 @@ nav {
                         #count {
                             display: inline-flex;
                             float: right;
+
                             i {
-                                color:#5DB8A6;
+                                color: #5DB8A6;
                                 font-size: 18px;
                                 margin-right: 10px;
                             }
 
                             p {
-                                color:#5DB8A6;
+                                color: #5DB8A6;
                                 font-size: 16px;
+                                margin-left: 5px;
                                 margin-right: 10px;
                             }
 
@@ -187,7 +192,7 @@ nav {
 
                     }
 
-                    
+
                 }
             }
 
