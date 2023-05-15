@@ -1,7 +1,7 @@
 import styles from "../Edit.module.scss";
 // import { getValidationRegex } from "./hashtagValidation";
-import CardImage from "./CardImage";
-import InfoContent from "./InfoContent";
+import CardMainImage from "./CardMainImage";
+import MainInfoContent from "./MainInfoContent";
 
 const CardMain = ({
 	mainData,
@@ -13,6 +13,11 @@ const CardMain = ({
 	const handleTitleChange = (event) => {
 		const newTitle = event.target.value;
 		onMainDataChange("main_title", newTitle);
+	};
+
+	const handleLocationChange = (event) => {
+		const newLocation = event.target.value;
+		onMainDataChange("main_location", newLocation);
 	};
 
 	const handleHashTagChange = (event) => {
@@ -47,7 +52,10 @@ const CardMain = ({
 						aria-labelledby="panelsStayOpen-headingOne"
 					>
 						<div className="accordion-body">
-							<CardImage />
+							<CardMainImage
+								main_articleno={mainData.main_articleno}
+								imageUrl={mainData.main_image ? mainData.main_image : null}
+							/>
 							<div className={styles["edit-main-info"]}>
 								<div className={styles["main-info-title"]}>
 									<input
@@ -66,7 +74,14 @@ const CardMain = ({
 											value={hashtags ? hashtags : ""}
 											onChange={handleHashTagChange}
 										/>
-										<select name="county" id="">
+										<select
+											name="location"
+											id=""
+											value={
+												mainData.main_location ? mainData.main_location : ""
+											}
+											onChange={handleLocationChange}
+										>
 											<option value="" disabled hidden>
 												選擇地區
 											</option>
@@ -95,7 +110,7 @@ const CardMain = ({
 										</select>
 									</div>
 								</div>
-								<InfoContent
+								<MainInfoContent
 									editContent={mainData.main_content}
 									onContentChange={onMainDataChange}
 								/>

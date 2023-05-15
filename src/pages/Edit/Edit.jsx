@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getValidationRegex } from "./components/hashtagValidation";
+import { getValidationRegex } from "./hashtagValidation";
 import EditNavbar from "./components/navbar/EditNavbar";
 import CardMain from "./components/CardMain";
 import CardContent from "./components/CardContent";
@@ -108,7 +108,11 @@ const Edit = () => {
 									hashtags={hashtags}
 									onHashTagChange={handleHashtagsChange}
 								/>
-								<CardContent spots={spots} onSpotChange={handleSpotChange} />
+								<CardContent
+									main_articleno={mainData.main_articleno}
+									spots={spots}
+									onSpotChange={handleSpotChange}
+								/>
 							</div>
 						</div>
 						<div className="col-lg-8">
@@ -122,7 +126,14 @@ const Edit = () => {
 						</div>
 					</div>
 				) : (
-					<p>Loading...</p>
+					<div className={styles["loader"]}>
+						<div className={styles["lds-ellipsis"]}>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+						</div>
+					</div>
 				)}
 			</div>
 		</>

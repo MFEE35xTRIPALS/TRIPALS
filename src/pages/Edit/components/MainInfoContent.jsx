@@ -1,7 +1,6 @@
 import styles from "../Edit.module.scss";
 
-const InfoContent = ({ editContent, onContentChange }) => {
-	// console.log(editContent);
+const MainInfoContent = ({ editContent, onContentChange }) => {
 	const handleContentChange = (event) => {
 		const newContent = event.target.value;
 		onContentChange("main_content", newContent);
@@ -20,4 +19,4 @@ const InfoContent = ({ editContent, onContentChange }) => {
 	);
 };
 
-export default InfoContent;
+export default MainInfoContent;
