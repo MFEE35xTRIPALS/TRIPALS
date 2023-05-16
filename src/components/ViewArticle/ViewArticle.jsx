@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import "./components/css/style.css";
 // import HashTag from './components/HashTag';
-
+// import { createPopper } from '@popperjs/core';
 import MapComponent from './components/MapComponent';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 function ViewArticle() {
     const [userno, setUserno] = useState('');
@@ -20,6 +20,8 @@ function ViewArticle() {
     const [liked, setLiked] = useState(false);
     const [hashtags, setHashtags] = useState([]);
     const [spots, setSpots] = useState([]);
+    const referenceElementRef = useRef(null);
+    const popperElementRef = useRef(null);
 
     useEffect(() => {
         async function fetchData() {
@@ -43,6 +45,7 @@ function ViewArticle() {
         }
 
         fetchData();
+
     }, []);
     const AvatarUrl = `http://localhost:3000/${avatar}`;
     console.log(spots);
@@ -151,39 +154,38 @@ function ViewArticle() {
                                 </div>
                                 {spots.map((el, index) => (
                                     <div className="accordion-item placeSpots" key={index}>
-                                    <h2 className="accordion-header d-md-none" id={`{"panelsStayOpen-heading${index}"}`}>
-                                        <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target={`{"#panelsStayOpen-collapse${index}"}`} aria-expanded="false"
-                                            aria-controls={`{"panelsStayOpen-collapse${index}"}`}>
-                                            {el.title}
-                                        </button>
-                                    </h2>
-                                    <div id={`{"panelsStayOpen-collapse${index}"}`} className="accordion-collapse collapse show"
-                                        aria-labelledby={`{"panelsStayOpen-heading${index}"}`}>
-                                        <div className="accordion-body">
-                                            <div className="section-panel-intro">
-                                                <div className="image-intro">
-                                                    <figure>
-                                                        <img src="https://www.taiwan.net.tw/att/1/big_scenic_spots/pic_154_14.jpg"
-                                                            alt="" className="image-placeholder" />
-                                                    </figure>
-                                                    <div>
-            
+                                        <h2 className="accordion-header d-md-none" id={`panelsStayOpen-heading${index}`}>
+                                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                data-bs-target={`#panelsStayOpen-collapse${index}`} aria-expanded="false"
+                                                aria-controls={`panelsStayOpen-collapse${index}`}>
+                                                {el.title}
+                                            </button>
+                                        </h2>
+                                        <div id={`panelsStayOpen-collapse${index}`} className="accordion-collapse collapse show"
+                                            aria-labelledby={`panelsStayOpen-heading${index}`}>
+                                            <div className="accordion-body">
+                                                <div className="section-panel-intro">
+                                                    <div className="image-intro">
+                                                        <figure>
+                                                            <img src="https://www.taiwan.net.tw/att/1/big_scenic_spots/pic_154_14.jpg"
+                                                                alt="" className="image-placeholder" />
+                                                        </figure>
                                                         <div>
-                                                            <h3>{el.title}</h3>
+                                                            <div>
+                                                                <h3>{el.title}</h3>
+                                                            </div>
+                                                            <hr />
+                                                            <div>
+                                                                <p>{el.content}</p>
+                                                            </div>
                                                         </div>
-                                                        <hr/>
-                                                        <div>
-                                                            <p>{el.content}</p>
-                                                        </div>
-            
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                                 ))}
+
                             </div>
                         </div>
                     </div>
