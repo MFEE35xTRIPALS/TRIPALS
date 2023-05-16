@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
 import "./components/css/style.css";
 // import HashTag from './components/HashTag';
 // import { createPopper } from '@popperjs/core';
 // import MapComponent from './components/MapComponent';
 import { GoogleMap, LoadScript, MarkerF } from '@react-google-maps/api';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 function ViewArticle() {
     const [userno, setUserno] = useState('');
@@ -76,7 +75,7 @@ function ViewArticle() {
         };
     });
 
-    console.log(locations);
+    // console.log(locations);
 
 
     const handleLikeClick = (e) => {
@@ -147,6 +146,15 @@ function ViewArticle() {
 
     }
 
+     const articleItems = useRef([]);
+
+    function handleMarkerClick(i) {
+      const targetItem = articleItems.current[i];
+      if (targetItem) {
+        targetItem.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
     return (
         <div>
             <section id="content">
@@ -163,18 +171,10 @@ function ViewArticle() {
                             { /* Child components, such as markers, info windows, etc. */}
                             {locations.map((x, i) => (
                                 <MarkerF
-                                    // icon={{
-                                    //     path:
-                                    //         "M8 12l-4.7023 2.4721.898-5.236L.3916 5.5279l5.2574-.764L8 0l2.3511 4.764 5.2574.7639-3.8043 3.7082.898 5.236z",
-                                    //     fillColor: "yellow",
-                                    //     fillOpacity: 0.9,
-                                    //     scale: 2,
-                                    //     strokeColor: "gold",
-                                    //     strokeWeight: 2,
-                                    // }}
                                     label={{ text: `${i + 1}`, color: '#fff' }}
                                     key={i}
                                     position={x}
+                                    onClick={() => handleMarkerClick(i)}
                                 />
                             ))}
                             <></>
@@ -245,7 +245,7 @@ function ViewArticle() {
                                     </div>
                                 </div>
                                 {spots.map((el, index) => (
-                                    <div className="accordion-item placeSpots" key={index}>
+                                    <div className="accordion-item placeSpots" key={index} ref={el => articleItems.current[index] = el}>
                                         <h2 className="accordion-header d-md-none" id={`panelsStayOpen-heading${index}`}>
                                             <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                                 data-bs-target={`#panelsStayOpen-collapse${index}`} aria-expanded="false"
