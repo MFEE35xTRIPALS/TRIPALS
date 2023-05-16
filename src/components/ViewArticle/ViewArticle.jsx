@@ -80,39 +80,72 @@ function ViewArticle() {
 
 
     const handleLikeClick = (e) => {
-        alert("OK");
-        // if (true) {
-        //   fetch(`http://localhost:3000/likepost/like?userno=${userno}&articleno=${articleno}`, {
-        //     method: 'POST',
-        //     body: JSON.stringify({}),
-        //     headers: {
-        //       'Content-Type': 'application/json',
-        //     },
-        //   })
-        //     .then((response) => response.json())
-        //     .then((data) => {
-        //       console.log(data);
-        //       setLiked(true);
-        //     })
-        //     .catch((error) => console.error(error));
-        //   alert('收藏文章成功');
-        // } else {
-        //   fetch(`http://localhost:3000/likepost/unlike?userno=${userno}&articleno=${articleno}`, {
-        //     method: 'POST',
-        //     body: JSON.stringify({}),
-        //     headers: {
-        //       'Content-Type': 'application/json',
-        //     },
-        //   })
-        //     .then((response) => response.json())
-        //     .then((data) => {
-        //       console.log(data);
-        //       setLiked(false);
-        //     })
-        //     .catch((error) => console.error(error));
-        //   alert('取消收藏文章');
-        // }
+
+        if (liked) {
+            fetch(`http://localhost:3000/likepost/unlike?userno=${userno}&articleno=${articleno}`, {
+                method: 'POST'
+            })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Error unliking post.');
+                    }
+                })
+                .then(data => {
+                    setLiked(false);
+                    setMLcount(data);
+                    document.getElementById('likepost').classList.remove('fa-solid');
+                    document.getElementById('likepost').classList.add('fa-regular');
+                    alert("取消收藏")
+                })
+                .catch(error => {
+                    console.log('Error unliking post:', error);
+                });
+        } else {
+            fetch(`http://localhost:3000/likepost/like?userno=${userno}&articleno=${articleno}`, {
+                method: 'POST'
+            })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Error liking post.');
+                    }
+                })
+                .then(data => {
+                    setLiked(true);
+                    setMLcount(data);
+                    document.getElementById('likepost').classList.remove('fa-regular');
+                    document.getElementById('likepost').classList.add('fa-solid');
+                    alert("收藏成功")
+                })
+                .catch(error => {
+                    console.log('Error liking post:', error);
+                });
+        }
     };
+
+    let alreadyReport = false;
+    const handleConfirmClick = (e) => {
+        if (alreadyReport == false) {
+            fetch(`http://localhost:3000/likepost/report?articleno=${articleno}`, {
+                method: 'POST'
+            })
+                .then(response => {
+                    if (response.ok) {
+                        alert("檢舉成功");
+                         alreadyReport = true
+                    } else {
+                        throw new Error('Error report post.');
+                    }
+                })
+                .catch(error => console.error(error));
+        } else {
+            alert("已檢舉此篇文章")
+        }
+
+    }
 
     return (
         <div>
@@ -144,17 +177,6 @@ function ViewArticle() {
                                     position={x}
                                 />
                             ))}
-                            {/* <MarkerF
-                                icon={{
-                                    path:
-                                        "M8 12l-4.7023 2.4721.898-5.236L.3916 5.5279l5.2574-.764L8 0l2.3511 4.764 5.2574.7639-3.8043 3.7082.898 5.236z",
-                                    fillColor: "yellow",
-                                    fillOpacity: 0.9,
-                                    scale: 2,
-                                    strokeColor: "gold",
-                                    strokeWeight: 2,
-                                }}
-                                position={center} /> */}
                             <></>
                         </GoogleMap>
                     </LoadScript>
@@ -186,8 +208,9 @@ function ViewArticle() {
                                                             <h3 id="placeMainTitle">{Mtitle}</h3>
                                                             <p>May 01, 2023</p>
                                                             <div className="titlei">
-                                                                <i id="likepost" onClick={handleLikeClick} className="fa-regular fa-heart"></i>
-                                                                <i id="reportPost" className="fa fa-exclamation-triangle"></i>
+                                                                <i id="likepost" onClick={handleLikeClick} className={`fa-heart ${liked ? "fa-solid" : "fa-regular"}`}
+                                                                ></i>
+                                                                <i id="reportPost" onClick={handleConfirmClick} className="fa fa-exclamation-triangle"></i>
                                                             </div>
 
 
