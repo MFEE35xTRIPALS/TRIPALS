@@ -67,10 +67,9 @@ const CardMain = ({
 								</div>
 								<div className={styles["main-info-tag"]}>
 									<div className={styles["main-info-tag-input"]}>
-										<span>#</span>
 										<input
 											type="text"
-											placeholder="hashtag"
+											placeholder="#hashtag"
 											value={hashtags ? hashtags : ""}
 											onChange={handleHashTagChange}
 										/>

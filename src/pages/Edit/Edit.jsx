@@ -34,9 +34,6 @@ const Edit = () => {
 		try {
 			const response = await axios.get(`${baseUrl}/guide/${articleID}`);
 
-			// 先保留原始資料
-			setOldData({ ...response.data });
-
 			const {
 				main_articleno,
 				main_title,
@@ -63,6 +60,9 @@ const Edit = () => {
 			// setHashtags([...hashtags]);
 
 			setSpots([...spots]);
+
+			// 先保留原始資料
+			setOldData({ ...response.data });
 		} catch (error) {
 			console.error("Error fetching data:", error);
 		}
@@ -106,6 +106,8 @@ const Edit = () => {
 				const newSpot = response.data; // 從回傳的資料中取得新增的地點
 				// 從舊資料解構賦值
 				setSpots((prevSpots) => [...prevSpots, newSpot]);
+				// 一併新增 olddata
+				// setOldData({ ...oldData, spots: [...newSpot] });
 			})
 			.catch((error) => {
 				// 新增失敗
@@ -135,6 +137,8 @@ const Edit = () => {
 						(spot) => spot.contentno !== contentno
 					);
 					setSpots(updatedSpots);
+					// 一併刪除olddata的spots
+					setOldData({ ...oldData, spots: [...updatedSpots] });
 				})
 				.catch((error) => {
 					// 刪除失敗
@@ -177,7 +181,7 @@ const Edit = () => {
 	};
 
 	// 儲存草稿
-	const handleSaveToDraft = () => {
+	const handleSaveToDraft = async () => {
 		// const newData = await setMainData((prevArticle) => ({
 		// 	...prevArticle,
 		// 	main_status: "draft",
@@ -190,10 +194,9 @@ const Edit = () => {
 			spots: spots,
 		};
 		setMainData(updatedMainData);
-
+		// console.log("olddata:", oldData);
+		// console.log("newdata:", updatedMainData);
 		const finalData = compareData(oldData, updatedMainData);
-		// console.log(oldData);
-		// console.log(finalData);
 		patchData(finalData);
 		// 解構賦值讓oldData也是更新後的資料
 		setOldData({ ...updatedMainData });
@@ -210,10 +213,10 @@ const Edit = () => {
 			spots: spots,
 		};
 		setMainData(updatedMainData);
-
+		// console.log("olddata:", oldData);
+		// console.log("newdata:", updatedMainData);
 		const finalData = compareData(oldData, updatedMainData);
-		// console.log(oldData);
-		// console.log(finalData);
+		// console.log("finaldata:", finalData);
 		patchData(finalData);
 		// 解構賦值讓oldData也是更新後的資料
 		setOldData({ ...updatedMainData });
@@ -230,7 +233,8 @@ const Edit = () => {
 				onSaveShow={handleSaveToShow}
 			/>
 			<div className={`container-fluid ${styles["edit-container"]}`}>
-				{mainData && hashtags && spots ? (
+				{/* hashtag 有可能是 [] 空陣列 */}
+				{mainData && spots ? (
 					<div className="row">
 						<div className="col-lg-4">
 							<div className={styles["edit-card-wrapper"]}>

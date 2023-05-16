@@ -18,7 +18,7 @@ body {
 	overflow: auto;
 	// 卡片容器
 	.edit-card-wrapper {
-		height: 100%;
+		height: 100vh;
 		overflow-y: auto;
 		&::-webkit-scrollbar {
 			width: 12px;
@@ -43,7 +43,6 @@ body {
 	.edit-card-container {
 		border-radius: 1rem;
 		overflow: hidden;
-
 		//共用樣式
 		.accordion-item-color {
 			background-color: rgba(
@@ -105,7 +104,7 @@ body {
 			width: 100%;
 			border: none;
 			background-color: rgba(220, 220, 220, 0.8);
-			border-radius: 1rem;
+			border-radius: $inputRadius;
 			padding: 0 0.5rem;
 		}
 
@@ -119,7 +118,7 @@ body {
 				width: 100%;
 				border: none;
 				background-color: rgba(220, 220, 220, 0.8);
-				border-radius: 1rem;
+				border-radius: $inputRadius;
 				resize: none;
 				padding: 0.5rem;
 			}
@@ -159,7 +158,7 @@ body {
 				flex-direction: column;
 
 				.main-info-title {
-					@include detail($editTitleSize);
+					@include detail($editSize);
 				}
 				.main-info-tag {
 					@include detail($editSize);
@@ -174,7 +173,7 @@ body {
 							padding: 0 0.5rem;
 							margin-left: 1rem;
 							border: #65c6c6 2px solid;
-							border-radius: 1rem;
+							border-radius: $inputRadius;
 						}
 					}
 					&::after {
@@ -187,7 +186,7 @@ body {
 				}
 			}
 		}
-		// 景點
+		// 地點
 		.edit-card-content {
 			// 標題 中間那一塊
 			.content-title {
@@ -238,13 +237,13 @@ body {
 					width: 100%;
 					border: none;
 					background-color: rgba(220, 220, 220, 0.8);
-					border-radius: 1rem;
+					border-radius: $inputRadius;
 				}
 
 				.content-info-location {
 					display: flex;
 					justify-content: space-between;
-					@include detail($editNormalSize);
+					@include detail($editSize);
 					div {
 						display: flex;
 						width: 75%;
@@ -262,7 +261,7 @@ body {
 
 				.content-info-title {
 					margin-top: 1rem;
-					@include detail($editTitleSize);
+					@include detail($editSize);
 					input {
 						padding: 0.5rem;
 					}
@@ -270,6 +269,21 @@ body {
 			}
 		}
 	}
+}
+
+@keyframes cardSpotAnimation {
+	0% {
+		opacity: 0;
+		transform: translateY(-20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+.spot-card-animation {
+	animation: cardSpotAnimation 0.5s ease-in-out;
 }
 
 // loader
@@ -296,7 +310,7 @@ body {
 		width: 13px;
 		height: 13px;
 		border-radius: 50%;
-		background: #fff;
+		background: #65c6c6;
 		animation-timing-function: cubic-bezier(0, 1, 1, 0);
 	}
 	.lds-ellipsis div:nth-child(1) {

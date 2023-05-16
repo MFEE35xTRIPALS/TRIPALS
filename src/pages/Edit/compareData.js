@@ -20,29 +20,41 @@ export const compareData = (originalData, updatedData) => {
 	}
 
 	// 比較 spots 陣列中的每個物件是否有異動
-	diffData.spots = [];
+	diffData.spots = updatedData.spots
+		.map((updatedSpot) => {
+			const originalSpot = originalData.spots.find(
+				(spot) => spot.contentno === updatedSpot.contentno
+			);
 
-	for (let i = 0; i < originalData.spots.length; i++) {
-		const originalSpot = originalData.spots[i];
-		const updatedSpot = updatedData.spots[i];
+			const diffSpot = {};
 
-		const diffSpot = {};
-
-		for (const key in originalSpot) {
-			if (originalSpot.hasOwnProperty(key)) {
-				if (originalSpot[key] !== updatedSpot[key]) {
-					diffSpot[key] = updatedSpot[key];
+			for (const key in originalSpot) {
+				if (originalSpot.hasOwnProperty(key)) {
+					if (originalSpot[key] !== updatedSpot[key]) {
+						diffSpot[key] = updatedSpot[key];
+					}
 				}
 			}
-		}
 
-		if (Object.keys(diffSpot).length > 0) {
-			diffData.spots.push({
-				contentno: originalSpot.contentno,
-				...diffSpot,
-			});
-		}
-	}
+			if (Object.keys(diffSpot).length > 0) {
+				return {
+					contentno: updatedSpot.contentno,
+					...diffSpot,
+				};
+			}
+
+			return null;
+		})
+		.filter((spot) => spot !== null);
+
+	// 添加多出來的項目
+	const missingSpots = updatedData.spots.filter((updatedSpot) => {
+		return !originalData.spots.some(
+			(spot) => spot.contentno === updatedSpot.contentno
+		);
+	});
+
+	diffData.spots.push(...missingSpots);
 
 	return diffData;
 };

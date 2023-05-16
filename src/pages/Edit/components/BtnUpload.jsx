@@ -45,7 +45,7 @@ const BtnUpload = ({ main_articleno, contentno, onFileUpload }) => {
 			const response = await axios.post(uploadUrl, formData);
 			const imagePath = response.data.path; // 假設回應中包含圖片路徑的屬性為 "path"
 			onFileUpload(imagePath);
-			alert("上傳成功");
+			// alert("上傳成功");
 		} catch (error) {
 			// console.error("圖片上傳失敗：", error);
 			alert("上傳失敗");

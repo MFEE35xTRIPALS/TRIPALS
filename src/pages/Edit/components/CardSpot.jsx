@@ -18,8 +18,9 @@ const CardSpot = ({ main_articleno, spot, onSpotChange, onDeleteSpot }) => {
 	};
 
 	return (
+		// <div className={styles["spot-card-animation"]}>
 		<div
-			className={`accordion-item border-0 ${styles["accordion-item-color"]}`}
+			className={`accordion-item border-0 ${styles["accordion-item-color"]} ${styles["spot-card-animation"]}`}
 		>
 			<h2 className="accordion-header">
 				<hr />
@@ -56,16 +57,13 @@ const CardSpot = ({ main_articleno, spot, onSpotChange, onDeleteSpot }) => {
 					<div className={styles["edit-content-info"]}>
 						<div className={styles["content-info-location"]}>
 							{/* <input type="text" placeholder="請輸入地址或景點名稱" /> */}
-							<GoogleMapInput />
-							<button className={`btn ${styles["edit-add-location-btn"]}`}>
-								新增地址
-							</button>
+							<GoogleMapInput spot={spot} onAddressClick={onSpotChange} />
 						</div>
 						<div className={styles["content-info-title"]}>
 							<input
 								name="title"
 								type="text"
-								placeholder="新增景點名稱"
+								placeholder="新增地點名稱"
 								value={spot.title ? spot.title : ""}
 								onChange={handleInputChange}
 							/>
@@ -76,6 +74,7 @@ const CardSpot = ({ main_articleno, spot, onSpotChange, onDeleteSpot }) => {
 				</div>
 			</div>
 		</div>
+		// </div>
 	);
 };
 

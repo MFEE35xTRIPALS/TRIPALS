@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Autocomplete, useLoadScript } from "@react-google-maps/api";
 const placesLibrary = ["places"];
 
-function GoogleMapInput() {
+const GoogleMapInput = ({ spot, onAddressClick }) => {
 	const [searchResult, setSearchResult] = useState("Result: none");
 
 	const { isLoaded } = useLoadScript({
@@ -30,19 +30,40 @@ function GoogleMapInput() {
 		}
 	}
 
+	const handleAddressClick = () => {
+		if (searchResult != null) {
+			const place = searchResult.getPlace();
+			const { lat, lng } = place.geometry.location;
+			const address = lat().toString() + "," + lng().toString();
+			console.log(address);
+			// console.log("經度：", lat());
+			// console.log("緯度：", lng());
+			const updatedAddress = { ...spot, location: address };
+			onAddressClick(updatedAddress);
+		}
+	};
+
 	if (!isLoaded) {
 		return <div>Loading...</div>;
 	}
 
 	return (
-		<Autocomplete
-			className={styles["content-info-gmap"]}
-			onPlaceChanged={onPlaceChanged}
-			onLoad={onLoad}
-		>
-			<input type="text" placeholder="請輸入地址或景點名稱" />
-		</Autocomplete>
+		<>
+			<Autocomplete
+				className={styles["content-info-gmap"]}
+				onPlaceChanged={onPlaceChanged}
+				onLoad={onLoad}
+			>
+				<input type="text" placeholder="請輸入地址或景點名稱" />
+			</Autocomplete>
+			<button
+				onClick={handleAddressClick}
+				className={`btn ${styles["edit-add-location-btn"]}`}
+			>
+				新增圖標
+			</button>
+		</>
 	);
-}
+};
 
 export default GoogleMapInput;
