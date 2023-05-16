@@ -10,62 +10,77 @@ function Home() {
   var [news, setNews] = useState([]);
   var [popular, setPopular] = useState([]);
   var [recommend, setRecommend] = useState([]);
+  var [ifFirst, setIfFirst] = useState(false);
+  var [showdiv1, setShowdiv1] = useState("");
+  var [showdiv2, setShowdiv2] = useState("");
+  var [showdiv3, setShowdiv3] = useState("");
+  // var [showdiv4, setShowdiv4] = useState("");
   useEffect(() => {
     const firstRender = async () => {
-      let result = await axios.get(url);
+      let result = await axios.get(url + "/");
       setNews(result.data[0]);
       setPopular(result.data[1]);
+      setShowdiv1(result.data[1][0].title);
+      setShowdiv2(result.data[1][0].username);
+      setShowdiv3(result.data[1][0].like_count);
+      // setShowdiv4(result.data[1][0].view_count);
       setRecommend(result.data[2]);
+      setIfFirst(true);
     };
     firstRender();
-    const swiper = new Swiper(".swiper-container", {
+   
+   
+  }, []);
+  AOS.init();
+  AOS.refresh();
+
+  useEffect(() => {
+    if (ifFirst) {
+    const swiper = new Swiper('.swiper-container', {
+      // roundLengths : true,
       loop: true,
+      // initialSlide: 1, 指定先顯示誰(索引)
       effect: "coverflow",
       grabCursor: true,
       centeredSlides: true,
+       // ↑ 預設true為左邊開始
       slidesPerView: "auto",
       loopedSlides: 3,
       coverflowEffect: {
         rotate: 0,
         stretch: 0,
+        // 調整卡片彼此黏合度
         depth: 200,
         modifier: 1,
         slideShadows: false,
+         // 拿掉陰影
       },
       pagination: {
-        el: ".swiper-pagination",
+        el: '.swiper-pagination',
       },
       navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
       },
       on: {
-        init: function () {
-          syncContentWithTargetDiv(this);
-        },
+        init: function () {},
         slideChange: function () {
-          syncContentWithTargetDiv(this);
-        },
+          var content1 = this.slides[this.activeIndex].children[0].innerText;
+          var content2 = this.slides[this.activeIndex].children[1].innerText;
+          var content3 = this.slides[this.activeIndex].children[2].innerHTML;
+          // var content4 = this.slides[this.activeIndex].children[3].innerHTML;
+
+          console.log(content3);
+          setShowdiv1(content1);
+          setShowdiv2(content2);
+          setShowdiv3(content3);
+          // setShowdiv4(content4);
       },
+    },
     });
+  }
+  }, [ifFirst]);
 
-    AOS.init();
-    AOS.refresh();
-
-    return () => {
-      swiper.destroy();
-    };
-  }, []);
-  const syncContentWithTargetDiv = (swiper) => {
-    const activeIndex = swiper.activeIndex;
-    const activeSlide = swiper.slides[activeIndex];
-    const content1 = activeSlide.querySelector(".swiper-wrapper h1").innerHTML;
-    const content2 = activeSlide.querySelector(".popularUser").innerHTML;
-    const content3 = activeSlide.querySelector(".likeAndViews").innerHTML;
-    document.getElementById("target-div1").innerHTML = content1;
-    document.getElementById("target-div2").innerHTML = content2;
-    document.getElementById("target-div3").innerHTML = content3;
-  };
   return (
     <Fragment>
       <section id="main">
@@ -182,9 +197,12 @@ function Home() {
         <section id="article" className="article">
           <div className="container">
             <br />
-            <div id="target-div1"></div>
-            <div id="target-div2"></div>
-            <div id="target-div3"></div>
+            <div id="target-div1">{showdiv1}</div>
+            <div id="target-div2">{showdiv2}</div>
+            <div id="target-div3">
+            {/* <i className="fa-solid fa-heart"></i> {showdiv3} */}
+              {/* <i className="fa-regular fa-eye"></i> {showdiv4} */}
+            </div>
             <div
               data-aos="fade-right"
               data-aos-offset="300"
@@ -196,32 +214,35 @@ function Home() {
                 {popular.map((article, i) => {
                   return (
                     <div
-                      id="slideA"
+                    key={article.articleno}
+                      id={`slide${i}`}
                       className="swiper-slide"
-                      key={i}
+                      style={{backgroundImage: `url(${article.image ? url + article.image : "./media/recommend-6.png"})`}}
                     >
-                      <div className="articleA-topText1 d-flex justify-content-center mt-2">
-                        <img src={url + article.image} />
+                      <div className={`article${i}-topText1 d-flex justify-content-center mt-2`}>
                         <h1>{article.title}</h1>
                       </div>
 
-                      <div className="articleA-topText2 d-flex justify-content-center">
+                      <div className={`article${i}-topText2 d-flex justify-content-center`}>
                         <div className="popularUser">
-                          <img style={{
+                          <img 
+                          src={`${article.avatar ? url + article.avatar : "./media/nana.jpg"}`} alt="userAvatar"
+                          style={{
                             width: '3rem',
                             height: '3rem',
                             borderRadius: '50%',
                             overflow: 'hidden',
-                          }} src={url + article.avatar} alt="userAvatar" />
+                            border: "white solid 3px"
+                          }} />
 
                           <p>{article.username}</p>
                         </div>
                       </div>
 
-                      <div className="articleA-topText3">
+                      <div className={`article${i}-topText3`}>
                         <div className="likeAndViews">
                           <i className="fa-solid fa-heart"></i>
-                          {article.like_count} &nbsp;
+                          {article.like_count} 
                           <i className="fa-regular fa-eye"></i>
                           {article.view_count}
                         </div>
@@ -230,7 +251,7 @@ function Home() {
                   );
                 })}
 
-                <div
+                {/* <div
                   id="slideB"
                   className="swiper-slide"
                   style={{ backgroundImage: "url(./media/recommend-4.png)" }}
@@ -252,7 +273,7 @@ function Home() {
                       <i className="fa-regular fa-eye"></i>14894
                     </div>
                   </div>
-                </div>
+                </div> */}
 
                 {/* <div id="slideC" className="swiper-slide">
                   <div className="articleC-topText1 d-flex justify-content-center mt-2">

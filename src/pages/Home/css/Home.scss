@@ -406,13 +406,12 @@
                         }
                       }
 
-                    #slideA {
-                        // background-image: url(../media/recommend-2.png);
+                    #slide0 {
                         // ↓ 加陰影 右 下
                         box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.7);
                         position: relative;
 
-                        .articleA-topText1 {
+                        .article0-topText1 {
                             position: absolute;
                             bottom: 7rem;
                             left: 10px;
@@ -421,24 +420,33 @@
                             font-weight: 800;
                             font-size: 2.5rem;
                             color: #ffffff;
+                            background-color: #73a083;
+                            h1{
+                                overflow: hidden;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                width: 300px;
+                            }
                         }
 
-                        .articleA-topText3 {
+                        .article0-topText3 {
                             position: absolute;
                             bottom: 1rem;
                             right: 15px;
                             font-family: "Sen";
                             font-size: 1rem;
                             color: #ffffff;
+                            background-color: #73a083;
                         }
                     }
 
-                    #slideB {
+                    #slide1 {
                         // background-image: url(../media/recommend-4.png);
                         box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.7);
                         position: relative;
+                        width: 300px;
 
-                        .articleB-topText1 {
+                        .article1-topText1 {
                             position: absolute;
                             bottom: 7rem;
                             font-family: "Sen";
@@ -446,9 +454,15 @@
                             font-weight: 800;
                             font-size: 2.5rem;
                             color: #ffffff;
+                            h1 {
+                                overflow: hidden;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                width: 300px;
+                              }
                         }
 
-                        .articleB-topText3 {
+                        .article1-topText3 {
                             position: absolute;
                             bottom: 1rem;
                             right: 15px;
@@ -458,12 +472,12 @@
                         }
                     }
 
-                    #slideC {
+                    #slide2 {
                         // background-image: url(../media/recommend-6.png);
                         box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.7);
                         position: relative;
 
-                        .articleC-topText1 {
+                        .article2-topText1 {
                             position: absolute;
                             bottom: 7rem;
                             left: 10px;
@@ -472,16 +486,22 @@
                             font-weight: 800;
                             font-size: 2.5rem;
                             color: #ffffff;
+                            h1 {
+                                overflow: hidden;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                width: 300px;
+                              }
                         }
 
-                        .article-C {
+                        .article-2 {
                             width: 450px;
                             margin-top: -10px;
                             margin-left: -60px;
                             transform: rotate(-12deg);
                         }
 
-                        .articleC-topText3 {
+                        .article2-topText3 {
                             position: absolute;
                             bottom: 1rem;
                             right: 15px;
