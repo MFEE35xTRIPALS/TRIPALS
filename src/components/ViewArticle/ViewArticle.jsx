@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import "./components/css/style.css";
 // import HashTag from './components/HashTag';
 // import { createPopper } from '@popperjs/core';
-import MapComponent from './components/MapComponent';
-import { useState, useEffect, useRef } from 'react';
+// import MapComponent from './components/MapComponent';
+import { GoogleMap, LoadScript, MarkerF } from '@react-google-maps/api';
+import { useState, useEffect } from 'react';
 
 function ViewArticle() {
     const [userno, setUserno] = useState('');
@@ -20,8 +21,7 @@ function ViewArticle() {
     const [liked, setLiked] = useState(false);
     const [hashtags, setHashtags] = useState([]);
     const [spots, setSpots] = useState([]);
-    const referenceElementRef = useRef(null);
-    const popperElementRef = useRef(null);
+    const [showPanels, setShowPanels] = useState(false);
 
     useEffect(() => {
         async function fetchData() {
@@ -42,16 +42,45 @@ function ViewArticle() {
             setLiked(data.liked);
             setHashtags(data.hashtags);
             setSpots(data.spots);
+
         }
 
         fetchData();
+        function handleWindowSize() {
+            setShowPanels(window.innerWidth >= 768);
+        }
+        window.addEventListener("resize", handleWindowSize);
+        handleWindowSize();
+        return () => window.removeEventListener("resize", handleWindowSize);
 
     }, []);
     const AvatarUrl = `http://localhost:3000/${avatar}`;
-    console.log(spots);
+    const containerStyle = {
+        height: '100%'
+    };
+
+    // const center = {
+    //     lat: 25.033964,
+    //     lng: 121.564472
+    // };
+    const options = {
+        disableDefaultUI: true,
+        gestureHandling: 'greedy'
+    };
+
+    const locations = spots.map(x => {
+        const [lat, lng] = x.location.split(",");
+        return {
+            lat: parseFloat(lat),
+            lng: parseFloat(lng)
+        };
+    });
+
+    console.log(locations);
+
 
     const handleLikeClick = (e) => {
-        console.log('kkkk')
+        alert("OK");
         // if (true) {
         //   fetch(`http://localhost:3000/likepost/like?userno=${userno}&articleno=${articleno}`, {
         //     method: 'POST',
@@ -89,7 +118,46 @@ function ViewArticle() {
         <div>
             <section id="content">
                 <div className="section-map-wapper">
-                    <MapComponent />
+                    <LoadScript
+                        googleMapsApiKey="AIzaSyDhO21SyzfdV8hcAc1jvjr6XZSTZdPFlhY"
+                    >
+                        <GoogleMap
+                            mapContainerStyle={containerStyle}
+                            center={locations[0]}
+                            zoom={16}
+                            options={options}
+                        >
+                            { /* Child components, such as markers, info windows, etc. */}
+                            {locations.map((x, i) => (
+                                <MarkerF
+                                    // icon={{
+                                    //     path:
+                                    //         "M8 12l-4.7023 2.4721.898-5.236L.3916 5.5279l5.2574-.764L8 0l2.3511 4.764 5.2574.7639-3.8043 3.7082.898 5.236z",
+                                    //     fillColor: "yellow",
+                                    //     fillOpacity: 0.9,
+                                    //     scale: 2,
+                                    //     strokeColor: "gold",
+                                    //     strokeWeight: 2,
+                                    // }}
+                                    label={{ text: `${i + 1}`, color: '#fff' }}
+                                    key={i}
+                                    position={x}
+                                />
+                            ))}
+                            {/* <MarkerF
+                                icon={{
+                                    path:
+                                        "M8 12l-4.7023 2.4721.898-5.236L.3916 5.5279l5.2574-.764L8 0l2.3511 4.764 5.2574.7639-3.8043 3.7082.898 5.236z",
+                                    fillColor: "yellow",
+                                    fillOpacity: 0.9,
+                                    scale: 2,
+                                    strokeColor: "gold",
+                                    strokeWeight: 2,
+                                }}
+                                position={center} /> */}
+                            <></>
+                        </GoogleMap>
+                    </LoadScript>
                 </div>
                 <section id="content">
                     <div className="section-guide-panel">
@@ -103,7 +171,8 @@ function ViewArticle() {
                                             {Mtitle}
                                         </button>
                                     </h2>
-                                    <div id="panelsStayOpen-collapseOne" className="accordion-collapse collapse show"
+                                    <div id="panelsStayOpen-collapseOne" className={`accordion-collapse collapse ${showPanels ? "show" : ""
+                                        }`}
                                         aria-labelledby="panelsStayOpen-headingOne">
                                         <div className="accordion-body">
                                             <div className="section-panel-intro">
@@ -161,7 +230,8 @@ function ViewArticle() {
                                                 {el.title}
                                             </button>
                                         </h2>
-                                        <div id={`panelsStayOpen-collapse${index}`} className="accordion-collapse collapse show"
+                                        <div id={`panelsStayOpen-collapse${index}`} className={`accordion-collapse collapse ${showPanels ? "show" : ""
+                                            }`}
                                             aria-labelledby={`panelsStayOpen-heading${index}`}>
                                             <div className="accordion-body">
                                                 <div className="section-panel-intro">
