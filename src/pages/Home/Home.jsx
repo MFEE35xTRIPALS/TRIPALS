@@ -56,7 +56,6 @@ function Home() {
       swiper.destroy();
     };
   }, []);
-
   const syncContentWithTargetDiv = (swiper) => {
     const activeIndex = swiper.activeIndex;
     const activeSlide = swiper.slides[activeIndex];
@@ -66,7 +65,6 @@ function Home() {
     document.getElementById("target-div1").innerHTML = content1;
     document.getElementById("target-div2").innerHTML = content2;
     document.getElementById("target-div3").innerHTML = content3;
-    console.log(content1);
   };
   return (
     <Fragment>
@@ -255,8 +253,8 @@ function Home() {
                     </div>
                   </div>
                 </div>
-{/* 
-                <div id="slideC" className="swiper-slide">
+
+                {/* <div id="slideC" className="swiper-slide">
                   <div className="articleC-topText1 d-flex justify-content-center mt-2">
                     <h1>文章標題...3</h1>
                   </div>
@@ -368,7 +366,7 @@ function Home() {
         >
           {recommend.map((recommendArticle, i) => {
             return (
-              <div className="card text-white" key={i}>
+              <div className="card recommemdCard text-white" key={i}>
                 <img src={recommendArticle.image ? url + recommendArticle.image : "./media/recommend-5.png"} className="card-img" alt="..." />
                 <div className="card-img-overlay">
                   <h5 className="card-title">{recommendArticle.title}</h5>
