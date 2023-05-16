@@ -5,9 +5,13 @@ import "./components/css/style.css";
 import { GoogleMap, LoadScript, MarkerF } from '@react-google-maps/api';
 import { useState, useEffect, useRef } from 'react';
 
-function ViewArticle() {
-    const [userno, setUserno] = useState('');
-    const [articleno, setArticleno] = useState('');
+function ViewArticle(props) {
+    // const [userno, setUserno] = useState('');
+    // const [articleno, setArticleno] = useState('');
+
+    const userno = props.userno;
+    const articleno = props.articleno;
+
     const [id, setId] = useState('');
     const [nickname, setNickname] = useState('');
     const [avatar, setAvatar] = useState('');
@@ -24,11 +28,11 @@ function ViewArticle() {
 
     useEffect(() => {
         async function fetchData() {
-            const response = await fetch('http://localhost:3000/guide/?userno=2&articleno=2');
+            const response = await fetch(`http://localhost:3000/guide/?userno=${userno}&articleno=${articleno}`);
             const data = await response.json();
 
-            setUserno(data.userno);
-            setArticleno(data.articleno);
+            // setUserno(data.userno);
+            // setArticleno(data.articleno);
             setId(data.id);
             setNickname(data.nickname);
             setAvatar(data.avatar);
@@ -134,7 +138,7 @@ function ViewArticle() {
                 .then(response => {
                     if (response.ok) {
                         alert("檢舉成功");
-                         alreadyReport = true
+                        alreadyReport = true
                     } else {
                         throw new Error('Error report post.');
                     }
@@ -146,13 +150,13 @@ function ViewArticle() {
 
     }
 
-     const articleItems = useRef([]);
+    const articleItems = useRef([]);
 
     function handleMarkerClick(i) {
-      const targetItem = articleItems.current[i];
-      if (targetItem) {
-        targetItem.scrollIntoView({ behavior: 'smooth' });
-      }
+        const targetItem = articleItems.current[i];
+        if (targetItem) {
+            targetItem.scrollIntoView({ behavior: 'smooth' });
+        }
     }
 
     return (
