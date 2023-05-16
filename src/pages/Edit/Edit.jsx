@@ -28,7 +28,7 @@ const Edit = () => {
 	// 	console.log(mainArticle);
 	// }, [mainArticle]);
 	//39 2
-	const articleID = 38;
+	const articleID = 45;
 
 	const fetchData = async () => {
 		try {
@@ -64,6 +64,7 @@ const Edit = () => {
 			// 先保留原始資料
 			setOldData({ ...response.data });
 		} catch (error) {
+			alert("沒有找到對應的文章");
 			console.error("Error fetching data:", error);
 		}
 	};
@@ -93,7 +94,7 @@ const Edit = () => {
 
 	// 新增地點
 	const handleAddSpot = async () => {
-		console.log("articleno:" + mainData.main_articleno);
+		// console.log("articleno:" + mainData.main_articleno);
 
 		axios
 			.post(`${baseUrl}/guide/content`, {
@@ -112,7 +113,7 @@ const Edit = () => {
 			.catch((error) => {
 				// 新增失敗
 				alert("新增失敗");
-				console.error("Error adding spot:", error);
+				console.error("新增失敗:", error);
 			});
 	};
 
@@ -143,7 +144,7 @@ const Edit = () => {
 				.catch((error) => {
 					// 刪除失敗
 					alert("刪除失敗");
-					console.error("Error deleting spot:", error);
+					console.error("刪除失敗:", error);
 				});
 		}
 	};
@@ -164,7 +165,7 @@ const Edit = () => {
 		return [];
 	};
 
-	// 資料整合並打包傳送
+	// 將更新資料整合並打包傳送
 	const patchData = (data) => {
 		axios
 			.patch(`${baseUrl}/guide/`, data)
@@ -224,6 +225,22 @@ const Edit = () => {
 	};
 
 	// 刪除文章
+	const handleDeleteAll = () => {
+		console.log(mainData.main_articleno);
+		axios
+			.delete(`${baseUrl}/guide/`, {
+				data: { main_articleno: mainData.main_articleno },
+			})
+			.then((response) => {
+				// 刪除成功
+				alert("刪除成功");
+			})
+			.catch((error) => {
+				// 刪除失敗
+				alert("刪除失敗");
+				console.error("刪除失敗:", error);
+			});
+	};
 
 	return (
 		<>
@@ -231,6 +248,7 @@ const Edit = () => {
 				onAddSpot={handleAddSpot}
 				onSaveDraft={handleSaveToDraft}
 				onSaveShow={handleSaveToShow}
+				onDeleteAll={handleDeleteAll}
 			/>
 			<div className={`container-fluid ${styles["edit-container"]}`}>
 				{/* hashtag 有可能是 [] 空陣列 */}

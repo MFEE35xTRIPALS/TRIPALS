@@ -1,4 +1,8 @@
 const cityCoordinates = {
+	default: {
+		lat: 23.6978,
+		lng: 120.9605,
+	},
 	基隆市: {
 		lat: 25.1276,
 		lng: 121.7392,

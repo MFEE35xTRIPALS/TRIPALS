@@ -42,7 +42,7 @@ const CardMain = ({
 							aria-expanded="true"
 							aria-controls="card-title"
 						>
-							{mainData.main_title ? mainData.main_title : ""}
+							{mainData.main_title ? mainData.main_title : "主標題"}
 						</button>
 						<hr />
 					</h2>
@@ -81,9 +81,7 @@ const CardMain = ({
 											}
 											onChange={handleLocationChange}
 										>
-											<option value="" disabled hidden>
-												選擇地區
-											</option>
+											<option value="default">選擇地區</option>
 											<option value="基隆市">基隆市</option>
 											<option value="台北市">台北市</option>
 											<option value="新北市">新北市</option>

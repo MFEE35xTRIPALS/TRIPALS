@@ -15,7 +15,7 @@ const BtnUpload = ({ main_articleno, contentno, onFileUpload }) => {
 
 	const handleInputChange = async (event) => {
 		let uploadUrl = baseUrl;
-		console.log("main:" + main_articleno + ",contentno:" + contentno);
+		// console.log("main:" + main_articleno + ",contentno:" + contentno);
 		const file = event.target.files[0];
 
 		// 驗證檔案類型

@@ -1,6 +1,6 @@
 import styles from "./EditNavbar.module.scss";
 
-const EditNavbar = ({ onAddSpot, onSaveDraft, onSaveShow }) => {
+const EditNavbar = ({ onAddSpot, onSaveDraft, onSaveShow, onDeleteAll }) => {
 	return (
 		<nav className={`navbar fixed-top ${styles["edit-bar"]}`}>
 			<div className="container-fluid justify-space-between">
@@ -28,7 +28,11 @@ const EditNavbar = ({ onAddSpot, onSaveDraft, onSaveShow }) => {
 					>
 						發佈文章
 					</button>
-					<button type="button" className={`btn ${styles["edit-delete-btn"]}`}>
+					<button
+						type="button"
+						className={`btn ${styles["edit-delete-btn"]}`}
+						onClick={onDeleteAll}
+					>
 						刪除文章
 					</button>
 					<div className={styles["image-box"]}>

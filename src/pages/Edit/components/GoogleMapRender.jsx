@@ -1,21 +1,13 @@
 import React from "react";
-import {
-	GoogleMap,
-	// LoadScript,
-	useLoadScript,
-	Marker,
-} from "@react-google-maps/api";
+import { GoogleMap, Marker } from "@react-google-maps/api";
 import mapStyles from "./mapStyles.js";
 import cityCoordinates from "./cityCoordinates";
-const placesLibrary = ["places"];
 // import markerIcon from "../../../assets/marker.svg";
 
 const containerStyle = {
 	width: "100%",
 	height: "85vh",
 };
-
-// const libraries = ["places"];
 
 const taiwanCenter = {
 	lat: 23.6978,
@@ -27,32 +19,28 @@ const taiwanCenter = {
 // 	// scaledSize: new window.google.maps.Size(50, 50), // 設定圖檔顯示大小
 // };
 
-function GoogleMapRender({ selectedCity, spots }) {
-	const { isLoaded, loadError } = useLoadScript({
-		googleMapsApiKey: "AIzaSyAPOMZXMZfyOy1zrlETRf727BEzshgi2oM",
-		libraries: placesLibrary,
-	});
-	console.log(spots);
-
-	if (loadError) {
-		return <div>載入地圖時發生錯誤</div>;
-	}
-
-	if (!isLoaded) {
-		return <div>載入中...</div>;
-	}
+const GoogleMapRender = ({ selectedCity, spots }) => {
+	console.log(selectedCity);
+	// const { isLoaded, loadError } = useLoadScript({
+	// 	googleMapsApiKey: "AIzaSyAPOMZXMZfyOy1zrlETRf727BEzshgi2oM",
+	// 	libraries: placesLibrary,
+	// });
+	// console.log(spots);
 
 	// 先初始化 center
 	let center = cityCoordinates[selectedCity] || taiwanCenter;
-	// console.log(center);
+	console.log(center);
 
 	const handleMapLoad = (map) => {
 		// 創建一個空的經緯度邊界（LatLngBounds）對象：
 		const bounds = new window.google.maps.LatLngBounds();
 
 		// 遍歷 spots 陣列，並對於每個物件，提取經緯度並擴展到邊界中，null值不做處理
+		let flag = false;
 		spots.forEach((spot) => {
 			if (spot.location) {
+				flag = true;
+				console.log("安安");
 				const markerPosition = new window.google.maps.LatLng(
 					parseFloat(spot.location.split(",")[0]),
 					parseFloat(spot.location.split(",")[1])
@@ -62,15 +50,16 @@ function GoogleMapRender({ selectedCity, spots }) {
 		});
 
 		// 在所有的 spots 物件都處理完後，獲取邊界的中心點（center）：
-		const calculatedCenter = bounds.getCenter();
-		console.log("calculatedCenter", calculatedCenter);
+		let calculatedCenter = null;
+		if (flag) calculatedCenter = bounds.getCenter();
+		// console.log("calculatedCenter", calculatedCenter);
 
 		// 如果計算後的 center 有值 就用 calculatedCenter 取代 center
 		if (calculatedCenter) {
 			center = calculatedCenter;
 		}
 
-		// console.log(center);
+		console.log("final:" + center);
 
 		map.setCenter(center);
 	};
@@ -109,6 +98,6 @@ function GoogleMapRender({ selectedCity, spots }) {
 			{/* </LoadScript> */}
 		</div>
 	);
-}
+};
 
-export default React.memo(GoogleMapRender);
+export default GoogleMapRender;
