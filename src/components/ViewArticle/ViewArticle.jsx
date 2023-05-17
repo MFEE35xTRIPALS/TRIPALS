@@ -189,6 +189,7 @@ function ViewArticle(props) {
                                     label={{ text: `${i + 1}`, color: '#fff' }}
                                     key={i}
                                     position={x}
+                                    icon={{url:require('./components/purple dot.png'), scaledSize: new window.google.maps.Size(50, 50)}}
                                     onClick={() => handleMarkerClick(i)}
                                 />
                             ))}
