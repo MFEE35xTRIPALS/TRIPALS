@@ -160,7 +160,7 @@ function Home() {
             data-aos-duration="1500"
             data-aos-delay="100"
           >
-            Hello World!
+            Travel wtih Tripals!
           </h5>
         </div>
         <div>
@@ -175,7 +175,7 @@ function Home() {
         </div>
         <div>
           <h4 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-            你好，世界。
+            和你一起走遍台灣!
           </h4>
         </div>
         <img src="./media/WhiteCloud.png" id="whiteCloud" alt="" />

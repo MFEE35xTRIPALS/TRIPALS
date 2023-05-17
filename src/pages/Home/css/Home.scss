@@ -188,7 +188,7 @@
         position: absolute;
         margin-top: 15rem;
         height: 35rem;
-        width: 8%;
+        width: 10%;
         left: 40%;
         writing-mode: vertical-rl;
         background-color: #9faf7d;
@@ -197,8 +197,8 @@
         font-family: "sen";
         font-style: normal;
         font-weight: 400;
-        font-size: 5rem;
-        color: #000000;
+        font-size: 4.5rem;
+        color: #ffffff;
     }
 
     h4 {
@@ -206,7 +206,7 @@
         margin-top: 40rem;
         left: 50%;
         height: 35rem;
-        width: 8%;
+        width: 10%;
         writing-mode: vertical-rl;
         background-color: #73a083;
         z-index: 2;
@@ -214,7 +214,7 @@
         font-family: "sen";
         font-style: normal;
         font-weight: 400;
-        font-size: 5rem;
+        font-size: 4rem;
         color: #ffffff;
     }
 
@@ -300,6 +300,8 @@
                 white-space: nowrap;
                 text-overflow: ellipsis;
                 width: 700px;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+
 
 
                 @media (max-width: 1500px) {
@@ -322,6 +324,8 @@
                 font-weight: 700;
                 font-size: 2rem;
                 color: #ffffff;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+
 
                 @media (max-width: 1500px) {
                     display: none;
@@ -343,6 +347,8 @@
                 font-size: 1.25rem;
                 line-height: 43px;
                 color: #ffffff;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+
 
                 @media (max-width: 1500px) {
                     display: none;
@@ -417,7 +423,7 @@
                             margin-bottom: 0.5rem;
                             margin-left: 1rem;
                             // background-color: rgba(243, 236, 236, 0.7);
-                            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+                            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
                         }
                     }
 
@@ -430,19 +436,20 @@
                             position: absolute;
                             bottom: 7rem;
                             left: 10px;
-                            font-family: "Sen";
-                            font-style: bold;
-                            font-weight: 800;
-                            font-size: 2.5rem;
-                            color: #ffffff;
-                            background-color: rgba(16, 255, 99, 0.7);
-                            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+                            // background-color: rgba(16, 255, 99, 0.7);
+                            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
 
                             h1 {
                                 overflow: hidden;
                                 white-space: nowrap;
                                 text-overflow: ellipsis;
                                 width: 280px;
+                                font-family: "Sen";
+                                font-style: bold;
+                                font-weight: 800;
+                                font-size: 2.5rem;
+                                color: #ffffff;
+                                margin-bottom: -1.5rem;
                             }
                         }
 
@@ -453,8 +460,8 @@
                             font-family: "Sen";
                             font-size: 1rem;
                             color: #ffffff;
-                            background-color: rgba(16, 255, 99, 0.7);
-                            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+                            // background-color: rgba(16, 255, 99, 0.7);
+                            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
 
                             .fa-eye {
                                 margin-left: 1rem;
@@ -478,9 +485,10 @@
                             font-weight: 800;
                             font-size: 2.5rem;
                             color: #ffffff;
-                            background-color: rgba(255, 85, 6, 0.9);
-                            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+                            // background-color: rgba(255, 85, 6, 0.9);
+                            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
                             margin-left: 0.5rem;
+
 
 
                             h1 {
@@ -488,6 +496,12 @@
                                 white-space: nowrap;
                                 text-overflow: ellipsis;
                                 width: 280px;
+                                font-family: "Sen";
+                                font-style: bold;
+                                font-weight: 800;
+                                font-size: 2.5rem;
+                                color: #ffffff;
+                                margin-bottom: -1.5rem;
                             }
                         }
 
@@ -498,8 +512,8 @@
                             font-family: "Sen";
                             font-size: 1rem;
                             color: #ffffff;
-                            background-color: rgba(255, 85, 6, 0.9);
-                            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+                            // background-color: rgba(255, 85, 6, 0.9);
+                            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
 
                             .fa-eye {
                                 margin-left: 1rem;
@@ -521,7 +535,7 @@
                             font-weight: 800;
                             font-size: 2.5rem;
                             color: #ffffff;
-                            background-color: rgba(5, 84, 255, 0.8);
+                            // background-color: rgba(5, 84, 255, 0.8);
                             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
                             h1 {
@@ -529,6 +543,12 @@
                                 white-space: nowrap;
                                 text-overflow: ellipsis;
                                 width: 280px;
+                                font-family: "Sen";
+                                font-style: bold;
+                                font-weight: 800;
+                                font-size: 2.5rem;
+                                color: #ffffff;
+                                margin-bottom: -1.5rem;
 
                             }
                         }
@@ -547,7 +567,7 @@
                             font-family: "Sen";
                             font-size: 1rem;
                             color: #ffffff;
-                            background-color: rgba(5, 84, 255, 0.8);
+                            // background-color: rgba(5, 84, 255, 0.8);
                             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
                             .fa-eye {
@@ -719,6 +739,18 @@
             }
 
             .card-img-overlay {
+
+                h5 {
+                    cursor: pointer;
+                    font-family: "Sen";
+                    font-style: bold;
+                    font-weight: 800;
+                    font-size: 1.5rem;
+                    color: #ffffff;
+                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+                }
+
                 .user {
                     display: flex;
                     flex-direction: row;
@@ -730,18 +762,16 @@
                         overflow: hidden;
                     }
 
-                    h5:hover {
-                        cursor: pointer;
-                    }
-
                     P {
                         font-family: "Sen";
                         font-style: bold;
                         font-weight: 800;
-                        font-size: 1rem;
+                        font-size: 1.25rem;
                         color: #ffffff;
                         align-self: center;
                         margin-left: 1rem;
+                        text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.9);
+
                     }
                 }
             }

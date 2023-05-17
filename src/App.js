@@ -6,7 +6,6 @@ import Footer from './components/Footer.js';
 import './components/CSS/Header.scss'
 import './components/CSS/Footer.scss';
 import './components/CSS/Bear.scss'
-import 'swiper/dist/css/swiper.css'
 
 function App() {
   return (
