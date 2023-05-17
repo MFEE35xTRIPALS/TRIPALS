@@ -1,3 +1,4 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import React, { Component } from "react";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.js";
@@ -26,12 +27,12 @@ function App() {
 		return <div>載入地圖時發生錯誤</div>;
 	}
 	return (
-		<div className="App">
-			<Header />
-			<BearLogo />
-			<Home />
-			<Footer />
-		</div>
+		<BrowserRouter>
+			<Routes>
+				<Route exact path="/" element={<Home />} />
+				<Route exact path="/guide/edit" element={<Edit />} />
+			</Routes>
+		</BrowserRouter>
 	);
 }
 
