@@ -1,0 +1,291 @@
+body {
+  background-color: $Rice;
+  // RWD
+  max-width: 1440px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* 首圖 + 標題 - 旅遊導覽*/
+section.title {
+  margin: 8rem 3rem 0 3rem;
+  // border: red 3px solid;
+
+  /* 首圖區塊 */
+  div.img {
+    height: 55vh;
+    background: url(../img/grass.jpg) no-repeat;
+    background-size: cover;
+    // border: 3px blue solid;
+    overflow: hidden;
+
+    h1 {
+      background-color: $white;
+      display: inline-block;
+      position: relative;
+      font-size: $pageTitle;
+      color: $pageColor;
+      padding: 0.5rem 0 0.5rem 1rem;
+      width: 35vw;
+      max-width: 500px;
+      top: 20%;
+      margin-left: 3%;
+
+      // border: 3px red solid;
+    }
+  }
+}
+
+/* hashtag 熱門度 地區 searchbar */
+section.hashtag {
+  margin: 0 2rem;
+
+  /* 左邊tags 右邊search-bar */
+  div.tag-search {
+    //   border: 3px green solid;
+    //   height: 180px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    /* 左邊tags */
+    .left {
+      padding-top: 1rem;
+      width: 50%;
+      flex: 3 1 350px;
+
+      // border: 3px orange solid;
+      ul.tags {
+        li {
+          margin: 0.5rem 0.25rem;
+          padding: 0.25rem 0.75rem;
+          display: inline-block;
+          border-radius: 50px;
+          border: $tagsBg 2px solid;
+          background: $tagsBg;
+          color: $HoverBg;
+          font-size: $tagsText;
+
+          cursor: pointer;
+
+          &:hover {
+            background: $HoverBg;
+            color: $tagsBg;
+            border: $tagsBg 2px solid;
+          }
+        }
+      }
+    }
+
+    /* 右邊search-bar */
+    .right {
+      flex: 1 1 350px;
+      // border: 3px blue solid;
+      padding: 1rem 0;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+
+      // div {
+      //   form {
+      //     input {
+      //       padding: 0rem 1.5rem;
+      //       font-size: 1.25rem;
+      //       border-radius: 50px;
+      //       border: none;
+      //       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      //     }
+      //     button {
+      //       padding: 0.25rem 0 0.25rem 0.75rem;
+      //       font-size: 1.5rem;
+      //       border: none;
+      //       background-color: $Rice;
+      //       color: $Blue;
+      //     }
+      //   }
+      // }
+    }
+  }
+
+  /* 地區 觀看數 熱門度 排序鈕 */
+  div.sort {
+    //   border-bottom: 4px white solid;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: "Font Awesome 5 Free", "Sen", sans-serif;
+    font-weight: 700;
+
+    select.city {
+      height: 50px;
+      // box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+      display: inline-block;
+      width: 300px;
+      padding: 0.425rem;
+      font-size: $inputText;
+      text-align: center;
+      border: none;
+      font-family: "Font Awesome 5 Free", "Sen", sans-serif;
+      background-color: $inputBgColor2;
+      color: $inputBgColor1;
+      border: $inputBgColor1 2px solid;
+      font-weight: 500;
+
+      option {
+        font-family: "Font Awesome 5 Free", "Sen";
+      }
+
+      // color: $ButtonHover;
+    }
+
+    button.views {
+      font-size: $inputText;
+      width: 300px;
+      display: inline-block;
+      background-color: $inputBgColor1;
+      color: $inputBgColor2;
+      border: none;
+      font-weight: 500;
+    }
+
+    button.hots {
+      font-size: $inputText;
+      font-weight: 500;
+
+      width: 300px;
+      display: inline-block;
+      border: none;
+      background-color: $inputBgColor2;
+      color: $inputBgColor1;
+      border: $inputBgColor1 2px solid;
+
+      i {
+        color: $Heart;
+      }
+
+      // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+  }
+}
+
+.contain {
+  align-items: center;
+  background: #f0e8dc;
+  display: flex;
+  justify-content: center;
+}
+
+.search {
+  &:not(:focus-within) {
+    --transition-time-input: 0.2s 0s;
+  }
+
+  $root: &;
+
+  border-radius: 50px;
+  border: 2px solid transparent;
+  display: flex;
+  transition: border-color 0.2s linear,
+    padding 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &__input {
+    background: transparent;
+    border: none;
+    color: #27a2b8;
+    font-size: 1.5rem;
+    opacity: 0;
+    outline: none;
+    padding: 0;
+    transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+      padding 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s linear;
+    width: 0;
+
+    &::placeholder {
+      color: #27a2b8;
+      opacity: 0.75;
+    }
+  }
+
+  &__icon-container {
+    height: calc(3rem);
+    position: relative;
+    width: calc(3rem);
+  }
+
+  // 放大鏡
+  &__label,
+  &__submit {
+    color: #27a2b8;
+    cursor: pointer;
+    display: block;
+    height: 100%;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: #27a2b8;
+    }
+  }
+
+  &__label {
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.1s;
+  }
+
+  &__submit {
+    background: none;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 0 0 4px inset transparent;
+    display: none;
+    outline: none;
+    transition: color 0.1s, box-shadow 0.1s;
+
+    svg {
+      transform: scale(0.5);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 4px inset #27a2b8;
+    }
+  }
+
+  &:focus-within {
+    border-color: #27a2b8;
+
+    #{$root} {
+      &__input {
+        opacity: 1;
+        padding: 0 1rem 0 2rem;
+        width: calc(2rem * 10);
+      }
+
+      &__label {
+        transform: scale(0.5);
+      }
+
+      &__submit {
+        animation: unhide 0.2s steps(1, end);
+        display: block;
+      }
+    }
+  }
+}
+
+@keyframes unhide {
+  from {
+    height: 0;
+    opacity: 1;
+  }
+
+  to {
+    height: auto;
+    opacity: 1;
+  }
+}

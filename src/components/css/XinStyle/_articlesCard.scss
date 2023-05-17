@@ -1,0 +1,133 @@
+section.selfArticles {
+  border-top: $black 2px solid;
+  margin: 3rem 0;
+
+  h6.articles {
+    font-weight: bold;
+  }
+
+  .c-mylikes {
+    width: 100%;
+    // height: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 2rem;
+    // overflow: auto;
+    // border: red solid 2px;
+
+    // justify-content: left;
+  }
+}
+
+div.onecard {
+  width: 280px;
+  height: fit-content;
+  box-shadow: 0px 4px 4px rgba(black, 0.25);
+  margin: 1rem 0.5rem;
+
+  a.c-cardImg {
+    width: 100%;
+    height: 200px;
+    position: relative;
+
+    &:hover .c-imgCover {
+      display: block;
+    }
+
+    div.c-imgCover {
+      display: none;
+      position: absolute;
+      background-color: rgba(black, 0.2);
+      width: 100%;
+      height: 100%;
+
+      span {
+        color: $moreBtnText;
+        background-color: $moreBtnbg;
+        border-radius: 50%;
+        border: 2px $moreBtnText solid;
+        position: absolute;
+        bottom: 3rem;
+        left: 5.5rem;
+        font-size: $hoverMore;
+        padding: 2.25rem 1.5rem;
+        width: fit-content;
+        filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.5));
+        font-weight: 700;
+      }
+    }
+
+    img.Img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  div.card_body {
+    // padding: 15px;
+    margin: 1rem;
+
+    div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      a.c-toSelfpage {
+        text-decoration: none;
+        // display: -webkit-box;
+        // -webkit-box-orient: vertical;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        // -webkit-line-clamp: 2;
+
+        h4.card-title {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          color: $articleTitle;
+          font-size: $cardTitle;
+          // font-weight: bold;
+          margin: 1rem 0;
+          // -webkit-line-clamp: 2;
+        }
+      }
+
+      i.heart {
+        color: $Heart;
+        font-size: $cardLikeicon;
+        cursor: pointer;
+      }
+    }
+
+
+    h6 {
+      font-size: $cardUsername;
+      color: $articleUsername;
+      cursor: pointer;
+
+      img.head {
+        width: 40px;
+        height: 40px;
+        background-color: $Blue;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+    }
+
+    div.viewsAndHeart {
+      color: $articleViewsAndHeart;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      font-size: $cardViewsAndHeart;
+
+      p {
+        margin-left: 1rem;
+      }
+    }
+  }
+}

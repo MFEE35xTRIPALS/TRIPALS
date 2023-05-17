@@ -1,0 +1,384 @@
+/* 點選前消失 */
+
+.postBtn,
+.news-c {
+  display: none;
+}
+
+/* 右邊隨選項變動的區塊 */
+.c-right {
+  .c-block {
+    position: relative;
+    .totalMember {
+      padding: 2rem 2rem;
+      color: $Blue;
+    }
+    /* 最新消息區塊 */
+    .a-news {
+      margin: 2rem 2rem 0rem 3rem;
+      max-height: 300px;
+      overflow: auto;
+      box-shadow: -5px -5px 5px rgba(0, 0, 0, 0.2) inset;
+    }
+
+    /* 最新消息，會員管理 table */
+    .c-myart {
+      width: 80%;
+
+      thead {
+        background-color: $TableGreen;
+        position: sticky;
+        top: 0;
+      }
+
+      tr {
+        td {
+          max-width: 24rem;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          padding: 0.5rem;
+          font-size: $tableText;
+          border: 0.3px $Green solid;
+          text-align: center;
+
+          &:nth-of-type(2) {
+            text-align: left;
+          }
+        }
+
+        .icon {
+          color: $Blue;
+          text-align: center;
+        }
+
+        &:hover {
+          background-color: rgba($Green, $alpha: 0.3);
+        }
+
+        i {
+          cursor: pointer;
+        }
+      }
+
+      /* no use */
+      //tr
+      .a-noUse {
+        text-decoration: line-through;
+        color: gray;
+      }
+
+      .x-icon {
+        color: gray;
+        text-decoration: none;
+      }
+
+      /* 點選 */
+      //tr
+      .chose {
+        background-color: rgba($Green, $alpha: 0.3);
+        color: $Blue;
+      }
+    }
+
+    /* 最新消息新增  */
+    .c-form {
+      padding: 2rem 2.5rem 4rem 2.5rem;
+
+      input {
+        white-space: normal;
+      }
+
+      .c-inbox {
+        padding: 0.5rem;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        position: relative;
+
+        label {
+          font-size: $lableText;
+          padding-right: 1rem;
+        }
+
+        #bday {
+          padding-left: 1rem;
+        }
+        /* input[type="text"]  */
+        .c-textmessage {
+          font-size: $InputText;
+          border: none;
+          width: 50%;
+          padding-left: 1rem;
+
+          &:hover,
+          &:focus {
+            border: 1.5px $Green solid;
+            border-radius: 50px;
+            padding-left: 1rem;
+          }
+        }
+      }
+
+      .c-button {
+        padding: 0.5rem;
+        position: relative;
+
+        button {
+          padding: 0.25rem 0.75rem;
+          border-radius: 50px;
+          position: absolute;
+          font-size: $ButtonText;
+          // bottom: -40px;
+        }
+
+        /* 發布按鈕 */
+        .c-post,
+        .c-change {
+          right: 20px;
+          border: $ButtonColor 2px solid;
+          background: $ButtonColor;
+          color: $HoverBg;
+
+          &:hover {
+            color: $ButtonColor;
+            background: $HoverBg;
+            border: $ButtonColor 2px solid;
+          }
+        }
+
+        /* 取消按鈕 */
+        .cancelBtn {
+          right: 115px;
+          border: $CancelColor 2px solid;
+          background: $CancelColor;
+          color: $HoverBg;
+
+          &:hover {
+            color: $CancelColor;
+            background: $HoverBg;
+            border: $CancelColor 2px solid;
+          }
+        }
+
+        /* 刪除按鈕 */
+        .deleteBtn {
+          right: 210px;
+          border: $Heart 2px solid;
+          background: $Heart;
+          color: $HoverBg;
+
+          &:hover {
+            color: $Heart;
+            background: $HoverBg;
+            border: $Heart 2px solid;
+          }
+        }
+      }
+
+      /* 最新消息 - 新增 */
+      .c-textarea {
+        display: flex;
+        flex-direction: column;
+        padding: 0.5rem;
+
+        label {
+          font-size: $lableText;
+          padding-bottom: 0.5rem;
+        }
+
+        .c-textbox {
+          border: 1.5px $Green solid;
+          border-radius: 10px;
+          height: 100px;
+          font-size: $InputText;
+          padding: 0.5rem;
+        }
+      }
+
+      #a-title,
+      #a-date,
+      #a-content {
+        color: $Heart;
+      }
+    }
+
+    /* 會員管理區塊 */
+    .a-members {
+      margin: 0rem 2rem 0rem 0rem;
+      padding: 0rem 2rem;
+      max-height: 500px;
+      width: 100%;
+      overflow: auto;
+      background-color: white;
+
+      /* 會員管理-彈出視窗*/
+      dialog#m-change {
+        position: fixed;
+        background-color: $Rice;
+        border-radius: 10px;
+        border: none;
+        width: 300px;
+        height: 350px;
+        padding: 1.5rem;
+        font-size: $lableText;
+        margin: auto;
+
+        div.content {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          align-items: center;
+
+          label {
+            padding: 0.25rem 0;
+          }
+
+          input {
+            border-radius: 20px;
+            border: 1.5px $Blue solid;
+            padding-left: 1rem;
+            font-size: $InputText;
+            width: 100%;
+          }
+
+          .d-button {
+            padding: 2rem 1rem 0 1rem;
+            display: flex;
+            justify-content: space-around;
+
+            button {
+              font-size: $ButtonText;
+              padding: 0.25rem 0.75rem;
+              border-radius: 50px;
+              // position: absolute;
+              // bottom: -40px;
+            }
+
+            /* 更新按鈕 */
+            .d-change {
+              // right: 20px;
+              border: $ButtonColor 2px solid;
+              background: $ButtonColor;
+              color: $HoverBg;
+
+              &:hover {
+                color: $ButtonColor;
+                background: $HoverBg;
+                border: $ButtonColor 2px solid;
+              }
+            }
+
+            /* 取消按鈕 */
+            .d-cancel {
+              // right: 115px;
+              border: $CancelColor 2px solid;
+              background: $CancelColor;
+              color: $HoverBg;
+
+              &:hover {
+                color: $CancelColor;
+                background: $HoverBg;
+                border: $CancelColor 2px solid;
+              }
+            }
+          }
+        }
+
+        &::backdrop {
+          background-color: rgba(0, 0, 0, 0.5);
+        }
+      }
+    }
+
+    /* 文章管理區塊 */
+    .a-totalArt {
+      height: 70vh;
+      width: 90%;
+      overflow-y: scroll;
+      background-color: white;
+      margin: 2rem;
+
+      /* 文章管理 table */
+      .a-myart {
+        thead {
+          background-color: $Green;
+          position: sticky;
+          top: 0;
+        }
+
+        tr {
+          td {
+            border: 0.3px $Green solid;
+            max-width: 20rem;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            padding: 0.5rem;
+            font-size: $tableText;
+            width: fit-content;
+            text-align: center;
+
+            &:nth-of-type(2) {
+              text-align: left;
+            }
+
+            a {
+              color: $black;
+              font-size: $ArticleText;
+              text-decoration: none;
+            }
+
+            i {
+              color: $CancelColor;
+            }
+
+            // color: $Blue;
+            button.a-takeOf {
+              background-color: $Heart;
+              border-radius: 50px;
+              border: $Heart 2px solid;
+              color: $HoverBg;
+              text-align: center;
+              padding: 0.2rem 0.5rem;
+              filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+              transition: all 0.2s ease;
+              font-size: $takeofText;
+
+              &:hover {
+                background-color: $HoverBg;
+                color: $Heart;
+                border: $Heart 2px solid;
+              }
+
+              &:disabled {
+                background-color: $myarticlesBtnDisablebg;
+                color: $myarticlesBtnDisable;
+                border: none;
+              }
+            }
+          }
+
+          &:hover {
+            background-color: rgba($Green, $alpha: 0.3);
+          }
+
+          &.a-deleteDone {
+            background-color: white;
+            color: gray;
+
+            td:nth-of-type(1),
+            td:nth-of-type(2),
+            td:nth-of-type(3) {
+              text-decoration: line-through;
+            }
+          }
+
+          // &.a-takeOfDone {
+          //   background-color: rgb(221, 221, 221);
+          // }
+        }
+      }
+    }
+  }
+}

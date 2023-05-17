@@ -1,0 +1,221 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+
+  .container {
+    display: flex;
+    margin-top: 60px;
+    height: 100%;
+
+    .GreemCloud {
+      position: absolute;
+      z-index: -999;
+      right: 0;
+      bottom: 0;
+      width: 500px;
+    }
+
+    .TaiwanMapSvg {
+      flex-basis: 50%;
+      padding: 20px;
+
+      path {
+        stroke: white;
+        fill: #8cb8af;
+        transition-duration: 0.8s;
+
+        &:hover {
+          fill: #2b4742;
+          transition-duration: 0.8s;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .cityName {
+      display: none;
+    }
+
+    @media screen and (max-width: 700px) {
+      .cityName {
+        display: block;
+        z-index: 100;
+      }
+    }
+
+    .CityList {
+      flex-basis: 50%;
+      padding: 20px;
+      background-color: rgb(151, 185, 175);
+      position: absolute;
+      top: 40%;
+      left: 70%;
+      transform: translate(-50%, -50%);
+
+      margin-top: 50px;
+
+      .GreenDesign {
+        font-size: 2rem;
+        font-weight: bold;
+        position: absolute;
+        z-index: 3;
+        top: -3%;
+        right: 45%;
+        width: 300px;
+        // height: 50px;
+        background-color: #b2d5ce;
+        color: white;
+        box-shadow: 0px 4px 4px rgba(37, 20, 20, 0.25);
+        padding: 0.5rem 1.5rem;
+      }
+
+      .Target {
+        width: 500px;
+        height: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        top: 15%;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        .TargetRow {
+          ul {
+            list-style: none;
+            display: block;
+            text-align: center;
+            white-space: nowrap;
+            font-weight: bold;
+            font-size: 2rem;
+            color: #8caaa4;
+            letter-spacing: 5px;
+            margin-left: 20px;
+            cursor: pointer;
+            text-align: center;
+            white-space: nowrap;
+
+            li {
+              &:after {
+                content: "";
+                width: 10%;
+                height: 2px;
+                background-color: black;
+                bottom: 0;
+                left: 0;
+                transition: all 1s ease-in;
+              }
+            }
+          }
+        }
+      }
+
+      .CityImage {
+        width: 480px;
+        height: 300px;
+
+        .CityImageName {
+          font-size: 2rem;
+          font-weight: bolder;
+          color: #2b4742;
+        }
+
+        img {
+          border-radius: 5px;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      hr {
+        border: 2px solid rgb(255, 255, 255);
+        opacity: 1;
+        size: 1;
+        width: 100%;
+      }
+
+      .CityWeather {
+        margin-top: 100px;
+        position: relative;
+        font-size: 2rem;
+        font-weight: bolder;
+        color: #2b4742;
+        text-align: center;
+        white-space: nowrap;
+        i {
+          color: white;
+        }
+        // .fa-sun,
+        // .fa-cloud-sun {
+        //   color: #eeffbb;
+        // }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .cityName {
+    display: block;
+    margin-top: 50px;
+    width: 100%;
+
+    h1 {
+      background-color: #8caaa4;
+      font-size: 3rem;
+      font-weight: bolder;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        font-size: 2rem;
+        text-align: center;
+
+        font-weight: bold;
+        color: #2b4742;
+
+        &:hover {
+          transition-duration: 0.8s;
+          background-color: #b2d5ce;
+        }
+      }
+
+      a {
+        font-size: 2rem;
+
+        width: 100%;
+        font-weight: bold;
+        color: #2b4742;
+
+        &:hover {
+          transition-duration: 0.8s;
+          background-color: white;
+        }
+      }
+    }
+  }
+
+  .TargetImg {
+    display: none;
+  }
+
+  .GreemCloud {
+    display: none;
+  }
+
+  .CityList {
+    display: none;
+  }
+
+  .TaiwanMapSvg {
+    display: none;
+  }
+
+  .Target {
+    display: none;
+  }
+}

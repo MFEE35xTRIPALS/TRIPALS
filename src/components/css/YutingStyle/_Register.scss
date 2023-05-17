@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Sen:wght@800&display=swap");
+
+@media screen and (max-width: 1440px) {
+  #RegisterPage {
+    max-width: 20rem;
+    // max-height: 25rem;
+  }
+}
+
+$blueGreen: #b2d5ce;
+
+// body {
+//   margin: 0;
+//   background-color: $blueGreen;
+//   font-family: "Sen", sans-serif;
+// }
+
+.page {
+  #RegisterPage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: white;
+    padding: 3rem;
+    text-align: center;
+    align-items: center;
+    max-width: 30rem;
+    transform: translate(-50%, -50%);
+
+    border-radius: 10px;
+    height: fit-content;
+    width: 100%;
+
+    // input[type="button"] {
+    //     display: block;
+    //     margin: 0 auto;
+    //     display: flex;
+    //     width: 50%;
+    //     height: 25px;
+    //     border-radius: 20px;
+    //     justify-content: center;
+    //     background-color: white;
+    //     font-size: 0.5rem;
+    //     border: 1px solid $blueGreen ;
+    //     margin-top: 15px;
+
+    // }
+    input[type="button"] {
+      display: block;
+      margin: 0 auto;
+      display: flex;
+      width: 50%;
+      height: 35px;
+      border-radius: 20px;
+      justify-content: center;
+      background-color: white;
+      font-size: 1rem;
+      border: 1px solid $blueGreen;
+      margin-top: 15px;
+
+      &:active {
+        background-color: #92b9b4;
+      }
+
+      &:hover {
+        background-color: #e3f1ef;
+      }
+    }
+
+    #hrOr {
+      display: flex;
+      align-items: center;
+      height: 0.5px;
+      margin: 20px;
+      background-color: black;
+      border: none;
+      margin-top: 4rem;
+
+      p {
+        background-color: white;
+      }
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      margin-top: 2rem;
+
+      label {
+        // font-size: 0.5rem;
+        font-size: 1rem;
+        // margin-right: 10rem;
+        /* 調整label的位置 */
+      }
+
+      input {
+        position: relative;
+        margin: 0 auto;
+        width: 50%;
+        height: 20px;
+        margin-top: 5px;
+      }
+
+      // input[type="submit"] {
+      //     margin-top: 30px;
+      //     display: block;
+      //     margin: 0 auto;
+      //     display: flex;
+      //     width: 40%;
+      //     height: 25px;
+      //     border-radius: 5px;
+      //     justify-content: center;
+      //     background-color: white;
+      //     font-size: 0.5rem;
+      //     border: 1px solid $blueGreen ;
+      //     margin-top: 15px;
+      // }
+
+      input[type="submit"] {
+        margin-top: 30px;
+        display: block;
+        margin: 0 auto;
+        display: flex;
+        width: 40%;
+        height: 30px;
+        border-radius: 5px;
+        justify-content: center;
+        background-color: white;
+        font-size: 1rem;
+        border: 1px solid $blueGreen;
+        margin-top: 15px;
+
+        &:active {
+          background-color: $blueGreen;
+        }
+
+        &:hover {
+          background-color: #e3f1ef;
+        }
+      }
+
+      a {
+        font-size: 1rem;
+        color: $blueGreen;
+      }
+    }
+  }
+}

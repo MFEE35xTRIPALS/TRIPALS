@@ -1,0 +1,383 @@
+/* 編輯封面按鈕 */
+div.bannerModal {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 22rem;
+  z-index: 10;
+  width: 100vw;
+  height: fit-content;
+  padding: 1.75rem;
+  // display: none;
+  justify-content: end;
+
+  button {
+    padding: 0.25rem 1.5rem;
+    margin: 0 1rem;
+    font-size: $clientBtnfont;
+    background: $clientMessagecolor;
+    border: $clientMessagecolor 2px solid;
+    border: none;
+    border-radius: 50px;
+    transition: all 0.2s ease;
+
+    &.cancel {
+      background: rgba($color: #ffffff, $alpha: 0.8);
+    }
+
+    &:hover {
+      background-color: $MessageBtnHover;
+    }
+  }
+}
+
+img.selfbanner {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.edit_cover {
+  position: absolute;
+  height: fit-content;
+  padding: 0.25rem 1.5rem;
+  right: 8%; //-----> 我改了這裡
+  top: 50%; //-----> 我改了這裡
+  font-size: $clientBtnfont;
+  // color: $clientMessagecolor;
+  // background-color: rgba(white, 0.7);
+  background: $clientMessagecolor;
+  border: $clientMessagecolor 2px solid;
+  border: none;
+  border-radius: 50px;
+
+  &:hover {
+    background-color: white;
+  }
+}
+
+/* 大頭貼相機icon */
+button.camera {
+  border: 0.5px white solid;
+  position: absolute;
+  background-color: white;
+  width: 15%;
+  height: 15%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 150px;
+  right: 50px;
+}
+
+@media (max-width: 992px) {
+  button.camera {
+    // border: red solid 2px;
+    top: 105px;
+    right: 40px;
+  }
+}
+
+/* 編輯大頭貼預覽視窗 */
+.mymodal {
+  // display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+  // display: flex;
+  justify-content: center;
+  align-items: center;
+
+  div.modalContent {
+    background-color: $Rice;
+    border-radius: 10px;
+    padding: 1rem;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+
+    span.closemodal {
+      position: absolute;
+      top: 10px;
+      align-self: self-end;
+      font-size: x-large;
+      cursor: pointer;
+    }
+
+    div.imgPreviewBorder {
+      width: 175px;
+      height: 175px;
+      overflow: hidden;
+      border-radius: 50%;
+      border: 4px white solid;
+
+      img.imgPreview {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    button.uploadShot,
+    .uploadShotDone {
+      padding: 0.25rem 0.85rem;
+      background: $clientMessagecolor;
+      border-radius: 50px;
+      border: $clientMessagecolor 2px solid;
+      font-size: $clientBtnfont;
+
+      &:hover {
+        background: $MessageBtnHover;
+        // border: $selfMessagecolor 2px solid;
+      }
+    }
+  }
+}
+
+/* 右邊區塊 */
+/* 個人資料 */
+.c-form {
+  padding: 2rem 2rem 4rem 3rem;
+
+  input {
+    white-space: normal;
+  }
+
+  .c-inbox {
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+
+    #id {
+      display: none;
+    }
+
+    label {
+      font-size: $lableText;
+      padding-right: 1rem;
+    }
+
+    #bday {
+      padding-left: 1rem;
+    }
+
+    /* 帳號改成span */
+    .c-mail {
+      font-size: $InputText;
+      border: none;
+      width: 85%;
+      padding-left: 1rem;
+    }
+
+    /* input[type="text"]  */
+    .c-textmessage {
+      font-size: $InputText;
+      border: none;
+      width: 35%;
+      padding-left: 1rem;
+
+      &:hover,
+      &:focus {
+        border: 1.5px $Green solid;
+        border-radius: 50px;
+        padding-left: 1rem;
+      }
+    }
+
+    #m-pwd {
+      color: $Heart;
+
+      i {
+        padding-left: 1rem;
+        font-size: 1.5rem;
+        color: #34b233;
+      }
+    }
+
+    button {
+      padding: 0.25rem 0.85rem;
+      border-radius: 50px;
+      position: absolute;
+      bottom: -40px;
+      border: $ButtonColor 2px solid;
+      right: 20px;
+      background: $ButtonColor;
+      color: $HoverBg;
+
+      &:hover {
+        color: $ButtonColor;
+        background: $HoverBg;
+        border: $ButtonColor 2px solid;
+      }
+    }
+  }
+
+  /* 個人資料 - 新增 */
+  .c-textarea {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+
+    label {
+      font-size: $lableText;
+      padding-bottom: 0.5rem;
+    }
+
+    .c-textbox {
+      border: 1.5px $Green solid;
+      border-radius: 10px;
+      height: 100px;
+      font-size: $InputText;
+      padding: 0.5rem;
+    }
+  }
+}
+
+/* 我的收藏 */
+.c-mylikes {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 2rem;
+
+  // min-height: 70vh;
+  p {
+    font-size: $cardTitle;
+  }
+}
+
+/* 我的文章 */
+.c-mine {
+  height: 70vh;
+  overflow: hidden;
+  background-color: white;
+  overflow-y: scroll;
+  margin: 2rem;
+
+  .c-myart {
+    text-align: left;
+
+    h5 {
+      text-align: right;
+      margin: 2rem;
+    }
+
+    thead {
+      background-color: $Green;
+      position: sticky;
+      top: 0;
+    }
+
+    tr {
+      td {
+        border: 0.3px $Green solid;
+        max-width: 10rem;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        padding: 0.5rem;
+        font-size: $ArticleText;
+        width: 100%;
+        text-align: center;
+
+        &:first-child {
+          text-align: left;
+        }
+
+        a {
+          color: $myarticles_atag;
+          text-decoration: none;
+        }
+
+        a.c-editArt {
+          color: $myarticlesEdit;
+          margin: 0 0.5rem;
+        }
+
+        i.trash {
+          color: $TrashColor;
+          cursor: pointer;
+          margin: 0 0.5rem;
+        }
+
+        // button.c-takeOf {
+        //   // color: $myarticlesBtn;
+        //   background-color: $clientMessagecolor;
+        //   border-radius: 50px;
+        //   border: $clientMessagecolor 2px solid;
+        //   // font-weight: bold;
+        //   text-align: center;
+        //   padding: 0.2rem 0.5rem;
+        //   // border: 1px solid $myarticlesBtn;
+        //   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        //   transition: all 0.2s ease;
+        //   font-size: $takeofText;
+
+        //   &:hover {
+        //     // border: none;
+        //     background-color: $MessageBtnHover;
+        //   }
+
+        //   &:disabled {
+        //     background-color: $myarticlesBtnDisablebg;
+        //     color: $myarticlesBtnDisable;
+        //     border: none;
+        //   }
+        // }
+      }
+
+      &:hover {
+        background-color: rgba($clientMessagecolor, $alpha: 0.3);
+      }
+
+      &.c-deleteDone {
+        &:hover {
+          background-color: #ffffff;
+        }
+
+        color: gray;
+
+        td:nth-of-type(1),
+        td:nth-of-type(2),
+        td:nth-of-type(3) {
+          text-decoration: line-through;
+        }
+      }
+
+      // &.c-takeOfDone {
+      //   background-color: $myarticlesTakeof;
+      // }
+    }
+  }
+}
+
+.postBtn {
+  display: none;
+}
+
+.flexBtn {
+  display: flex;
+}
+
+@media (max-width: 992px) {
+  div.bannerModal {
+    z-index: 20;
+
+
+    button {
+      padding: 0.2rem 1rem;
+      margin: 0 0.2rem;
+    }
+  }
+}
