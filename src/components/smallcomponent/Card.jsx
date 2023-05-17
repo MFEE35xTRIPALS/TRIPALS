@@ -79,16 +79,25 @@ function Card(props) {
   // 按愛心收藏＆取消收藏
   async function updateLikes() {
     // console.log(userlikes);
-    var result = await axios.post(
-      userlikes ? url + "/selfpage/deleteLikes" : url + "/selfpage/insertLikes",
-      {
-        userno: userno,
-        articleno: articleno,
+    if (props.currentUser) {
+      var result = await axios.post(
+        userlikes ? url + "/selfpage/deleteLikes" : url + "/selfpage/insertLikes",
+        {
+          userno: userno,
+          articleno: articleno,
+        }
+      );
+      // console.log(result.data.likesCount);
+      setuserlikes(!userlikes);
+      setlike_count(result.data.likesCount);
+    } else {
+      let ifSingin = window.confirm('登入後才可收藏文章,是否要前往登入？')
+      if (ifSingin) {
+        window.location = '/login';
+      } else {
+        return
       }
-    );
-    // console.log(result.data.likesCount);
-    setuserlikes(!userlikes);
-    setlike_count(result.data.likesCount);
+    }
   }
 }
 

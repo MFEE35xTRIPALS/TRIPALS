@@ -5,6 +5,7 @@ import axios from "axios";
 //Herry
 import Home from "./components/Home";
 import Navigation from "./components/Navigation";
+import Navigation2 from "./components/Navigation";
 import Footer from "./components/Footer";
 // YuTing
 import Destination from "./components/Destination";
@@ -32,11 +33,29 @@ function App() {
           <Route path="/" component={Home} exact />
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
-          <Route path="/guides" component={Guides} />
+          <Route path="/guides" render={(props) => (
+            <Guides
+              {...props}
+              currentUser={currentUser}
+              setCurrentUser={setCurrentUser}
+            />
+          )} />
           <Route path="/destination" component={Destination} />
-          <Route path="/selfpage:authorno" component={Selfpage} />
+          <Route path="/selfpage:authorno" render={(props) => (
+            <Selfpage
+              {...props}
+              currentUser={currentUser}
+              setCurrentUser={setCurrentUser}
+            />
+          )} />
           <Route path="/View:authorno" component={ViewArticle} />
-          <Route path="/admin" component={Admin} />
+          <Route path="/admin" render={(props) => (
+            <Admin
+              {...props}
+              currentUser={currentUser}
+              setCurrentUser={setCurrentUser}
+            />
+          )} />
           <Route
             path="/client"
             render={(props) => (

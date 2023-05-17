@@ -5,9 +5,9 @@ import BearLogo from "./smallcomponent/BearLogo";
 
 function Client({ currentUser, setCurrentUser }) {
   // console.log(JSON.parse(currentUser)[0].userno)
-  console.log(setCurrentUser)
+  // console.log(setCurrentUser)
   let url = "http://localhost:8000";
-  let [userno, setuserno] = useState(JSON.parse(currentUser)[0].userno);
+  let [userno, setuserno] = useState(currentUser ? JSON.parse(currentUser)[0].userno : 0);
   // 我的文章
   let [selfarticles, setselfarticles] = useState([]);
   // 我的收藏
@@ -30,41 +30,43 @@ function Client({ currentUser, setCurrentUser }) {
   let [file, setfile] = useState({});
 
   useEffect(() => {
-    async function firstRendem() {
-      let result = await axios.post(url + `/client/identity`, {
-        userno: userno,
-      });
-      // console.log(result.data)
-      setselfarticles(result.data.selfarticles);
-      setuserLikes(result.data.userLikes);
-      setUserMessage(result.data.userMessage[0]);
-      setavaUsername(
-        result.data.userMessage[0].nickname
-          ? result.data.userMessage[0].nickname
-          : result.data.userMessage[0].username
-      );
-      setuserimage(
-        result.data.userMessage[0].banner
-          ? url + result.data.userMessage[0].banner
-          : "/images/raiway.jpg"
-      );
-      setuserimagetemp(
-        result.data.userMessage[0].banner
-          ? url + result.data.userMessage[0].banner
-          : "/images/raiway.jpg"
-      );
-      setuseravatar(
-        result.data.userMessage[0].avatar
-          ? url + result.data.userMessage[0].avatar
-          : "/images/admin.png"
-      );
-      setuseravatartemp(
-        result.data.userMessage[0].avatar
-          ? url + result.data.userMessage[0].avatar
-          : "/images/admin.png"
-      );
+    if (currentUser) {
+      async function firstRendem() {
+        let result = await axios.post(url + `/client/identity`, {
+          userno: userno,
+        });
+        // console.log(result.data)
+        setselfarticles(result.data.selfarticles);
+        setuserLikes(result.data.userLikes);
+        setUserMessage(result.data.userMessage[0]);
+        setavaUsername(
+          result.data.userMessage[0].nickname
+            ? result.data.userMessage[0].nickname
+            : result.data.userMessage[0].username
+        );
+        setuserimage(
+          result.data.userMessage[0].banner
+            ? url + result.data.userMessage[0].banner
+            : "/images/raiway.jpg"
+        );
+        setuserimagetemp(
+          result.data.userMessage[0].banner
+            ? url + result.data.userMessage[0].banner
+            : "/images/raiway.jpg"
+        );
+        setuseravatar(
+          result.data.userMessage[0].avatar
+            ? url + result.data.userMessage[0].avatar
+            : "/images/admin.png"
+        );
+        setuseravatartemp(
+          result.data.userMessage[0].avatar
+            ? url + result.data.userMessage[0].avatar
+            : "/images/admin.png"
+        );
+      }
+      firstRendem();
     }
-    firstRendem();
   }, []);
 
   // 大頭貼上傳預覽-----------------------------------------
@@ -459,6 +461,7 @@ function Client({ currentUser, setCurrentUser }) {
                       data={article}
                       ifUserLike={true}
                       userno={userno}
+                      currentUser={currentUser}
                     />
                   ))
                 ) : (

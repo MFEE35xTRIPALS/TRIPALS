@@ -47,7 +47,7 @@ const Login = () => {
       if (axios.isAxiosError(error)) {
         // 處理 AxiosError
         console.log('Axios error:', error.message);
-        console.log('HTTP status:', error.response.status);
+        console.log('HTTP status:', error.response);
       } else {
         // 處理其他錯誤
         console.log('其他錯誤:', error.message);

@@ -4,10 +4,10 @@ import TypeIt from "typeit-react";
 import Card from "./smallcomponent/Card";
 import BearLogo from "./smallcomponent/BearLogo";
 
-function Guides() {
+function Guides({ currentUser, setCurrentUser }) {
   // const [result, setResult] = useState({});
   var url = "http://localhost:8000/articles";
-  var userno = 2;
+  var [userno, setuserno] = useState(currentUser ? JSON.parse(currentUser)[0].userno : undefined);
   var [city, setCity] = useState(sessionStorage.getItem("city"));
 
   var [hashTags, setHashTags] = useState([]);
@@ -52,6 +52,7 @@ function Guides() {
             data={article}
             ifUserLike={likes.includes(article.articleno)}
             userno={userno}
+            currentUser={currentUser}
           />
         ))
       );

@@ -302,6 +302,7 @@ a {
   overflow: hidden;
   padding: 0.5rem;
   font-size: 1.25rem;
+  width: -moz-fit-content;
   width: fit-content;
   text-align: center;
 }
@@ -500,6 +501,10 @@ section.hashtag div.sort button.hots i {
   transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1), padding 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s linear;
   width: 0;
 }
+.search__input::-moz-placeholder {
+  color: #27a2b8;
+  opacity: 0.75;
+}
 .search__input::placeholder {
   color: #27a2b8;
   opacity: 0.75;
@@ -579,7 +584,8 @@ section.c-head div.img2 {
   background: url(/public/images/raiway.jpg) no-repeat bottom;
   background-size: cover;
   overflow: hidden;
-  clip-path: ellipse(75% 50% at 50% 30%);
+  -webkit-clip-path: ellipse(75% 50% at 50% 30%);
+          clip-path: ellipse(75% 50% at 50% 30%);
   position: relative;
 }
 
@@ -641,7 +647,8 @@ section.c-head div.img2 {
 .c-left .c-head div.h-img img.shot {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .c-left .c-select ul {
   padding: 1.5rem;
@@ -730,6 +737,7 @@ div.bannerModal {
   top: 22rem;
   z-index: 10;
   width: 100vw;
+  height: -moz-fit-content;
   height: fit-content;
   padding: 1.75rem;
   justify-content: end;
@@ -754,11 +762,13 @@ div.bannerModal button:hover {
 img.selfbanner {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .edit_cover {
   position: absolute;
+  height: -moz-fit-content;
   height: fit-content;
   padding: 0.25rem 1.5rem;
   right: 8%;
@@ -835,7 +845,8 @@ button.camera {
 .mymodal div.modalContent div.imgPreviewBorder img.imgPreview {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .mymodal div.modalContent button.uploadShot,
 .mymodal div.modalContent .uploadShotDone {
@@ -1034,17 +1045,21 @@ body section.selftop {
   height: 55vh;
   background-size: cover;
   overflow: hidden;
-  clip-path: ellipse(75% 50% at 50% 30%);
+  -webkit-clip-path: ellipse(75% 50% at 50% 30%);
+          clip-path: ellipse(75% 50% at 50% 30%);
   position: relative;
 }
 body section.selftop img.selfCover {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 body section.selftop div.selfMessage {
   position: absolute;
+  height: -moz-fit-content;
   height: fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   left: 8%;
   bottom: 30%;
@@ -1058,7 +1073,8 @@ body section.selftop div.selfMessage img.selfShot {
   min-height: 60px;
   max-width: 100px;
   max-height: 100px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 50%;
   margin: 1rem;
   border: 2px white solid;
@@ -1090,6 +1106,7 @@ section.selfArticles .c-mylikes {
 
 div.onecard {
   width: 280px;
+  height: -moz-fit-content;
   height: fit-content;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   margin: 1rem 0.5rem;
@@ -1120,6 +1137,7 @@ div.onecard a.c-cardImg div.c-imgCover span {
   left: 5.5rem;
   font-size: 1.25rem;
   padding: 2.25rem 1.5rem;
+  width: -moz-fit-content;
   width: fit-content;
   filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.5));
   font-weight: 700;
@@ -1127,7 +1145,8 @@ div.onecard a.c-cardImg div.c-imgCover span {
 div.onecard a.c-cardImg img.Img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 div.onecard div.card_body {
   margin: 1rem;
@@ -1166,7 +1185,8 @@ div.onecard div.card_body h6 img.head {
   height: 40px;
   background-color: #27a2b8;
   border-radius: 50%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 div.onecard div.card_body div.viewsAndHeart {
   color: black;
@@ -1344,6 +1364,7 @@ nav {
     min-width: 400px;
   }
   #content .section-guide-panel .section-panel-inner .accordion {
+    max-height: -moz-max-content;
     max-height: max-content;
   }
 }
@@ -1527,7 +1548,8 @@ footer .container #footerNav li .footer_ch {
   border-radius: 5px;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .wrapper .container .CityList hr {
   border: 2px solid rgb(255, 255, 255);
@@ -1623,6 +1645,7 @@ footer .container #footerNav li .footer_ch {
   max-width: 30rem;
   transform: translate(-50%, -50%);
   border-radius: 10px;
+  height: -moz-fit-content;
   height: fit-content;
   width: 100%;
 }
@@ -1715,6 +1738,7 @@ footer .container #footerNav li .footer_ch {
   max-width: 30rem;
   transform: translate(-50%, -50%);
   border-radius: 10px;
+  height: -moz-fit-content;
   height: fit-content;
   width: 100%;
 }
@@ -1931,4 +1955,35 @@ header .btn:hover {
 }
 header .nav-item:hover {
   border-bottom: 2px solid #ffffff;
+}
+
+.dropdown .userImage {
+  width: 3rem;
+  height: 3rem;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  overflow: hidden;
+}
+.dropdown .userImage .avatar {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.dropdown-menu {
+  padding: 2rem;
+}
+.dropdown-menu a {
+  font-family: "sen";
+  font-style: normal;
+  font-size: 1.5rem;
+  color: #181818;
+}
+.dropdown-menu .dropdown-item:hover {
+  background-color: transparent;
+}
+.dropdown-menu .dropdown-item:focus,
+.dropdown-menu .dropdown-item.active {
+  color: #9faf7d;
 }/*# sourceMappingURL=index.css.map */

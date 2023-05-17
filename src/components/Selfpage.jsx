@@ -4,9 +4,9 @@ import axios from "axios";
 import Card from "./smallcomponent/Card";
 import BearLogo from "./smallcomponent/BearLogo";
 
-function Selfpage() {
+function Selfpage({ currentUser, setCurrentUser }) {
   let url = "http://localhost:8000";
-  let [userno, setuserno] = useState(2);
+  let [userno, setuserno] = useState(currentUser ? JSON.parse(currentUser)[0].userno : undefined);
   let { authorno } = useParams();
   let [banner, setbanner] = useState("");
   let [avatar, setavatar] = useState("");
@@ -63,6 +63,7 @@ function Selfpage() {
                   data={article}
                   ifUserLike={userlikes.includes(article.articleno)}
                   userno={userno}
+                  currentUser={currentUser}
                 />
               ))}
             </div>
