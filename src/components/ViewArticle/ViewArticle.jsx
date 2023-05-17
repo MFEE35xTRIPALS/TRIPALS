@@ -11,7 +11,7 @@ function ViewArticle(props) {
 
     const userno = props.userno;
     const articleno = props.articleno;
-
+    const [AddTime, setAddtime] = useState(null);
     const [id, setId] = useState('');
     const [nickname, setNickname] = useState('');
     const [avatar, setAvatar] = useState('');
@@ -33,6 +33,7 @@ function ViewArticle(props) {
 
             // setUserno(data.userno);
             // setArticleno(data.articleno);
+            setAddtime(data.add_date);
             setId(data.id);
             setNickname(data.nickname);
             setAvatar(data.avatar);
@@ -79,8 +80,11 @@ function ViewArticle(props) {
         };
     });
 
-    // console.log(locations);
-
+    // 時間改格式
+    console.log(AddTime);
+    const postdate = new Date(AddTime);
+    const Dateoptions = { month: "short", day: "numeric", year: "numeric" };
+    const formattedDate = postdate.toLocaleDateString("en-US", Dateoptions);
 
     const handleLikeClick = (e) => {
 
@@ -210,7 +214,7 @@ function ViewArticle(props) {
                                                     <div id="mainArticle">
                                                         <div id="placeTitle">
                                                             <h3 id="placeMainTitle">{Mtitle}</h3>
-                                                            <p>May 01, 2023</p>
+                                                            <p>{formattedDate}</p>
                                                             <div className="titlei">
                                                                 <i id="likepost" onClick={handleLikeClick} className={`fa-heart ${liked ? "fa-solid" : "fa-regular"}`}
                                                                 ></i>
