@@ -79,7 +79,6 @@ const Header = () => {
     <header className="fixed-top">
       <nav className="navbar navbar-expand-lg navbar-light">
         <div className="container-fluid">
-
           <button className="navbar-toggler border-0 hamburger hamburger--squeeze" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -99,17 +98,13 @@ const Header = () => {
                 <a className="navWord" href="#" data-en="DESTINATIONS" data-zh="目的地">DESTINATIONS</a>
               </li>
             </ul>
-
-
-            {/* <div className="d-flex">
-              <a className="navWord" id="house" href="#"><i className="fa-solid fa-house"></i></a>
-              <button className="btn me-auto">SIGN UP</button>
-              <button className="btn me-auto">LOG IN</button>
-            </div> */}
           </div>
-        </div>
-      </nav>
-      <div class="dropdown ms-auto">
+          <div className="d-flex ms-auto">
+              <a className="navWord" id="house" href="#"><i className="fa-solid fa-house"></i></a>
+              <button className="btn  logInBtn">SIGN UP</button>
+              <button className="btn  logInBtn">LOG IN</button>
+            </div>
+      <div class="dropdown me-auto">
         <button class="btn dropdown-toggle border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
           <div class="userImage rounded-circle">
             <img class="avatar" src="./media/nana.jpg" alt="UserImage" />
@@ -123,6 +118,9 @@ const Header = () => {
           <li><a class="dropdown-item" href="#">登出</a></li>
         </ul>
       </div>
+        </div>
+      </nav>
+   
     </header>
   )
 }

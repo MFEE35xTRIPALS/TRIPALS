@@ -188,7 +188,7 @@
         position: absolute;
         margin-top: 15rem;
         height: 35rem;
-        width: 10%;
+        width: 190px;
         left: 40%;
         writing-mode: vertical-rl;
         background-color: #9faf7d;
@@ -204,9 +204,9 @@
     h4 {
         position: absolute;
         margin-top: 40rem;
-        left: 50%;
+        left: 51%;
         height: 35rem;
-        width: 10%;
+        width: 190px;
         writing-mode: vertical-rl;
         background-color: #73a083;
         z-index: 2;
@@ -730,13 +730,17 @@
 
             .card-img {
                 filter: brightness(90%);
+                
             }
+           
 
             img.avatar {
                 max-width: 100%;
                 max-height: 540px;
                 object-fit: cover;
             }
+
+            
 
             .card-img-overlay {
 
@@ -748,6 +752,9 @@
                     font-size: 1.5rem;
                     color: #ffffff;
                     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+                    &:hover{
+                        opacity: 0.8;
+                    }
 
                 }
 
@@ -775,6 +782,7 @@
                     }
                 }
             }
+            
         }
     }
 }
