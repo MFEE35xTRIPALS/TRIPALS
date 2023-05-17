@@ -11,7 +11,7 @@ const MainInfoContent = ({ editContent, onContentChange }) => {
 			<textarea
 				name=""
 				id=""
-				placeholder="Content"
+				placeholder="文章內容"
 				onChange={handleContentChange}
 				value={editContent ? editContent : ""}
 			></textarea>

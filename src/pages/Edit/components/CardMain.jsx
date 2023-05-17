@@ -42,7 +42,7 @@ const CardMain = ({
 							aria-expanded="true"
 							aria-controls="card-title"
 						>
-							{mainData.main_title ? mainData.main_title : "主標題"}
+							{mainData.main_title ? mainData.main_title : "文章標題"}
 						</button>
 						<hr />
 					</h2>
@@ -60,7 +60,7 @@ const CardMain = ({
 								<div className={styles["main-info-title"]}>
 									<input
 										type="text"
-										placeholder="Title"
+										placeholder="文章標題"
 										value={mainData.main_title ? mainData.main_title : ""}
 										onChange={handleTitleChange}
 									/>

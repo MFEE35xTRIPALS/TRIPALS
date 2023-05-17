@@ -64,7 +64,7 @@ const GoogleMapInput = ({ spot, onAddressNameChange }) => {
 			>
 				<input
 					type="text"
-					placeholder="請輸入地址或景點名稱"
+					placeholder="輸入地址或地點名稱"
 					value={inputValue}
 					onChange={handleInputChange}
 				/>

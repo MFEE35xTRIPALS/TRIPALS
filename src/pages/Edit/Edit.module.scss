@@ -63,8 +63,10 @@ body {
 			box-shadow: unset;
 			font-size: $editTitleSize; // 主要標題的大小
 			font-weight: bold;
+
 			&::after {
 				background-image: url($arrowSvg); // 向下箭頭
+				// color: #65c6c6;
 			}
 			&:focus {
 				box-shadow: none; // 取消bs預設樣式
@@ -205,10 +207,11 @@ body {
 
 					& > i {
 						font-size: 24px;
+						color: #ff4848;
 						transition: all 0.1s ease-in;
 					}
 					&:hover > i {
-						color: #ff4848;
+						transform: scale(1.2);
 					}
 				}
 				span {

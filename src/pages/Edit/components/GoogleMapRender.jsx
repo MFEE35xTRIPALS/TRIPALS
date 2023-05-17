@@ -20,7 +20,6 @@ const taiwanCenter = {
 // };
 
 const GoogleMapRender = ({ selectedCity, spots }) => {
-	console.log(selectedCity);
 	// const { isLoaded, loadError } = useLoadScript({
 	// 	googleMapsApiKey: "AIzaSyAPOMZXMZfyOy1zrlETRf727BEzshgi2oM",
 	// 	libraries: placesLibrary,
@@ -29,7 +28,7 @@ const GoogleMapRender = ({ selectedCity, spots }) => {
 
 	// 先初始化 center
 	let center = cityCoordinates[selectedCity] || taiwanCenter;
-	console.log(center);
+	// console.log(center);
 
 	const handleMapLoad = (map) => {
 		// 創建一個空的經緯度邊界（LatLngBounds）對象：
@@ -40,7 +39,6 @@ const GoogleMapRender = ({ selectedCity, spots }) => {
 		spots.forEach((spot) => {
 			if (spot.location) {
 				flag = true;
-				console.log("安安");
 				const markerPosition = new window.google.maps.LatLng(
 					parseFloat(spot.location.split(",")[0]),
 					parseFloat(spot.location.split(",")[1])
@@ -50,16 +48,19 @@ const GoogleMapRender = ({ selectedCity, spots }) => {
 		});
 
 		// 在所有的 spots 物件都處理完後，獲取邊界的中心點（center）：
-		let calculatedCenter = null;
-		if (flag) calculatedCenter = bounds.getCenter();
+		// let calculatedCenter = null;
+		if (flag) {
+			center = bounds.getCenter();
+		}
+		// calculatedCenter = bounds.getCenter();
 		// console.log("calculatedCenter", calculatedCenter);
 
 		// 如果計算後的 center 有值 就用 calculatedCenter 取代 center
-		if (calculatedCenter) {
-			center = calculatedCenter;
-		}
+		// if (calculatedCenter) {
+		// 	center = calculatedCenter;
+		// }
 
-		console.log("final:" + center);
+		// console.log("final:" + center);
 
 		map.setCenter(center);
 	};

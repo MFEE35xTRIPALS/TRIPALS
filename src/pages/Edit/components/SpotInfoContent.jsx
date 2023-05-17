@@ -12,7 +12,7 @@ const SpotInfoContent = ({ spot, onContentChange }) => {
 			<textarea
 				name="content"
 				id=""
-				placeholder="Content"
+				placeholder="地點內容"
 				onChange={handleContentChange}
 				value={spot.content ? spot.content : ""}
 			></textarea>

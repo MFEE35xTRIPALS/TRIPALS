@@ -28,7 +28,7 @@ const Edit = () => {
 	// 	console.log(mainArticle);
 	// }, [mainArticle]);
 	//39 2
-	const articleID = 45;
+	const articleID = 46;
 
 	const fetchData = async () => {
 		try {
@@ -119,7 +119,8 @@ const Edit = () => {
 
 	// 刪除地點
 	const handleDeleteSpot = async (main_articleno, contentno) => {
-		console.log("articleno:" + main_articleno + ",contentno:" + contentno);
+		// console.log("articleno:" + main_articleno + ",contentno:" + contentno);
+		if (spots.length === 1) return alert("最少要保留一個地點");
 		const confirmDelete = window.confirm("確定要刪除此地點嗎？");
 		if (confirmDelete) {
 			// 發送刪除請求

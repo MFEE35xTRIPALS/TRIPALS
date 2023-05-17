@@ -32,7 +32,7 @@ const CardSpot = ({ main_articleno, spot, onSpotChange, onDeleteSpot }) => {
 					>
 						<i className="fa-solid fa-circle-xmark"></i>
 					</button>
-					<span>{spot.title ? spot.title : `地點`}</span>
+					<span>{spot.title ? spot.title : `地點標題`}</span>
 					<button //collapse show
 						className={`accordion-button collapsed d-flex text-center ${styles["edit-accordion-btn"]}`}
 						type="button"
@@ -63,7 +63,7 @@ const CardSpot = ({ main_articleno, spot, onSpotChange, onDeleteSpot }) => {
 							<input
 								name="title"
 								type="text"
-								placeholder="新增地點名稱"
+								placeholder="地點標題"
 								value={spot.title ? spot.title : ""}
 								onChange={handleInputChange}
 							/>
