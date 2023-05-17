@@ -28,57 +28,57 @@ function Home() {
       setIfFirst(true);
     };
     firstRender();
-   
-   
+
+
   }, []);
   AOS.init();
   AOS.refresh();
 
   useEffect(() => {
     if (ifFirst) {
-    const swiper = new Swiper('.swiper-container', {
-      // roundLengths : true,
-      loop: true,
-      // initialSlide: 1, 指定先顯示誰(索引)
-      effect: "coverflow",
-      grabCursor: true,
-      centeredSlides: true,
-       // ↑ 預設true為左邊開始
-      slidesPerView: "auto",
-      loopedSlides: 3,
-      coverflowEffect: {
-        rotate: 0,
-        stretch: 0,
-        // 調整卡片彼此黏合度
-        depth: 200,
-        modifier: 1,
-        slideShadows: false,
-         // 拿掉陰影
-      },
-      pagination: {
-        el: '.swiper-pagination',
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      on: {
-        init: function () {},
-        slideChange: function () {
-          var content1 = this.slides[this.activeIndex].children[0].innerText;
-          var content2 = this.slides[this.activeIndex].children[1].innerText;
-          var content3 = this.slides[this.activeIndex].children[2].innerHTML;
-          // var content4 = this.slides[this.activeIndex].children[3].innerHTML;
+      const swiper = new Swiper('.swiper-container', {
+        // roundLengths : true,
+        loop: true,
+        // initialSlide: 1, 指定先顯示誰(索引)
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        // ↑ 預設true為左邊開始
+        slidesPerView: "auto",
+        loopedSlides: 3,
+        coverflowEffect: {
+          rotate: 0,
+          stretch: 0,
+          // 調整卡片彼此黏合度
+          depth: 200,
+          modifier: 1,
+          slideShadows: true,
+          // 卡片陰影
+        },
+        pagination: {
+          el: '.swiper-pagination',
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        on: {
+          init: function () { },
+          slideChange: function () {
+            var content1 = this.slides[this.activeIndex].children[0].innerText;
+            var content2 = this.slides[this.activeIndex].children[1].innerText;
+            var content3 = this.slides[this.activeIndex].children[2].innerHTML;
+            // var content4 = this.slides[this.activeIndex].children[3].innerHTML;
 
-          console.log(content3);
-          setShowdiv1(content1);
-          setShowdiv2(content2);
-          setShowdiv3(content3);
-          // setShowdiv4(content4);
-      },
-    },
-    });
-  }
+            console.log(content3);
+            setShowdiv1(content1);
+            setShowdiv2(content2);
+            setShowdiv3(content3);
+            // setShowdiv4(content4);
+          },
+        },
+      });
+    }
   }, [ifFirst]);
 
   return (
@@ -200,7 +200,7 @@ function Home() {
             <div id="target-div1">{showdiv1}</div>
             <div id="target-div2">{showdiv2}</div>
             <div id="target-div3">
-            {/* <i className="fa-solid fa-heart"></i> {showdiv3} */}
+              {/* <i className="fa-solid fa-heart"></i> {showdiv3} */}
               {/* <i className="fa-regular fa-eye"></i> {showdiv4} */}
             </div>
             <div
@@ -214,10 +214,10 @@ function Home() {
                 {popular.map((article, i) => {
                   return (
                     <div
-                    key={article.articleno}
+                      key={article.articleno}
                       id={`slide${i}`}
                       className="swiper-slide"
-                      style={{backgroundImage: `url(${article.image ? url + article.image : "./media/recommend-6.png"})`}}
+                      style={{ backgroundImage: `url(${article.image ? url + article.image : "./media/recommend-6.png"})` }}
                     >
                       <div className={`article${i}-topText1 d-flex justify-content-center mt-2`}>
                         <h1>{article.title}</h1>
@@ -225,15 +225,15 @@ function Home() {
 
                       <div className={`article${i}-topText2 d-flex justify-content-center`}>
                         <div className="popularUser">
-                          <img 
-                          src={`${article.avatar ? url + article.avatar : "./media/nana.jpg"}`} alt="userAvatar"
-                          style={{
-                            width: '3rem',
-                            height: '3rem',
-                            borderRadius: '50%',
-                            overflow: 'hidden',
-                            border: "white solid 3px"
-                          }} />
+                          <img
+                            src={`${article.avatar ? url + article.avatar : "./media/nana.jpg"}`} alt="userAvatar"
+                            style={{
+                              width: '3rem',
+                              height: '3rem',
+                              borderRadius: '50%',
+                              overflow: 'hidden',
+                              border: "white solid 3px"
+                            }} />
 
                           <p>{article.username}</p>
                         </div>
@@ -242,7 +242,7 @@ function Home() {
                       <div className={`article${i}-topText3`}>
                         <div className="likeAndViews">
                           <i className="fa-solid fa-heart"></i>
-                          {article.like_count} 
+                          {article.like_count}
                           <i className="fa-regular fa-eye"></i>
                           {article.view_count}
                         </div>
@@ -392,7 +392,7 @@ function Home() {
                 <div className="card-img-overlay">
                   <h5 className="card-title">{recommendArticle.title}</h5>
                   <div className="user">
-                    <img className="avatar" src={recommendArticle.avatar ? url + recommendArticle.avatar : "./media/bear.svg"} alt="" />
+                    <img className="avatar" src={recommendArticle.avatar ? url + recommendArticle.avatar : "./media/nana.jpg"} alt="" />
                     <p className="card-text">{recommendArticle.username}</p>
                   </div>
                 </div>
