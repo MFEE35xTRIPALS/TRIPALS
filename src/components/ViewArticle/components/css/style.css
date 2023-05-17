@@ -39,7 +39,7 @@ nav {
   box-shadow: 0 4px 24px rgb(0, 0, 0);
   margin-bottom: 60px;
 }
-#content .section-guide-panel .section-panel-inner .accordion-item {
+#content .section-guide-panel .section-panel-inner .mainCard {
   padding-bottom: 10px;
 }
 #content .section-guide-panel .section-panel-inner .section-panel-intro {
@@ -79,7 +79,7 @@ nav {
   color: red;
 }
 #content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #placeTitle .titlei #reportPost {
-  color: rgb(209, 209, 12);
+  color: rgb(238, 219, 45);
 }
 #content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #placeTag {
   display: flex;

@@ -168,6 +168,8 @@ function ViewArticle(props) {
         setShowAllTags(!showAllTags);
     };
 
+    
+
     return (
         <div>
             <section id="content">
@@ -198,7 +200,7 @@ function ViewArticle(props) {
                     <div className="section-guide-panel">
                         <div className="section-panel-inner mx-auto">
                             <div className="accordion" id="accordionPanelsStayOpenExample">
-                                <div className="accordion-item">
+                                <div className="accordion-item mainCard">
                                     <h2 className="accordion-header d-md-none" id="panelsStayOpen-headingOne">
                                         <button id="RWDmain_title" className="accordion-button" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
@@ -244,7 +246,7 @@ function ViewArticle(props) {
                                                         <div id="author">
                                                             <img id="authorPhoto"
                                                                 src={AvatarUrl} />
-                                                            <p id="authorName">{nickname}</p>
+                                                            <p id="authorName">{nickname ? nickname : id}</p>
                                                         </div>
                                                         <hr />
                                                         <p id="main_content">{Mcontent}</p>
