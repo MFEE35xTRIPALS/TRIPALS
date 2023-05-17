@@ -25,6 +25,7 @@ function ViewArticle(props) {
     const [hashtags, setHashtags] = useState([]);
     const [spots, setSpots] = useState([]);
     const [showPanels, setShowPanels] = useState(false);
+    const [showAllTags, setShowAllTags] = useState(false);
 
     useEffect(() => {
         async function fetchData() {
@@ -163,6 +164,10 @@ function ViewArticle(props) {
         }
     }
 
+    const handleShowAllTags = () => {
+        setShowAllTags(!showAllTags);
+    };
+
     return (
         <div>
             <section id="content">
@@ -225,12 +230,15 @@ function ViewArticle(props) {
                                                         </div>
 
                                                         {/* <hr id="pTagUpHr" className="d-none" /> */}
-                                                        <hr id="pTagUpHr" />
+                                                        <hr id="pTagUpHr" className={`${hashtags.length === 0 ? "d-none" : ""}`} />
                                                         <div id="placeTag">
                                                             {/* <HashTag  data={this.state.hashtags}/> */}
                                                             {hashtags.map((item, i) => (
-                                                                <button key={i}>{item}</button>
+                                                                <button key={i} style={{ display: i < 3 || showAllTags ? 'inline-block' : 'none' }}>{item}</button>
                                                             ))}
+                                                            {hashtags.length > 3 && (
+                                                                <i onClick={handleShowAllTags} className={`fa ${showAllTags ? "fa-ellipsis-h" : "fa-times-circle"}`}></i>
+                                                            )}
                                                         </div>
                                                         <hr />
                                                         <div id="author">
@@ -241,7 +249,7 @@ function ViewArticle(props) {
                                                         <hr />
                                                         <p id="main_content">{Mcontent}</p>
                                                         <div id="count">
-                                                            <i className="fa-regular fa-heart"></i>
+                                                            <i className="fa-solid fa-heart"></i>
                                                             <p id="displayLC">{MLcount}</p>
                                                             <i className="fa-sharp fa-solid fa-eye"></i>
                                                             <p id="displayVC">{MVcount}</p>
