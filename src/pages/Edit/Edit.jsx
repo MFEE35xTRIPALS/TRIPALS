@@ -28,7 +28,7 @@ const Edit = () => {
 	// 	console.log(mainArticle);
 	// }, [mainArticle]);
 	//39 2
-	const articleID = 46;
+	const articleID = 38;
 
 	const fetchData = async () => {
 		try {

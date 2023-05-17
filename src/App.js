@@ -29,7 +29,7 @@ function App() {
 		<div className="App">
 			<Header />
 			<BearLogo />
-			<Edit />
+			<Home />
 			<Footer />
 		</div>
 	);
