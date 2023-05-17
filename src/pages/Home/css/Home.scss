@@ -712,9 +712,6 @@
                 filter: brightness(90%);
             }
 
-
-
-
             img.avatar {
                 max-width: 100%;
                 max-height: 540px;
@@ -731,6 +728,10 @@
                         height: 3rem;
                         border-radius: 50%;
                         overflow: hidden;
+                    }
+
+                    h5:hover {
+                        cursor: pointer;
                     }
 
                     P {

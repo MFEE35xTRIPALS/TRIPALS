@@ -3,7 +3,11 @@ import Header from './components/Header.jsx';
 import BearLogo from './components/BearLogo.jsx';
 import Home from './pages/Home/Home.jsx';
 import Footer from './components/Footer.js';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './components/CSS/Header.scss'
+import './components/CSS/Footer.scss';
+import './components/CSS/Bear.scss'
+import 'swiper/dist/css/swiper.css'
+
 function App() {
   return (
     <div className="App">

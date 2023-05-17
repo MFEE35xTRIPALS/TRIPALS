@@ -1,8 +1,9 @@
 import React, { Fragment, useEffect, useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+import './css/Home.scss';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Swiper from "swiper";
+import 'swiper/dist/css/swiper.css'
 import axios from "axios";
 
 function Home() {
