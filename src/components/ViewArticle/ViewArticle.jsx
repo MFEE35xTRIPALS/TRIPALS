@@ -204,7 +204,7 @@ function ViewArticle(props) {
                                             <div className="section-panel-intro">
                                                 <div className="image-intro">
                                                     <figure>
-                                                        <img src="https://www.travel.taipei/content/images/attractions/282180/1024x768_attractions-image--rznjhetiuoqnzoyqppjgw.jpg"
+                                                        <img src={`http://localhost:3000/${Mimage}`}
                                                             alt="" className="image-placeholder" />
                                                     </figure>
                                                     <div id="mainArticle">
@@ -264,7 +264,7 @@ function ViewArticle(props) {
                                                 <div className="section-panel-intro">
                                                     <div className="image-intro">
                                                         <figure>
-                                                            <img src="https://www.taiwan.net.tw/att/1/big_scenic_spots/pic_154_14.jpg"
+                                                            <img src={`http://localhost:3000/${el.image}`}
                                                                 alt="" className="image-placeholder" />
                                                         </figure>
                                                         <div>
