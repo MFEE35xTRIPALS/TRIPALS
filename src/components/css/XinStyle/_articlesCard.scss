@@ -30,6 +30,7 @@ div.onecard {
     width: 100%;
     height: 200px;
     position: relative;
+    cursor: pointer;
 
     &:hover .c-imgCover {
       display: block;
@@ -91,6 +92,7 @@ div.onecard {
           // font-weight: bold;
           margin: 1rem 0;
           // -webkit-line-clamp: 2;
+          cursor: pointer;
         }
       }
 
@@ -100,7 +102,6 @@ div.onecard {
         cursor: pointer;
       }
     }
-
 
     h6 {
       font-size: $cardUsername;
@@ -114,7 +115,6 @@ div.onecard {
         border-radius: 50%;
         object-fit: cover;
       }
-
     }
 
     div.viewsAndHeart {

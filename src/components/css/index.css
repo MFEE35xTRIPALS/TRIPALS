@@ -1098,6 +1098,7 @@ div.onecard a.c-cardImg {
   width: 100%;
   height: 200px;
   position: relative;
+  cursor: pointer;
 }
 div.onecard a.c-cardImg:hover .c-imgCover {
   display: block;
@@ -1148,6 +1149,7 @@ div.onecard div.card_body div a.c-toSelfpage h4.card-title {
   color: black;
   font-size: 1.25rem;
   margin: 1rem 0;
+  cursor: pointer;
 }
 div.onecard div.card_body div i.heart {
   color: #ff4848;
