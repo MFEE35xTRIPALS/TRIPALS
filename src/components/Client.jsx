@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter, Route, Switch, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import Card from "./smallcomponent/Card";
 import A1 from "./A1";
@@ -318,51 +319,20 @@ function Client({ currentUser, setCurrentUser }) {
             <BrowserRouter>
               <div className="c-select">
                 <ul>
-                  <a href="/client">
-                    <li
-                      onClick={() => {
-                        setIfOpenA(true);
-                        setIfOpenB(false);
-                        setIfOpenC(false);
-                      }}
-                    >
-                      個人資料
-                    </li>
-                  </a>
-                  <a href="/client/2">
-                    <li
-                      onClick={() => {
-                        setIfOpenA(false);
-                        setIfOpenB(true);
-                        setIfOpenC(false);
-                      }}
-                    >
-                      我的收藏
-                    </li>
-                  </a>
-                  <li
-                    onClick={() => {
-                      setIfOpenA(false);
-                      setIfOpenB(false);
-                      setIfOpenC(true);
-                    }}
-                  >
+                  <Link className="selectLi" to="/client" exact>
+                    個人資料
+                  </Link>
+                  <Link className="selectLi" to="/client/2">
+                    我的收藏
+                  </Link>
+                  <Link className="selectLi" to="/client/2">
                     我的文章
-                  </li>
+                  </Link>
+
                 </ul>
               </div>
               <div>
                 <Switch>
-                  <Route
-                    path="/client"
-                    render={(props) => (
-                      <A1
-                        {...props}
-                        currentUser={currentUser}
-                        setCurrentUser={setCurrentUser}
-                      />
-                    )}
-                  />
                   <Route
                     path="/client/2"
                     render={(props) => (
@@ -373,7 +343,16 @@ function Client({ currentUser, setCurrentUser }) {
                       />
                     )}
                   />
-
+                  <Route
+                    path="/client"
+                    render={(props) => (
+                      <A1
+                        {...props}
+                        currentUser={currentUser}
+                        setCurrentUser={setCurrentUser}
+                      />
+                    )}
+                  />
                 </Switch>
               </div>
             </BrowserRouter>

@@ -95,8 +95,10 @@ section.c-head {
       margin: 2.5rem 0 0 0;
       border-top: 4px solid $Blue;
       font-size: $leftTitle;
+      display: flex;
+      flex-direction: column;
 
-      li {
+      .selectLi {
         padding: 1rem;
         list-style: none;
         font-weight: 400;
