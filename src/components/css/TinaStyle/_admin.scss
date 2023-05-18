@@ -1,6 +1,6 @@
 /* 點選前消失 */
 
-.postBtn,
+// .postBtn,
 .news-c {
   display: none;
 }
@@ -9,10 +9,12 @@
 .c-right {
   .c-block {
     position: relative;
+
     .totalMember {
       padding: 2rem 2rem;
       color: $Blue;
     }
+
     /* 最新消息區塊 */
     .a-news {
       margin: 2rem 2rem 0rem 3rem;
@@ -104,6 +106,7 @@
         #bday {
           padding-left: 1rem;
         }
+
         /* input[type="text"]  */
         .c-textmessage {
           font-size: $InputText;
