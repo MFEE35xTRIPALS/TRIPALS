@@ -99,11 +99,11 @@ const Header = () => {
               </li>
             </ul>
           </div>
-          <div className="d-flex ms-auto">
+          {/* <div className="d-flex ms-auto">
               <a className="navWord" id="house" href="#"><i className="fa-solid fa-house"></i></a>
               <button className="btn  logInBtn">SIGN UP</button>
               <button className="btn  logInBtn">LOG IN</button>
-            </div>
+            </div> */}
       <div class="dropdown me-auto">
         <button class="btn dropdown-toggle border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
           <div class="userImage rounded-circle">
