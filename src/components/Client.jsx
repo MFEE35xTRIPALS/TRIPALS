@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { BrowserRouter, Route, Switch, Routes } from "react-router-dom";
 import axios from "axios";
 import Card from "./smallcomponent/Card";
 import BearLogo from "./smallcomponent/BearLogo";

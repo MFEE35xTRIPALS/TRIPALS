@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Switch, Routes } from "react-router-dom";
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useState } from "react";
 
 //Herry
 import Home from "./components/Home";

@@ -1,9 +1,9 @@
 body {
   background-color: $Rice;
   // RWD
-  max-width: 1440px;
-  margin-right: auto;
-  margin-left: auto;
+  // max-width: 1440px;
+  // margin-right: auto;
+  // margin-left: auto;
 }
 
 /* 首圖 + 標題 - 旅遊導覽*/
@@ -190,7 +190,7 @@ section.hashtag {
   border: 2px solid transparent;
   display: flex;
   transition: border-color 0.2s linear,
-    padding 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  padding 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
   &__input {
     background: transparent;
