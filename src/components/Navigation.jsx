@@ -133,7 +133,7 @@ const Navigation = ({ currentUser, setCurrentUser }) => {
           {currentUser && <div class="dropdown me-auto">
         <button class="btn dropdown-toggle border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
           <div class="userImage rounded-circle">
-            <img class="avatar" onClick={toBack} src="./media/nana.jpg" alt="UserImage" />
+            <img class="avatar" onClick={toBack} src="./images/admin.png" alt="UserImage" />
           </div>
         </button>
         <ul class="dropdown-menu">
