@@ -28,7 +28,7 @@ const Edit = ({ currentUser, setCurrentUser, avatarImg }) => {
 	// 	console.log(mainArticle);
 	// }, [mainArticle]);
 	//39 2
-	const articleID = 48;
+	const articleID = 2;
 
 	const fetchData = async () => {
 		try {
