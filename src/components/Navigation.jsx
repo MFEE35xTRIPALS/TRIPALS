@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./css/HenryStyle/hamburgers.css";
 
 const Navigation = ({ currentUser, setCurrentUser }) => {
+  let [avatarImg, setavatarImg] = useState("./images/admin.png")
   useEffect(() => {
     const handleNavMouseOver = (event) => {
       event.target.textContent = event.target.getAttribute('data-zh');
@@ -139,9 +140,9 @@ const Navigation = ({ currentUser, setCurrentUser }) => {
             </button>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="/"><i class="fa-solid fa-home"></i>首頁</a></li>
-              <li><a class="dropdown-item" onClick={toBack} href="#"><i class="fa-solid fa-user"></i>個人資料</a></li>
-              <li><a class="dropdown-item" href="#"><i class="fa-solid fa-heart"></i>我的收藏</a></li>
-              <li><a class="dropdown-item" href="#"><i class="fa-solid fa-pen-to-square"></i>我的文章</a></li>
+              <li><a class="dropdown-item" href="/client"><i class="fa-solid fa-user"></i>個人資料</a></li>
+              <li><a class="dropdown-item" href="/client/Mylikes"><i class="fa-solid fa-heart"></i>我的收藏</a></li>
+              <li><a class="dropdown-item" href="/client/Myarticles"><i class="fa-solid fa-pen-to-square"></i>我的文章</a></li>
               <li><a class="dropdown-item" onClick={logout} href="/">登出</a></li>
             </ul>
           </div>}

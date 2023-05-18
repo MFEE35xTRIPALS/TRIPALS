@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import Card from "./smallcomponent/Card";
-import A1 from "./A1";
-import A2 from "./A2";
+import Memberinfo from "./smallcomponent/Memberinfo";
+import Mylikes from "./smallcomponent/Mylikes";
+import Myarticles from "./smallcomponent/Myarticles";
+
 import BearLogo from "./smallcomponent/BearLogo";
 
 function Client({ currentUser, setCurrentUser }) {
@@ -20,10 +21,7 @@ function Client({ currentUser, setCurrentUser }) {
   let [userMessage, setUserMessage] = useState({});
   let [avaUsername, setavaUsername] = useState("");
   let [ifPwdOK, setIfPwdOK] = useState(true);
-  // 點選跳轉
-  let [ifOpenA, setIfOpenA] = useState(true);
-  let [ifOpenB, setIfOpenB] = useState(false);
-  let [ifOpenC, setIfOpenC] = useState(false);
+
   // 編輯圖片
   let [userimage, setuserimage] = useState("");
   let [userimagetemp, setuserimagetemp] = useState("");
@@ -143,48 +141,8 @@ function Client({ currentUser, setCurrentUser }) {
     }
   };
 
-  // ---------刪除文章-----------------
-  let trashcan = async (e) => {
-    let makesrue = window.confirm("文章刪除後即無法復原，確定要刪除嗎？");
-    if (makesrue) {
-      var trashcan = await axios.delete(url + "/guide", {
-        data: JSON.stringify({ main_articleno: e.target.dataset.articleno }),
-        headers: { "Content-Type": "application/json" },
-      });
 
-      alert(trashcan.data);
-      let arrtest = selfarticles.filter(
-        (articles) =>
-          articles.articleno !== parseInt(e.target.dataset.articleno)
-      );
-      setselfarticles(arrtest);
-    }
-  };
 
-  // 更新使用者資訊-------------------------------
-  let userChange = async () => {
-    if (userMessage.password && ifPwdOK) {
-      // console.log("都有填囉");
-      var resultInfo = await axios.post(url + "/client/identity/update", {
-        userno: userno,
-        password: userMessage.password,
-        nickname: userMessage.nickname,
-        birthday: userMessage.birthday,
-        intro: userMessage.intro,
-      });
-      if (resultInfo) {
-        // console.log(resultInfo.data[0])
-        setUserMessage(resultInfo.data[0]);
-        setavaUsername(
-          resultInfo.data[0].nickname
-            ? resultInfo.data[0].nickname
-            : resultInfo.data[0].username
-        );
-      }
-    } else {
-      alert("請填寫必要內容");
-    }
-  };
 
   return (
     <div>
@@ -245,351 +203,135 @@ function Client({ currentUser, setCurrentUser }) {
           </form>
         </section>
         <section className="c-rwd">
-          <section className="c-left">
-            <div className="c-head">
-              <button
-                onClick={() => {
-                  setifOpenavatar(true)
-                }}
-                type="button"
-                className="camera"
-              >
-                <i className="fas fa-camera"></i>
-              </button>
-              <form encType="multipart/form-data">
-                {/* <div
-                  className={`mymodal ${ifOpenavatar ? "flexBtn" : "postBtn"
-                    }`}
-                  onClick={cancelPriview}
+          <BrowserRouter>
+            <section className="c-left">
+              <div className="c-head">
+                <button
+                  onClick={() => {
+                    setifOpenavatar(true)
+                  }}
+                  type="button"
+                  className="camera"
                 >
+                  <i className="fas fa-camera"></i>
+                </button>
+                <form encType="multipart/form-data">
                   <div
-                    className="modalContent"
-                    onClick={(event) => {
-                      event.stopPropagation();
-                    }}
+                    className={`mymodal ${ifOpenavatar ? "flexBtn" : "postBtn"
+                      }`}
+                    onClick={cancelPriview}
                   >
-                    <span
-                      onClick={cancelPriview}
-                      className="closemodal">
-                      &times;
-                    </span>
-                    <div className="imgPreviewBorder">
-                      <img
-                        className="imgPreview"
-                        src={useravatar}
-                        alt="大頭貼預覽"
-                      />
-                    </div>
-                    <div className="uploadShotBtn">
-                      <button
-                        onClick={() => {
-                          document.querySelector("#shotUpload").click();
-                        }}
-                        className="uploadShot"
-                        type="button"
-                      >
-                        上傳照片
-                      </button>
-                      <button
-                        className="uploadShotDone"
-                        type="button"
-                        onClick={uploadImages}
-                      >
-                        確認上傳
-                      </button>
+                    <div
+                      className="modalContent"
+                      onClick={(event) => {
+                        event.stopPropagation();
+                      }}
+                    >
+                      <span
+                        onClick={cancelPriview}
+                        className="closemodal">
+                        &times;
+                      </span>
+                      <div className="imgPreviewBorder">
+                        <img
+                          className="imgPreview"
+                          src={useravatar}
+                          alt="大頭貼預覽"
+                        />
+                      </div>
+                      <div className="uploadShotBtn">
+                        <button
+                          onClick={() => {
+                            document.querySelector("#shotUpload").click();
+                          }}
+                          className="uploadShot"
+                          type="button"
+                        >
+                          上傳照片
+                        </button>
+                        <button
+                          className="uploadShotDone"
+                          type="button"
+                          onClick={uploadImages}
+                        >
+                          確認上傳
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div> */}
-                <input
-                  onChange={changePhoto}
-                  type="file"
-                  id="shotUpload"
-                  accept=".jpg, .jpeg, .png, .gif"
-                  hidden
-                />
-              </form>
-              <div className="h-img">
-                <img className="shot" src={useravatar} alt="shot" />
+                  <input
+                    onChange={changePhoto}
+                    type="file"
+                    id="shotUpload"
+                    accept=".jpg, .jpeg, .png, .gif"
+                    hidden
+                  />
+                </form>
+                <div className="h-img">
+                  <img className="shot" src={useravatar} alt="shot" />
+                </div>
+                <h4 className="username">
+                  {avaUsername}
+                </h4>
               </div>
-              <h4 className="username">
-                {avaUsername}
-              </h4>
-            </div>
-
-            <BrowserRouter>
               <div className="c-select">
                 <ul>
                   <Link className="selectLi" to="/client" exact>
                     個人資料
                   </Link>
-                  <Link className="selectLi" to="/client/2">
+                  <Link className="selectLi" to="/client/Mylikes">
                     我的收藏
                   </Link>
-                  <Link className="selectLi" to="/client/2">
+                  <Link className="selectLi" to="/client/Myarticles">
                     我的文章
                   </Link>
 
                 </ul>
               </div>
               <div>
-                <Switch>
-                  <Route
-                    path="/client/2"
-                    render={(props) => (
-                      <A2
-                        {...props}
-                        currentUser={currentUser}
-                        setCurrentUser={setCurrentUser}
-                      />
-                    )}
-                  />
-                  <Route
-                    path="/client"
-                    render={(props) => (
-                      <A1
-                        {...props}
-                        currentUser={currentUser}
-                        setCurrentUser={setCurrentUser}
-                      />
-                    )}
-                  />
-                </Switch>
               </div>
-            </BrowserRouter>
-          </section>
-          <section className="c-right">
-            <div
-              id="c-message"
-              className={`c-block ${ifOpenA ? "" : "postBtn"}`}
-            >
-              <h3 className="c-title">個人資料</h3>
-              <form className="c-form">
-                <div className="c-inbox">
-                  <label htmlFor="email">帳號:</label>
-                  <span id="id">{userMessage.userno}</span>
-                  <span id="email" className="c-mail">
-                    {userMessage.id}
-                  </span>
-                  <br />
-                </div>
-                <div className="c-inbox">
-                  <label htmlFor="pwd">密碼:</label>
-                  <input
-                    id="pwd"
-                    className="c-textmessage"
-                    type="password"
-                    placeholder="請輸入密碼"
-                    pattern="[a-zA-Z0-9]{6,}"
-                    onChange={(e) => {
-                      setUserMessage((prevState) => ({
-                        ...prevState,
-                        password: e.target.value,
-                      }))
-                      setIfPwdOK(/^(?=.*[a-zA-Z])(?=.*\d).{6,}$/.test(
-                        e.target.value
-                      ))
-                    }}
-                    value={userMessage.password}
-                  />
-                  {!userMessage.password && (
-                    <span id="m-pwd">*必填欄位</span>
-                  )}
-                  {userMessage.password && !ifPwdOK && (
-                    <span id="m-pwd">*密碼長度6以上，並包含至少一個英數字</span>
-                  )}
-                </div>
-                <div className="c-inbox">
-                  <label htmlFor="nick">暱稱:</label>
-                  <input
-                    id="nick"
-                    className="c-textmessage"
-                    type="text"
-                    onChange={(e) => {
-                      setUserMessage((prevState) => ({
-                        ...prevState,
-                        nickname: e.target.value,
-                      }))
-                    }}
-                    value={userMessage.nickname}
-                  />
-                </div>
-                <div className="c-inbox">
-                  <label htmlFor="bday">生日:</label>
-                  <input
-                    id="bday"
-                    className="c-date"
-                    type="date"
-                    onChange={(e) => {
-                      setUserMessage((prevState) => ({
-                        ...prevState,
-                        birthday: e.target.value,
-                      }))
-                    }}
-                    value={
-                      userMessage.birthday
-                        ? userMessage.birthday
-                        : ""
-                    }
-                  />
-                </div>
-                <div className="c-textarea">
-                  <label htmlFor="myIntro">個人簡介:</label>
-                  <textarea
-                    id="myIntro"
-                    className="c-textbox"
-                    onChange={(e) => {
-                      setUserMessage((prevState) => ({
-                        ...prevState,
-                        intro: e.target.value,
-                      }))
-                    }}
-                    value={
-                      userMessage.intro
-                        ? userMessage.intro
-                        : ""
-                    }
-                  ></textarea>
-                </div>
-                <div className="c-inbox">
-                  <button
-                    className="c-change"
-                    type="button"
-                    onClick={userChange}
-                  >
-                    確定修改
-                  </button>
-                </div>
-              </form>
-            </div>
-            <div
-              id="c-likes"
-              className={`c-block ${ifOpenB ? "" : "postBtn"}`}
-            >
-              <h3 className="c-title">我的收藏</h3>
-              <div className="c-mylikes">
-                {userLikes[0] ? (
-                  userLikes.map((article, i) => (
-                    <Card
-                      key={i}
-                      data={article}
-                      ifUserLike={true}
-                      userno={userno}
+            </section>
+            <section className="c-right">
+              <Switch>
+                <Route
+                  path="/client/Myarticles"
+                  render={(props) => (
+                    <Myarticles
+                      {...props}
                       currentUser={currentUser}
+                      selfarticles={selfarticles}
+                      setselfarticles={setselfarticles}
                     />
-                  ))
-                ) : (
-                  <p>目前收藏文章數：0</p>
-                )}
-              </div>
-            </div>
-            <div
-              id="c-myarts"
-              className={`c-block ${ifOpenC ? "" : "postBtn"}`}
-            >
-              <h3 className="c-title">我的文章</h3>
-              <div className="c-mine">
-                <table className="c-myart">
-                  <thead>
-                    <tr>
-                      <td>文章標題</td>
-                      <td>觀看數</td>
-                      <td>熱門度</td>
-                      <td>狀態</td>
-                      <td>編輯文章</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {selfarticles[0] ? (
-                      selfarticles.map((value, i) => {
-                        // console.log(list.status);
-                        if (value.status === "show") {
-                          return (
-                            <tr key={i}>
-                              <td>
-                                <a href={`/${value.articleno}`}>
-                                  {value.title}
-                                </a>
-                              </td>
-                              <td>
-                                <i className="fa-regular fa-eye"></i>{" "}
-                                {value.view_count}
-                              </td>
-                              <td>
-                                <i className="fa-regular fa-heart"></i>{" "}
-                                {value.count}
-                              </td>
-                              <td>已發佈</td>
-                              <td>
-                                <a
-                                  className="c-editArt"
-                                  href={`/${value.articleno}`}
-                                >
-                                  <i className="fa-regular fa-pen-to-square"></i>
-                                </a>
-                                <i
-                                  className="fa-regular fa-trash-can trash"
-                                  data-articleno={value.articleno}
-                                  onClick={trashcan}
-                                ></i>
-                              </td>
-                            </tr>
-                          );
-                        } else if (value.status === "draft") {
-                          return (
-                            <tr key={i}>
-                              <td>{value.title}</td>
-                              <td>
-                                <i className="fa-regular fa-eye"></i>{" "}
-                                {value.view_count}
-                              </td>
-                              <td>
-                                <i className="fa-regular fa-heart"></i>{" "}
-                                {value.count}
-                              </td>
-                              <td>草稿</td>
-                              <td>
-                                <a
-                                  className="c-editArt"
-                                  href={`/${value.articleno}`}
-                                >
-                                  <i className="fa-regular fa-pen-to-square"></i>
-                                </a>
-                                <i
-                                  className="fa-regular fa-trash-can trash"
-                                  data-articleno={value.articleno}
-                                  onClick={trashcan}
-                                ></i>
-                              </td>
-                            </tr>
-                          );
-                        } else {
-                          return (
-                            <tr key={i} className="c-deleteDone">
-                              <td>{value.title}</td>
-                              <td>
-                                <i className="fa-regular fa-eye"></i>{" "}
-                                {value.view_count}
-                              </td>
-                              <td>
-                                <i className="fa-regular fa-heart"></i>{" "}
-                                {value.count}
-                              </td>
-                              <td>檢舉刪除</td>
-                              <td>無法編輯</td>
-                            </tr>
-                          );
-                        }
-                      })
-                    ) : (
-                      <tr>
-                        <td colSpan={5}>您尚未發布任何文章</td>
-                      </tr>
-                    )}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </section>
+                  )}
+                />
+                <Route
+                  path="/client/Mylikes"
+                  render={(props) => (
+                    <Mylikes
+                      {...props}
+                      currentUser={currentUser}
+                      userLikes={userLikes}
+                    />
+                  )}
+                />
+                <Route
+                  path="/client"
+                  render={(props) => (
+                    <Memberinfo
+                      {...props}
+                      currentUser={currentUser}
+                      userMessage={userMessage}
+                      setUserMessage={setUserMessage}
+                      avaUsername={avaUsername}
+                      setavaUsername={setavaUsername}
+                      ifPwdOK={ifPwdOK}
+                      setIfPwdOK={setIfPwdOK}
+                    />
+                  )}
+                />
+              </Switch>
+            </section>
+          </BrowserRouter>
         </section>
         <BearLogo />
       </div>}
