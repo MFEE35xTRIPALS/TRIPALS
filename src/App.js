@@ -8,10 +8,6 @@ import Edit from "./pages/Edit/Edit";
 import "./components/CSS/Header.scss";
 import "./components/CSS/Footer.scss";
 import "./components/CSS/Bear.scss";
-import "swiper/dist/css/swiper.css";
-
-import { useLoadScript } from "@react-google-maps/api";
-const libraries = ["places"];
 
 function App() {
 	const { isLoaded, loadError } = useLoadScript({

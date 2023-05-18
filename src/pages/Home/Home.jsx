@@ -15,7 +15,8 @@ function Home() {
   var [showdiv1, setShowdiv1] = useState("");
   var [showdiv2, setShowdiv2] = useState("");
   var [showdiv3, setShowdiv3] = useState("");
-  // var [showdiv4, setShowdiv4] = useState("");
+  var [showdiv4, setShowdiv4] = useState("");
+  // var [showdiv5, setShowdiv5] = useState("");
   useEffect(() => {
     const firstRender = async () => {
       let result = await axios.get(url + "/");
@@ -24,13 +25,12 @@ function Home() {
       setShowdiv1(result.data[1][0].title);
       setShowdiv2(result.data[1][0].username);
       setShowdiv3(result.data[1][0].like_count);
-      // setShowdiv4(result.data[1][0].view_count);
+      setShowdiv4(result.data[1][0].view_count);
+      // setShowdiv5(result.data[1][0].(url + avatar));
       setRecommend(result.data[2]);
       setIfFirst(true);
     };
     firstRender();
-
-
   }, []);
   AOS.init();
   AOS.refresh();
@@ -68,14 +68,14 @@ function Home() {
           slideChange: function () {
             var content1 = this.slides[this.activeIndex].children[0].innerText;
             var content2 = this.slides[this.activeIndex].children[1].innerText;
-            var content3 = this.slides[this.activeIndex].children[2].innerHTML;
-            // var content4 = this.slides[this.activeIndex].children[3].innerHTML;
+            var content3 = this.slides[this.activeIndex].children[2].innerText;
+            var content4 = this.slides[this.activeIndex].children[3].innerText;
 
             console.log(content3);
             setShowdiv1(content1);
             setShowdiv2(content2);
             setShowdiv3(content3);
-            // setShowdiv4(content4);
+            setShowdiv4(content4);
           },
         },
       });
@@ -109,7 +109,10 @@ function Home() {
       <section id="news" className="">
         <img id="greenCloud" src="./media/GreemCloud.png" alt="" />
         <div id="news_area">
-          <div className="news-tittle">
+          <div className="news-tittle"
+            data-aos="fade-right"
+            data-aos-duration="1500"
+            >
             <h1 id="newsTittle">NEWS</h1>
           </div>
 
@@ -160,7 +163,8 @@ function Home() {
             data-aos-duration="1500"
             data-aos-delay="100"
           >
-            Hello World!
+           <br />
+           來一場輕旅行吧!
           </h5>
         </div>
         <div>
@@ -175,7 +179,9 @@ function Home() {
         </div>
         <div>
           <h4 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-            你好，世界。
+            Tripals
+            <br />
+            和你一起走遍台灣
           </h4>
         </div>
         <img src="./media/WhiteCloud.png" id="whiteCloud" alt="" />
@@ -198,11 +204,20 @@ function Home() {
         <section id="article" className="article">
           <div className="container">
             <br />
-            <div id="target-div1">{showdiv1}</div>
-            <div id="target-div2">{showdiv2}</div>
-            <div id="target-div3">
-              {/* <i className="fa-solid fa-heart"></i> {showdiv3} */}
-              {/* <i className="fa-regular fa-eye"></i> {showdiv4} */}
+            <div    data-aos="fade-right"
+          data-aos-offset="300"
+          data-aos-duration="1000"
+          data-aos-easing="ease-in-sine" id="target-div1">{showdiv1}</div>
+            <div    data-aos="fade-right"
+          data-aos-offset="300"
+          data-aos-duration="1000"
+          data-aos-easing="ease-in-sine" id="target-div2">{showdiv2}</div>
+            <div    data-aos="fade-right"
+          data-aos-offset="300"
+          data-aos-duration="1000"
+          data-aos-easing="ease-in-sine" id="target-div3">
+              <i className="fa-solid fa-heart"></i> {showdiv3}
+              <i className="fa-regular fa-eye"></i> {showdiv4}
             </div>
             <div
               data-aos="fade-right"
