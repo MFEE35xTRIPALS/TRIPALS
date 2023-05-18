@@ -95,8 +95,8 @@ const Destination = (props) => {
 
     return () => {
       paths.forEach((path) => {
-        path.removeEventListener("mouseenter", function () {});
-        path.removeEventListener("mouseleave", function () {});
+        path.removeEventListener("mouseenter", function () { });
+        path.removeEventListener("mouseleave", function () { });
       });
     };
   }, [showCityList]);
@@ -107,7 +107,7 @@ const Destination = (props) => {
       <div className="container">
         <img
           className="GreemCloud"
-          src={`${process.env.PUBLIC_URL}/GreemCloud.svg`}
+          src={'/images/GreemCloud.svg'}
           alt="Logo"
         />
         <div className="TaiwanMapSvg">
@@ -534,7 +534,63 @@ const Destination = (props) => {
             </g>
           </svg>
         </div>
+        <div className="CityNameContainer"> <div className="CityList">
+          {showCityList && (
+            <div>
+              <div className="GreenDesign">旅遊目的地</div>
 
+              <div className="Target">
+                <CityList
+                  cities={[
+                    "基隆市",
+                    "台北市",
+                    "新北市",
+                    "桃園市",
+                    "新竹市",
+                    "新竹縣",
+                    "苗栗縣",
+                    "台中市",
+                    "彰化縣",
+                    "南投縣",
+                    "雲林縣",
+                  ]}
+                  handleCityHover={handleCityHover}
+                  handleCityLeave={handleCityLeave}
+                  handleCityClick={handleCityClick}
+                />
+                <CityList
+                  cities={[
+                    "嘉義市",
+                    "嘉義縣",
+                    "台南市",
+                    "高雄市",
+                    "屏東縣",
+                    "台東縣",
+                    "花蓮縣",
+                    "宜蘭縣",
+                    "澎湖縣",
+                    "金門縣",
+                    "連江縣",
+                  ]}
+                  handleCityHover={handleCityHover}
+                  handleCityLeave={handleCityLeave}
+                  handleCityClick={handleCityClick}
+                />
+              </div>
+            </div>
+          )}
+
+          {showImageWeather && (
+            <div>
+              <ImageWeather
+                ID={ID}
+                svgRef={svgRef}
+                openDataa={openData}
+                pictureDataa={PictureData}
+              />
+            </div>
+          )}
+        </div></div>
         <div className="cityName">
           <h1>北部地區</h1>
           <ul>
@@ -605,63 +661,7 @@ const Destination = (props) => {
             ))}
           </ul>
         </div>
-        <div className="CityList">
-          {showCityList && (
-            <div>
-              <div className="GreenDesign">旅遊目的地</div>
-
-              <div className="Target">
-                <CityList
-                  cities={[
-                    "基隆市",
-                    "台北市",
-                    "新北市",
-                    "桃園市",
-                    "新竹市",
-                    "新竹縣",
-                    "苗栗縣",
-                    "台中市",
-                    "彰化縣",
-                    "南投縣",
-                    "雲林縣",
-                  ]}
-                  handleCityHover={handleCityHover}
-                  handleCityLeave={handleCityLeave}
-                  handleCityClick={handleCityClick}
-                />
-                <CityList
-                  cities={[
-                    "嘉義市",
-                    "嘉義縣",
-                    "台南市",
-                    "高雄市",
-                    "屏東縣",
-                    "台東縣",
-                    "花蓮縣",
-                    "宜蘭縣",
-                    "澎湖縣",
-                    "金門縣",
-                    "連江縣",
-                  ]}
-                  handleCityHover={handleCityHover}
-                  handleCityLeave={handleCityLeave}
-                  handleCityClick={handleCityClick}
-                />
-              </div>
-            </div>
-          )}
-
-          {showImageWeather && (
-            <div>
-              <ImageWeather
-                ID={ID}
-                svgRef={svgRef}
-                openDataa={openData}
-                pictureDataa={PictureData}
-              />
-            </div>
-          )}
-        </div>
+       
       </div>
       <BearLogo />
     </div>
