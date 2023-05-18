@@ -98,6 +98,7 @@ const Navigation = ({ currentUser, setCurrentUser }) => {
       window.location = '/client';
   }
 
+
   return (
     <header className="fixed-top">
       <nav className="navbar navbar-expand-lg navbar-light">
@@ -129,26 +130,24 @@ const Navigation = ({ currentUser, setCurrentUser }) => {
               <button onClick={() => { window.location = "/login" }} className="btn  logInBtn">LOG IN</button>
             </div>}
           </div>
-
           {currentUser && <div class="dropdown me-auto">
-            <button class="btn dropdown-toggle border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <div class="userImage rounded-circle">
-                <img class="avatar" onClick={toBack} src="./images/admin.png" alt="UserImage" />
-              </div>
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/"><i class="fa-solid fa-home"></i>首頁</a></li>
-              <li><a class="dropdown-item" href="#"><i class="fa-solid fa-user"></i>個人資料</a></li>
-              <li><a class="dropdown-item" href="#"><i class="fa-solid fa-heart"></i>我的收藏</a></li>
-              <li><a class="dropdown-item" href="#"><i class="fa-solid fa-pen-to-square"></i>我的文章</a></li>
-              <li><a class="dropdown-item" onClick={logout} href="/">登出</a></li>
-            </ul>
-          </div>}
-
+        <button class="btn dropdown-toggle border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <div class="userImage rounded-circle">
+            <img class="avatar" onClick={toBack} src="./images/admin.png" alt="UserImage" />
+          </div>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#"><i class="fa-solid fa-home"></i>首頁</a></li>
+          <li><a class="dropdown-item" href="#"><i class="fa-solid fa-user"></i>個人資料</a></li>
+          <li><a class="dropdown-item" href="#"><i class="fa-solid fa-heart"></i>我的收藏</a></li>
+          <li><a class="dropdown-item" href="#"><i class="fa-solid fa-pen-to-square"></i>我的文章</a></li>
+          <li><a class="dropdown-item" onClick={logout} href="#">登出</a></li>
+        </ul>
+      </div>}
         </div>
       </nav>
-
-    </header >
+   
+    </header>
   )
 }
 
