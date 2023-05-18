@@ -33,29 +33,38 @@ function App() {
           <Route path="/" component={Home} exact />
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
-          <Route path="/guides" render={(props) => (
-            <Guides
-              {...props}
-              currentUser={currentUser}
-              setCurrentUser={setCurrentUser}
-            />
-          )} />
+          <Route
+            path="/guides"
+            render={(props) => (
+              <Guides
+                {...props}
+                currentUser={currentUser}
+                setCurrentUser={setCurrentUser}
+              />
+            )}
+          />
           <Route path="/destination" component={Destination} />
-          <Route path="/selfpage:authorno" render={(props) => (
-            <Selfpage
-              {...props}
-              currentUser={currentUser}
-              setCurrentUser={setCurrentUser}
-            />
-          )} />
-          <Route path="/View:authorno" component={ViewArticle} />
-          <Route path="/admin" render={(props) => (
-            <Admin
-              {...props}
-              currentUser={currentUser}
-              setCurrentUser={setCurrentUser}
-            />
-          )} />
+          <Route
+            path="/selfpage:authorno"
+            render={(props) => (
+              <Selfpage
+                {...props}
+                currentUser={currentUser}
+                setCurrentUser={setCurrentUser}
+              />
+            )}
+          />
+          <Route path="/view:articleno" component={ViewArticle} />
+          <Route
+            path="/admin"
+            render={(props) => (
+              <Admin
+                {...props}
+                currentUser={currentUser}
+                setCurrentUser={setCurrentUser}
+              />
+            )}
+          />
           <Route
             path="/client"
             render={(props) => (

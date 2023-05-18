@@ -12,7 +12,6 @@ function Card(props) {
   var [userlikes, setuserlikes] = useState(props.ifUserLike);
   var userno = props.userno;
   var articleno = props.data.articleno;
-  // console.log(data);
   return (
     <div>
       {/* card content */}
@@ -65,8 +64,8 @@ function Card(props) {
 
   // 跳轉文章瀏覽頁面並update瀏覽數
   function toViewArticle(e) {
-    // console.log(e.target.dataset.autherno);
-    window.location = `/view${e.target.dataset.autherno}`;
+    // console.log(articleno);
+    window.location = `/view${articleno}`;
   }
   // async function toArticlepage(e) {
   //   // console.log(e.currentTarget);
@@ -81,7 +80,9 @@ function Card(props) {
     // console.log(userlikes);
     if (props.currentUser) {
       var result = await axios.post(
-        userlikes ? url + "/selfpage/deleteLikes" : url + "/selfpage/insertLikes",
+        userlikes
+          ? url + "/selfpage/deleteLikes"
+          : url + "/selfpage/insertLikes",
         {
           userno: userno,
           articleno: articleno,
@@ -91,11 +92,11 @@ function Card(props) {
       setuserlikes(!userlikes);
       setlike_count(result.data.likesCount);
     } else {
-      let ifSingin = window.confirm('登入後才可收藏文章,是否要前往登入？')
+      let ifSingin = window.confirm("登入後才可收藏文章,是否要前往登入？");
       if (ifSingin) {
-        window.location = '/login';
+        window.location = "/login";
       } else {
-        return
+        return;
       }
     }
   }
