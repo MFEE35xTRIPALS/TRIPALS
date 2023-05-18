@@ -1,11 +1,11 @@
 import { GoogleMap, LoadScript, MarkerF } from "@react-google-maps/api";
+import { useParams } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 
-function ViewArticle(props) {
+function ViewArticle() {
   const url = "http://localhost:8000";
   const userno = 2;
-  const articleno = props.articleno;
-
+  const { articleno } = useParams();
   const [AddTime, setAddtime] = useState(null);
   const [id, setId] = useState("");
   const [nickname, setNickname] = useState("");
@@ -21,6 +21,8 @@ function ViewArticle(props) {
   const [spots, setSpots] = useState([]);
   const [showPanels, setShowPanels] = useState(false);
   const [showAllTags, setShowAllTags] = useState(false);
+  console.log(articleno);
+  console.log(userno);
 
   useEffect(() => {
     async function fetchData() {
