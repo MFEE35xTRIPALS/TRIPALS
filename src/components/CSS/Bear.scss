@@ -1,0 +1,11 @@
+#bear {
+    position: fixed;
+    width: 5rem;
+    bottom: 75px;
+    right: 1%;
+    z-index: 50;
+
+    @media (max-width: 750px) {
+        display: none;
+    }
+}

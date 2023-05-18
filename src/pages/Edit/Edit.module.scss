@@ -1,0 +1,367 @@
+@import "./_share";
+
+* {
+	font-family: "Sen", sans-serif;
+}
+
+// body {
+// 	 background-color: $colorRice;
+// 	 height: 100vh;
+// }
+// marker
+//
+.markerLabel {
+	position: relative;
+	top: -25px;
+	left: -1px;
+	color: #ffffff;
+}
+
+// 頁面容器
+.edit-container {
+	position: relative;
+	height: 100vh; // 先給100vh佔位
+	background-color: $colorRice;
+	padding-top: 6rem; // navbar 是fixed-top 所以要向上推
+	overflow: auto;
+	// 卡片容器
+	.edit-card-wrapper {
+		height: 100vh;
+		overflow-y: auto;
+		&::-webkit-scrollbar {
+			width: 12px;
+		}
+
+		&::-webkit-scrollbar-track {
+			border-radius: 8px;
+			background-color: #e7e7e7;
+			border: 1px solid #cacaca;
+			box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+		}
+
+		&::-webkit-scrollbar-thumb {
+			border-radius: 8px;
+			background-color: #65c6c6;
+		}
+
+		// &::-webkit-scrollbar-button {
+		// 	height: 24px;
+		// }
+	}
+	.edit-card-container {
+		border-radius: 1rem;
+		overflow: hidden;
+		//共用樣式
+		.accordion-item-color {
+			background-color: rgba(
+				$color: #ffffff,
+				$alpha: 0.65
+			); // 修改整個accordion的顏色
+		}
+		hr {
+			margin: 0 1.25rem;
+			border: 1px solid #65c6c6;
+			opacity: 1;
+		}
+
+		.edit-accordion-btn {
+			// 取消bs預設樣式
+			color: unset;
+			background-color: unset;
+			box-shadow: unset;
+			font-size: $editTitleSize; // 主要標題的大小
+			font-weight: bold;
+
+			&::after {
+				background-image: url($arrowSvg); // 向下箭頭
+				// color: #65c6c6;
+			}
+			&:focus {
+				box-shadow: none; // 取消bs預設樣式
+			}
+		}
+
+		// 圖片區塊
+		.edit-image-content {
+			.edit-image {
+				width: 100%;
+				height: 360px;
+				background-color: white;
+				background-size: cover;
+				position: relative;
+				.btn-upload {
+					mix-blend-mode: normal;
+					background-color: #ffffff;
+					padding: 0.2rem 0.5rem;
+					border: 3px solid $btnUploadColor;
+					border-radius: 10px;
+					color: $btnUploadColor;
+					font-size: $btnUploadFz;
+					position: absolute;
+					bottom: 1rem;
+					right: 1rem;
+					transition: all 0.1s ease-in;
+					&:hover {
+						border: 3px solid $btnUploadColorHover;
+						color: $btnUploadColorHover;
+					}
+				}
+			}
+		}
+
+		// input共用樣式
+		input {
+			width: 100%;
+			border: none;
+			background-color: rgba(220, 220, 220, 0.8);
+			border-radius: $inputRadius;
+			padding: 0 0.5rem;
+		}
+
+		// content區塊
+		.info-content {
+			@include detail($editNormalSize);
+			display: inline-flex;
+			margin-top: 1rem;
+			textarea {
+				height: 8rem;
+				width: 100%;
+				border: none;
+				background-color: rgba(220, 220, 220, 0.8);
+				border-radius: $inputRadius;
+				resize: none;
+				padding: 0.5rem;
+			}
+		}
+
+		// 主內容
+		.edit-card-main {
+			.edit-accordion-btn {
+				display: flex !important;
+				justify-content: center;
+				// 讓左邊新增一個偽元素方便排列
+				&::before {
+					height: 20px;
+					width: 20px;
+					content: "";
+					margin-right: auto;
+				}
+			}
+			h2 {
+				position: relative;
+				// 讓分隔線在正中央
+				hr {
+					width: calc(100% - 2.5rem);
+					margin: 0;
+					left: 1.25rem;
+					position: absolute;
+				}
+			}
+			.edit-main-info {
+				margin-top: 1rem;
+				padding: 1.5rem;
+				// height: 45vh;
+				background-color: white;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				flex-direction: column;
+
+				.main-info-title {
+					@include detail($editSize);
+				}
+				.main-info-tag {
+					@include detail($editSize);
+					margin-top: 1rem;
+					.main-info-tag-input {
+						display: flex;
+						span {
+							margin-right: 0.5rem;
+							color: #65c6c6;
+						}
+						select {
+							padding: 0 0.5rem;
+							margin-left: 1rem;
+							border: #65c6c6 2px solid;
+							border-radius: $inputRadius;
+						}
+					}
+					&::after {
+						display: block;
+						width: 100%;
+						content: "";
+						border-bottom: #65c6c6 2px solid;
+						margin-top: 1rem;
+					}
+				}
+			}
+		}
+		// 地點
+		.edit-card-content {
+			// 標題 中間那一塊
+			.content-title {
+				display: flex;
+				justify-content: space-between;
+				padding: 1rem 1.25rem;
+				.btn-delete {
+					// 設定 inline-flex 元素能根據內容自適應大小
+					display: inline-flex;
+					max-width: 20px;
+					height: 20px;
+					border: none;
+					background: none;
+					outline: none;
+					padding: 0;
+
+					& > i {
+						font-size: 24px;
+						color: #ff4848;
+						transition: all 0.1s ease-in;
+					}
+					&:hover > i {
+						transform: scale(1.2);
+					}
+				}
+				span {
+					font-size: $editSize;
+				}
+				.edit-accordion-btn {
+					// 您的修改樣式
+					display: flex !important;
+					justify-content: center;
+					width: unset;
+					padding: 0;
+				}
+			}
+
+			//底下編輯區
+			.edit-content-info {
+				margin-top: 1rem;
+				padding: 1.5rem;
+				// height: 45vh;
+				background-color: white;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				flex-direction: column;
+				input {
+					width: 100%;
+					border: none;
+					background-color: rgba(220, 220, 220, 0.8);
+					border-radius: $inputRadius;
+				}
+
+				.content-info-location {
+					display: flex;
+					justify-content: space-between;
+					@include detail($editSize);
+					div {
+						display: flex;
+						width: 75%;
+						input {
+							width: 100%;
+							// border: 2px black solid;
+						}
+					}
+
+					.edit-add-location-btn {
+						@include edit-btn(#578f52);
+						margin: 0;
+					}
+				}
+
+				.content-info-title {
+					margin-top: 1rem;
+					@include detail($editSize);
+					input {
+						padding: 0.5rem;
+					}
+				}
+			}
+		}
+	}
+}
+
+@keyframes cardSpotAnimation {
+	0% {
+		opacity: 0;
+		transform: translateY(-20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+.spot-card-animation {
+	animation: cardSpotAnimation 0.5s ease-in-out;
+}
+
+// loader
+.loader {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: $colorRice;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+
+	.lds-ellipsis {
+		display: inline-block;
+		position: relative;
+		width: 80px;
+		height: 80px;
+		align-self: center;
+	}
+	.lds-ellipsis div {
+		position: absolute;
+		top: 33px;
+		width: 13px;
+		height: 13px;
+		border-radius: 50%;
+		background: #65c6c6;
+		animation-timing-function: cubic-bezier(0, 1, 1, 0);
+	}
+	.lds-ellipsis div:nth-child(1) {
+		left: 8px;
+		animation: lds-ellipsis1 0.6s infinite;
+	}
+	.lds-ellipsis div:nth-child(2) {
+		left: 8px;
+		animation: lds-ellipsis2 0.6s infinite;
+	}
+	.lds-ellipsis div:nth-child(3) {
+		left: 32px;
+		animation: lds-ellipsis2 0.6s infinite;
+	}
+	.lds-ellipsis div:nth-child(4) {
+		left: 56px;
+		animation: lds-ellipsis3 0.6s infinite;
+	}
+	@keyframes lds-ellipsis1 {
+		0% {
+			transform: scale(0);
+		}
+		100% {
+			transform: scale(1);
+		}
+	}
+	@keyframes lds-ellipsis3 {
+		0% {
+			transform: scale(1);
+		}
+		100% {
+			transform: scale(0);
+		}
+	}
+	@keyframes lds-ellipsis2 {
+		0% {
+			transform: translate(0, 0);
+		}
+		100% {
+			transform: translate(24px, 0);
+		}
+	}
+}

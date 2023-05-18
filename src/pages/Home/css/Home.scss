@@ -1,0 +1,788 @@
+* {
+    margin: 0;
+    background-color: transparent;
+
+    //尺寸小於750px 無動畫
+    @media screen and (max-width: 750px) {
+        [data-aos] {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+    }
+}
+
+#main {
+    .divVideo {
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+
+        }
+
+        .videoContent {
+            display: flex;
+            height: 950px;
+            width: auto;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+
+            #LOGO {
+                align-items: center;
+            }
+
+            .slogan {
+                h5 {
+                    font-family: "Sen";
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 1.5rem;
+                    line-height: 29px;
+                    /* identical to box height */
+                    color: #ffffff;
+
+                    @media (max-width: 580px) {
+                        font-size: 1.3rem;
+                    }
+                }
+            }
+
+            button {
+                margin-top: 2rem;
+                text-align: center;
+                border: 2px solid #ffffff;
+                border-radius: 50px;
+                padding: 0px 50px;
+
+                a {
+                    text-decoration: none;
+                    font-family: "Sen";
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 2rem;
+                    line-height: 43px;
+                    color: #ffffff;
+                }
+            }
+
+            button:hover {
+                background-color: white;
+
+                a {
+                    color: #58ff90;
+                }
+            }
+        }
+    }
+}
+
+
+#news {
+    height: 800px;
+    width: auto;
+    background-color: #f0e8dc;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+
+    #greenCloud {
+        position: absolute;
+        z-index: 1;
+        right: 0;
+        top: 2%;
+    }
+
+    #news_area {
+        position: relative;
+        height: 600px;
+        max-width: 100%;
+
+        .news-tittle {
+            position: absolute;
+            align-items: flex-start;
+            background-color: #9faf7d;
+            height: 5rem;
+            width: 20rem;
+            padding: 2px 19px;
+            z-index: 2;
+            left: 10%;
+            top: 10rem;
+
+            @media (max-width: 750px) {
+                top: 1rem;
+            }
+
+            h1 {
+                font-family: "Sen";
+                font-style: bold;
+                font-weight: 800;
+                font-size: 2.5rem;
+                color: #ffffff;
+                // min-height: 77px;
+                padding: 15px 30px;
+            }
+        }
+
+        .accordion {
+            position: absolute;
+            left: 15%;
+            top: 14rem;
+            width: 70%;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            @media (max-width: 750px) {
+                top: 5rem;
+            }
+
+            .accordion-item {
+                background-color: #ecbdaf;
+
+                .accordion-button {
+                    background-color: #fffbf6;
+                    font-family: "Sen";
+                    font-style: bold;
+                    font-weight: 800;
+                    font-size: 2rem;
+                    color: #f08b07;
+                    padding: 20px 30px;
+
+                    @media (max-width: 750px) {
+                        font-size: 1.75rem;
+                    }
+                }
+            }
+
+            .accordion-collapse {
+                .accordion-body {
+                    font-family: "Sen";
+                    font-style: bold;
+                    font-size: 2rem;
+                    color: #ffffff;
+                    padding: 20px 30px;
+
+                    @media (max-width: 750px) {
+                        font-size: 1.25rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#about {
+    background-color: #f0e8dc;
+    height: 1600px;
+    position: relative;
+
+    h5 {
+        position: absolute;
+        margin-top: 15rem;
+        height: 35rem;
+        width: 190px;
+        left: 40%;
+        writing-mode: vertical-rl;
+        background-color: #9faf7d;
+        z-index: 2;
+        padding: 10px;
+        font-family: "sen";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 4.5rem;
+        color: #ffffff;
+    }
+
+    h4 {
+        position: absolute;
+        margin-top: 40rem;
+        left: 51%;
+        height: 35rem;
+        width: 190px;
+        writing-mode: vertical-rl;
+        background-color: #73a083;
+        z-index: 2;
+        padding: 10px;
+        font-family: "sen";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 4rem;
+        color: #ffffff;
+    }
+
+    #seaView {
+        position: absolute;
+        margin-top: 10%;
+        width: 90%;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+    }
+
+    #whiteCloud {
+        position: absolute;
+        bottom: 4rem;
+        z-index: 0;
+        width: 330px;
+    }
+
+    @media (max-width: 750px) {
+        display: none;
+    }
+}
+
+//熱門文章
+#popular {
+    position: relative;
+    height: 1000px;
+    background-size: cover;
+    /* 調整圖片大小以符合元素大小 */
+    background-position: center;
+    /* 將圖片置中 */
+
+    .popular-title {
+        position: absolute;
+        align-items: flex-start;
+        background-color: #9faf7d;
+        height: 5rem;
+        width: 20rem;
+        z-index: 2;
+        left: 5%;
+        top: 10rem;
+
+        h1 {
+            font-family: "Sen";
+            font-style: bold;
+            font-weight: 800;
+            font-size: 3rem;
+            // line-height: 43px;
+            color: #ffffff;
+            min-height: 77px;
+            padding: 15px 30px;
+        }
+    }
+
+    .swiper-pagination-bullet-active {
+        background-color: #ffffff;
+        // pagination導覽點點顏色
+    }
+
+    section#article {
+        // ↑ 絕對不能空格
+
+        .container {
+
+            //文章標題
+
+            #target-div1 {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                position: absolute;
+                top: 20rem;
+                left: 10rem;
+                font-family: "Sen";
+                font-style: normal;
+                font-weight: 700;
+                font-size: 4rem;
+                // line-height: 43px;
+                color: #ffffff;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                width: 700px;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+
+
+
+                @media (max-width: 1500px) {
+                    display: none;
+                }
+
+
+            }
+
+
+            //作者
+            #target-div2 {
+                display: flex;
+                flex-direction: row;
+                position: absolute;
+                top: 28rem;
+                left: 10rem;
+                font-family: "Sen";
+                font-style: normal;
+                font-weight: 700;
+                font-size: 2rem;
+                color: #ffffff;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+
+
+                @media (max-width: 1500px) {
+                    display: none;
+                }
+            }
+
+            //愛心&觀看數
+            #target-div3 {
+                display: flex;
+                flex-direction: row;
+                align-items: start;
+                position: absolute;
+                align-items: center;
+                top: 35rem;
+                left: 20rem;
+                font-family: "Sen";
+                font-style: normal;
+                font-weight: 700;
+                font-size: 1.25rem;
+                line-height: 43px;
+                color: #ffffff;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+
+
+                @media (max-width: 1500px) {
+                    display: none;
+                }
+            }
+
+            .swiper-container {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 69.5%;
+                max-width: 770px;
+                // max-width: 900px;
+                //可以修改這裡讓卡片變多
+                padding-top: 250px;
+                padding-bottom: 50px;
+                z-index: 10;
+
+
+                // clip-path: inset(343px 0 0 0 round 18.8% 17.9% 0 0);
+                @media (max-width: 992px) {
+                    // margin-top: 550px;
+                    width: 43.4%;
+                    position: initial;
+                    // clip-path: inset(344px 0 0 0 round 23% 21.6% 0 0);
+                }
+
+                @media (max-width: 768px) {
+                    width: 300px;
+                    margin-top: 0vh;
+                }
+
+                @media (max-width: 375px) {
+                    width: 76.5%;
+                    min-width: 260px;
+                }
+
+                .swiper-wrapper {
+                    .swiper-slide {
+                        background-position: center;
+                        background-size: cover;
+                        max-width: 300px;
+                        width: 300px;
+                        height: 540px;
+                        color: white;
+                        font-weight: bold;
+
+
+                        @media (max-width: 375px) {
+                            width: 70vw;
+                            min-width: 260px;
+                        }
+                    }
+
+                    .popularUser {
+                        display: flex;
+                        flex-direction: row;
+                        // align-items: center;
+                        align-items: flex-end;
+                        letter-spacing: 2px;
+                        position: absolute;
+                        bottom: 1rem;
+                        left: 10px;
+                        font-family: "Sen";
+                        font-style: bold;
+                        font-weight: 800;
+                        font-size: 1.2rem;
+                        color: #ffffff;
+
+
+                        p {
+                            margin-bottom: 0.5rem;
+                            margin-left: 1rem;
+                            // background-color: rgba(243, 236, 236, 0.7);
+                            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+                        }
+                    }
+
+                    #slide0 {
+                        // ↓ 加陰影 右 下
+                        box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.7);
+                        position: relative;
+
+                        .article0-topText1 {
+                            position: absolute;
+                            bottom: 7rem;
+                            left: 10px;
+                            // background-color: rgba(16, 255, 99, 0.7);
+                            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+
+                            h1 {
+                                overflow: hidden;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                width: 280px;
+                                font-family: "Sen";
+                                font-style: bold;
+                                font-weight: 800;
+                                font-size: 2.5rem;
+                                color: #ffffff;
+                                margin-bottom: -1.5rem;
+                            }
+                        }
+
+                        .article0-topText3 {
+                            position: absolute;
+                            bottom: 1rem;
+                            right: 15px;
+                            font-family: "Sen";
+                            font-size: 1rem;
+                            color: #ffffff;
+                            // background-color: rgba(16, 255, 99, 0.7);
+                            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+
+                            .fa-eye {
+                                margin-left: 1rem;
+                            }
+
+                        }
+                    }
+
+                    #slide1 {
+                        box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.7);
+                        position: relative;
+                        width: 300px;
+
+
+
+                        .article1-topText1 {
+                            position: absolute;
+                            bottom: 7rem;
+                            font-family: "Sen";
+                            font-style: bold;
+                            font-weight: 800;
+                            font-size: 2.5rem;
+                            color: #ffffff;
+                            // background-color: rgba(255, 85, 6, 0.9);
+                            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+                            margin-left: 0.5rem;
+
+
+
+                            h1 {
+                                overflow: hidden;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                width: 280px;
+                                font-family: "Sen";
+                                font-style: bold;
+                                font-weight: 800;
+                                font-size: 2.5rem;
+                                color: #ffffff;
+                                margin-bottom: -1.5rem;
+                            }
+                        }
+
+                        .article1-topText3 {
+                            position: absolute;
+                            bottom: 1rem;
+                            right: 15px;
+                            font-family: "Sen";
+                            font-size: 1rem;
+                            color: #ffffff;
+                            // background-color: rgba(255, 85, 6, 0.9);
+                            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+
+                            .fa-eye {
+                                margin-left: 1rem;
+                            }
+                        }
+                    }
+
+                    #slide2 {
+                        // background-image: url(../media/recommend-6.png);
+                        box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.7);
+                        position: relative;
+
+                        .article2-topText1 {
+                            position: absolute;
+                            bottom: 7rem;
+                            left: 10px;
+                            font-family: "Sen";
+                            font-style: bold;
+                            font-weight: 800;
+                            font-size: 2.5rem;
+                            color: #ffffff;
+                            // background-color: rgba(5, 84, 255, 0.8);
+                            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+                            h1 {
+                                overflow: hidden;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                width: 280px;
+                                font-family: "Sen";
+                                font-style: bold;
+                                font-weight: 800;
+                                font-size: 2.5rem;
+                                color: #ffffff;
+                                margin-bottom: -1.5rem;
+
+                            }
+                        }
+
+                        .article-2 {
+                            width: 450px;
+                            margin-top: -10px;
+                            margin-left: -60px;
+                            transform: rotate(-12deg);
+                        }
+
+                        .article2-topText3 {
+                            position: absolute;
+                            bottom: 1rem;
+                            right: 15px;
+                            font-family: "Sen";
+                            font-size: 1rem;
+                            color: #ffffff;
+                            // background-color: rgba(5, 84, 255, 0.8);
+                            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+                            .fa-eye {
+                                margin-left: 1rem;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .swiper-button-next {
+                right: calc(65vw - 470px);
+                top: 668px;
+                background-image: none;
+
+                @media (max-width: 992px) {
+                    top: 1200px;
+                    right: 10vw;
+                }
+
+                @media (max-width: 768px) {
+                    right: 20%;
+                    top: 120%;
+                }
+
+                @media (min-height: 812px) {
+                    top: 90%;
+                }
+
+                i {
+                    font-size: 40px;
+                    color: #58ff90;
+                }
+            }
+
+            .swiper-button-prev {
+                left: calc(70vw - 470px);
+                top: 668px;
+                background-image: none;
+
+                @media (max-width: 992px) {
+                    top: 1200px;
+                    left: 10vw;
+                }
+
+                @media (max-width: 768px) {
+                    left: 20%;
+                    top: 120%;
+                }
+
+                @media (min-height: 812px) {
+                    top: 90%;
+                }
+
+                i {
+                    font-size: 40px;
+                    color: #58ff90;
+                }
+            }
+        }
+    }
+}
+
+//推薦文章
+#recommend {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: #f0e8dc;
+    padding-bottom: 20rem;
+
+    //手繪動畫
+    #ship {
+        width: 171px;
+        height: 308px;
+        stroke-dasharray: 1150;
+        animation: 8s fillSvg linear;
+
+        @media (max-width: 1835px) {
+            display: none;
+        }
+
+    }
+
+    @keyframes fillSvg {
+        0% {
+            stroke-dashoffset: 1150;
+        }
+
+        100% {
+            stroke-dashoffset: 0;
+        }
+    }
+
+    #wave {
+        width: 1267px;
+        height: 78px;
+        stroke-dasharray: 1270;
+        animation: 8s fillSvg linear;
+
+        @media (max-width: 1835px) {
+            display: none;
+        }
+    }
+
+    @keyframes fillSvg {
+        0% {
+            stroke-dashoffset: 1270;
+        }
+
+        100% {
+            stroke-dashoffset: 0;
+        }
+    }
+
+    .recommend-tittle {
+        display: inline-block;
+        margin: 5% 8%;
+        background-color: #9faf7d;
+        height: 5rem;
+        width: 25rem;
+        z-index: 2;
+
+        @media (max-width: 450px) {
+            margin: 0%;
+            height: 5rem;
+            width: 23rem;
+        }
+
+        h1 {
+            font-family: "Sen";
+            font-style: bold;
+            font-weight: 800;
+            font-size: 3rem;
+            // line-height: 43px;
+            color: #ffffff;
+            padding: 15px 30px;
+        }
+
+
+    }
+
+    .container {
+        width: 100%;
+        margin: 5px auto;
+        column-count: 3;
+        // 欄數
+        column-gap: 5px;
+
+        @media (max-width: 1200px) {
+            column-count: 2;
+        }
+
+        @media (max-width: 700px) {
+            column-count: 1;
+        }
+
+        .recommemdCard {
+            break-inside: avoid;
+
+            .card-img {
+                filter: brightness(90%);
+                
+            }
+           
+
+            img.avatar {
+                max-width: 100%;
+                max-height: 540px;
+                object-fit: cover;
+            }
+
+            
+
+            .card-img-overlay {
+
+                h5 {
+                    cursor: pointer;
+                    font-family: "Sen";
+                    font-style: bold;
+                    font-weight: 800;
+                    font-size: 1.5rem;
+                    color: #ffffff;
+                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+                    &:hover{
+                        opacity: 0.8;
+                    }
+
+                }
+
+                .user {
+                    display: flex;
+                    flex-direction: row;
+
+                    img {
+                        width: 3rem;
+                        height: 3rem;
+                        border-radius: 50%;
+                        overflow: hidden;
+                    }
+
+                    P {
+                        font-family: "Sen";
+                        font-style: bold;
+                        font-weight: 800;
+                        font-size: 1.25rem;
+                        color: #ffffff;
+                        align-self: center;
+                        margin-left: 1rem;
+                        text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.9);
+
+                    }
+                }
+            }
+            
+        }
+    }
+}

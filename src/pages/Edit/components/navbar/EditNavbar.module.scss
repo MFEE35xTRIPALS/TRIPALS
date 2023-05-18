@@ -1,0 +1,30 @@
+@import "../../_share";
+
+// nav
+.edit-bar {
+	background-color: $colorRice;
+	.edit-add-location-btn {
+		@include edit-btn(#f68d51);
+	}
+	.edit-draft-btn {
+		@include edit-btn(#65c6c6);
+	}
+	.edit-show-btn {
+		@include edit-btn(#fab10c);
+	}
+	.edit-delete-btn {
+		@include edit-btn(#ff4848);
+	}
+	.image-box {
+		width: 3rem;
+		height: 3rem;
+		margin-left: 0.5rem;
+		border-radius: 50%;
+		overflow: hidden;
+		.edit-user-image {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+}

@@ -1,0 +1,128 @@
+header {
+    position: sticky;
+    // display: flex;
+    top: 100%;
+    left: 0;
+    transition: background-color 0.5s ease;
+
+    //Rwd漢堡icon
+    //取消漢堡邊框
+    .navbar-toggler {
+        &:focus {
+            box-shadow: unset;
+        }
+    }
+
+    .hamburger {
+        .hamburger-box {
+            height: 30px;
+            width: 30px;
+
+            @mixin hamburger {
+                width: 30px;
+                background-color: rgba(0, 0, 0, 0.7);
+            }
+
+            .hamburger-inner {
+                width: 30px;
+                background-color: #00ff40;
+
+                &:before {
+                    width: 30px;
+                    background-color: #fbff00;
+                }
+
+                &:after {
+                    width: 30px;
+                    background-color: rgba(1, 196, 255, 0.7);
+                }
+            }
+        }
+    }
+
+    #navbarSupportedContent {
+        @media (max-width: 991px) {
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+    }
+
+    a {
+        text-decoration: none;
+        // width: 219px;
+        height: 24px;
+        left: 0px;
+        top: 2px;
+        font-family: "Sen", sans-serif;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 2rem;
+        margin: 20px;
+        /* identical to box height */
+        letter-spacing: 0.05em;
+        color: #ffffff;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .logInBtn {
+      margin: 10px;
+      padding: 8px 10px;
+      font-family: "Sen", sans-serif;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: #58ff90;
+      box-sizing: border-box;
+      background-blend-mode: darken;
+      border: 2px solid #ffffff;
+      border-radius: 50px;
+    }
+
+    .logInBtn:hover {
+      background-color: #ffffff;
+      color: #58ff90;
+    }
+
+    .nav-item:hover {
+        border-bottom: 2px solid #ffffff;
+    }
+
+    //登入後使用者頭像
+
+    .dropdown {
+        .userImage {
+            width: 3rem;
+            height: 3rem;
+            margin-right: 1rem;
+            margin-top: 1rem;
+            overflow: hidden;
+
+            .avatar {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+        }
+    }
+
+    .dropdown-menu {
+        padding: 2rem;
+
+        a {
+            font-family: "sen";
+            font-style: normal;
+            font-size: 1.5rem;
+            color: #181818;
+
+        }
+
+        .dropdown-item:hover {
+            background-color: transparent;
+        }
+
+        .dropdown-item:focus,
+        .dropdown-item.active {
+            color: #9faf7d;
+        }
+    }
+}
