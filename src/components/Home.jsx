@@ -14,7 +14,7 @@ function Home() {
   var [showdiv2, setShowdiv2] = useState("");
   var [showdiv3, setShowdiv3] = useState("");
 
-  return <div>Welcome Triples(假首頁111)</div>;
+  return <div>Welcome Triples(假首頁121)</div>;
 }
 
 export default Home;

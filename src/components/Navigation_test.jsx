@@ -129,6 +129,7 @@ const Navigation = ({ currentUser, setCurrentUser }) => {
         </div>
       </nav>
 
+
     </header>
   )
 }
