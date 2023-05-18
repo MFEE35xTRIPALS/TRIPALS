@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import "./css/HenryStyle/hamburgers.css";
 
 const Navigation = ({ currentUser, setCurrentUser, avatarImg }) => {
 
+  setTimeout(() => {
+    localStorage.removeItem('user');
+  }, 60 * 60 * 1000);
   useEffect(() => {
     const handleNavMouseOver = (event) => {
       event.target.textContent = event.target.getAttribute('data-zh');
@@ -126,18 +128,24 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg }) => {
               <button onClick={() => { window.location = "/login" }} className="btn  logInBtn">LOG IN</button>
 
             </div>}
-          {currentUser && <div class="dropdown me-auto">
-            <button class="btn dropdown-toggle border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <div class="userImage rounded-circle">
-                <img class="avatar" src={avatarImg} alt="UserImage" />
+          {currentUser && <div className="dropdown me-auto">
+            <button className="btn dropdown-toggle border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <div className="userImage rounded-circle">
+                <img className="avatar" src={avatarImg} alt="UserImage" />
               </div>
             </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/"><i class="fa-solid fa-home"></i>首頁</a></li>
-              <li><a class="dropdown-item" href="/client"><i class="fa-solid fa-user"></i>個人資料</a></li>
-              <li><a class="dropdown-item" href="/client/Mylikes"><i class="fa-solid fa-heart"></i>我的收藏</a></li>
-              <li><a class="dropdown-item" href="/client/Myarticles"><i class="fa-solid fa-pen-to-square"></i>我的文章</a></li>
-              <li><a class="dropdown-item" onClick={logout} href="/">登出</a></li>
+            <ul className="dropdown-menu">
+              <li><a className="dropdown-item" href="/"><i className="fa-solid fa-home"></i>首頁</a></li>
+              {JSON.parse(currentUser)[0].permission === 1 &&
+                <div>
+                  <li><a className="dropdown-item" href="/client"><i className="fa-solid fa-user"></i>個人資料</a></li>
+                  <li><a className="dropdown-item" href="/client/Mylikes"><i className="fa-solid fa-heart"></i>我的收藏</a></li>
+                  <li><a className="dropdown-item" href="/client/Myarticles"><i className="fa-solid fa-pen-to-square"></i>我的文章</a></li>
+                </div>}
+              {JSON.parse(currentUser)[0].permission === 0 &&
+                <li><a className="dropdown-item" href="/admin"><i className="fa-solid fa-pen-to-square"></i>管理員後台</a></li>
+              }
+              <li><a className="dropdown-item" onClick={logout} href="/">登出</a></li>
             </ul>
           </div>}
         </div>

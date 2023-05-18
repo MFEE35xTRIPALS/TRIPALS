@@ -5,7 +5,7 @@ function Myarticles({ currentUser, selfarticles, setselfarticles }) {
   // console.log(JSON.parse(currentUser)[0].userno)
   // console.log(setCurrentUser)
   let url = "http://localhost:8000";
-  let [userno, setuserno] = useState(currentUser ? JSON.parse(currentUser)[0].userno : 0);
+
 
   // ---------刪除文章-----------------
   let trashcan = async (e) => {

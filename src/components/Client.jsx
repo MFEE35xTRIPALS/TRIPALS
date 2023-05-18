@@ -9,6 +9,9 @@ import Myarticles from "./smallcomponent/Myarticles";
 import BearLogo from "./smallcomponent/BearLogo";
 
 function Client({ currentUser, setCurrentUser, setavatarImg }) {
+  // setTimeout(() => {
+  //   localStorage.removeItem('user');
+  // }, 5 * 2 * 1000);
   // console.log(JSON.parse(currentUser)[0].userno)
   // console.log(setCurrentUser)
   let url = "http://localhost:8000";
