@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter, Route, Switch, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import Card from "./smallcomponent/Card";
+import A1 from "./A1";
+import A2 from "./A2";
 import BearLogo from "./smallcomponent/BearLogo";
 
 function Client({ currentUser, setCurrentUser }) {
@@ -254,7 +257,7 @@ function Client({ currentUser, setCurrentUser }) {
                 <i className="fas fa-camera"></i>
               </button>
               <form encType="multipart/form-data">
-                <div
+                {/* <div
                   className={`mymodal ${ifOpenavatar ? "flexBtn" : "postBtn"
                     }`}
                   onClick={cancelPriview}
@@ -296,7 +299,7 @@ function Client({ currentUser, setCurrentUser }) {
                       </button>
                     </div>
                   </div>
-                </div>
+                </div> */}
                 <input
                   onChange={changePhoto}
                   type="file"
@@ -313,37 +316,46 @@ function Client({ currentUser, setCurrentUser }) {
               </h4>
             </div>
 
-            <div className="c-select">
-              <ul>
-                <li
-                  onClick={() => {
-                    setIfOpenA(true);
-                    setIfOpenB(false);
-                    setIfOpenC(false);
-                  }}
-                >
-                  個人資料
-                </li>
-                <li
-                  onClick={() => {
-                    setIfOpenA(false);
-                    setIfOpenB(true);
-                    setIfOpenC(false);
-                  }}
-                >
-                  我的收藏
-                </li>
-                <li
-                  onClick={() => {
-                    setIfOpenA(false);
-                    setIfOpenB(false);
-                    setIfOpenC(true);
-                  }}
-                >
-                  我的文章
-                </li>
-              </ul>
-            </div>
+            <BrowserRouter>
+              <div className="c-select">
+                <ul>
+                  <Link className="selectLi" to="/client" exact>
+                    個人資料
+                  </Link>
+                  <Link className="selectLi" to="/client/2">
+                    我的收藏
+                  </Link>
+                  <Link className="selectLi" to="/client/2">
+                    我的文章
+                  </Link>
+
+                </ul>
+              </div>
+              <div>
+                <Switch>
+                  <Route
+                    path="/client/2"
+                    render={(props) => (
+                      <A2
+                        {...props}
+                        currentUser={currentUser}
+                        setCurrentUser={setCurrentUser}
+                      />
+                    )}
+                  />
+                  <Route
+                    path="/client"
+                    render={(props) => (
+                      <A1
+                        {...props}
+                        currentUser={currentUser}
+                        setCurrentUser={setCurrentUser}
+                      />
+                    )}
+                  />
+                </Switch>
+              </div>
+            </BrowserRouter>
           </section>
           <section className="c-right">
             <div
