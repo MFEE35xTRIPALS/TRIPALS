@@ -1080,8 +1080,8 @@ body section.selftop div.selfMessage img.selfShot {
 }
 body section.selftop div.selfMessage h4.userName {
   color: white;
-  -webkit-text-stroke: 1px #000000;
-  font-weight: bold;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
+  font-weight: 800;
 }
 body div section.selfIntroduce {
   text-align: center;

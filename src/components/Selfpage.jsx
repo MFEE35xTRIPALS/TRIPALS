@@ -23,7 +23,7 @@ function Selfpage({ currentUser, setCurrentUser }) {
       setavatar(
         result.data.authormessage[0].avatar
           ? url + result.data.authormessage[0].avatar
-          : "/images/admin.png"
+          : "http://localhost:8000/useravatar/pre.png"
       );
       setbanner(
         result.data.authormessage[0].banner

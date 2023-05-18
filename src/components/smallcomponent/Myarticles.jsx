@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Card from "./Card";
 import axios from "axios";
 
 function Myarticles({ currentUser, selfarticles, setselfarticles }) {

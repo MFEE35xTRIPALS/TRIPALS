@@ -23,11 +23,11 @@ import Error from "./components/Error";
 
 function App() {
   let [currentUser, setCurrentUser] = useState(localStorage.getItem("user"));
-
+  let [avatarImg, setavatarImg] = useState(currentUser ? JSON.parse(currentUser)[0].avatar ? "http://localhost:8000" + JSON.parse(currentUser)[0].avatar : "http://localhost:8000/useravatar/pre.png" : "")
   return (
     <BrowserRouter>
       <div>
-        <Navigation currentUser={currentUser} setCurrentUser={setCurrentUser} />
+        <Navigation avatarImg={avatarImg} currentUser={currentUser} setCurrentUser={setCurrentUser} />
         <Switch>
           <Route path="/" component={Home} exact />
           <Route path="/register" component={Register} />
@@ -71,6 +71,7 @@ function App() {
                 {...props}
                 currentUser={currentUser}
                 setCurrentUser={setCurrentUser}
+                setavatarImg={setavatarImg}
               />
             )}
           />

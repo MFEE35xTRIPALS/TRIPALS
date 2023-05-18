@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
 import "./css/HenryStyle/hamburgers.css";
 
-const Navigation = ({ currentUser, setCurrentUser }) => {
-  let [avatarImg, setavatarImg] = useState("./images/admin.png")
+const Navigation = ({ currentUser, setCurrentUser, avatarImg }) => {
+
   useEffect(() => {
     const handleNavMouseOver = (event) => {
       event.target.textContent = event.target.getAttribute('data-zh');
@@ -91,13 +91,7 @@ const Navigation = ({ currentUser, setCurrentUser }) => {
     localStorage.removeItem('user');
     setCurrentUser(null)
   }
-  const toBack = () => {
-    console.log('hihi')
-    if (JSON.parse(currentUser)[0].permission == 0) {
-      window.location = '/admin';
-    } else if (JSON.parse(currentUser)[0].permission == 1)
-      window.location = '/client';
-  }
+
 
 
   return (
@@ -135,7 +129,7 @@ const Navigation = ({ currentUser, setCurrentUser }) => {
           {currentUser && <div class="dropdown me-auto">
             <button class="btn dropdown-toggle border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
               <div class="userImage rounded-circle">
-                <img class="avatar" src="./images/admin.png" alt="UserImage" />
+                <img class="avatar" src={avatarImg} alt="UserImage" />
               </div>
             </button>
             <ul class="dropdown-menu">

@@ -8,7 +8,7 @@ import Myarticles from "./smallcomponent/Myarticles";
 
 import BearLogo from "./smallcomponent/BearLogo";
 
-function Client({ currentUser, setCurrentUser }) {
+function Client({ currentUser, setCurrentUser, setavatarImg }) {
   // console.log(JSON.parse(currentUser)[0].userno)
   // console.log(setCurrentUser)
   let url = "http://localhost:8000";
@@ -59,12 +59,12 @@ function Client({ currentUser, setCurrentUser }) {
         setuseravatar(
           result.data.userMessage[0].avatar
             ? url + result.data.userMessage[0].avatar
-            : "/images/admin.png"
+            : "http://localhost:8000/useravatar/pre.png"
         );
         setuseravatartemp(
           result.data.userMessage[0].avatar
             ? url + result.data.userMessage[0].avatar
-            : "/images/admin.png"
+            : "http://localhost:8000/useravatar/pre.png"
         );
       }
       firstRendem();
@@ -127,6 +127,7 @@ function Client({ currentUser, setCurrentUser }) {
           url + resultImages.data.avatarData.avatar + "?temp=" + Math.random()
         );
         setuserimage(userimagetemp);
+        setavatarImg(url + resultImages.data.avatarData.avatar + "?temp=" + Math.random());
       } else if (resultImages.data.myPhotoAlert === "封面照片修改完成") {
         setuserimage(
           url + resultImages.data.bannerData.banner + "?temp=" + Math.random()

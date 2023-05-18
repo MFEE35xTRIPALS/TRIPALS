@@ -7,7 +7,7 @@ function Card(props) {
   var image = props.data.image ? url + props.data.image : "/images/sunrise.jpg";
   var avatar = props.data.avatar
     ? url + props.data.avatar
-    : "/images/admin.png";
+    : "http://localhost:8000/useravatar/pre.png";
   var [like_count, setlike_count] = useState(props.data.like_count);
   var [userlikes, setuserlikes] = useState(props.ifUserLike);
   var userno = props.userno;

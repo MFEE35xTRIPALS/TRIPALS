@@ -168,7 +168,7 @@ function Admin({ currentUser, setCurrentUser }) {
               </div>
               <div className="c-select">
                 <ul>
-                  <li
+                  <li className="selectLi"
                     onClick={() => {
                       setIfOpenA(true);
                       setIfOpenB(false);
@@ -177,7 +177,7 @@ function Admin({ currentUser, setCurrentUser }) {
                   >
                     最新消息
                   </li>
-                  <li
+                  <li className="selectLi"
                     onClick={() => {
                       setIfOpenA(false);
                       setIfOpenB(true);
@@ -186,7 +186,7 @@ function Admin({ currentUser, setCurrentUser }) {
                   >
                     會員管理
                   </li>
-                  <li
+                  <li className="selectLi"
                     onClick={() => {
                       setIfOpenA(false);
                       setIfOpenB(false);
