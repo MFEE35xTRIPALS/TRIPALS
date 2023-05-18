@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Autocomplete } from "@react-google-maps/api";
 // const placesLibrary = ["places"];
 
-const GoogleMapInput = ({ spot, onAddressNameChange }) => {
+const GoogleMapInput = ({ spot, onAddressNameChange, onSetCenter }) => {
 	const [searchResult, setSearchResult] = useState(null);
 	// 先讓使用者能輸入文字
 	const [inputValue, setInputValue] = useState(spot.location_name || "");
@@ -49,7 +49,10 @@ const GoogleMapInput = ({ spot, onAddressNameChange }) => {
 			// console.log("經度：", lat());
 			// console.log("緯度：", lng());
 			const updatedAddress = { ...spot, location: address };
+			// 更新地址與經緯度
 			onAddressNameChange(updatedAddress);
+			// 更新新增圖標的 center
+			onSetCenter({ lat: lat(), lng: lng() });
 		}
 	};
 

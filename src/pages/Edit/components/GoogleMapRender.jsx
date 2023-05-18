@@ -16,8 +16,9 @@ const taiwanCenter = {
 	lng: 120.9605,
 };
 
-const GoogleMapRender = ({ selectedCity, spots }) => {
+const GoogleMapRender = ({ selectedCity, spots, addCenter }) => {
 	const [map, setMap] = useState(null);
+	// console.log("addCenter:", addCenter);
 
 	// 先初始化 center
 	let center = cityCoordinates[selectedCity] || taiwanCenter;
@@ -25,7 +26,6 @@ const GoogleMapRender = ({ selectedCity, spots }) => {
 	// console.log(center);
 
 	const handleMapLoad = (map) => {
-		console.log(map);
 		setMap(map);
 		// 創建一個空的經緯度邊界（LatLngBounds）對象：
 		const bounds = new window.google.maps.LatLngBounds();
@@ -46,46 +46,41 @@ const GoogleMapRender = ({ selectedCity, spots }) => {
 		// 在所有的 spots 物件都處理完後，獲取邊界的中心點（center）：
 		// let calculatedCenter = null;
 		if (flag) {
-			console.log("true");
 			center = bounds.getCenter();
 			map.fitBounds(bounds);
 
-			window.setTimeout(() => {
-				zoom = map.getZoom() - 2;
-			}, 500); // 延遲 1 秒後獲取縮放級別
+			// window.setTimeout(() => {
+			// zoom = map.getZoom() - 4;
+			// }, 500); // 延遲 1 秒後獲取縮放級別
 		}
-		// calculatedCenter = bounds.getCenter();
-		// console.log("calculatedCenter", calculatedCenter);
 
-		// 如果計算後的 center 有值 就用 calculatedCenter 取代 center
-		// if (calculatedCenter) {
-		// 	center = calculatedCenter;
-		// }
-
-		// console.log("final:" + center);
+		if (addCenter) center = addCenter;
 		map.setZoom(zoom);
 		map.setCenter(center);
 	};
 
-	const calculateMarkerSize = () => {
-		if (map) {
-			const zoomLevel = map.getZoom();
-			const scaleFactor = 1;
-			const markerSize = 80;
-
-			return Math.ceil(markerSize * Math.pow(scaleFactor, zoomLevel));
-		}
-
-		return 80;
-	};
-
 	const customMarkerIcon = {
 		url: markerIcon,
-		scaledSize: new window.google.maps.Size(
-			calculateMarkerSize(),
-			calculateMarkerSize()
-		),
+		scaledSize: new window.google.maps.Size(80, 80),
 	};
+
+	React.useEffect(() => {
+		let newCenter = cityCoordinates[selectedCity] || taiwanCenter;
+		let newZoom = cityCoordinates[selectedCity] ? 14 : 7.8;
+
+		if (map) {
+			map.setZoom(newZoom);
+			map.setCenter(newCenter);
+		}
+	}, [selectedCity]);
+
+	React.useEffect(() => {
+		let newCenter = addCenter;
+
+		if (map) {
+			map.setCenter(newCenter);
+		}
+	}, [addCenter]);
 
 	return (
 		<div>

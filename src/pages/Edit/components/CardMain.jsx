@@ -81,7 +81,9 @@ const CardMain = ({
 											}
 											onChange={handleLocationChange}
 										>
-											<option value="default">選擇地區</option>
+											<option value="default" hidden disabled>
+												選擇地區
+											</option>
 											<option value="基隆市">基隆市</option>
 											<option value="台北市">台北市</option>
 											<option value="新北市">新北市</option>

@@ -3,7 +3,13 @@ import CardSpotImage from "./CardSpotImage";
 import SpotInfoContent from "./SpotInfoContent";
 import GoogleMapInput from "./GoogleMapInput";
 
-const CardSpot = ({ main_articleno, spot, onSpotChange, onDeleteSpot }) => {
+const CardSpot = ({
+	main_articleno,
+	spot,
+	onSpotChange,
+	onDeleteSpot,
+	onSetCenter,
+}) => {
 	// console.log(main_articleno);
 	const handleInputChange = (event) => {
 		const { name, value } = event.target;
@@ -57,7 +63,11 @@ const CardSpot = ({ main_articleno, spot, onSpotChange, onDeleteSpot }) => {
 					<div className={styles["edit-content-info"]}>
 						<div className={styles["content-info-location"]}>
 							{/* <input type="text" placeholder="請輸入地址或景點名稱" /> */}
-							<GoogleMapInput spot={spot} onAddressNameChange={onSpotChange} />
+							<GoogleMapInput
+								spot={spot}
+								onAddressNameChange={onSpotChange}
+								onSetCenter={onSetCenter}
+							/>
 						</div>
 						<div className={styles["content-info-title"]}>
 							<input

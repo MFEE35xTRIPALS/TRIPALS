@@ -17,6 +17,7 @@ const Edit = () => {
 	const [hashtags, setHashtags] = useState(null);
 	// const [strHashtags, setStrHashtags] = useState([null]);
 	const [spots, setSpots] = useState([]);
+	const [addCenter, setAddcenter] = useState(null);
 	// console.log(spots);
 	// console.log(hashtags);
 	useEffect(() => {
@@ -246,6 +247,11 @@ const Edit = () => {
 		}
 	};
 
+	// 點新增圖標時將 center 移動到選擇的地點
+	const handleSetCenter = (center) => {
+		setAddcenter(center);
+	};
+
 	return (
 		<>
 			<EditNavbar
@@ -272,6 +278,7 @@ const Edit = () => {
 										spots={spots}
 										onSpotChange={handleSpotChange}
 										onDeleteSpot={handleDeleteSpot}
+										onSetCenter={handleSetCenter}
 									/>
 								</div>
 							</div>
@@ -281,6 +288,7 @@ const Edit = () => {
 								<GoogleMapRender
 									selectedCity={mainData.main_location}
 									spots={spots}
+									addCenter={addCenter}
 								/>
 							</div>
 

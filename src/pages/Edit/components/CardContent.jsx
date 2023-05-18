@@ -1,7 +1,13 @@
 import CardSpot from "./CardSpot";
 import styles from "../Edit.module.scss";
 
-const CardContent = ({ main_articleno, spots, onSpotChange, onDeleteSpot }) => {
+const CardContent = ({
+	main_articleno,
+	spots,
+	onSpotChange,
+	onDeleteSpot,
+	onSetCenter,
+}) => {
 	// console.log(main_articleno);
 	return (
 		<div className={`${styles["edit-card-content"]}`}>
@@ -15,6 +21,7 @@ const CardContent = ({ main_articleno, spots, onSpotChange, onDeleteSpot }) => {
 							onSpotChange(item.contentno, updatedSpot)
 						}
 						onDeleteSpot={onDeleteSpot}
+						onSetCenter={onSetCenter}
 					/>
 				))}
 			</div>
