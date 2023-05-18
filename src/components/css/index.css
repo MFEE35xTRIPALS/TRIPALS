@@ -1441,11 +1441,10 @@ footer .container #footerNav li .footer_ch {
   height: 100%;
 }
 .wrapper .container .GreemCloud {
-  position: absolute;
   right: 0;
   bottom: 0;
   width: 500px;
-  z-index: -1;
+  position: absolute;
 }
 .wrapper .container .TaiwanMapSvg {
   flex-basis: 50%;
@@ -1479,12 +1478,16 @@ footer .container #footerNav li .footer_ch {
   padding: 20px;
   align-items: center;
   justify-content: center;
+  z-index: 10;
+  position: relative;
 }
 .wrapper .container .CityNameContainer .CityList .GreenDesign {
   font-size: 2rem;
   font-weight: bold;
+  position: relative;
   z-index: 3;
   width: 300px;
+  top: 35px;
   background-color: #b2d5ce;
   color: white;
   box-shadow: 0px 4px 4px rgba(37, 20, 20, 0.25);
@@ -1945,9 +1948,6 @@ header a {
   color: #ffffff;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-header a:hover {
-  color: white;
-}
 header .logInBtn {
   margin: 10px;
   padding: 8px 10px;
@@ -1972,7 +1972,6 @@ header .dropdown .userImage {
   width: 3rem;
   height: 3rem;
   margin-right: 1rem;
-  margin-top: 1rem;
   overflow: hidden;
 }
 header .dropdown .userImage .avatar {
@@ -1981,19 +1980,29 @@ header .dropdown .userImage .avatar {
   -o-object-fit: cover;
      object-fit: cover;
 }
-header .dropdown-menu {
-  padding: 2rem;
+header .dropdown .dropdown-toggle::after {
+  display: none;
 }
-header .dropdown-menu a {
+header .dropdown .dropdown-menu {
+  padding: 2rem;
+  margin-left: -11rem;
+}
+@media (max-width: 991px) {
+  header .dropdown .dropdown-menu {
+    margin-left: 1rem;
+    padding: 0.5rem;
+  }
+}
+header .dropdown .dropdown-menu a {
   font-family: "sen";
   font-style: normal;
   font-size: 1.5rem;
   color: #181818;
 }
-header .dropdown-menu .dropdown-item:hover {
+header .dropdown .dropdown-menu .dropdown-item:hover {
   background-color: transparent;
 }
-header .dropdown-menu .dropdown-item:focus,
-header .dropdown-menu .dropdown-item.active {
+header .dropdown .dropdown-menu .dropdown-item:focus,
+header .dropdown .dropdown-menu .dropdown-item.active {
   color: #9faf7d;
 }/*# sourceMappingURL=index.css.map */
