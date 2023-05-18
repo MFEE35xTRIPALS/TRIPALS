@@ -104,7 +104,7 @@ const Destination = (props) => {
   return (
     <div className="wrapper">
       <nav> </nav>
-      <div className="container">
+      <div className="container " id="apple">
         <img
           className="GreemCloud"
           src={"/images/GreemCloud.svg"}
