@@ -1,73 +1,70 @@
 const mapStyles = [
 	{
-		featureType: "administrative",
-		elementType: "all",
-		stylers: [
-			{
-				visibility: "on",
-			},
-		],
-	},
-	{
-		featureType: "administrative",
+		featureType: "poi",
 		elementType: "geometry.fill",
 		stylers: [
 			{
 				visibility: "on",
 			},
-		],
-	},
-	{
-		featureType: "administrative",
-		elementType: "geometry.stroke",
-		stylers: [
 			{
-				visibility: "on",
+				hue: "#1900ff",
+			},
+			{
+				color: "#c0e8e8",
 			},
 		],
 	},
 	{
-		featureType: "administrative",
-		elementType: "labels.text",
+		featureType: "poi.park",
+		elementType: "geometry.fill",
 		stylers: [
 			{
-				visibility: "on",
+				color: "#f5f5f5",
+			},
+			{
+				visibility: "off",
 			},
 		],
 	},
 	{
-		featureType: "landscape",
-		elementType: "all",
+		featureType: "poi.school",
+		elementType: "geometry.fill",
 		stylers: [
 			{
-				visibility: "on",
-			},
-		],
-	},
-	{
-		featureType: "poi",
-		elementType: "all",
-		stylers: [
-			{
-				visibility: "on",
+				visibility: "off",
 			},
 		],
 	},
 	{
 		featureType: "road",
-		elementType: "all",
+		elementType: "geometry",
 		stylers: [
 			{
-				visibility: "on",
+				lightness: 100,
+			},
+			{
+				visibility: "simplified",
 			},
 		],
 	},
 	{
-		featureType: "transit",
-		elementType: "all",
+		featureType: "road",
+		elementType: "labels",
+		stylers: [
+			{
+				visibility: "off",
+			},
+		],
+	},
+	{
+		featureType: "transit.line",
+		elementType: "geometry",
 		stylers: [
 			{
 				visibility: "on",
+			},
+			{
+				lightness: 700,
 			},
 		],
 	},
@@ -76,7 +73,7 @@ const mapStyles = [
 		elementType: "all",
 		stylers: [
 			{
-				visibility: "on",
+				color: "#7dcdcd",
 			},
 		],
 	},

@@ -1,9 +1,10 @@
 import React from "react";
 import { useState } from "react";
 import { GoogleMap, Marker } from "@react-google-maps/api";
+import styles from "../Edit.module.scss";
 import mapStyles from "./mapStyles.js";
 import cityCoordinates from "./cityCoordinates";
-// import markerIcon from "../../../assets/marker.svg";
+import markerIcon from "../../../assets/marker2.svg";
 
 const containerStyle = {
 	width: "100%",
@@ -15,18 +16,8 @@ const taiwanCenter = {
 	lng: 120.9605,
 };
 
-// const customMarkerIcon = {
-// 	url: markerIcon,
-// 	// scaledSize: new window.google.maps.Size(50, 50), // 設定圖檔顯示大小
-// };
-
 const GoogleMapRender = ({ selectedCity, spots }) => {
 	const [map, setMap] = useState(null);
-	// const { isLoaded, loadError } = useLoadScript({
-	// 	googleMapsApiKey: "AIzaSyAPOMZXMZfyOy1zrlETRf727BEzshgi2oM",
-	// 	libraries: placesLibrary,
-	// });
-	// console.log(spots);
 
 	// 先初始化 center
 	let center = cityCoordinates[selectedCity] || taiwanCenter;
@@ -34,6 +25,7 @@ const GoogleMapRender = ({ selectedCity, spots }) => {
 	// console.log(center);
 
 	const handleMapLoad = (map) => {
+		console.log(map);
 		setMap(map);
 		// 創建一個空的經緯度邊界（LatLngBounds）對象：
 		const bounds = new window.google.maps.LatLngBounds();
@@ -75,13 +67,28 @@ const GoogleMapRender = ({ selectedCity, spots }) => {
 		map.setCenter(center);
 	};
 
+	const calculateMarkerSize = () => {
+		if (map) {
+			const zoomLevel = map.getZoom();
+			const scaleFactor = 1;
+			const markerSize = 80;
+
+			return Math.ceil(markerSize * Math.pow(scaleFactor, zoomLevel));
+		}
+
+		return 80;
+	};
+
+	const customMarkerIcon = {
+		url: markerIcon,
+		scaledSize: new window.google.maps.Size(
+			calculateMarkerSize(),
+			calculateMarkerSize()
+		),
+	};
+
 	return (
 		<div>
-			{/* 其他內容 */}
-			{/* <LoadScript
-				googleMapsApiKey="AIzaSyAPOMZXMZfyOy1zrlETRf727BEzshgi2oM"
-				libraries={libraries}
-			> */}
 			<GoogleMap
 				mapContainerStyle={containerStyle}
 				// center={center}
@@ -101,12 +108,15 @@ const GoogleMapRender = ({ selectedCity, spots }) => {
 								  }
 								: null
 						}
-						label={{ text: `${index + 1}`, color: "#fff" }}
-						// icon={customMarkerIcon}
+						label={{
+							text: `${index + 1}`,
+							color: "#fff",
+							className: styles.markerLabel,
+						}}
+						icon={customMarkerIcon}
 					/>
 				))}
 			</GoogleMap>
-			{/* </LoadScript> */}
 		</div>
 	);
 };

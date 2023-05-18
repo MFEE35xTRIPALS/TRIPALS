@@ -4,9 +4,17 @@
 	font-family: "Sen", sans-serif;
 }
 
-body {
-	background-color: $colorRice;
-	// height: 100vh;
+// body {
+// 	 background-color: $colorRice;
+// 	 height: 100vh;
+// }
+// marker
+//
+.markerLabel {
+	position: relative;
+	top: -25px;
+	left: -1px;
+	color: #ffffff;
 }
 
 // 頁面容器
