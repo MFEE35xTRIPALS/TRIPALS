@@ -8,10 +8,9 @@ import axios from "axios";
 import { baseUrl } from "./config";
 import { compareData } from "./compareData";
 import styles from "./Edit.module.scss";
-import "bootstrap/dist/js/bootstrap.bundle";
 
 //定義組件
-const Edit = () => {
+const Edit = ({ currentUser, setCurrentUser, avatarImg }) => {
 	const [oldData, setOldData] = useState(null);
 	const [mainData, setMainData] = useState(null);
 	const [hashtags, setHashtags] = useState(null);
@@ -259,6 +258,7 @@ const Edit = () => {
 				onSaveDraft={handleSaveToDraft}
 				onSaveShow={handleSaveToShow}
 				onDeleteAll={handleDeleteAll}
+				avatarImg={avatarImg}
 			/>
 			<div className={`container-fluid ${styles["edit-container"]}`}>
 				{/* hashtag 有可能是 [] 空陣列 */}

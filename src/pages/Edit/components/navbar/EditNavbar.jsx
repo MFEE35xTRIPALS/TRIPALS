@@ -1,6 +1,12 @@
 import styles from "./EditNavbar.module.scss";
 
-const EditNavbar = ({ onAddSpot, onSaveDraft, onSaveShow, onDeleteAll }) => {
+const EditNavbar = ({
+	avatarImg,
+	onAddSpot,
+	onSaveDraft,
+	onSaveShow,
+	onDeleteAll,
+}) => {
 	return (
 		<nav className={`navbar fixed-top ${styles["edit-bar"]}`}>
 			<div className="container-fluid justify-space-between">
@@ -38,7 +44,10 @@ const EditNavbar = ({ onAddSpot, onSaveDraft, onSaveShow, onDeleteAll }) => {
 					<div className={styles["image-box"]}>
 						<img
 							className={styles["edit-user-image"]}
-							src="./image/user.png"
+							src={
+								avatarImg ||
+								"https://pbs.twimg.com/media/FF2jh3VWUAQFCo4?format=jpg&name=4096x4096"
+							}
 							alt="UserImage"
 						/>
 					</div>

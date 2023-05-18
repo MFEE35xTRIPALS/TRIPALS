@@ -23,7 +23,7 @@
 	height: 100vh; // 先給100vh佔位
 	background-color: $colorRice;
 	padding-top: 6rem; // navbar 是fixed-top 所以要向上推
-	overflow: auto;
+	// overflow: auto;
 	// 卡片容器
 	.edit-card-wrapper {
 		height: 100vh;

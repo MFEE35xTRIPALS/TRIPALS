@@ -1,6 +1,9 @@
 import { BrowserRouter, Route, Switch, Routes } from "react-router-dom";
 import { useState } from "react";
 
+// bootstrap
+import "bootstrap/dist/js/bootstrap.bundle";
+
 //Herry
 import Home from "./components/Home";
 import Navigation from "./components/Navigation";
@@ -54,11 +57,14 @@ function App() {
 	return (
 		<BrowserRouter>
 			<div>
-				<Navigation
-					avatarImg={avatarImg}
-					currentUser={currentUser}
-					setCurrentUser={setCurrentUser}
-				/>
+				{window.location.pathname !== "/Edit" && (
+					<Navigation
+						avatarImg={avatarImg}
+						currentUser={currentUser}
+						setCurrentUser={setCurrentUser}
+					/>
+				)}
+
 				<Switch>
 					<Route path="/" component={Home} exact />
 					<Route path="/register" component={Register} />
@@ -103,6 +109,17 @@ function App() {
 								currentUser={currentUser}
 								setCurrentUser={setCurrentUser}
 								setavatarImg={setavatarImg}
+							/>
+						)}
+					/>
+					<Route
+						path="/edit"
+						render={(props) => (
+							<Edit
+								{...props}
+								avatarImg={avatarImg}
+								currentUser={currentUser}
+								setCurrentUser={setCurrentUser}
 							/>
 						)}
 					/>
