@@ -39,6 +39,7 @@ a {
   src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.woff2) format("woff2"), url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.woff) format("woff"), url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.ttf) format("truetype");
 }
 /* 點選前消失 */
+.postBtn,
 .news-c {
   display: none;
 }
@@ -1016,10 +1017,6 @@ button.camera {
 .c-mine .c-myart tr.c-deleteDone td:nth-of-type(2),
 .c-mine .c-myart tr.c-deleteDone td:nth-of-type(3) {
   text-decoration: line-through;
-}
-
-.postBtn {
-  display: none;
 }
 
 .flexBtn {
