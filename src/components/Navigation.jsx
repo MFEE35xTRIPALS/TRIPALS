@@ -112,13 +112,13 @@ const Navigation = ({ currentUser, setCurrentUser }) => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="navWord" href="#" data-en="GUIDE" data-zh="旅遊導覽">GUIDE</a>
+                <a className="navWord" href="/guides" data-en="GUIDE" data-zh="旅遊導覽">GUIDE</a>
               </li>
               <li className="nav-item">
                 <a className="navWord" href="#" data-en="WRITE" data-zh="寫文章">WRITE</a>
               </li>
               <li className="nav-item">
-                <a className="navWord" href="#" data-en="DESTINATIONS" data-zh="目的地">DESTINATIONS</a>
+                <a className="navWord" href="/destination" data-en="DESTINATIONS" data-zh="目的地">DESTINATIONS</a>
               </li>
             </ul>
           </div>
