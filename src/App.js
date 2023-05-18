@@ -9,6 +9,9 @@ import "./components/CSS/Header.scss";
 import "./components/CSS/Footer.scss";
 import "./components/CSS/Bear.scss";
 
+import { useLoadScript } from "@react-google-maps/api";
+const libraries = ["places"];
+
 function App() {
 	const { isLoaded, loadError } = useLoadScript({
 		googleMapsApiKey: "AIzaSyAPOMZXMZfyOy1zrlETRf727BEzshgi2oM",

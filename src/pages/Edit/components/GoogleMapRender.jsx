@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { GoogleMap, Marker } from "@react-google-maps/api";
 import mapStyles from "./mapStyles.js";
 import cityCoordinates from "./cityCoordinates";
@@ -20,6 +21,7 @@ const taiwanCenter = {
 // };
 
 const GoogleMapRender = ({ selectedCity, spots }) => {
+	const [map, setMap] = useState(null);
 	// const { isLoaded, loadError } = useLoadScript({
 	// 	googleMapsApiKey: "AIzaSyAPOMZXMZfyOy1zrlETRf727BEzshgi2oM",
 	// 	libraries: placesLibrary,
@@ -28,9 +30,11 @@ const GoogleMapRender = ({ selectedCity, spots }) => {
 
 	// 先初始化 center
 	let center = cityCoordinates[selectedCity] || taiwanCenter;
+	let zoom = cityCoordinates[selectedCity] ? 14 : 7.8;
 	// console.log(center);
 
 	const handleMapLoad = (map) => {
+		setMap(map);
 		// 創建一個空的經緯度邊界（LatLngBounds）對象：
 		const bounds = new window.google.maps.LatLngBounds();
 
@@ -50,7 +54,13 @@ const GoogleMapRender = ({ selectedCity, spots }) => {
 		// 在所有的 spots 物件都處理完後，獲取邊界的中心點（center）：
 		// let calculatedCenter = null;
 		if (flag) {
+			console.log("true");
 			center = bounds.getCenter();
+			map.fitBounds(bounds);
+
+			window.setTimeout(() => {
+				zoom = map.getZoom() - 2;
+			}, 500); // 延遲 1 秒後獲取縮放級別
 		}
 		// calculatedCenter = bounds.getCenter();
 		// console.log("calculatedCenter", calculatedCenter);
@@ -61,7 +71,7 @@ const GoogleMapRender = ({ selectedCity, spots }) => {
 		// }
 
 		// console.log("final:" + center);
-
+		map.setZoom(zoom);
 		map.setCenter(center);
 	};
 
@@ -74,8 +84,8 @@ const GoogleMapRender = ({ selectedCity, spots }) => {
 			> */}
 			<GoogleMap
 				mapContainerStyle={containerStyle}
-				center={center}
-				zoom={15}
+				// center={center}
+				// zoom={zoom}
 				options={{ mapStyles }}
 				onLoad={handleMapLoad}
 			>

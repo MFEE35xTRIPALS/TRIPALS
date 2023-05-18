@@ -4,7 +4,7 @@ import { Autocomplete } from "@react-google-maps/api";
 // const placesLibrary = ["places"];
 
 const GoogleMapInput = ({ spot, onAddressNameChange }) => {
-	const [searchResult, setSearchResult] = useState("Result: none");
+	const [searchResult, setSearchResult] = useState(null);
 	// 先讓使用者能輸入文字
 	const [inputValue, setInputValue] = useState(spot.location_name || "");
 
@@ -37,7 +37,11 @@ const GoogleMapInput = ({ spot, onAddressNameChange }) => {
 	};
 
 	const handleAddressClick = () => {
-		if (searchResult != null) {
+		// console.log("input:" + inputValue);
+		// console.log("searchResult:", searchResult);
+		// if (inputValue) return;
+		if (searchResult.getPlace()) {
+			// console.log("click", searchResult);
 			const place = searchResult.getPlace();
 			const { lat, lng } = place.geometry.location;
 			const address = lat().toString() + "," + lng().toString();

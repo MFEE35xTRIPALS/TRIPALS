@@ -28,7 +28,7 @@ const Edit = () => {
 	// 	console.log(mainArticle);
 	// }, [mainArticle]);
 	//39 2
-	const articleID = 38;
+	const articleID = 2;
 
 	const fetchData = async () => {
 		try {
@@ -228,19 +228,22 @@ const Edit = () => {
 	// 刪除文章
 	const handleDeleteAll = () => {
 		console.log(mainData.main_articleno);
-		axios
-			.delete(`${baseUrl}/guide/`, {
-				data: { main_articleno: mainData.main_articleno },
-			})
-			.then((response) => {
-				// 刪除成功
-				alert("刪除成功");
-			})
-			.catch((error) => {
-				// 刪除失敗
-				alert("刪除失敗");
-				console.error("刪除失敗:", error);
-			});
+		const confirmDelete = window.confirm("確定要刪除此文章嗎？");
+		if (confirmDelete) {
+			axios
+				.delete(`${baseUrl}/guide/`, {
+					data: { main_articleno: mainData.main_articleno },
+				})
+				.then((response) => {
+					// 刪除成功
+					alert("刪除成功");
+				})
+				.catch((error) => {
+					// 刪除失敗
+					alert("刪除失敗");
+					console.error("刪除失敗:", error);
+				});
+		}
 	};
 
 	return (

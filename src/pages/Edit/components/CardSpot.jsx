@@ -46,7 +46,7 @@ const CardSpot = ({ main_articleno, spot, onSpotChange, onDeleteSpot }) => {
 			<div
 				id={`card-content-${spot.contentno}`}
 				className="accordion-collapse collapse" //show
-				data-bs-parent="#accordionContent"
+				// data-bs-parent="#accordionContent"
 			>
 				<div className="accordion-body">
 					<CardSpotImage
