@@ -33,7 +33,7 @@ function ViewArticle() {
 
       // setUserno(data.userno);
       // setArticleno(data.articleno);
-      setAddtime(data.add_date);
+      setAddtime(data.article_add_date);
       setId(data.id);
       setNickname(data.nickname);
       setAvatar(data.avatar);
@@ -171,7 +171,7 @@ function ViewArticle() {
             <GoogleMap
               mapContainerStyle={containerStyle}
               center={locations[0]}
-              zoom={16}
+              zoom={11}
               options={options}
             >
               {/* Child components, such as markers, info windows, etc. */}
@@ -276,8 +276,8 @@ function ViewArticle() {
                                   onClick={handleShowAllTags}
                                   className={`fa ${
                                     showAllTags
-                                      ? "fa-ellipsis-h"
-                                      : "fa-times-circle"
+                                      ? "fa-times-circle"
+                                      : "fa-ellipsis-h"
                                   }`}
                                 ></i>
                               )}

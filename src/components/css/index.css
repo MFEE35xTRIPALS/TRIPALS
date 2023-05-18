@@ -1272,6 +1272,7 @@ nav {
 }
 #content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #placeTitle .titlei #likepost {
   color: red;
+  margin-right: 10px;
 }
 #content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #placeTitle .titlei #reportPost {
   color: rgb(238, 219, 45);
