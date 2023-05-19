@@ -2549,6 +2549,7 @@ nav {
 
 footer {
   background-color: #73a083;
+  position: sticky;
 }
 footer .container {
   display: flex;
