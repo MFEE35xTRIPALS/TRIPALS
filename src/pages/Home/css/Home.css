@@ -166,7 +166,7 @@
   position: absolute;
   margin-top: 15rem;
   height: 35rem;
-  width: 8%;
+  width: 190px;
   left: 40%;
   writing-mode: vertical-rl;
   background-color: #9faf7d;
@@ -175,15 +175,15 @@
   font-family: "sen";
   font-style: normal;
   font-weight: 400;
-  font-size: 5rem;
-  color: #000000;
+  font-size: 4.5rem;
+  color: #ffffff;
 }
 #about h4 {
   position: absolute;
   margin-top: 40rem;
-  left: 50%;
+  left: 51%;
   height: 35rem;
-  width: 8%;
+  width: 190px;
   writing-mode: vertical-rl;
   background-color: #73a083;
   z-index: 2;
@@ -191,7 +191,7 @@
   font-family: "sen";
   font-style: normal;
   font-weight: 400;
-  font-size: 5rem;
+  font-size: 4rem;
   color: #ffffff;
 }
 #about #seaView {
@@ -256,8 +256,12 @@
   font-style: normal;
   font-weight: 700;
   font-size: 4rem;
-  line-height: 43px;
   color: #ffffff;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 700px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 @media (max-width: 1500px) {
   #popular section#article .container #target-div1 {
@@ -275,6 +279,7 @@
   font-weight: 700;
   font-size: 2rem;
   color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
 }
 @media (max-width: 1500px) {
   #popular section#article .container #target-div2 {
@@ -295,6 +300,7 @@
   font-size: 1.25rem;
   line-height: 43px;
   color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
 }
 @media (max-width: 1500px) {
   #popular section#article .container #target-div3 {
@@ -306,7 +312,7 @@
   top: 0;
   right: 0;
   width: 69.5%;
-  max-width: 900px;
+  max-width: 770px;
   padding-top: 250px;
   padding-bottom: 50px;
   z-index: 10;
@@ -347,7 +353,7 @@
 #popular section#article .container .swiper-container .swiper-wrapper .popularUser {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-end;
   letter-spacing: 2px;
   position: absolute;
   bottom: 1rem;
@@ -359,13 +365,89 @@
   color: #ffffff;
 }
 #popular section#article .container .swiper-container .swiper-wrapper .popularUser p {
+  margin-bottom: 0.5rem;
+  margin-left: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+#popular section#article .container .swiper-container .swiper-wrapper #slide0 {
+  box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.7);
+  position: relative;
+}
+#popular section#article .container .swiper-container .swiper-wrapper #slide0 .article0-topText1 {
+  position: absolute;
+  bottom: 7rem;
+  left: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+#popular section#article .container .swiper-container .swiper-wrapper #slide0 .article0-topText1 h1 {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 280px;
+  font-family: "Sen";
+  font-style: bold;
+  font-weight: 800;
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: -1.5rem;
+}
+#popular section#article .container .swiper-container .swiper-wrapper #slide0 .article0-topText3 {
+  position: absolute;
+  bottom: 1rem;
+  right: 15px;
+  font-family: "Sen";
+  font-size: 1rem;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+#popular section#article .container .swiper-container .swiper-wrapper #slide0 .article0-topText3 .fa-eye {
   margin-left: 1rem;
 }
-#popular section#article .container .swiper-container .swiper-wrapper #slideA {
+#popular section#article .container .swiper-container .swiper-wrapper #slide1 {
+  box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.7);
+  position: relative;
+  width: 300px;
+}
+#popular section#article .container .swiper-container .swiper-wrapper #slide1 .article1-topText1 {
+  position: absolute;
+  bottom: 7rem;
+  font-family: "Sen";
+  font-style: bold;
+  font-weight: 800;
+  font-size: 2.5rem;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+  margin-left: 0.5rem;
+}
+#popular section#article .container .swiper-container .swiper-wrapper #slide1 .article1-topText1 h1 {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 280px;
+  font-family: "Sen";
+  font-style: bold;
+  font-weight: 800;
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: -1.5rem;
+}
+#popular section#article .container .swiper-container .swiper-wrapper #slide1 .article1-topText3 {
+  position: absolute;
+  bottom: 1rem;
+  right: 15px;
+  font-family: "Sen";
+  font-size: 1rem;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+#popular section#article .container .swiper-container .swiper-wrapper #slide1 .article1-topText3 .fa-eye {
+  margin-left: 1rem;
+}
+#popular section#article .container .swiper-container .swiper-wrapper #slide2 {
   box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.7);
   position: relative;
 }
-#popular section#article .container .swiper-container .swiper-wrapper #slideA .articleA-topText1 {
+#popular section#article .container .swiper-container .swiper-wrapper #slide2 .article2-topText1 {
   position: absolute;
   bottom: 7rem;
   left: 10px;
@@ -374,63 +456,37 @@
   font-weight: 800;
   font-size: 2.5rem;
   color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-#popular section#article .container .swiper-container .swiper-wrapper #slideA .articleA-topText3 {
-  position: absolute;
-  bottom: 1rem;
-  right: 15px;
-  font-family: "Sen";
-  font-size: 1rem;
-  color: #ffffff;
-}
-#popular section#article .container .swiper-container .swiper-wrapper #slideB {
-  box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.7);
-  position: relative;
-}
-#popular section#article .container .swiper-container .swiper-wrapper #slideB .articleB-topText1 {
-  position: absolute;
-  bottom: 7rem;
+#popular section#article .container .swiper-container .swiper-wrapper #slide2 .article2-topText1 h1 {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 280px;
   font-family: "Sen";
   font-style: bold;
   font-weight: 800;
   font-size: 2.5rem;
   color: #ffffff;
+  margin-bottom: -1.5rem;
 }
-#popular section#article .container .swiper-container .swiper-wrapper #slideB .articleB-topText3 {
-  position: absolute;
-  bottom: 1rem;
-  right: 15px;
-  font-family: "Sen";
-  font-size: 1rem;
-  color: #ffffff;
-}
-#popular section#article .container .swiper-container .swiper-wrapper #slideC {
-  box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.7);
-  position: relative;
-}
-#popular section#article .container .swiper-container .swiper-wrapper #slideC .articleC-topText1 {
-  position: absolute;
-  bottom: 7rem;
-  left: 10px;
-  font-family: "Sen";
-  font-style: bold;
-  font-weight: 800;
-  font-size: 2.5rem;
-  color: #ffffff;
-}
-#popular section#article .container .swiper-container .swiper-wrapper #slideC .article-C {
+#popular section#article .container .swiper-container .swiper-wrapper #slide2 .article-2 {
   width: 450px;
   margin-top: -10px;
   margin-left: -60px;
   transform: rotate(-12deg);
 }
-#popular section#article .container .swiper-container .swiper-wrapper #slideC .articleC-topText3 {
+#popular section#article .container .swiper-container .swiper-wrapper #slide2 .article2-topText3 {
   position: absolute;
   bottom: 1rem;
   right: 15px;
   font-family: "Sen";
   font-size: 1rem;
   color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+#popular section#article .container .swiper-container .swiper-wrapper #slide2 .article2-topText3 .fa-eye {
+  margin-left: 1rem;
 }
 #popular section#article .container .swiper-button-next {
   right: calc(65vw - 470px);
@@ -573,37 +629,48 @@
          column-count: 1;
   }
 }
-#recommend .container .card {
+#recommend .container .recommemdCard {
   -moz-column-break-inside: avoid;
        break-inside: avoid;
 }
-#recommend .container .card img {
+#recommend .container .recommemdCard .card-img {
+  filter: brightness(90%);
+}
+#recommend .container .recommemdCard img.avatar {
   max-width: 100%;
   max-height: 540px;
   -o-object-fit: cover;
      object-fit: cover;
 }
-#recommend .container .card .card-img-overlay .user {
+#recommend .container .recommemdCard .card-img-overlay h5 {
+  cursor: pointer;
+  font-family: "Sen";
+  font-style: bold;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+#recommend .container .recommemdCard .card-img-overlay h5:hover {
+  opacity: 0.8;
+}
+#recommend .container .recommemdCard .card-img-overlay .user {
   display: flex;
   flex-direction: row;
 }
-#recommend .container .card .card-img-overlay .user img {
+#recommend .container .recommemdCard .card-img-overlay .user img {
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
   overflow: hidden;
 }
-#recommend .container .card .card-img-overlay .user P {
+#recommend .container .recommemdCard .card-img-overlay .user P {
   font-family: "Sen";
   font-style: bold;
   font-weight: 800;
-  font-size: 1rem;
+  font-size: 1.25rem;
   color: #ffffff;
   align-self: center;
   margin-left: 1rem;
-}
-
-.card:hover {
-  opacity: 0.8;
-  cursor: pointer;
+  text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.9);
 }/*# sourceMappingURL=Home.css.map */

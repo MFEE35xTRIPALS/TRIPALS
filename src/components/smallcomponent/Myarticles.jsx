@@ -50,7 +50,7 @@ function Myarticles({ currentUser, selfarticles, setselfarticles }) {
                   return (
                     <tr key={i}>
                       <td>
-                        <a href={`/${value.articleno}`}>
+                        <a href={`/view${value.articleno}`}>
                           {value.title}
                         </a>
                       </td>
@@ -81,7 +81,11 @@ function Myarticles({ currentUser, selfarticles, setselfarticles }) {
                 } else if (value.status === "draft") {
                   return (
                     <tr key={i}>
-                      <td>{value.title}</td>
+                      <td>
+                        <a href={`/view${value.articleno}`}>
+                          {value.title}
+                        </a>
+                      </td>
                       <td>
                         <i className="fa-regular fa-eye"></i>{" "}
                         {value.view_count}
@@ -94,7 +98,7 @@ function Myarticles({ currentUser, selfarticles, setselfarticles }) {
                       <td>
                         <a
                           className="c-editArt"
-                          href={`/${value.articleno}`}
+                          href={`/edit/${value.articleno}`}
                         >
                           <i className="fa-regular fa-pen-to-square"></i>
                         </a>

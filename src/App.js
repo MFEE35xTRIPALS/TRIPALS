@@ -32,6 +32,7 @@ const libraries = ["places"];
 
 function App() {
 	let [currentUser, setCurrentUser] = useState(localStorage.getItem("user"));
+	console.log(localStorage.getItem("user"));
 	// currentUser裡是這個[{userno: 12, permission: 1, avatar: "/useravatar/12.png"}]
 	let [avatarImg, setavatarImg] = useState(
 		currentUser
@@ -90,7 +91,16 @@ function App() {
 							/>
 						)}
 					/>
-					<Route path="/view:articleno" component={ViewArticle} />
+					<Route
+						path="/view:articleno"
+						render={(props) => (
+							<ViewArticle
+								{...props}
+								currentUser={currentUser}
+								setCurrentUser={setCurrentUser}
+							/>
+						)}
+					/>
 					<Route
 						path="/admin"
 						render={(props) => (

@@ -1,0 +1,331 @@
+@charset "UTF-8";
+* {
+  font-family: "Sen", sans-serif;
+}
+
+.markerLabel {
+  position: relative;
+  top: -25px;
+  left: -1px;
+  color: #ffffff;
+}
+
+.edit-container {
+  position: relative;
+  background-color: #f0e8dc;
+  padding-top: 6rem;
+  margin-bottom: 5rem;
+}
+.edit-container .edit-card-wrapper {
+  height: 85vh;
+  overflow-y: auto;
+}
+.edit-container .edit-card-wrapper::-webkit-scrollbar {
+  width: 12px;
+}
+.edit-container .edit-card-wrapper::-webkit-scrollbar-track {
+  border-radius: 8px;
+  background-color: #e7e7e7;
+  border: 1px solid #cacaca;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+.edit-container .edit-card-wrapper::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: #65c6c6;
+}
+.edit-container .edit-card-container {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.edit-container .edit-card-container .accordion-item-color {
+  background-color: rgba(255, 255, 255, 0.65);
+}
+.edit-container .edit-card-container hr {
+  margin: 0 1.25rem;
+  border: 1px solid #65c6c6;
+  opacity: 1;
+}
+.edit-container .edit-card-container .edit-accordion-btn {
+  color: unset;
+  background-color: unset;
+  box-shadow: unset;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.edit-container .edit-card-container .edit-accordion-btn::after {
+  background-image: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' fill='%2365c6c6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15.916 7.44141L16.7832 8.30859C17.1504 8.67578 17.1504 9.26953 16.7832 9.63281L9.19336 17.2266C8.82617 17.5938 8.23242 17.5938 7.86914 17.2266L0.275391 9.63281C-0.0917969 9.26562 -0.0917969 8.67188 0.275391 8.30859L1.14258 7.44141C1.51367 7.07031 2.11914 7.07812 2.48242 7.45703L6.9668 12.1641V0.9375C6.9668 0.417969 7.38477 0 7.9043 0H9.1543C9.67383 0 10.0918 0.417969 10.0918 0.9375V12.1641L14.5762 7.45703C14.9395 7.07422 15.5449 7.06641 15.916 7.44141Z' fill='%2365c6c6'/%3E%3C/svg%3E%0A");
+}
+.edit-container .edit-card-container .edit-accordion-btn:focus {
+  box-shadow: none;
+}
+.edit-container .edit-card-container .edit-image-content .edit-image {
+  width: 100%;
+  height: 360px;
+  background-color: white;
+  background-size: cover;
+  position: relative;
+}
+.edit-container .edit-card-container .edit-image-content .edit-image .btn-upload {
+  mix-blend-mode: normal;
+  background-color: #ffffff;
+  padding: 0.2rem 0.5rem;
+  border: 3px solid #65c6c6;
+  border-radius: 10px;
+  color: #65c6c6;
+  font-size: 1.25rem;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  transition: all 0.1s ease-in;
+}
+.edit-container .edit-card-container .edit-image-content .edit-image .btn-upload:hover {
+  border: 3px solid #65c6c6;
+  color: #65c6c6;
+}
+.edit-container .edit-card-container input {
+  width: 100%;
+  border: none;
+  background-color: rgba(220, 220, 220, 0.8);
+  border-radius: 0.5rem;
+  padding: 0 0.5rem;
+}
+.edit-container .edit-card-container .info-content {
+  width: 100%;
+  font-size: 1rem;
+  display: inline-flex;
+  margin-top: 1rem;
+}
+.edit-container .edit-card-container .info-content textarea {
+  height: 8rem;
+  width: 100%;
+  border: none;
+  background-color: rgba(220, 220, 220, 0.8);
+  border-radius: 0.5rem;
+  resize: none;
+  padding: 0.5rem;
+}
+.edit-container .edit-card-container .edit-card-main .edit-accordion-btn {
+  display: flex !important;
+  justify-content: center;
+}
+.edit-container .edit-card-container .edit-card-main .edit-accordion-btn::before {
+  height: 20px;
+  width: 20px;
+  content: "";
+  margin-right: auto;
+}
+.edit-container .edit-card-container .edit-card-main h2 {
+  position: relative;
+}
+.edit-container .edit-card-container .edit-card-main h2 hr {
+  width: calc(100% - 2.5rem);
+  margin: 0;
+  left: 1.25rem;
+  position: absolute;
+}
+.edit-container .edit-card-container .edit-card-main .edit-main-info {
+  margin-top: 1rem;
+  padding: 1.5rem;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.edit-container .edit-card-container .edit-card-main .edit-main-info .main-info-title {
+  width: 100%;
+  font-size: 1.25rem;
+}
+.edit-container .edit-card-container .edit-card-main .edit-main-info .main-info-tag {
+  width: 100%;
+  font-size: 1.25rem;
+  margin-top: 1rem;
+}
+.edit-container .edit-card-container .edit-card-main .edit-main-info .main-info-tag .main-info-tag-input {
+  display: flex;
+}
+.edit-container .edit-card-container .edit-card-main .edit-main-info .main-info-tag .main-info-tag-input span {
+  margin-right: 0.5rem;
+  color: #65c6c6;
+}
+.edit-container .edit-card-container .edit-card-main .edit-main-info .main-info-tag .main-info-tag-input select {
+  padding: 0 0.5rem;
+  margin-left: 1rem;
+  border: #65c6c6 2px solid;
+  border-radius: 0.5rem;
+}
+.edit-container .edit-card-container .edit-card-main .edit-main-info .main-info-tag::after {
+  display: block;
+  width: 100%;
+  content: "";
+  border-bottom: #65c6c6 2px solid;
+  margin-top: 1rem;
+}
+.edit-container .edit-card-container .edit-card-content .content-title {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+}
+.edit-container .edit-card-container .edit-card-content .content-title .btn-delete {
+  display: inline-flex;
+  max-width: 20px;
+  height: 20px;
+  border: none;
+  background: none;
+  outline: none;
+  padding: 0;
+}
+.edit-container .edit-card-container .edit-card-content .content-title .btn-delete > i {
+  font-size: 24px;
+  color: #ff4848;
+  transition: all 0.1s ease-in;
+}
+.edit-container .edit-card-container .edit-card-content .content-title .btn-delete:hover > i {
+  transform: scale(1.2);
+}
+.edit-container .edit-card-container .edit-card-content .content-title span {
+  font-size: 1.25rem;
+}
+.edit-container .edit-card-container .edit-card-content .content-title .edit-accordion-btn {
+  display: flex !important;
+  justify-content: center;
+  width: unset;
+  padding: 0;
+}
+.edit-container .edit-card-container .edit-card-content .edit-content-info {
+  margin-top: 1rem;
+  padding: 1.5rem;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.edit-container .edit-card-container .edit-card-content .edit-content-info input {
+  width: 100%;
+  border: none;
+  background-color: rgba(220, 220, 220, 0.8);
+  border-radius: 0.5rem;
+}
+.edit-container .edit-card-container .edit-card-content .edit-content-info .content-info-location {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 1.25rem;
+}
+.edit-container .edit-card-container .edit-card-content .edit-content-info .content-info-location div {
+  display: flex;
+  width: 75%;
+}
+.edit-container .edit-card-container .edit-card-content .edit-content-info .content-info-location div input {
+  width: 100%;
+}
+.edit-container .edit-card-container .edit-card-content .edit-content-info .content-info-location .edit-add-location-btn {
+  color: white;
+  background-color: #578f52;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.25rem;
+  margin: 0 0.5rem;
+  transition: all 0.1s ease; /* 添加過渡效果以平滑過渡 */
+  margin: 0;
+}
+.edit-container .edit-card-container .edit-card-content .edit-content-info .content-info-location .edit-add-location-btn:hover {
+  color: white;
+  background-color: #4e814a;
+  border: none;
+}
+.edit-container .edit-card-container .edit-card-content .edit-content-info .content-info-location .edit-add-location-btn:active {
+  color: white !important;
+  background-color: #467242 !important;
+  border: none;
+}
+.edit-container .edit-card-container .edit-card-content .edit-content-info .content-info-title {
+  margin-top: 1rem;
+  width: 100%;
+  font-size: 1.25rem;
+}
+.edit-container .edit-card-container .edit-card-content .edit-content-info .content-info-title input {
+  padding: 0.5rem;
+}
+
+@keyframes cardSpotAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.spot-card-animation {
+  animation: cardSpotAnimation 0.5s ease-in-out;
+}
+
+.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #f0e8dc;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+.loader .lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  align-self: center;
+}
+.loader .lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #65c6c6;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.loader .lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.loader .lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.loader .lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.loader .lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}/*# sourceMappingURL=Edit.module.css.map */
