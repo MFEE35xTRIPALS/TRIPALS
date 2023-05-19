@@ -14,12 +14,14 @@ function Selfpage({ currentUser, setCurrentUser }) {
   let [selfIntroduce, setselfIntroduce] = useState("");
   let [articles, setarticles] = useState([]);
   let [userlikes, setuserlikes] = useState([]);
+  let [apple, setapple] = useState(null);
 
   useEffect(() => {
     async function firstRendem() {
       let result = await axios.post(url + `/selfpage/cards/${authorno}`, {
         userno: userno,
       });
+      setapple(result);
       setavatar(
         result.data.authormessage[0].avatar
           ? url + result.data.authormessage[0].avatar
@@ -40,37 +42,49 @@ function Selfpage({ currentUser, setCurrentUser }) {
 
   return (
     <div>
-      <section className="selftop">
-        <img className="selfCover" src={banner} alt="個人封面" />
+      {apple ? (<div>
+        <section className="selftop">
+          <img className="selfCover" src={banner} alt="個人封面" />
 
-        <div className="selfMessage">
-          <img className="selfShot" src={avatar} alt="大頭貼" />
-          <h4 className="userName">{userName}</h4>
-        </div>
-      </section>
-
-      <div className="container">
-        <section className="selfIntroduce">
-          <p>{selfIntroduce}</p>
-        </section>
-        <section className="selfArticles">
-          <h6 className="articles">ARTICLES</h6>
-          <div className="selfCards">
-            <div className="c-mylikes">
-              {articles.map((article, i) => (
-                <Card
-                  key={i}
-                  data={article}
-                  ifUserLike={userlikes.includes(article.articleno)}
-                  userno={userno}
-                  currentUser={currentUser}
-                />
-              ))}
-            </div>
+          <div className="selfMessage">
+            <img className="selfShot" src={avatar} alt="大頭貼" />
+            <h4 className="userName">{userName}</h4>
           </div>
         </section>
-      </div>
-      <BearLogo />
+
+        <div className="container">
+          <section className="selfIntroduce">
+            <p>{selfIntroduce}</p>
+          </section>
+          <section className="selfArticles">
+            <h6 className="articles">ARTICLES</h6>
+            <div className="selfCards">
+              <div className="c-mylikes">
+                {articles.map((article, i) => (
+                  <Card
+                    key={i}
+                    data={article}
+                    ifUserLike={userlikes.includes(article.articleno)}
+                    userno={userno}
+                    currentUser={currentUser}
+                  />
+                ))}
+              </div>
+            </div>
+          </section>
+        </div>
+        <BearLogo />
+      </div>) : (
+        <div className="loader">
+          <div className="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }
