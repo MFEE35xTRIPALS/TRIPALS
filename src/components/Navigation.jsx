@@ -96,28 +96,33 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg }) => {
 		setCurrentUser(null);
 	};
 
+	// 暫時寫法
 	const handleWriteClick = async () => {
-		redirectLogin();
+		const flag = redirectLogin();
 
-		axios
-			.post(`${baseUrl}/guide/`, {
-				userno: JSON.parse(currentUser)[0].userno,
-			})
-			.then((response) => {
-				window.location = `/edit/${response.data.main_articleno}`;
-			})
-			.catch((error) => {
-				// 新增失敗
-				alert("新增失敗");
-				console.error("新增失敗:", error);
-			});
+		if (flag) {
+			axios
+				.post(`${baseUrl}/guide/`, {
+					userno: JSON.parse(currentUser)[0].userno,
+				})
+				.then((response) => {
+					window.location = `/edit/${response.data.main_articleno}`;
+				})
+				.catch((error) => {
+					// 新增失敗
+					alert("新增失敗");
+					console.error("新增失敗:", error);
+				});
+		}
 	};
 
+	// 暫時寫法
 	const redirectLogin = () => {
 		// console.log(currentUser);
 		if (!currentUser) {
 			console.log("沒登入");
 			window.location = "/login";
+			return false;
 		}
 	};
 
