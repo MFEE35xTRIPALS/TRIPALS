@@ -123,6 +123,8 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg }) => {
 			console.log("沒登入");
 			window.location = "/login";
 			return false;
+		} else {
+			return true;
 		}
 	};
 
@@ -158,7 +160,7 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg }) => {
 							<li className="nav-item">
 								<a
 									className="navWord"
-									// href="/addguide"
+									// href="/"
 									data-en="WRITE"
 									data-zh="寫文章"
 									onClick={handleWriteClick}

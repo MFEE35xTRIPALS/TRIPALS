@@ -58,7 +58,7 @@ function App() {
 	return (
 		<BrowserRouter>
 			<div>
-				{window.location.pathname !== "/Edit" && (
+				{window.location.pathname !== "/edit" && (
 					<Navigation
 						avatarImg={avatarImg}
 						currentUser={currentUser}
