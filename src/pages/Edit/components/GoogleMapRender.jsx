@@ -88,7 +88,12 @@ const GoogleMapRender = ({ selectedCity, spots, addCenter }) => {
 				mapContainerStyle={containerStyle}
 				// center={center}
 				// zoom={zoom}
-				options={{ styles: mapStyles }}
+				options={{
+					styles: mapStyles,
+					gestureHandling: "greedy",
+					fullscreenControl: false,
+					mapTypeControl: false,
+				}}
 				onLoad={handleMapLoad}
 			>
 				{spots.map((spot, index) => (

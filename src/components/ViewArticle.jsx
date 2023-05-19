@@ -2,11 +2,14 @@ import { GoogleMap, MarkerF } from "@react-google-maps/api";
 import { useParams } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import markerIcon from "../assets/marker2.svg";
+import mapStyles from "../pages/Edit/components/mapStyles";
 import axios from "axios";
 
 function ViewArticle({ currentUser, setCurrentUser }) {
 	const url = "http://localhost:8000";
-	const [userno, setuserno] = useState(currentUser ? JSON.parse(currentUser)[0].userno : '');
+	const [userno, setuserno] = useState(
+		currentUser ? JSON.parse(currentUser)[0].userno : ""
+	);
 	const { articleno } = useParams();
 	const [allData, setAlldata] = useState(null);
 	const [AddTime, setAddtime] = useState(null);
@@ -78,8 +81,10 @@ function ViewArticle({ currentUser, setCurrentUser }) {
 	//     lng: 121.564472
 	// };
 	const options = {
-		disableDefaultUI: true,
+		styles: mapStyles,
 		gestureHandling: "greedy",
+		fullscreenControl: false,
+		mapTypeControl: false,
 	};
 
 	const locations = spots.map((x) => {
@@ -272,8 +277,9 @@ function ViewArticle({ currentUser, setCurrentUser }) {
 										</h2>
 										<div
 											id="panelsStayOpen-collapseOne"
-											className={`accordion-collapse collapse ${showPanels ? "show" : ""
-												}`}
+											className={`accordion-collapse collapse ${
+												showPanels ? "show" : ""
+											}`}
 											aria-labelledby="panelsStayOpen-headingOne"
 										>
 											<div className="accordion-body">
@@ -294,8 +300,9 @@ function ViewArticle({ currentUser, setCurrentUser }) {
 																	<i
 																		id="likepost"
 																		onClick={handleLikeClick}
-																		className={`fa-heart ${liked ? "fa-solid" : "fa-regular"
-																			}`}
+																		className={`fa-heart ${
+																			liked ? "fa-solid" : "fa-regular"
+																		}`}
 																	></i>
 																	<i
 																		id="reportPost"
@@ -308,8 +315,9 @@ function ViewArticle({ currentUser, setCurrentUser }) {
 															{/* <hr id="pTagUpHr" className="d-none" /> */}
 															<hr
 																id="pTagUpHr"
-																className={`${hashtags.length === 0 ? "d-none" : ""
-																	}`}
+																className={`${
+																	hashtags.length === 0 ? "d-none" : ""
+																}`}
 															/>
 															<div id="placeTag">
 																{/* <HashTag  data={this.state.hashtags}/> */}
@@ -329,10 +337,11 @@ function ViewArticle({ currentUser, setCurrentUser }) {
 																{hashtags.length > 3 && (
 																	<i
 																		onClick={handleShowAllTags}
-																		className={`fa ${showAllTags
-																			? "fa-times-circle"
-																			: "fa-ellipsis-h"
-																			}`}
+																		className={`fa ${
+																			showAllTags
+																				? "fa-times-circle"
+																				: "fa-ellipsis-h"
+																		}`}
 																	></i>
 																)}
 															</div>
@@ -380,8 +389,9 @@ function ViewArticle({ currentUser, setCurrentUser }) {
 											</h2>
 											<div
 												id={`panelsStayOpen-collapse${index}`}
-												className={`accordion-collapse collapse ${showPanels ? "show" : ""
-													}`}
+												className={`accordion-collapse collapse ${
+													showPanels ? "show" : ""
+												}`}
 												aria-labelledby={`panelsStayOpen-heading${index}`}
 											>
 												<div className="accordion-body">
