@@ -13,7 +13,7 @@ function BearLogo() {
 
   return (
     <div>
-      <a href="/">
+      <a href="#">
         <img
           id="bear"
           src={imageSrc}
