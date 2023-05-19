@@ -91,7 +91,13 @@ function App() {
               />
             )}
           />
-          <Route path="/view:articleno" component={ViewArticle} />
+          <Route path="/view:articleno" render={(props) => (
+            <ViewArticle
+              {...props}
+              currentUser={currentUser}
+              setCurrentUser={setCurrentUser}
+            />
+          )} />
           <Route
             path="/admin"
             render={(props) => (
