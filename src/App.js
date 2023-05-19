@@ -113,7 +113,7 @@ function App() {
 						)}
 					/>
 					<Route
-						path="/edit"
+						path="/edit/:articleno"
 						render={(props) => (
 							<Edit
 								{...props}

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getValidationRegex } from "./hashtagValidation";
+import { useParams } from "react-router-dom";
 import EditNavbar from "./components/navbar/EditNavbar";
 import CardMain from "./components/CardMain";
 import CardContent from "./components/CardContent";
@@ -11,6 +12,7 @@ import styles from "./Edit.module.scss";
 
 //定義組件
 const Edit = ({ currentUser, setCurrentUser, avatarImg }) => {
+	const { articleno } = useParams();
 	const [oldData, setOldData] = useState(null);
 	const [mainData, setMainData] = useState(null);
 	const [hashtags, setHashtags] = useState(null);
@@ -28,7 +30,7 @@ const Edit = ({ currentUser, setCurrentUser, avatarImg }) => {
 	// 	console.log(mainArticle);
 	// }, [mainArticle]);
 	//39 2
-	const articleID = 2;
+	const articleID = articleno;
 
 	const fetchData = async () => {
 		try {
