@@ -1882,6 +1882,10 @@ nav {
 }
 #main .divVideo .videoContent #LOGO {
   align-items: center;
+  z-index: 10;
+}
+#main .divVideo .videoContent .slogan {
+  z-index: 10;
 }
 #main .divVideo .videoContent .slogan h5 {
   font-family: "Sen";
@@ -1897,14 +1901,17 @@ nav {
     font-size: 1.3rem;
   }
 }
-#main .divVideo .videoContent button {
+#main .divVideo .videoContent div {
+  z-index: 10;
+}
+#main .divVideo .videoContent div button {
   margin-top: 2rem;
   text-align: center;
   border: 2px solid #ffffff;
   border-radius: 50px;
   padding: 0px 50px;
 }
-#main .divVideo .videoContent button a {
+#main .divVideo .videoContent div button a {
   text-decoration: none;
   font-family: "Sen";
   font-style: normal;
