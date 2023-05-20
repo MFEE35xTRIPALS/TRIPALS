@@ -55,10 +55,12 @@ function App() {
 		return <div>載入地圖時發生錯誤</div>;
 	}
 
+	const currentPath = window.location.pathname;
+
 	return (
 		<BrowserRouter>
 			<div>
-				{window.location.pathname !== "/edit" && (
+				{!currentPath.startsWith("/edit/") && (
 					<Navigation
 						avatarImg={avatarImg}
 						currentUser={currentUser}
