@@ -23,7 +23,7 @@ function Home() {
       setNews(result.data[0]);
       setPopular(result.data[1]);
       setShowdiv1(result.data[1][0].title);
-      setShowdiv2(result.data[1][0].avatar.username);
+      setShowdiv2(result.data[1][0].username);
       setShowdiv3(result.data[1][0].like_count);
       setShowdiv4(result.data[1][0].view_count);
       // setShowdiv5(result.data[1][0].(url + avatar));
