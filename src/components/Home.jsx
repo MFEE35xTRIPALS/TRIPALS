@@ -23,7 +23,7 @@ function Home() {
       setNews(result.data[0]);
       setPopular(result.data[1]);
       setShowdiv1(result.data[1][0].title);
-      setShowdiv2(result.data[1][0].username);
+      setShowdiv2(result.data[1][0].avatar.username);
       setShowdiv3(result.data[1][0].like_count);
       setShowdiv4(result.data[1][0].view_count);
       // setShowdiv5(result.data[1][0].(url + avatar));
@@ -68,16 +68,15 @@ function Home() {
           slideChange: function () {
             var content1 = this.slides[this.activeIndex].children[0].innerText;
             var content2 = this.slides[this.activeIndex].children[1].innerText;
-            // var content3 = this.slides[this.activeIndex].children[2].children[0].children[1].innerText;
-            // var content4 = this.slides[this.activeIndex].children[2].children[1].children[1].innerText;
-            // var content5 = this.slides[this.activeIndex].children[3];
-
+            var content3 = this.slides[this.activeIndex].children[2].children[0].children[1].innerText;
+            var content4 = this.slides[this.activeIndex].children[2].children[0].children[3].innerText;
+            // var content5 = this.slides[this.activeIndex].children[];
             // console.log(content3);
             // console.log(content4);
             setShowdiv1(content1);
             setShowdiv2(content2);
-            // setShowdiv3(content3);
-            // setShowdiv4(content4);
+            setShowdiv3(content3);
+            setShowdiv4(content4);
           },
         },
       });
@@ -205,8 +204,6 @@ function Home() {
 
         <section id="article" className="article">
           <div className="container">
-            <br />
-            <div id="reflection">
             <div data-aos="fade-right"
               data-aos-offset="300"
               data-aos-duration="1000"
@@ -220,9 +217,9 @@ function Home() {
               data-aos-duration="1000"
               data-aos-easing="ease-in-sine" id="target-div3">
               <div><i className="fa-solid fa-heart"></i> {showdiv3}</div>
-              <div><i className="fa-regular fa-eye"></i> {showdiv4}</div>
+              <div id="viewsCount"><i className="fa-regular fa-eye"></i> {showdiv4}</div>
             </div>
-            </div>
+  
             <div
               data-aos="fade-right"
               data-aos-offset="300"

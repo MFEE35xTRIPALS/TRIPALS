@@ -2104,9 +2104,12 @@ nav {
 #popular .swiper-pagination-bullet-active {
   background-color: #ffffff;
 }
-#popular section#article .container #target-div1 {
+#popular section#article .container {
   display: flex;
   flex-direction: column;
+  width: 700px;
+}
+#popular section#article .container #target-div1 {
   align-items: start;
   position: absolute;
   top: 20rem;
@@ -2117,9 +2120,8 @@ nav {
   font-size: 4rem;
   color: #ffffff;
   overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  width: 700px;
+  white-space: wrap;
+  width: 720px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 @media (max-width: 1500px) {
@@ -2131,7 +2133,7 @@ nav {
   display: flex;
   flex-direction: row;
   position: absolute;
-  top: 28rem;
+  top: 42rem;
   left: 10rem;
   font-family: "Sen";
   font-style: normal;
@@ -2151,8 +2153,8 @@ nav {
   align-items: start;
   position: absolute;
   align-items: center;
-  top: 35rem;
-  left: 20rem;
+  top: 42rem;
+  left: 30rem;
   font-family: "Sen";
   font-style: normal;
   font-weight: 700;
@@ -2160,6 +2162,9 @@ nav {
   line-height: 43px;
   color: #ffffff;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+#popular section#article .container #target-div3 #viewsCount {
+  margin-left: 1rem;
 }
 @media (max-width: 1500px) {
   #popular section#article .container #target-div3 {
