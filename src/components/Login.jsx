@@ -97,7 +97,7 @@ const Login = () => {
           </label>
           <input type="submit" value="登入" />
           <p>沒有Tripals帳號?</p>
-          <Link to="/register">Sign up</Link>
+          <Link to="/register">Sign Up</Link>
         </form>
       </div>
     </div>

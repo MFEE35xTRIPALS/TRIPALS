@@ -282,7 +282,14 @@
         .container {
 
             //文章標題
+            #reflection{
+                width:450px;
 
+                @media (max-width: 1500px) {
+                    display: none;
+                }
+
+           
             #target-div1 {
                 display: flex;
                 flex-direction: column;
@@ -299,14 +306,12 @@
                 overflow: hidden;
                 white-space: nowrap;
                 text-overflow: ellipsis;
-                width: 700px;
+                width: 500px;
                 text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 
 
 
-                @media (max-width: 1500px) {
-                    display: none;
-                }
+              
 
 
             }
@@ -327,9 +332,7 @@
                 text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
 
 
-                @media (max-width: 1500px) {
-                    display: none;
-                }
+               
             }
 
             //愛心&觀看數
@@ -350,10 +353,9 @@
                 text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
 
 
-                @media (max-width: 1500px) {
-                    display: none;
-                }
+               
             }
+        }
 
             .swiper-container {
                 position: absolute;

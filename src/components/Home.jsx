@@ -164,7 +164,7 @@ function Home() {
             data-aos="fade-down"
             data-aos-duration="1500"
             data-aos-delay="100"
-          >
+          > 周末
             <br />
             來一場輕旅行吧!
           </h5>
@@ -206,6 +206,7 @@ function Home() {
         <section id="article" className="article">
           <div className="container">
             <br />
+            <div id="reflection">
             <div data-aos="fade-right"
               data-aos-offset="300"
               data-aos-duration="1000"
@@ -220,6 +221,7 @@ function Home() {
               data-aos-easing="ease-in-sine" id="target-div3">
               <div><i className="fa-solid fa-heart"></i> {showdiv3}</div>
               <div><i className="fa-regular fa-eye"></i> {showdiv4}</div>
+            </div>
             </div>
             <div
               data-aos="fade-right"

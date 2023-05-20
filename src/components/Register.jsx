@@ -86,7 +86,7 @@ const Register = (props) => {
           <label htmlFor="">{labelText}</label>
           <input type="submit" value="註冊" />
           <p>已有Tripals帳號?</p>
-          <Link to="/login">Login</Link>
+          <Link to="/login">Log In</Link>
         </form>
       </div>
     </div>
