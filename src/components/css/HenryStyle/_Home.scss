@@ -253,7 +253,7 @@
         width: 412px;
         height: 338px;
         stroke-dasharray: 1724;
-        animation: 8s fillSvg linear infinite;
+        animation: 7s fillSvg linear infinite;
 
         @media (max-width: 1835px) {
             display: none;
@@ -271,48 +271,48 @@
         }
     }
 
-    #hat {
-        stroke-dasharray: 900;
-        animation: 8s fillSvg linear infinite;
+    // #hat {
+    //     stroke-dasharray: 900;
+    //     animation: 8s fillSvg linear infinite;
 
-        @media (max-width: 1835px) {
-            display: none;
-        }
+    //     @media (max-width: 1835px) {
+    //         display: none;
+    //     }
 
-    }
+    // }
 
-    @keyframes fillSvg {
-        0% {
-            stroke-dashoffset: 2045;
-        }
+    // @keyframes fillSvg {
+    //     0% {
+    //         stroke-dashoffset: 2045;
+    //     }
 
-        100% {
-            stroke-dashoffset: 0;
-        }
-    }
-    #flower {
-        stroke-dasharray: 1841;
-        animation: 8s fillSvg linear infinite;
+    //     100% {
+    //         stroke-dashoffset: 0;
+    //     }
+    // }
+    // #flower {
+    //     stroke-dasharray: 1841;
+    //     animation: 8s fillSvg linear infinite;
 
-        @media (max-width: 1835px) {
-            display: none;
-        }
+    //     @media (max-width: 1835px) {
+    //         display: none;
+    //     }
 
-    }
+    // }
 
-    @keyframes fillSvg {
-        0% {
-            stroke-dashoffset: 1841;
-        }
+    // @keyframes fillSvg {
+    //     0% {
+    //         stroke-dashoffset: 1841;
+    //     }
 
-        100% {
-            stroke-dashoffset: 0;
-        }
-    }
+    //     100% {
+    //         stroke-dashoffset: 0;
+    //     }
+    // }
 
     #kite {
         stroke-dasharray: 682;
-        animation: 8s fillSvg linear ;
+        animation: 8s fillSvg linear;
 
         @media (max-width: 1835px) {
             display: none;
@@ -745,43 +745,44 @@
         height: 308px;
         stroke-dasharray: 1150;
         animation: 8s fillSvg linear;
-
+    
         @media (max-width: 1835px) {
-            display: none;
+          display: none;
         }
-
-    }
-
-    @keyframes fillSvg {
+    
+      }
+    
+      @keyframes fillSvg {
         0% {
-            stroke-dashoffset: 1150;
+          stroke-dashoffset: 1150;
         }
-
+    
         100% {
-            stroke-dashoffset: 0;
+          stroke-dashoffset: 0;
         }
-    }
-
-    #wave {
+      }
+    
+      #wave {
         width: 1267px;
         height: 78px;
         stroke-dasharray: 1270;
         animation: 8s fillSvg linear;
-
+    
         @media (max-width: 1835px) {
-            display: none;
+          display: none;
         }
-    }
-
-    @keyframes fillSvg {
+      }
+    
+      @keyframes fillSvg {
         0% {
-            stroke-dashoffset: 1270;
+          stroke-dashoffset: 1270;
         }
-
+    
         100% {
-            stroke-dashoffset: 0;
+          stroke-dashoffset: 0;
         }
-    }
+      }
+    
 
    
 
@@ -888,6 +889,25 @@
 
         }
     }
+    // #coffee {
+    //     stroke-dasharray: 2006;
+    //     animation: 8s fillSvg linear infinite;
+
+    //     @media (max-width: 1835px) {
+    //         display: none;
+    //     }
+
+    // }
+
+    // @keyframes fillSvg {
+    //     0% {
+    //         stroke-dashoffset: 2006;
+    //     }
+
+    //     100% {
+    //         stroke-dashoffset: 0;
+    //     }
+    // }
 
 
 

@@ -17,6 +17,9 @@ function Home() {
   var [showdiv3, setShowdiv3] = useState("");
   var [showdiv4, setShowdiv4] = useState("");
   // var [showdiv5, setShowdiv5] = useState("");
+  const [scrollY, setScrollY] = useState(0);
+ 
+
   useEffect(() => {
     const firstRender = async () => {
       let result = await axios.get(url + "/");
@@ -82,6 +85,76 @@ function Home() {
       });
     }
   }, [ifFirst]);
+
+  //監聽手繪動畫開始
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    const shipElement = document.getElementById('ship');
+    const waveElement = document.getElementById('wave');
+
+    const shipAnimation = shipElement.animate(
+      [
+        { transform: 'translate(700px, 50px)' },
+        { transform: 'translate(0px, 0px)' }
+      ],
+      {
+        duration: 2000,
+        easing: 'ease-in-out',
+        fill: 'forwards'
+      }
+    );
+
+    const waveAnimation = waveElement.animate(
+      [
+        { transform: 'translate(550px, -5px)' },
+        { transform: 'translate(0px, 0px)' }
+      ],
+      {
+        duration: 1500,
+        easing: 'ease-in-out',
+        fill: 'forwards'
+      }
+    );
+
+    const handleAnimation = () => {
+      const shipTop = shipElement.getBoundingClientRect().top;
+      const waveTop = waveElement.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+
+      // 設定觸發動畫的閾值，根據需要進行調整
+      const threshold = windowHeight * 0.75;
+
+      if (shipTop < threshold) {
+        shipAnimation.play();
+      }
+
+      if (waveTop < threshold) {
+        waveAnimation.play();
+      }
+    };
+
+    window.addEventListener('scroll', handleAnimation);
+
+    return () => {
+      window.removeEventListener('scroll', handleAnimation);
+    };
+  }, []);
+
+
+
+ 
+
 
   return (
     <Fragment>
@@ -334,6 +407,7 @@ function Home() {
                   );
                 })}
 
+              
                 {/* <div
                   id="slideB"
                   className="swiper-slide"
@@ -403,62 +477,32 @@ function Home() {
         >
           <h1>RECOMMEND</h1>
         </div>
-        <svg
-          id="ship"
-          className="handwriting"
-          viewBox="0 0 171 308"
-          fill="none"
-          transform="translate(700, 50)"
-        >
-          <path
-            d="M101.807 60.3831C53.1404 105.05 -30.9929 194.783 21.8071 196.383C74.6071 197.983 133.14 197.05 155.807 196.383C163.14 90.3831 167.407 -85.2169 125.807 60.3831C84.2071 205.983 75.6407 234.383 76.3074 240.383C43.6407 229.716 -5.79281 222.783 11.8071 248.383C29.4071 273.983 50.3071 268.883 28.3071 282.883L125.807 302.383L165.807 274.383C165.807 260.383 81.821 239.691 65.8071 237.671"
-            stroke="url(#paint0_linear_757_1539)"
-            strokeWidth="9"
-            strokeLinecap="round"
-          />
-          <defs>
-            <linearGradient
-              id="paint0_linear_757_1539"
-              x1="40.5"
-              y1="36.5"
-              x2="128.5"
-              y2="302"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop stopColor="#4CEBCE" />
-              <stop offset="0.354167" stopColor="#5EF2D5" />
-              <stop offset="1" stopColor="#3AD2F3" />
-            </linearGradient>
-          </defs>
-        </svg>
-        <svg
-          id="wave"
-          className="handwriting"
-          viewBox="0 0 1267 78"
-          fill="none"
-          transform="translate(550, -5)"
-        >
-          <path
-            d="M4 12.842C67.1605 22.6835 212.851 36.4616 290.328 12.842C367.805 -10.7776 485.424 18.4657 534.549 36.0399C569.638 44.4754 670.975 58.816 795.612 48.6932C951.408 36.0399 1136.68 27.6043 1263 74"
-            stroke="url(#paint0_linear_757_1540)"
-            strokeWidth="8"
-            strokeLinecap="round"
-          />
-          <defs>
-            <linearGradient
-              id="paint0_linear_757_1540"
-              x1="-10"
-              y1="4.00005"
-              x2="1302"
-              y2="105.5"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop offset="0.0483313" stopColor="#BAF9EC" stopOpacity="0.86" />
-              <stop offset="0.457428" stopColor="#5FF3D6" stopOpacity="0.78" />
-              <stop offset="1" stopColor="#43D9F3" />
-            </linearGradient>
-          </defs>
-        </svg>
+        <svg  id="ship" className="handwriting" viewBox="0 0 171 308" fill="none" transform="translate(700, 50)">
+      <path
+        d="M101.807 60.3831C53.1404 105.05 -30.9929 194.783 21.8071 196.383C74.6071 197.983 133.14 197.05 155.807 196.383C163.14 90.3831 167.407 -85.2169 125.807 60.3831C84.2071 205.983 75.6407 234.383 76.3074 240.383C43.6407 229.716 -5.79281 222.783 11.8071 248.383C29.4071 273.983 50.3071 268.883 28.3071 282.883L125.807 302.383L165.807 274.383C165.807 260.383 81.821 239.691 65.8071 237.671"
+        stroke="url(#paint0_linear_757_1539)" stroke-width="9" stroke-linecap="round" />
+      <defs>
+        <linearGradient id="paint0_linear_757_1539" x1="40.5" y1="36.5" x2="128.5" y2="302"
+          gradientUnits="userSpaceOnUse">
+          <stop stop-color="#4CEBCE" />
+          <stop offset="0.354167" stop-color="#5EF2D5" />
+          <stop offset="1" stop-color="#3AD2F3" />
+        </linearGradient>
+      </defs>
+    </svg>
+    <svg id="wave" className="handwriting" viewBox="0 0 1267 78" fill="none" transform="translate(550, -5)">
+      <path
+        d="M4 12.842C67.1605 22.6835 212.851 36.4616 290.328 12.842C367.805 -10.7776 485.424 18.4657 534.549 36.0399C569.638 44.4754 670.975 58.816 795.612 48.6932C951.408 36.0399 1136.68 27.6043 1263 74"
+        stroke="url(#paint0_linear_757_1540)" stroke-width="8" stroke-linecap="round" />
+      <defs>
+        <linearGradient id="paint0_linear_757_1540" x1="-10" y1="4.00005" x2="1302" y2="105.5"
+          gradientUnits="userSpaceOnUse">
+          <stop offset="0.0483313" stop-color="#BAF9EC" stop-opacity="0.86" />
+          <stop offset="0.457428" stop-color="#5FF3D6" stop-opacity="0.78" />
+          <stop offset="1" stop-color="#43D9F3" />
+        </linearGradient>
+      </defs>
+    </svg>
 
         <div
           data-aos="zoom-in"
@@ -549,7 +593,35 @@ function Home() {
               </div>
             </div>
           </div> */}
+
         </div>
+        {/* <svg id="coffee" width="167" height="244" viewBox="0 0 167 244" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M36.0617 145.543C35.8409 143.777 31.4828 142.796 38.2083 140.274C42.5469 138.647 54.8988 134.87 58.8939 138.518C62.8688 142.147 57.7923 152.621 54.4055 155.105C45.9094 161.336 31.4149 154.147 34.5981 143.006C37.8169 131.74 74.4111 132.728 82.7018 136.761C86.5462 138.632 85.0845 143.405 82.3115 145.543C74.0851 151.884 61.0268 154.603 50.8929 153.934C48.2397 153.759 35.6118 151.97 37.2326 146.519C40.2237 136.458 60.7046 132.722 69.1391 131.785C73.7931 131.268 86.2983 129.188 86.8974 136.078C87.9284 147.935 73.2323 152.354 64.1628 155.3C52.805 158.99 35.8962 162.602 24.9383 155.69C14.356 149.016 30.1125 142.937 35.6714 140.371C42.7843 137.089 96.2635 120.556 84.7508 143.006C73.6694 164.615 24.1513 172.712 7.76545 153.739C1.96927 147.028 17.2145 142.168 21.0354 140.664C40.0732 133.172 60.0019 129.223 80.4576 129.834C87.5189 130.044 96.5666 129.56 100.167 136.761C102.865 142.157 104.078 148.47 98.5086 152.568C78.9562 166.956 49.4187 170.437 25.9141 167.985C18.2742 167.188 7.96059 163.68 7.96059 154.324C7.96059 142.209 26.7463 134.768 35.3787 130.712C51.2077 123.274 92.108 107.92 104.948 128.37C111.059 138.101 111.763 146.391 102.607 153.544C86.4738 166.148 59.5928 171.56 39.9646 165.545C29.8256 162.438 0.392433 154.208 12.6441 138.127C29.6643 115.788 73.4721 114.785 98.4111 115.783C108.759 116.197 120.952 122.706 125.244 132.663C128.661 140.591 129.022 150.763 121.341 156.081C102.296 169.265 79.6625 164.76 58.8939 157.837C54.1838 156.267 12.7924 149.001 15.3762 141.25C18.4612 131.995 35.0458 129.327 42.6967 127.199C61.3348 122.016 78.8904 118.486 98.3135 119.296C118.568 120.14 123.205 140.909 109.827 153.544C98.9719 163.796 69.2085 156.991 57.4303 151.592C34.085 140.893 75.5997 130.318 81.9212 128.76C85.8066 127.803 107.94 121.199 106.314 131.492C105.316 137.814 90.696 138.666 86.0192 138.42C63.0336 137.21 38.069 134.294 14.9859 136.859C1.29688 138.38 4.44795 167.764 4.44795 178.815C4.44795 199.701 8.33686 220.431 29.0364 230.237C39.8068 235.338 52.6332 232.952 63.1871 237.75C69.8306 240.769 83.2363 239.232 89.727 236.871C109.146 229.81 114.927 215.297 122.512 198.232C129.189 183.208 127.39 164.603 127.39 148.177C127.39 131.729 127.576 155.945 127.39 160.959C127.241 164.98 121.508 184.454 129.147 181.06C141.85 175.414 166.964 186.62 162.419 202.526C160.001 210.99 124.12 221.549 120.365 214.039" stroke="#C67E13" stroke-width="8" stroke-linecap="round" />
+                  <path d="M53.6249 31.3829C52.3786 26.3974 43.0265 32.6835 42.5016 36.0664C40.9278 46.2086 55.3812 48.2146 55.3812 56.8495C55.3812 63.8976 49.7918 68.2656 43.087 68.2656" stroke="url(#paint0_linear_1064_1655)" stroke-width="8" stroke-linecap="round" />
+                  <path d="M109.827 6.79405C108.365 0.947132 96.8164 9.15411 95.1912 10.5018C87.8368 16.6006 87.8597 23.4598 90.5076 32.0655C92.9152 39.8901 100.19 47.8408 101.046 55.971C101.726 62.4399 105.097 68.2891 100.167 74.3148C96.5473 78.7393 91.2376 80.8559 88.7513 85.8284" stroke="url(#paint1_linear_1064_1655)" stroke-width="8" stroke-linecap="round" />
+                  <path d="M153.735 61.2402C146.654 63.7691 131.625 70.5285 137.928 80.1695C140.69 84.3931 139.065 94.6451 132 97" stroke="url(#paint2_linear_1064_1655)" stroke-width="8" stroke-linecap="round" />
+                  <defs>
+                    <linearGradient id="paint0_linear_1064_1655" x1="54.1271" y1="29.6059" x2="9.23169" y2="68.2397" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#937978" />
+                      <stop offset="0.75" stop-color="#DC9427" />
+                      <stop offset="0.9998" stop-color="white" />
+                      <stop offset="0.9999" stop-color="white" />
+                    </linearGradient>
+                    <linearGradient id="paint1_linear_1064_1655" x1="107.794" y1="4.87416" x2="20.0534" y2="63.3321" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#937978" />
+                      <stop offset="0.75" stop-color="#DC9427" />
+                      <stop offset="0.9998" stop-color="white" />
+                      <stop offset="0.9999" stop-color="white" />
+                    </linearGradient>
+                    <linearGradient id="paint2_linear_1064_1655" x1="152.065" y1="61.3054" x2="114.494" y2="111.298" gradientUnits="userSpaceOnUse">
+                      <stop offset="0.265625" stop-color="#AE8583" />
+                      <stop offset="0.75" stop-color="#DC9427" />
+                      <stop offset="0.9998" stop-color="white" />
+                      <stop offset="0.9999" stop-color="white" />
+                    </linearGradient>
+                  </defs>
+                </svg> */}
+
       </section>
 
       <BearLogo />
