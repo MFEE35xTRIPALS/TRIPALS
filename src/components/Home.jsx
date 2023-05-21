@@ -106,7 +106,7 @@ function Home() {
     const shipAnimation = shipElement.animate(
       [
         { transform: 'translate(700px, 50px)' },
-        { transform: 'translate(0px, 0px)' }
+        { transform: 'translate(0px, 50px)' }
       ],
       {
         duration: 2000,
