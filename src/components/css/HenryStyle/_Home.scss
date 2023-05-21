@@ -185,7 +185,7 @@
             }
         }
     }
- 
+
 
 }
 
@@ -250,22 +250,22 @@
     }
 
     #cloud {
-        width:412px;
-        height:338px;
+        width: 412px;
+        height: 338px;
         stroke-dasharray: 1724;
         animation: 8s fillSvg linear infinite;
-    
+
         @media (max-width: 1835px) {
             display: none;
         }
-    
+
     }
-    
+
     @keyframes fillSvg {
         0% {
             stroke-dashoffset: 1724;
         }
-    
+
         100% {
             stroke-dashoffset: 0;
         }
@@ -274,22 +274,25 @@
     #hat {
         stroke-dasharray: 900;
         animation: 8s fillSvg linear infinite;
-    
+
         @media (max-width: 1835px) {
             display: none;
         }
-    
+
     }
-    
+
     @keyframes fillSvg {
         0% {
             stroke-dashoffset: 2045;
         }
-    
+
         100% {
             stroke-dashoffset: 0;
         }
     }
+
+
+    
 }
 
 //熱門文章
@@ -337,7 +340,7 @@
 
             display: flex;
             flex-direction: column;
-            width: 700px;
+            width: 415px;
 
             #target-div1 {
                 align-items: start;
@@ -402,7 +405,7 @@
                 color: #ffffff;
                 text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
 
-                #viewsCount{
+                #viewsCount {
                     margin-left: 1rem;
                 }
 
@@ -411,7 +414,7 @@
                     display: none;
                 }
             }
-        
+
 
             .swiper-container {
                 position: absolute;
@@ -741,6 +744,8 @@
         }
     }
 
+   
+
     .recommend-tittle {
         display: inline-block;
         margin: 5% 8%;
@@ -845,6 +850,6 @@
         }
     }
 
-    
+
 
 }

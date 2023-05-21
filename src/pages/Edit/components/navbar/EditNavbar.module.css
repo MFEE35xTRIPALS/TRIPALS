@@ -89,5 +89,6 @@
 .edit-bar .image-box .edit-user-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }/*# sourceMappingURL=EditNavbar.module.css.map */
