@@ -1,17 +1,30 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { getValidationRegex } from "./hashtagValidation";
 import { useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom/cjs/react-router-dom";
 import EditNavbar from "./components/navbar/EditNavbar";
 import CardMain from "./components/CardMain";
 import CardContent from "./components/CardContent";
 import GoogleMapRender from "./components/GoogleMapRender";
 import axios from "axios";
+import useSwaConfirm from "../../components/swaConfirm";
+import useSwaAlert from "../../components/swaAlert";
 import { baseUrl } from "./config";
 import { compareData } from "./compareData";
 import styles from "./Edit.module.scss";
 
 //定義組件
 const Edit = ({ currentUser, setCurrentUser, avatarImg }) => {
+	// const thisUser = currentUser ? JSON.parse(currentUser) : null;
+	// const { userno } = thisUser[0];
+	// console.log(userno);
+	// sweetAlert
+	const swaConfirm = useSwaConfirm();
+	const swaAlert = useSwaAlert();
+
+	// history
+	const history = useHistory();
+
 	const { articleno } = useParams();
 	const [oldData, setOldData] = useState(null);
 	const [mainData, setMainData] = useState(null);
@@ -104,7 +117,7 @@ const Edit = ({ currentUser, setCurrentUser, avatarImg }) => {
 			})
 			.then((response) => {
 				// 新增成功
-				alert("新增成功");
+				swaAlert("地點新增成功", "", "success", 1500);
 				// 執行相應的更新操作
 				const newSpot = response.data; // 從回傳的資料中取得新增的地點
 				// 從舊資料解構賦值
@@ -114,7 +127,7 @@ const Edit = ({ currentUser, setCurrentUser, avatarImg }) => {
 			})
 			.catch((error) => {
 				// 新增失敗
-				alert("新增失敗");
+				swaAlert("刪除失敗:" + error, "", "error", 1500);
 				console.error("新增失敗:", error);
 			});
 	};
@@ -122,10 +135,10 @@ const Edit = ({ currentUser, setCurrentUser, avatarImg }) => {
 	// 刪除地點
 	const handleDeleteSpot = async (main_articleno, contentno) => {
 		// console.log("articleno:" + main_articleno + ",contentno:" + contentno);
-		if (spots.length === 1) return alert("最少要保留一個地點");
-		const confirmDelete = window.confirm("確定要刪除此地點嗎？");
-		if (confirmDelete) {
-			// 發送刪除請求
+		// if (spots.length === 1) return alert("最少要保留一個地點");
+		if (spots.length === 1)
+			return swaAlert("最少要保留一個地點", "", "warning", 1500);
+		swaConfirm("確定要刪除此地點嗎？", "", "warning", () => {
 			axios
 				.delete(`${baseUrl}/guide/content`, {
 					data: {
@@ -135,7 +148,7 @@ const Edit = ({ currentUser, setCurrentUser, avatarImg }) => {
 				})
 				.then((response) => {
 					// 刪除成功
-					alert("刪除成功");
+					swaAlert("刪除成功", "", "success", 1500);
 					// 執行相應的更新操作
 					const updatedSpots = spots.filter(
 						(spot) => spot.contentno !== contentno
@@ -146,10 +159,10 @@ const Edit = ({ currentUser, setCurrentUser, avatarImg }) => {
 				})
 				.catch((error) => {
 					// 刪除失敗
-					alert("刪除失敗");
-					console.error("刪除失敗:", error);
+					swaAlert("刪除失敗:" + error, "", "error", 1500);
+					// alert("刪除失敗");
 				});
-		}
+		});
 	};
 
 	// hashtag regex from facebook
@@ -169,17 +182,21 @@ const Edit = ({ currentUser, setCurrentUser, avatarImg }) => {
 	};
 
 	// 將更新資料整合並打包傳送
-	const patchData = (data) => {
+	const patchData = (data, saveType) => {
 		axios
 			.patch(`${baseUrl}/guide/`, data)
 			.then((response) => {
 				// 提交成功，執行相應的操作
 				console.log("提交成功");
+				swaAlert(saveType, "", "success", 1500, () => {
+					history.push(`/view${mainData.main_articleno}`);
+				});
 				// 其他操作
 			})
 			.catch((error) => {
 				// 提交失敗，處理錯誤
 				console.error("提交失敗:", error);
+				swaAlert("提交失敗:" + error, "", "error", 1500);
 				// 其他操作
 			});
 	};
@@ -201,7 +218,7 @@ const Edit = ({ currentUser, setCurrentUser, avatarImg }) => {
 		// console.log("olddata:", oldData);
 		// console.log("newdata:", updatedMainData);
 		const finalData = compareData(oldData, updatedMainData);
-		patchData(finalData);
+		patchData(finalData, "草稿儲存成功");
 		// 解構賦值讓oldData也是更新後的資料
 		setOldData({ ...updatedMainData });
 		// fetchData();
@@ -221,7 +238,7 @@ const Edit = ({ currentUser, setCurrentUser, avatarImg }) => {
 		// console.log("newdata:", updatedMainData);
 		const finalData = compareData(oldData, updatedMainData);
 		// console.log("finaldata:", finalData);
-		patchData(finalData);
+		patchData(finalData, "文章發佈成功");
 		// 解構賦值讓oldData也是更新後的資料
 		setOldData({ ...updatedMainData });
 		// fetchData();
@@ -230,22 +247,24 @@ const Edit = ({ currentUser, setCurrentUser, avatarImg }) => {
 	// 刪除文章
 	const handleDeleteAll = () => {
 		console.log(mainData.main_articleno);
-		const confirmDelete = window.confirm("確定要刪除此文章嗎？");
-		if (confirmDelete) {
+		swaConfirm("刪除文章", "確定要刪除這篇文章嗎？", "warning", () => {
 			axios
 				.delete(`${baseUrl}/guide/`, {
 					data: { main_articleno: mainData.main_articleno },
 				})
 				.then((response) => {
 					// 刪除成功
-					alert("刪除成功");
+					swaAlert("刪除成功", "", "success", 1500, () => {
+						history.push(`/client/Myarticles`);
+					});
+					// alert("刪除成功");
 				})
 				.catch((error) => {
 					// 刪除失敗
-					alert("刪除失敗");
-					console.error("刪除失敗:", error);
+					swaAlert("刪除失敗:" + error, "", "error", 1500);
+					// alert("刪除失敗");
 				});
-		}
+		});
 	};
 
 	// 點新增圖標時將 center 移動到選擇的地點

@@ -42,7 +42,18 @@ const CardMain = ({
 							aria-expanded="true"
 							aria-controls="card-title"
 						>
-							{mainData.main_title ? mainData.main_title : "文章標題"}
+							<span
+								className={styles["edit-status"]}
+								style={{
+									backgroundColor:
+										mainData.main_status === "draft" ? "#65c6c6" : "#fab10c",
+								}}
+							>
+								{mainData.main_status === "draft" ? "草稿" : "公開"}
+							</span>
+							{mainData.main_title
+								? mainData.main_title
+								: `文章-${mainData.main_articleno}-標題`}
 						</button>
 						<hr />
 					</h2>

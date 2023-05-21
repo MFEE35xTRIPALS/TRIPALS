@@ -138,6 +138,7 @@
 		// 主內容
 		.edit-card-main {
 			.edit-accordion-btn {
+				position: relative;
 				display: flex !important;
 				justify-content: center;
 				// 讓左邊新增一個偽元素方便排列
@@ -147,6 +148,15 @@
 					content: "";
 					margin-right: auto;
 				}
+			}
+			.edit-status {
+				position: absolute;
+				left: 1.2rem;
+				font-size: $editNormalSize;
+				// background-color: #65c6c6;
+				padding: 0.5rem 1rem;
+				border-radius: $inputRadius;
+				color: #ffffff;
 			}
 			h2 {
 				position: relative;

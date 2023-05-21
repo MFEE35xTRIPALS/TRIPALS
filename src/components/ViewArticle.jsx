@@ -86,13 +86,17 @@ function ViewArticle({ currentUser, setCurrentUser }) {
 		fullscreenControl: false,
 		mapTypeControl: false,
 	};
+	console.log("spot:", spots);
 
 	const locations = spots.map((x) => {
-		const [lat, lng] = x.location.split(",");
-		return {
-			lat: parseFloat(lat),
-			lng: parseFloat(lng),
-		};
+		console.log("TEST:" + x.location);
+		const [lat, lng] = x.location ? x.location.split(",") : "";
+		if (lat && lng) {
+			return {
+				lat: parseFloat(lat),
+				lng: parseFloat(lng),
+			};
+		}
 	});
 
 	// 時間改格式
