@@ -184,7 +184,7 @@ function ViewArticle({ currentUser, setCurrentUser }) {
 		setShowAllTags(!showAllTags);
 	};
 
-	let center = locations[0];
+	let center = locations[0] ? locations[0] : { lat: 23.6978, lng: 120.9605 };
 
 	const customMarkerIcon = {
 		url: markerIcon,
@@ -237,23 +237,25 @@ function ViewArticle({ currentUser, setCurrentUser }) {
 							onLoad={handleMapLoad}
 						>
 							{/* Child components, such as markers, info windows, etc. */}
-							{locations.map((x, i) => (
-								<MarkerF
-									label={{
-										text: `${i + 1}`,
-										color: "#fff",
-										className: "markerLabel",
-									}}
-									key={i}
-									position={x}
-									// icon={{
-									// 	url: require("../components/img/purple_dot.png"),
-									// 	scaledSize: new window.google.maps.Size(50, 50),
-									// }}
-									icon={customMarkerIcon}
-									onClick={() => handleMarkerClick(i)}
-								/>
-							))}
+							{locations.map((x, i) =>
+								x ? (
+									<MarkerF
+										label={{
+											text: `${i + 1}`,
+											color: "#fff",
+											className: "markerLabel",
+										}}
+										key={i}
+										position={x}
+										// icon={{
+										// 	url: require("../components/img/purple_dot.png"),
+										// 	scaledSize: new window.google.maps.Size(50, 50),
+										// }}
+										icon={customMarkerIcon}
+										onClick={() => handleMarkerClick(i)}
+									/>
+								) : null
+							)}
 							<></>
 						</GoogleMap>
 						{/* </LoadScript> */}
@@ -291,7 +293,11 @@ function ViewArticle({ currentUser, setCurrentUser }) {
 													<div className="image-intro">
 														<figure>
 															<img
-																src={url + `/${Mimage}`}
+																src={
+																	Mimage
+																		? `${url + Mimage}`
+																		: "https://fakeimg.pl/600x400/ffffff/?text=No Pictures&font=noto"
+																}
 																alt=""
 																className="image-placeholder"
 															/>
@@ -403,7 +409,11 @@ function ViewArticle({ currentUser, setCurrentUser }) {
 														<div className="image-intro">
 															<figure>
 																<img
-																	src={url + `/${el.image}`}
+																	src={
+																		Mimage
+																			? `${url + el.image}`
+																			: "https://fakeimg.pl/600x400/ffffff/?text=No Pictures&font=noto"
+																	}
 																	alt=""
 																	className="image-placeholder"
 																/>
