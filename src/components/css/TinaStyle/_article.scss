@@ -140,16 +140,25 @@ section.hashtag {
       }
 
       // color: $ButtonHover;
+      &:hover {
+        background-color: $inputBgColor1;
+        color: $inputBgColor2;
+      }
     }
 
     button.views {
       font-size: $inputText;
       width: 300px;
       display: inline-block;
-      background-color: $inputBgColor1;
-      color: $inputBgColor2;
-      border: none;
+      background-color: $inputBgColor2;
+      color: $inputBgColor1;
+      border: $inputBgColor1 2px solid;
+
       font-weight: 500;
+      &:hover {
+        background-color: $inputBgColor1;
+        color: $inputBgColor2;
+      }
     }
 
     button.hots {
@@ -164,10 +173,12 @@ section.hashtag {
       border: $inputBgColor1 2px solid;
 
       i {
-        color: $Heart;
+        // color: $Heart;
       }
-
-      // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      &:hover {
+        background-color: $inputBgColor1;
+        color: $inputBgColor2;
+      }
     }
   }
 }
@@ -190,7 +201,7 @@ section.hashtag {
   border: 2px solid transparent;
   display: flex;
   transition: border-color 0.2s linear,
-  padding 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    padding 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
   &__input {
     background: transparent;

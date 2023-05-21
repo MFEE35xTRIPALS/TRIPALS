@@ -7,7 +7,9 @@ import BearLogo from "./smallcomponent/BearLogo";
 function Guides({ currentUser, setCurrentUser }) {
   // const [result, setResult] = useState({});
   var url = "http://localhost:8000/articles";
-  var [userno, setuserno] = useState(currentUser ? JSON.parse(currentUser)[0].userno : undefined);
+  var [userno, setuserno] = useState(
+    currentUser ? JSON.parse(currentUser)[0].userno : undefined
+  );
   var [city, setCity] = useState(sessionStorage.getItem("city"));
 
   var [hashTags, setHashTags] = useState([]);
@@ -87,11 +89,13 @@ function Guides({ currentUser, setCurrentUser }) {
 
   /* ------- 點擊City 文章渲染 ------- */
   async function doLocationOnChange(e) {
-    let result = await axios.post(url + `/city`, {
-      userno: userno,
-      city: e.target.value,
-    });
-    setArticles(result.data);
+    if (e.target.value) {
+      let result = await axios.post(url + `/city`, {
+        userno: userno,
+        city: e.target.value,
+      });
+      setArticles(result.data);
+    }
   }
 
   /* ------- 搜尋Search bar 文章渲染 ------- */
@@ -178,7 +182,9 @@ function Guides({ currentUser, setCurrentUser }) {
         <div className="sort">
           <form action="" className="category">
             <select className="city" onChange={doLocationOnChange}>
-              <option defaultValue="">&#129517; 地區</option>
+              <option defaultValue value="">
+                &#129517; 地區
+              </option>
               <optgroup label="北部地區">
                 <option value="宜蘭縣">宜蘭縣</option>
                 <option value="基隆市">基隆市</option>
