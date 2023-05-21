@@ -2118,6 +2118,40 @@ nav {
     stroke-dashoffset: 0;
   }
 }
+#about #flower {
+  stroke-dasharray: 1841;
+  animation: 8s fillSvg linear infinite;
+}
+@media (max-width: 1835px) {
+  #about #flower {
+    display: none;
+  }
+}
+@keyframes fillSvg {
+  0% {
+    stroke-dashoffset: 1841;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+#about #kite {
+  stroke-dasharray: 682;
+  animation: 8s fillSvg linear;
+}
+@media (max-width: 1835px) {
+  #about #kite {
+    display: none;
+  }
+}
+@keyframes fillSvg {
+  0% {
+    stroke-dashoffset: 682;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
 
 #popular {
   position: relative;
