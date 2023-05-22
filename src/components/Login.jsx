@@ -32,14 +32,19 @@ const Login = () => {
       } else if (status === "success") {
         setLabelText("登入成功");
         localStorage.setItem('user', JSON.stringify(response.data.currentuser))
+
         // localStorage.removeItem('user');
         // setTimeout(() => {
         //   console.log('Timeout triggered');
         // }, 5 * 2 * 1000);
         if (response.data.currentuser[0].permission === 1) {
-          window.location = "/client";
+          setTimeout(() => {
+            window.history.back()
+          }, 3 * 1000)
         } else if (response.data.currentuser[0].permission === 0) {
-          window.location = "/admin";
+          setTimeout(() => {
+            window.location = "/admin";
+          }, 3 * 1000)
         }
       } else if (status === "notExist") {
         setLabelText("尚未註冊");
