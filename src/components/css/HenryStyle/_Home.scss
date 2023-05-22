@@ -19,6 +19,7 @@
             left: 0;
             width: 100%;
             height: 100%;
+            
             object-fit: cover;
             // z-index: -1;
 
@@ -26,7 +27,7 @@
 
         .videoContent {
             display: flex;
-            height: 950px;
+            height: 100vh;
             width: auto;
             justify-content: center;
             align-items: center;

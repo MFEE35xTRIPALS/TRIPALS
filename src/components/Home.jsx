@@ -257,7 +257,7 @@ function Home() {
           <h4 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
             Tripals
             <br />
-            和你一起走遍台灣
+            和你一起走遍台灣!
           </h4>
         </div>
         <img src="./images/WhiteCloud.png" id="whiteCloud" alt="" />

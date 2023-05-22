@@ -1883,7 +1883,7 @@ nav {
 }
 #main .divVideo .videoContent {
   display: flex;
-  height: 950px;
+  height: 100vh;
   width: auto;
   justify-content: center;
   align-items: center;
