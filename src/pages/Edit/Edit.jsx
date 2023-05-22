@@ -79,7 +79,7 @@ const Edit = ({ currentUser, setCurrentUser, avatarImg }) => {
 			// 先保留原始資料
 			setOldData({ ...response.data });
 		} catch (error) {
-			alert("沒有找到對應的文章");
+			swaAlert("沒有找到對應的文章", "", "error", 1500);
 			console.error("Error fetching data:", error);
 		}
 	};
