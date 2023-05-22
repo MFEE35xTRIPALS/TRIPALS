@@ -312,7 +312,7 @@ const Edit = ({ currentUser, setCurrentUser, avatarImg }) => {
 							</div>
 						</div>
 						<div className="col-lg-8">
-							<div>
+							<div className={styles["googlemap"]}>
 								<GoogleMapRender
 									selectedCity={mainData.main_location}
 									spots={spots}
