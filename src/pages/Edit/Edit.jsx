@@ -287,6 +287,7 @@ const Edit = ({ currentUser, setCurrentUser, avatarImg }) => {
 				onDeleteAll={handleDeleteAll}
 				avatarImg={avatarImg}
 				currentUser={currentUser}
+				setCurrentUser={setCurrentUser}
 			/>
 			<div className={`container-fluid ${styles["edit-container"]}`}>
 				{/* hashtag 有可能是 [] 空陣列 */}
