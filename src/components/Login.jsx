@@ -35,8 +35,8 @@ const Login = ({ setCurrentUser, setavatarImg, currentUser }) => {
         setLabelText("登入成功");
         localStorage.setItem('user', JSON.stringify(response.data.currentuser))
         setCurrentUser(localStorage.getItem("user"))
-        setavatarImg(localStorage.getItem("user")[0].avatar
-          ? "http://localhost:8000" + localStorage.getItem("user")[0].avatar
+        setavatarImg(response.data.currentuser[0].avatar
+          ? "http://localhost:8000" + response.data.currentuser[0].avatar
           : "http://localhost:8000/useravatar/pre.png")
 
         setTimeout(() => {
