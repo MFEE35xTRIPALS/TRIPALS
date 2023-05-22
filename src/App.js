@@ -82,6 +82,7 @@ function App() {
 									avatarImg={avatarImg}
 									currentUser={currentUser}
 									setCurrentUser={setCurrentUser}
+
 								/>
 							</Home>
 						)}
@@ -113,15 +114,19 @@ function App() {
 					/>
 					<Route
 						path="/login"
-						render={() => (
-							<Login>
-								{" "}
+						render={(props) => (
+							<Login
+								{...props}
+								setCurrentUser={setCurrentUser}
+								setavatarImg={setavatarImg}
+								currentUser={currentUser}
+							>
 								<Navigation
 									avatarImg={avatarImg}
 									currentUser={currentUser}
 									setCurrentUser={setCurrentUser}
+
 								/>
-								;
 							</Login>
 						)}
 					/>

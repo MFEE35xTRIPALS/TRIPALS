@@ -104,7 +104,13 @@ const Edit = ({ currentUser, setCurrentUser, avatarImg }) => {
 			}
 			return spot;
 		});
+		console.log("update:", updatedSpots);
 		setSpots(updatedSpots);
+	};
+
+	// 變更順序
+	const handleChangSpotIndex = (updatedSpot) => {
+		setSpots(updatedSpot);
 	};
 
 	// 新增地點
@@ -300,6 +306,7 @@ const Edit = ({ currentUser, setCurrentUser, avatarImg }) => {
 										onSpotChange={handleSpotChange}
 										onDeleteSpot={handleDeleteSpot}
 										onSetCenter={handleSetCenter}
+										onChangeSpotIndex={handleChangSpotIndex}
 									/>
 								</div>
 							</div>

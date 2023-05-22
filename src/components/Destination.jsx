@@ -10,6 +10,7 @@ const Destination = (props) => {
   const [PictureData, setPictureData] = useState([]);
   const [openData, setopenData] = useState({});
   const [ID, setID] = useState("");
+  let [apple, setapple] = useState(null);
 
   //判斷第一次渲染
   var [isFirst, setIsFirst] = useState(false);
@@ -21,6 +22,7 @@ const Destination = (props) => {
         .get("./TaiwanPictrue.json")
         .then(function (response) {
           setPictureData(response.data);
+          setapple(response)
         })
         .catch(function (error) {
           console.log(error);
@@ -38,6 +40,7 @@ const Destination = (props) => {
         })
         .then(function (response) {
           setopenData(response.data);
+          setapple(response)
           // console.log("JSON載入成功");
         })
         .catch(function (error) {
@@ -48,6 +51,7 @@ const Destination = (props) => {
     if (isFirst) {
       getTaiwanPicture();
       getWeather();
+
     }
   }, [isFirst]);
 
@@ -95,8 +99,8 @@ const Destination = (props) => {
 
     return () => {
       paths.forEach((path) => {
-        path.removeEventListener("mouseenter", function () {});
-        path.removeEventListener("mouseleave", function () {});
+        path.removeEventListener("mouseenter", function () { });
+        path.removeEventListener("mouseleave", function () { });
       });
     };
   }, [showCityList]);

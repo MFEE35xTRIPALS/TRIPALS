@@ -9,6 +9,7 @@ const CardSpot = ({
 	onSpotChange,
 	onDeleteSpot,
 	onSetCenter,
+	dragHandleProps,
 }) => {
 	// console.log(main_articleno);
 	const handleInputChange = (event) => {
@@ -26,7 +27,7 @@ const CardSpot = ({
 	return (
 		// <div className={styles["spot-card-animation"]}>
 		<div
-			className={`accordion-item border-0 ${styles["accordion-item-color"]} ${styles["spot-card-animation"]}`}
+			className={`accordion-item border-0 ${styles["accordion-item-color"]} ${styles["N-spot-card-animation"]}`}
 		>
 			<h2 className="accordion-header">
 				<hr />
@@ -38,7 +39,9 @@ const CardSpot = ({
 					>
 						<i className="fa-solid fa-circle-xmark"></i>
 					</button>
-					<span>{spot.title ? spot.title : "Location title"}</span>
+					<span {...dragHandleProps}>
+						{spot.title ? spot.title : "Location title"}
+					</span>
 					<button //collapse show
 						className={`accordion-button collapsed d-flex text-center ${styles["edit-accordion-btn"]}`}
 						type="button"

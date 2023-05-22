@@ -66,7 +66,7 @@ function Myarticles({ currentUser, selfarticles, setselfarticles }) {
                       <td>
                         <a
                           className="c-editArt"
-                          href={`/${value.articleno}`}
+                          href={`/edit/${value.articleno}`}
                         >
                           <i className="fa-regular fa-pen-to-square"></i>
                         </a>

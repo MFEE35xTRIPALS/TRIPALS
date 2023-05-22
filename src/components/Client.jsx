@@ -29,6 +29,8 @@ function Client({ currentUser, setCurrentUser, setavatarImg }) {
   let [ifOpenBanner, setifOpenBanner] = useState(false);
   let [ifOpenavatar, setifOpenavatar] = useState(false);
   let [file, setfile] = useState({});
+  //讀取中...
+  let [apple, setapple] = useState(null);
 
   useEffect(() => {
     if (currentUser) {
@@ -65,6 +67,7 @@ function Client({ currentUser, setCurrentUser, setavatarImg }) {
             ? url + result.data.userMessage[0].avatar
             : "http://localhost:8000/useravatar/pre.png"
         );
+        setapple(result)
       }
       firstRendem();
     }
@@ -146,196 +149,208 @@ function Client({ currentUser, setCurrentUser, setavatarImg }) {
 
   return (
     <div>
-      {!currentUser && <div>請先登錄</div>}
-      {currentUser && <div>
-        <section className="c-head">
-          <form encType="multipart/form-data">
-            <div
-              className={`bannerModal ${ifOpenBanner ? "flexBtn" : "postBtn"
-                }`}
-            >
-              <button
-                onClick={() => document.querySelector("#fileUpload").click()}
-                type="button"
-                className="uploadbanner"
+      {apple ? (<div>
+        {!currentUser && <div>請先登錄</div>}
+        {currentUser && <div>
+          <section className="c-head">
+            <form encType="multipart/form-data">
+              <div
+                className={`bannerModal ${ifOpenBanner ? "flexBtn" : "postBtn"
+                  }`}
               >
-                上傳照片
-              </button>
-              <button
-                type="button"
-                className="cancel"
-                onClick={cancelPriview}
-              >
-                取消
-              </button>
-              <button
-                type="button"
-                className="bannerDone"
-                onClick={uploadImages}
-              >
-                確認上傳
-              </button>
-            </div>
-            <div className="img2">
-              <img
-                className="selfbanner"
-                src={userimage}
-                alt="個人頁面"
-              />
-              <button
-                onClick={() => {
-                  setifOpenBanner(true)
-                }}
-                type="button"
-                className="edit_cover"
-                id="edit_cover"
-              >
-                編輯封面
-              </button>
-              <input
-                onChange={changePhoto}
-                type="file"
-                id="fileUpload"
-                accept=".jpg, .jpeg, .png, .gif"
-                hidden
-              />
-            </div>
-          </form>
-        </section>
-        <section className="c-rwd">
-          <BrowserRouter>
-            <section className="c-left">
-              <div className="c-head">
+                <button
+                  onClick={() => document.querySelector("#fileUpload").click()}
+                  type="button"
+                  className="uploadbanner"
+                >
+                  上傳照片
+                </button>
+                <button
+                  type="button"
+                  className="cancel"
+                  onClick={cancelPriview}
+                >
+                  取消
+                </button>
+                <button
+                  type="button"
+                  className="bannerDone"
+                  onClick={uploadImages}
+                >
+                  確認上傳
+                </button>
+              </div>
+              <div className="img2">
+                <img
+                  className="selfbanner"
+                  src={userimage}
+                  alt="個人頁面"
+                />
                 <button
                   onClick={() => {
-                    setifOpenavatar(true)
+                    setifOpenBanner(true)
                   }}
                   type="button"
-                  className="camera"
+                  className="edit_cover"
+                  id="edit_cover"
                 >
-                  <i className="fas fa-camera"></i>
+                  編輯封面
                 </button>
-                <form encType="multipart/form-data">
-                  <div
-                    className={`mymodal ${ifOpenavatar ? "flexBtn" : "postBtn"
-                      }`}
-                    onClick={cancelPriview}
+                <input
+                  onChange={changePhoto}
+                  type="file"
+                  id="fileUpload"
+                  accept=".jpg, .jpeg, .png, .gif"
+                  hidden
+                />
+              </div>
+            </form>
+          </section>
+          <section className="c-rwd">
+            <BrowserRouter>
+              <section className="c-left">
+                <div className="c-head">
+                  <button
+                    onClick={() => {
+                      setifOpenavatar(true)
+                    }}
+                    type="button"
+                    className="camera"
                   >
+                    <i className="fas fa-camera"></i>
+                  </button>
+                  <form encType="multipart/form-data">
                     <div
-                      className="modalContent"
-                      onClick={(event) => {
-                        event.stopPropagation();
-                      }}
+                      className={`mymodal ${ifOpenavatar ? "flexBtn" : "postBtn"
+                        }`}
+                      onClick={cancelPriview}
                     >
-                      <span
-                        onClick={cancelPriview}
-                        className="closemodal">
-                        &times;
-                      </span>
-                      <div className="imgPreviewBorder">
-                        <img
-                          className="imgPreview"
-                          src={useravatar}
-                          alt="大頭貼預覽"
-                        />
-                      </div>
-                      <div className="uploadShotBtn">
-                        <button
-                          onClick={() => {
-                            document.querySelector("#shotUpload").click();
-                          }}
-                          className="uploadShot"
-                          type="button"
-                        >
-                          上傳照片
-                        </button>
-                        <button
-                          className="uploadShotDone"
-                          type="button"
-                          onClick={uploadImages}
-                        >
-                          確認上傳
-                        </button>
+                      <div
+                        className="modalContent"
+                        onClick={(event) => {
+                          event.stopPropagation();
+                        }}
+                      >
+                        <span
+                          onClick={cancelPriview}
+                          className="closemodal">
+                          &times;
+                        </span>
+                        <div className="imgPreviewBorder">
+                          <img
+                            className="imgPreview"
+                            src={useravatar}
+                            alt="大頭貼預覽"
+                          />
+                        </div>
+                        <div className="uploadShotBtn">
+                          <button
+                            onClick={() => {
+                              document.querySelector("#shotUpload").click();
+                            }}
+                            className="uploadShot"
+                            type="button"
+                          >
+                            上傳照片
+                          </button>
+                          <button
+                            className="uploadShotDone"
+                            type="button"
+                            onClick={uploadImages}
+                          >
+                            確認上傳
+                          </button>
+                        </div>
                       </div>
                     </div>
+                    <input
+                      onChange={changePhoto}
+                      type="file"
+                      id="shotUpload"
+                      accept=".jpg, .jpeg, .png, .gif"
+                      hidden
+                    />
+                  </form>
+                  <div className="h-img">
+                    <img className="shot" src={useravatar} alt="shot" />
                   </div>
-                  <input
-                    onChange={changePhoto}
-                    type="file"
-                    id="shotUpload"
-                    accept=".jpg, .jpeg, .png, .gif"
-                    hidden
-                  />
-                </form>
-                <div className="h-img">
-                  <img className="shot" src={useravatar} alt="shot" />
+                  <h4 className="username">
+                    {avaUsername}
+                  </h4>
                 </div>
-                <h4 className="username">
-                  {avaUsername}
-                </h4>
-              </div>
-              <div className="c-select">
-                <ul>
-                  <Link className="selectLi" to="/client" exact>
-                    個人資料
-                  </Link>
-                  <Link className="selectLi" to="/client/Mylikes">
-                    我的收藏
-                  </Link>
-                  <Link className="selectLi" to="/client/Myarticles">
-                    我的文章
-                  </Link>
+                <div className="c-select">
+                  <ul>
+                    <Link className="selectLi" to="/client" exact>
+                      個人資料
+                    </Link>
+                    <Link className="selectLi" to="/client/Mylikes">
+                      我的收藏
+                    </Link>
+                    <Link className="selectLi" to="/client/Myarticles">
+                      我的文章
+                    </Link>
 
-                </ul>
-              </div>
-              <div>
-              </div>
-            </section>
-            <section className="c-right">
-              <Switch>
-                <Route
-                  path="/client/Myarticles"
-                  render={(props) => (
-                    <Myarticles
-                      {...props}
-                      currentUser={currentUser}
-                      selfarticles={selfarticles}
-                      setselfarticles={setselfarticles}
-                    />
-                  )}
-                />
-                <Route
-                  path="/client/Mylikes"
-                  render={(props) => (
-                    <Mylikes
-                      {...props}
-                      currentUser={currentUser}
-                      userLikes={userLikes}
-                      history={history}
-                    />
-                  )}
-                />
-                <Route
-                  path="/client"
-                  render={(props) => (
-                    <Memberinfo
-                      {...props}
-                      currentUser={currentUser}
-                      userMessage={userMessage}
-                      setUserMessage={setUserMessage}
-                      avaUsername={avaUsername}
-                      setavaUsername={setavaUsername}
-                      ifPwdOK={ifPwdOK}
-                      setIfPwdOK={setIfPwdOK}
-                    />
-                  )}
-                />
-              </Switch>
-            </section>
-          </BrowserRouter>
-        </section>
-        <BearLogo />
-      </div>}
+                  </ul>
+                </div>
+                <div>
+                </div>
+              </section>
+              <section className="c-right">
+                <Switch>
+                  <Route
+                    path="/client/Myarticles"
+                    render={(props) => (
+                      <Myarticles
+                        {...props}
+                        currentUser={currentUser}
+                        selfarticles={selfarticles}
+                        setselfarticles={setselfarticles}
+                      />
+                    )}
+                  />
+                  <Route
+                    path="/client/Mylikes"
+                    render={(props) => (
+                      <Mylikes
+                        {...props}
+                        currentUser={currentUser}
+                        userLikes={userLikes}
+                        history={history}
+                      />
+                    )}
+                  />
+                  <Route
+                    path="/client"
+                    render={(props) => (
+                      <Memberinfo
+                        {...props}
+                        currentUser={currentUser}
+                        userMessage={userMessage}
+                        setUserMessage={setUserMessage}
+                        avaUsername={avaUsername}
+                        setavaUsername={setavaUsername}
+                        ifPwdOK={ifPwdOK}
+                        setIfPwdOK={setIfPwdOK}
+                      />
+                    )}
+                  />
+                </Switch>
+              </section>
+            </BrowserRouter>
+          </section>
+          <BearLogo />
+        </div>}
+      </div>) : (
+        <div className="loader">
+          <div className="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }
