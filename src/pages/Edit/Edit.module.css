@@ -17,7 +17,7 @@
   margin-bottom: 5rem;
 }
 .edit-container .edit-card-wrapper {
-  height: 85vh;
+  height: 88vh;
   overflow-y: auto;
 }
 .edit-container .edit-card-wrapper::-webkit-scrollbar {

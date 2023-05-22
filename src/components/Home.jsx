@@ -101,7 +101,7 @@ function Home() {
 
   useEffect(() => {
     const shipElement = document.getElementById('ship');
-    const waveElement = document.getElementById('wave');
+    // const waveElement = document.getElementById('wave');
 
     const shipAnimation = shipElement.animate(
       [
@@ -115,21 +115,21 @@ function Home() {
       }
     );
 
-    const waveAnimation = waveElement.animate(
-      [
-        { transform: 'translate(550px, -5px)' },
-        { transform: 'translate(0px, 0px)' }
-      ],
-      {
-        duration: 1500,
-        easing: 'ease-in-out',
-        fill: 'forwards'
-      }
-    );
+    // const waveAnimation = waveElement.animate(
+    //   [
+    //     { transform: 'translate(550px, -5px)' },
+    //     { transform: 'translate(0px, 0px)' }
+    //   ],
+    //   {
+    //     duration: 1500,
+    //     easing: 'ease-in-out',
+    //     fill: 'forwards'
+    //   }
+    // );
 
     const handleAnimation = () => {
       const shipTop = shipElement.getBoundingClientRect().top;
-      const waveTop = waveElement.getBoundingClientRect().top;
+      // const waveTop = waveElement.getBoundingClientRect().top;
       const windowHeight = window.innerHeight;
 
       // 設定觸發動畫的閾值，根據需要進行調整
@@ -139,9 +139,9 @@ function Home() {
         shipAnimation.play();
       }
 
-      if (waveTop < threshold) {
-        waveAnimation.play();
-      }
+      // if (waveTop < threshold) {
+      //   waveAnimation.play();
+      // }
     };
 
     window.addEventListener('scroll', handleAnimation);

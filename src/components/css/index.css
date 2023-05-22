@@ -2104,7 +2104,7 @@ nav {
 }
 #about #kite {
   stroke-dasharray: 682;
-  animation: 8s fillSvg linear;
+  animation: 8s fillSvg linear infinite;
 }
 @media (max-width: 1835px) {
   #about #kite {

@@ -312,7 +312,7 @@
 
     #kite {
         stroke-dasharray: 682;
-        animation: 8s fillSvg linear;
+        animation: 8s fillSvg linear infinite;
 
         @media (max-width: 1835px) {
             display: none;
@@ -766,7 +766,7 @@
         width: 1267px;
         height: 78px;
         stroke-dasharray: 1270;
-        animation: 8s fillSvg linear;
+        animation: 8s fillSvg linear ;
     
         @media (max-width: 1835px) {
           display: none;
