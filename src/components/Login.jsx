@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useHistory } from 'react-router-dom';
 
-const Login = () => {
+const Login = ({ setCurrentUser, setavatarImg, currentUser }) => {
   const [id, setId] = useState("");
   const [password, setpassword] = useState("");
   const [labelText, setLabelText] = useState("");
@@ -34,7 +34,10 @@ const Login = () => {
       } else if (status === "success") {
         setLabelText("登入成功");
         localStorage.setItem('user', JSON.stringify(response.data.currentuser))
-
+        // setCurrentUser(localStorage.getItem("user"))
+        // setavatarImg(JSON.parse(currentUser)[0].avatar
+        //   ? "http://localhost:8000" + JSON.parse(currentUser)[0].avatar
+        //   : "http://localhost:8000/useravatar/pre.png")
         // localStorage.removeItem('user');
         // setTimeout(() => {
         //   console.log('Timeout triggered');

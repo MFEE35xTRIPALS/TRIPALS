@@ -3,12 +3,12 @@ import "./css/HenryStyle/hamburgers.css";
 import axios from "axios";
 import { baseUrl } from "../assets/config";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
-import { Link } from "react-router-dom";
 
 const Navigation = ({ currentUser, setCurrentUser, avatarImg }) => {
 	setTimeout(() => {
 		localStorage.removeItem("user");
 	}, 60 * 60 * 1000);
+	console.log(avatarImg)
 
 	const history = useHistory();
 
