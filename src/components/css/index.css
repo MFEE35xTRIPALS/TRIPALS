@@ -679,6 +679,7 @@ section.c-head div.img2 {
 /* 右邊隨選項變動的區塊 */
 .c-right {
   width: 100%;
+  margin-bottom: 2rem;
   /* 每個選項的功能頁 */
 }
 .c-right .c-block {

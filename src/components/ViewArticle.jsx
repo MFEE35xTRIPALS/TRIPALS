@@ -4,8 +4,13 @@ import { useState, useEffect, useRef } from "react";
 import markerIcon from "../assets/marker2.svg";
 import mapStyles from "../pages/Edit/components/mapStyles";
 import axios from "axios";
+import BearLogo from "./smallcomponent/BearLogo";
+import useSwaAlert from "../components/swaAlert";
 
 function ViewArticle({ currentUser, setCurrentUser }) {
+	// swaAlert
+	const swaAlert = useSwaAlert();
+
 	const url = "http://localhost:8000";
 	const [userno, setuserno] = useState(
 		currentUser ? JSON.parse(currentUser)[0].userno : ""
@@ -89,7 +94,7 @@ function ViewArticle({ currentUser, setCurrentUser }) {
 	console.log("spot:", spots);
 
 	const locations = spots.map((x) => {
-		console.log("TEST:" + x.location);
+		// console.log("TEST:" + x.location);
 		const [lat, lng] = x.location ? x.location.split(",") : "";
 		if (lat && lng) {
 			return {
@@ -122,7 +127,7 @@ function ViewArticle({ currentUser, setCurrentUser }) {
 					setMLcount(data);
 					document.getElementById("likepost").classList.remove("fa-solid");
 					document.getElementById("likepost").classList.add("fa-regular");
-					alert("取消收藏");
+					swaAlert("取消收藏成功", "", "success", 1500);
 				})
 				.catch((error) => {
 					console.log("Error unliking post:", error);
@@ -143,7 +148,7 @@ function ViewArticle({ currentUser, setCurrentUser }) {
 					setMLcount(data);
 					document.getElementById("likepost").classList.remove("fa-regular");
 					document.getElementById("likepost").classList.add("fa-solid");
-					alert("收藏成功");
+					swaAlert("收藏成功", "", "success", 1500);
 				})
 				.catch((error) => {
 					console.log("Error liking post:", error);
@@ -153,13 +158,13 @@ function ViewArticle({ currentUser, setCurrentUser }) {
 
 	let alreadyReport = false;
 	const handleConfirmClick = (e) => {
-		if (alreadyReport == false) {
+		if (alreadyReport === false) {
 			fetch(url + `/likepost/report?articleno=${articleno}`, {
 				method: "POST",
 			})
 				.then((response) => {
 					if (response.ok) {
-						alert("檢舉成功");
+						swaAlert("檢舉成功", "", "success", 1500);
 						alreadyReport = true;
 					} else {
 						throw new Error("Error report post.");
@@ -212,15 +217,21 @@ function ViewArticle({ currentUser, setCurrentUser }) {
 		// 在所有的 spots 物件都處理完後，獲取邊界的中心點（center）：
 		// let calculatedCenter = null;
 		if (flag) {
+			map.fitBounds(bounds);
 			center = bounds.getCenter();
-			// map.fitBounds(bounds);
-
-			// window.setTimeout(() => {
-			// zoom = map.getZoom() - 4;
-			// }, 500); // 延遲 1 秒後獲取縮放級別
+			// 更改中心點
+			const latLng = new window.google.maps.LatLng(
+				center.lat(),
+				center.lng() - 0.03
+			);
+			center = latLng;
 		}
-		console.log(center);
-		map.setCenter(center);
+		// 監聽後再更改設置縮放級別與中心點
+		window.google.maps.event.addListenerOnce(map, "idle", () => {
+			const zoom = map.getZoom() - 1;
+			map.setZoom(zoom);
+			map.setCenter(center);
+		});
 	};
 
 	return (
@@ -436,6 +447,7 @@ function ViewArticle({ currentUser, setCurrentUser }) {
 								</div>
 							</div>
 						</div>
+						<BearLogo />
 					</section>
 				</section>
 			) : (

@@ -82,7 +82,6 @@ function App() {
 									avatarImg={avatarImg}
 									currentUser={currentUser}
 									setCurrentUser={setCurrentUser}
-
 								/>
 							</Home>
 						)}
@@ -125,7 +124,6 @@ function App() {
 									avatarImg={avatarImg}
 									currentUser={currentUser}
 									setCurrentUser={setCurrentUser}
-
 								/>
 							</Login>
 						)}
