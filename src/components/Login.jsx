@@ -34,14 +34,11 @@ const Login = ({ setCurrentUser, setavatarImg, currentUser }) => {
       } else if (status === "success") {
         setLabelText("登入成功");
         localStorage.setItem('user', JSON.stringify(response.data.currentuser))
-        // setCurrentUser(localStorage.getItem("user"))
-        // setavatarImg(JSON.parse(currentUser)[0].avatar
-        //   ? "http://localhost:8000" + JSON.parse(currentUser)[0].avatar
-        //   : "http://localhost:8000/useravatar/pre.png")
-        // localStorage.removeItem('user');
-        // setTimeout(() => {
-        //   console.log('Timeout triggered');
-        // }, 5 * 2 * 1000);
+        setCurrentUser(localStorage.getItem("user"))
+        setavatarImg(localStorage.getItem("user")[0].avatar
+          ? "http://localhost:8000" + localStorage.getItem("user")[0].avatar
+          : "http://localhost:8000/useravatar/pre.png")
+
         setTimeout(() => {
           history.goBack();
         }, 3 * 1000)
