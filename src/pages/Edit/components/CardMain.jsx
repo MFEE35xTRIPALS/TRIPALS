@@ -51,9 +51,7 @@ const CardMain = ({
 							>
 								{mainData.main_status === "draft" ? "草稿" : "公開"}
 							</span>
-							{mainData.main_title
-								? mainData.main_title
-								: `文章-${mainData.main_articleno}-標題`}
+							{mainData.main_title ? mainData.main_title : "Untitled"}
 						</button>
 						<hr />
 					</h2>
@@ -71,8 +69,12 @@ const CardMain = ({
 								<div className={styles["main-info-title"]}>
 									<input
 										type="text"
-										placeholder="文章標題"
-										value={mainData.main_title ? mainData.main_title : ""}
+										placeholder="Untitled"
+										value={
+											mainData.main_title === "Untitled"
+												? ""
+												: mainData.main_title
+										}
 										onChange={handleTitleChange}
 									/>
 								</div>
