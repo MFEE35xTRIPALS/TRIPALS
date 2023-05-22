@@ -257,6 +257,9 @@
 .edit-container .edit-card-container .edit-card-content .edit-content-info .content-info-title input {
   padding: 0.5rem;
 }
+.edit-container .googlemap {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
 
 @keyframes cardSpotAnimation {
   0% {
