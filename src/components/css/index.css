@@ -1873,7 +1873,7 @@ nav {
 }
 
 #main .divVideo video {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -2599,7 +2599,6 @@ nav {
 
 footer {
   background-color: #73a083;
-  position: sticky;
 }
 footer .container {
   display: flex;

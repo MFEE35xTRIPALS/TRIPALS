@@ -160,10 +160,7 @@ function Home() {
     <Fragment>
       <section id="main">
         <div className="divVideo">
-          <video autoPlay muted loop>
-            <source src="./images/video01.mp4" type="video/mp4" />
-          </video>
-          <div className="videoContent">
+        <div className="videoContent">
             <div id="LOGO">
               <img src="./images/LOGO.svg" alt="logo" />
             </div>
@@ -177,6 +174,10 @@ function Home() {
               </button>
             </div>
           </div>
+          <video autoPlay muted loop>
+            <source src="./images/video01.mp4" type="video/mp4" />
+          </video>
+        
         </div>
       </section>
 
