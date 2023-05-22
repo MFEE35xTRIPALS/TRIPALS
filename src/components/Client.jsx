@@ -5,15 +5,11 @@ import axios from "axios";
 import Memberinfo from "./smallcomponent/Memberinfo";
 import Mylikes from "./smallcomponent/Mylikes";
 import Myarticles from "./smallcomponent/Myarticles";
-
 import BearLogo from "./smallcomponent/BearLogo";
+import { useHistory } from 'react-router-dom';
 
 function Client({ currentUser, setCurrentUser, setavatarImg }) {
-  // setTimeout(() => {
-  //   localStorage.removeItem('user');
-  // }, 5 * 2 * 1000);
-  // console.log(JSON.parse(currentUser)[0].userno)
-  // console.log(setCurrentUser)
+  const history = useHistory();
   let url = "http://localhost:8000";
   let [userno, setuserno] = useState(currentUser ? JSON.parse(currentUser)[0].userno : 0);
   // 我的文章
@@ -315,6 +311,7 @@ function Client({ currentUser, setCurrentUser, setavatarImg }) {
                       {...props}
                       currentUser={currentUser}
                       userLikes={userLikes}
+                      history={history}
                     />
                   )}
                 />

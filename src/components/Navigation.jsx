@@ -3,6 +3,7 @@ import "./css/HenryStyle/hamburgers.css";
 import axios from "axios";
 import { baseUrl } from "../assets/config";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
+import { Link } from "react-router-dom";
 
 const Navigation = ({ currentUser, setCurrentUser, avatarImg }) => {
 	setTimeout(() => {
@@ -72,13 +73,7 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg }) => {
 			localStorage.removeItem("user");
 			setCurrentUser(null);
 		};
-		const toBack = () => {
-			console.log("hihi");
-			if (JSON.parse(currentUser)[0].permission == 0) {
-				window.location = "/admin";
-			} else if (JSON.parse(currentUser)[0].permission == 1)
-				window.location = '"/client"';
-		};
+
 
 		return () => {
 			navItems.forEach((item) => {
@@ -196,7 +191,8 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg }) => {
 
 							<button
 								onClick={() => {
-									window.location = "/register";
+									history.push("/register")
+									// window.location = "/register";
 								}}
 								className="btn  logInBtn"
 							>
@@ -204,7 +200,8 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg }) => {
 							</button>
 							<button
 								onClick={() => {
-									window.location = "/login";
+									history.push("/login")
+									// window.location = "/login";
 								}}
 								className="btn  logInBtn"
 							>

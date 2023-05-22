@@ -3,9 +3,11 @@ import axios from "axios";
 import TypeIt from "typeit-react";
 import Card from "./smallcomponent/Card";
 import BearLogo from "./smallcomponent/BearLogo";
+import { useHistory } from 'react-router-dom';
 
 function Guides({ currentUser, setCurrentUser }) {
   // const [result, setResult] = useState({});
+  const history = useHistory();
   var url = "http://localhost:8000/articles";
   var [userno, setuserno] = useState(
     currentUser ? JSON.parse(currentUser)[0].userno : undefined
@@ -55,6 +57,7 @@ function Guides({ currentUser, setCurrentUser }) {
             ifUserLike={likes.includes(article.articleno)}
             userno={userno}
             currentUser={currentUser}
+            history={history}
           />
         ))
       );

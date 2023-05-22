@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 
 const Login = () => {
   const [id, setId] = useState("");
   const [password, setpassword] = useState("");
   const [labelText, setLabelText] = useState("");
+  const history = useHistory();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -37,15 +39,11 @@ const Login = () => {
         // setTimeout(() => {
         //   console.log('Timeout triggered');
         // }, 5 * 2 * 1000);
-        if (response.data.currentuser[0].permission === 1) {
-          setTimeout(() => {
-            window.history.back()
-          }, 3 * 1000)
-        } else if (response.data.currentuser[0].permission === 0) {
-          setTimeout(() => {
-            window.location = "/admin";
-          }, 3 * 1000)
-        }
+        setTimeout(() => {
+          history.goBack();
+        }, 3 * 1000)
+
+
       } else if (status === "notExist") {
         setLabelText("尚未註冊");
       } else if (status === "fail") {

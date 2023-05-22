@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+
 function Card(props) {
   const [data] = useState({ ...props.data });
+  console.log(props)
+
   var url = "http://localhost:8000";
   var image = props.data.image ? url + props.data.image : "/images/sunrise.jpg";
   var avatar = props.data.avatar
@@ -12,6 +15,7 @@ function Card(props) {
   var [userlikes, setuserlikes] = useState(props.ifUserLike);
   var userno = props.userno;
   var articleno = props.data.articleno;
+
   return (
     <div>
       {/* card content */}
@@ -59,21 +63,16 @@ function Card(props) {
   // 跳轉作者個人頁面
   function toSelfpage(e) {
     // console.log(e.target.dataset.autherno);
-    window.location = `/selfpage${e.target.dataset.autherno}`;
+    props.history.push(`/selfpage${e.target.dataset.autherno}`)
+    // window.location = `/selfpage${e.target.dataset.autherno}`;
   }
 
-  // 跳轉文章瀏覽頁面並update瀏覽數
+  // 跳轉文章瀏覽頁面
   function toViewArticle(e) {
     // console.log(articleno);
-    window.location = `/view${articleno}`;
+    props.history.push(`/view${articleno}`)
+    // window.location = `/view${articleno}`;
   }
-  // async function toArticlepage(e) {
-  //   // console.log(e.currentTarget);
-  //   // console.log(document.querySelector('.articleno').value);
-  //   await axios.post(url + `/selfpage/updateViews`, {
-  //     articleno: articleno,
-  //   });
-  // }
 
   // 按愛心收藏＆取消收藏
   async function updateLikes() {
@@ -94,7 +93,8 @@ function Card(props) {
     } else {
       let ifSingin = window.confirm("登入後才可收藏文章,是否要前往登入？");
       if (ifSingin) {
-        window.location = "/login";
+        props.history.push("/login")
+        // window.location = "/login";
       } else {
         return;
       }

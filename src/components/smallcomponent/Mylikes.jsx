@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Card from "./Card";
 
-function Mylikes({ currentUser, userLikes }) {
+function Mylikes({ currentUser, userLikes, history }) {
   // console.log(JSON.parse(currentUser)[0].userno)
   // console.log(setCurrentUser)
   let [userno, setuserno] = useState(currentUser ? JSON.parse(currentUser)[0].userno : 0);
@@ -21,6 +21,7 @@ function Mylikes({ currentUser, userLikes }) {
               ifUserLike={true}
               userno={userno}
               currentUser={currentUser}
+              history={history}
             />
           ))
         ) : (

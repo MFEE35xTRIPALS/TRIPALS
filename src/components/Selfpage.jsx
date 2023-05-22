@@ -3,8 +3,10 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Card from "./smallcomponent/Card";
 import BearLogo from "./smallcomponent/BearLogo";
+import { useHistory } from 'react-router-dom';
 
 function Selfpage({ currentUser, setCurrentUser }) {
+  const history = useHistory();
   let url = "http://localhost:8000";
   let [userno, setuserno] = useState(currentUser ? JSON.parse(currentUser)[0].userno : undefined);
   let { authorno } = useParams();
@@ -67,6 +69,7 @@ function Selfpage({ currentUser, setCurrentUser }) {
                     ifUserLike={userlikes.includes(article.articleno)}
                     userno={userno}
                     currentUser={currentUser}
+                    history={history}
                   />
                 ))}
               </div>
