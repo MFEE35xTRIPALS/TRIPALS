@@ -78,6 +78,7 @@ function Client({ currentUser, setCurrentUser, setavatarImg }) {
   }, []);
 
   // 大頭貼上傳預覽-----------------------------------------
+
   function changePhoto(element) {
     console.log(element.target.files[0]);
     let file = element.target.files[0];
@@ -105,6 +106,7 @@ function Client({ currentUser, setCurrentUser, setavatarImg }) {
     setuserimage(userimagetemp);
     setuseravatar(useravatartemp);
     setfile({});
+    // reader.abort();
   }
 
   // ---------上傳圖檔---------
@@ -311,6 +313,7 @@ function Client({ currentUser, setCurrentUser, setavatarImg }) {
                         setselfarticles={setselfarticles}
                         swaAlert={swaAlert}
                         swaConfirm={swaConfirm}
+                        history={history}
                       />
                     )}
                   />

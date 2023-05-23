@@ -165,7 +165,8 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg, setavatarImg }) =>
 							<li className="nav-item">
 								<a
 									className="navWord"
-									href="/guides"
+									href="#"
+									onClick={() => { history.push("/guides") }}
 									data-en="GUIDE"
 									data-zh="旅遊導覽"
 								>
@@ -187,7 +188,8 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg, setavatarImg }) =>
 							<li className="nav-item">
 								<a
 									className="navWord"
-									href="/destination"
+									href="#"
+									onClick={() => { history.push("/destination") }}
 									data-en="DESTINATIONS"
 									data-zh="目的地"
 								>
@@ -243,17 +245,17 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg, setavatarImg }) =>
 								{JSON.parse(currentUser)[0].permission === 1 && (
 									<div>
 										<li>
-											<a className="dropdown-item" href="/client">
+											<a className="dropdown-item" href="#" onClick={() => { history.push("/client") }}>
 												<i className="fa-solid fa-user"></i>個人資料
 											</a>
 										</li>
 										<li>
-											<a className="dropdown-item" href="/client/Mylikes">
+											<a className="dropdown-item" href="#" onClick={() => { history.push("/client/Mylikes") }}>
 												<i className="fa-solid fa-heart"></i>我的收藏
 											</a>
 										</li>
 										<li>
-											<a className="dropdown-item" href="/client/Myarticles">
+											<a className="dropdown-item" href="#" onClick={() => { history.push("/client/Myarticles") }}>
 												<i className="fa-solid fa-pen-to-square"></i>我的文章
 											</a>
 										</li>
@@ -261,7 +263,7 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg, setavatarImg }) =>
 								)}
 								{JSON.parse(currentUser)[0].permission === 0 && (
 									<li>
-										<a className="dropdown-item" href="/admin">
+										<a className="dropdown-item" href="#" onClick={() => { history.push("/admin") }} >
 											<i className="fa-solid fa-pen-to-square"></i>管理員後台
 										</a>
 									</li>
