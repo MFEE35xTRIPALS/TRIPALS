@@ -22,7 +22,7 @@ const Destination = (props) => {
         .get("./TaiwanPictrue.json")
         .then(function (response) {
           setPictureData(response.data);
-          setapple(response)
+          // setapple(response)
         })
         .catch(function (error) {
           console.log(error);
@@ -54,6 +54,7 @@ const Destination = (props) => {
 
     }
   }, [isFirst]);
+
 
   const svgRef = useRef(null);
   // Hover 地圖變色
@@ -106,7 +107,9 @@ const Destination = (props) => {
   }, [showCityList]);
 
   return (
-    <div className="wrapper">
+    // <div>
+    //   {apple ? (
+    <div div className="wrapper" >
       <nav> </nav>
       <div className="container " id="apple">
         <img
@@ -669,7 +672,18 @@ const Destination = (props) => {
         </div>
       </div>
       <BearLogo />
-    </div>
+    </div >
+    //   ) : (
+    //     <div className="loader">
+    //       <div className="lds-ellipsis">
+    //         <div></div>
+    //         <div></div>
+    //         <div></div>
+    //         <div></div>
+    //       </div>
+    //     </div>
+    //   )}
+    // </div>
   );
 };
 

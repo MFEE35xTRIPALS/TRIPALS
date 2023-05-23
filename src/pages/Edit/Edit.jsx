@@ -288,6 +288,7 @@ const Edit = ({ currentUser, setCurrentUser, avatarImg }) => {
 				avatarImg={avatarImg}
 				currentUser={currentUser}
 				setCurrentUser={setCurrentUser}
+				history={history}
 			/>
 			<div className={`container-fluid ${styles["edit-container"]}`}>
 				{/* hashtag 有可能是 [] 空陣列 */}

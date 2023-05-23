@@ -8,7 +8,7 @@ function Card(props) {
   const swaAlert = useSwaAlert();
   const swaConfirm = useSwaConfirm();
   const [data] = useState({ ...props.data });
-  console.log(props)
+  // console.log(props)
 
   var url = "http://localhost:8000";
   var image = props.data.image ? url + props.data.image : "/images/sunrise.jpg";
@@ -92,7 +92,6 @@ function Card(props) {
         }
       );
       // console.log(result.data.likesCount);
-      swaAlert('收藏成功', '', 'success', 1500)
       setuserlikes(!userlikes);
       if (userlikes) {
         swaAlert('已取消收藏', '', '', 1500)

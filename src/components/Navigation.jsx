@@ -4,13 +4,14 @@ import axios from "axios";
 import { baseUrl } from "../assets/config";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
 
-const Navigation = ({ currentUser, setCurrentUser, avatarImg }) => {
+const Navigation = ({ currentUser, setCurrentUser, avatarImg, setavatarImg }) => {
 	setTimeout(() => {
 		localStorage.removeItem("user");
 	}, 60 * 60 * 1000);
-	console.log(avatarImg)
+	// console.log(avatarImg)
 
 	const history = useHistory();
+	const url = 'http://localhost:8000';
 
 	useEffect(() => {
 		const handleNavMouseOver = (event) => {
@@ -69,10 +70,10 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg }) => {
 		navToggles.forEach((element) => {
 			element.addEventListener("click", handleNavLinkClick);
 		});
-		const logout = () => {
-			localStorage.removeItem("user");
-			setCurrentUser(null);
-		};
+		// const logout = () => {
+		// 	localStorage.removeItem("user");
+		// 	setCurrentUser(null);
+		// };
 
 
 		return () => {
@@ -88,12 +89,27 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg }) => {
 				element.removeEventListener("click", handleNavLinkClick);
 			});
 		};
+
 	}, []);
 	const logout = () => {
 		localStorage.removeItem("user");
 		setCurrentUser(null);
 	};
 
+	useEffect(() => {
+		async function nav() {
+			let result = await axios.get('http://localhost:8000/nav', {
+				params: { userno: JSON.parse(currentUser)[0].userno }
+			})
+			// console.log(result.data.avatar)
+			setavatarImg(result.data.avatar ? (url + result.data.avatar + "?temp=" + Math.random()) : url + "/useravatar/pre.png")
+
+		}
+		if (currentUser) {
+			nav();
+		}
+
+	}, [])
 	// 暫時寫法
 	const handleWriteClick = async (e) => {
 		e.preventDefault();
@@ -152,7 +168,8 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg }) => {
 							<li className="nav-item">
 								<a
 									className="navWord"
-									href="/guides"
+									href="#"
+									onClick={() => { history.push("/guides") }}
 									data-en="GUIDE"
 									data-zh="旅遊導覽"
 								>
@@ -174,7 +191,8 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg }) => {
 							<li className="nav-item">
 								<a
 									className="navWord"
-									href="/destination"
+									href="#"
+									onClick={() => { history.push("/destination") }}
 									data-en="DESTINATIONS"
 									data-zh="目的地"
 								>
@@ -218,7 +236,7 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg }) => {
 								aria-expanded="false"
 							>
 								<div className="userImage rounded-circle">
-									<img className="avatar" src={avatarImg} alt="UserImage" />
+									{avatarImg && <img className="avatar" src={avatarImg} alt="UserImage" />}
 								</div>
 							</button>
 							<ul className="dropdown-menu">
@@ -230,17 +248,17 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg }) => {
 								{JSON.parse(currentUser)[0].permission === 1 && (
 									<div>
 										<li>
-											<a className="dropdown-item" href="/client">
+											<a className="dropdown-item" href="#" onClick={() => { history.push("/client") }}>
 												<i className="fa-solid fa-user"></i>個人資料
 											</a>
 										</li>
 										<li>
-											<a className="dropdown-item" href="/client/Mylikes">
+											<a className="dropdown-item" href="#" onClick={() => { history.push("/client/Mylikes") }}>
 												<i className="fa-solid fa-heart"></i>我的收藏
 											</a>
 										</li>
 										<li>
-											<a className="dropdown-item" href="/client/Myarticles">
+											<a className="dropdown-item" href="#" onClick={() => { history.push("/client/Myarticles") }}>
 												<i className="fa-solid fa-pen-to-square"></i>我的文章
 											</a>
 										</li>
@@ -248,7 +266,7 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg }) => {
 								)}
 								{JSON.parse(currentUser)[0].permission === 0 && (
 									<li>
-										<a className="dropdown-item" href="/admin">
+										<a className="dropdown-item" href="#" onClick={() => { history.push("/admin") }} >
 											<i className="fa-solid fa-pen-to-square"></i>管理員後台
 										</a>
 									</li>

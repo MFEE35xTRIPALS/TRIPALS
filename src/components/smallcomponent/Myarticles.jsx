@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-function Myarticles({ currentUser, selfarticles, setselfarticles, swaConfirm, swaAlert }) {
+function Myarticles({ currentUser, selfarticles, setselfarticles, swaConfirm, swaAlert, history }) {
   // console.log(JSON.parse(currentUser)[0].userno)
   // console.log(setCurrentUser)
   let url = "http://localhost:8000";
@@ -52,7 +52,7 @@ function Myarticles({ currentUser, selfarticles, setselfarticles, swaConfirm, sw
                   return (
                     <tr key={i}>
                       <td>
-                        <a href={`/view${value.articleno}`}>
+                        <a href='#' onClick={() => { history.push(`/view${value.articleno}`) }}>
                           {value.title}
                         </a>
                       </td>
@@ -68,7 +68,8 @@ function Myarticles({ currentUser, selfarticles, setselfarticles, swaConfirm, sw
                       <td>
                         <a
                           className="c-editArt"
-                          href={`/edit/${value.articleno}`}
+                          href='#'
+                          onClick={() => { history.push(`/edit/${value.articleno}`) }}
                         >
                           <i className="fa-regular fa-pen-to-square"></i>
                         </a>
@@ -84,7 +85,7 @@ function Myarticles({ currentUser, selfarticles, setselfarticles, swaConfirm, sw
                   return (
                     <tr key={i}>
                       <td>
-                        <a href={`/view${value.articleno}`}>
+                        <a href='#' onClick={() => { history.push(`/view${value.articleno}`) }}>
                           {value.title}
                         </a>
                       </td>
@@ -100,7 +101,8 @@ function Myarticles({ currentUser, selfarticles, setselfarticles, swaConfirm, sw
                       <td>
                         <a
                           className="c-editArt"
-                          href={`/edit/${value.articleno}`}
+                          href='#'
+                          onClick={() => { history.push(`/edit/${value.articleno}`) }}
                         >
                           <i className="fa-regular fa-pen-to-square"></i>
                         </a>

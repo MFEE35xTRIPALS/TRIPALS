@@ -35,13 +35,7 @@ function App() {
   let [currentUser, setCurrentUser] = useState(localStorage.getItem("user"));
   console.log(localStorage.getItem("user"));
   // currentUser裡是這個[{userno: 12, permission: 1, avatar: "/useravatar/12.png"}]
-  let [avatarImg, setavatarImg] = useState(
-    currentUser
-      ? JSON.parse(currentUser)[0].avatar
-        ? "http://localhost:8000" + JSON.parse(currentUser)[0].avatar
-        : "http://localhost:8000/useravatar/pre.png"
-      : ""
-  );
+  let [avatarImg, setavatarImg] = useState('');
 
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: "AIzaSyAPOMZXMZfyOy1zrlETRf727BEzshgi2oM",
@@ -72,6 +66,7 @@ function App() {
           avatarImg={avatarImg}
           currentUser={currentUser}
           setCurrentUser={setCurrentUser}
+          setavatarImg={setavatarImg}
         />
 
         <Switch>
