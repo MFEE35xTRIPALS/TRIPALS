@@ -7,9 +7,13 @@ import Mylikes from "./smallcomponent/Mylikes";
 import Myarticles from "./smallcomponent/Myarticles";
 import BearLogo from "./smallcomponent/BearLogo";
 import { useHistory } from 'react-router-dom';
+import useSwaConfirm from "../components/swaConfirm";
+import useSwaAlert from "../components/swaAlert";
 
 function Client({ currentUser, setCurrentUser, setavatarImg }) {
   const history = useHistory();
+  const swaConfirm = useSwaConfirm();
+  const swaAlert = useSwaAlert();
   let url = "http://localhost:8000";
   let [userno, setuserno] = useState(currentUser ? JSON.parse(currentUser)[0].userno : 0);
   // 我的文章
@@ -117,7 +121,8 @@ function Client({ currentUser, setCurrentUser, setavatarImg }) {
       formData.append("userno", userno);
       // console.log(photoUrl)
       let resultImages = await axios.post(photoUrl, formData);
-      alert(resultImages.data.myPhotoAlert);
+      // alert(resultImages.data.myPhotoAlert);
+      swaAlert(resultImages.data.myPhotoAlert, '', 'success', 1500)
       setifOpenBanner(false);
       setifOpenavatar(false);
       setfile({});

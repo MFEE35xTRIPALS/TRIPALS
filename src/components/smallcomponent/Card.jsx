@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
+import useSwaConfirm from "../../components/swaConfirm";
 
 
 function Card(props) {
+  const swaConfirm = useSwaConfirm();
   const [data] = useState({ ...props.data });
   console.log(props)
 
@@ -91,13 +93,16 @@ function Card(props) {
       setuserlikes(!userlikes);
       setlike_count(result.data.likesCount);
     } else {
-      let ifSingin = window.confirm("登入後才可收藏文章,是否要前往登入？");
-      if (ifSingin) {
+      // let ifSingin = window.confirm("登入後才可收藏文章,是否要前往登入？");
+      swaConfirm("登入後才可收藏文章", '是否要前往登入？', "warning", () => {
         props.history.push("/login")
-        // window.location = "/login";
-      } else {
-        return;
-      }
+      })
+      // if (ifSingin) {
+      //   props.history.push("/login")
+      //   // window.location = "/login";
+      // } else {
+      //   return;
+      // }
     }
   }
 }
