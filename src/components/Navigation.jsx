@@ -4,13 +4,15 @@ import axios from "axios";
 import { baseUrl } from "../assets/config";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
 
-const Navigation = ({ currentUser, setCurrentUser, avatarImg }) => {
+const Navigation = ({ currentUser, setCurrentUser, avatarImg, setavatarImg }) => {
 	setTimeout(() => {
 		localStorage.removeItem("user");
 	}, 60 * 60 * 1000);
-	console.log(avatarImg)
+	// console.log(avatarImg)
 
 	const history = useHistory();
+	const url = 'http://localhost:8000';
+	const [avatarready, setavatarready] = useState(null)
 
 	useEffect(() => {
 		const handleNavMouseOver = (event) => {
@@ -69,10 +71,10 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg }) => {
 		navToggles.forEach((element) => {
 			element.addEventListener("click", handleNavLinkClick);
 		});
-		const logout = () => {
-			localStorage.removeItem("user");
-			setCurrentUser(null);
-		};
+		// const logout = () => {
+		// 	localStorage.removeItem("user");
+		// 	setCurrentUser(null);
+		// };
 
 
 		return () => {
@@ -88,11 +90,23 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg }) => {
 				element.removeEventListener("click", handleNavLinkClick);
 			});
 		};
+
 	}, []);
 	const logout = () => {
 		localStorage.removeItem("user");
 		setCurrentUser(null);
 	};
+	if (currentUser) {
+		async function nav() {
+			let result = await axios.get('http://localhost:8000/nav', {
+				params: { userno: JSON.parse(currentUser)[0].userno }
+			})
+			// console.log(result.data.avatar)
+			setavatarImg(result.data.avatar ? (url + result.data.avatar) : url + "/useravatar/pre.png")
+
+		}
+		nav();
+	}
 
 	// 暫時寫法
 	const handleWriteClick = async (e) => {
@@ -218,7 +232,7 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg }) => {
 								aria-expanded="false"
 							>
 								<div className="userImage rounded-circle">
-									<img className="avatar" src={avatarImg} alt="UserImage" />
+									{avatarImg && <img className="avatar" src={avatarImg} alt="UserImage" />}
 								</div>
 							</button>
 							<ul className="dropdown-menu">
