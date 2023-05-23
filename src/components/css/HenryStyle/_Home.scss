@@ -271,44 +271,44 @@
         }
     }
 
-    // #hat {
-    //     stroke-dasharray: 900;
-    //     animation: 8s fillSvg linear infinite;
+    #hat {
+        stroke-dasharray: 900;
+        animation: 8s fillSvg linear infinite;
 
-    //     @media (max-width: 1835px) {
-    //         display: none;
-    //     }
+        @media (max-width: 1835px) {
+            display: none;
+        }
 
-    // }
+    }
 
-    // @keyframes fillSvg {
-    //     0% {
-    //         stroke-dashoffset: 2045;
-    //     }
+    @keyframes fillSvg {
+        0% {
+            stroke-dashoffset: 2045;
+        }
 
-    //     100% {
-    //         stroke-dashoffset: 0;
-    //     }
-    // }
-    // #flower {
-    //     stroke-dasharray: 1841;
-    //     animation: 8s fillSvg linear infinite;
+        100% {
+            stroke-dashoffset: 0;
+        }
+    }
+    #flower {
+        stroke-dasharray: 1841;
+        animation: 8s fillSvg linear infinite;
 
-    //     @media (max-width: 1835px) {
-    //         display: none;
-    //     }
+        @media (max-width: 1835px) {
+            display: none;
+        }
 
-    // }
+    }
 
-    // @keyframes fillSvg {
-    //     0% {
-    //         stroke-dashoffset: 1841;
-    //     }
+    @keyframes fillSvg {
+        0% {
+            stroke-dashoffset: 1841;
+        }
 
-    //     100% {
-    //         stroke-dashoffset: 0;
-    //     }
-    // }
+        100% {
+            stroke-dashoffset: 0;
+        }
+    }
 
     #kite {
         stroke-dasharray: 682;
@@ -889,25 +889,25 @@
 
         }
     }
-    // #coffee {
-    //     stroke-dasharray: 2006;
-    //     animation: 8s fillSvg linear infinite;
+    #coffee {
+        stroke-dasharray: 2006;
+        animation: 8s fillSvg linear infinite;
 
-    //     @media (max-width: 1835px) {
-    //         display: none;
-    //     }
+        @media (max-width: 1835px) {
+            display: none;
+        }
 
-    // }
+    }
 
-    // @keyframes fillSvg {
-    //     0% {
-    //         stroke-dashoffset: 2006;
-    //     }
+    @keyframes fillSvg {
+        0% {
+            stroke-dashoffset: 2006;
+        }
 
-    //     100% {
-    //         stroke-dashoffset: 0;
-    //     }
-    // }
+        100% {
+            stroke-dashoffset: 0;
+        }
+    }
 
 
 
