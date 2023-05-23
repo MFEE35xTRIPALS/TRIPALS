@@ -8,7 +8,6 @@
 /* ----- 旅遊導覽變數 ----- */
 /* -------- 全域設定 -------- */
 @import url("https://fonts.googleapis.com/css2?family=Sen:wght@800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Sen:wght@800&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -1668,115 +1667,26 @@ nav {
   width: 100%;
   height: 100vh;
 }
-.page #LoginPage {
+.page #LoginPage,
+.page #RegisterPage {
   background-color: white;
   position: absolute;
   top: 50%;
   left: 50%;
   text-align: center;
   align-items: center;
-  padding: 3rem;
+  padding: 2.5rem;
   max-width: 30rem;
   transform: translate(-50%, -50%);
   border-radius: 10px;
   height: fit-content;
   width: 100%;
 }
-.page #LoginPage h1 {
+.page #LoginPage h1,
+.page #RegisterPage h1 {
   font-weight: bold;
 }
-.page #LoginPage input[type=button] {
-  display: block;
-  margin: 0 auto;
-  display: flex;
-  width: 50%;
-  height: 35px;
-  border-radius: 20px;
-  justify-content: center;
-  background-color: white;
-  font-size: 1rem;
-  border: 1px solid #b2d5ce;
-  margin-top: 15px;
-}
-.page #LoginPage input[type=button]:active {
-  background-color: #92b9b4;
-}
-.page #LoginPage input[type=button]:hover {
-  background-color: #e3f1ef;
-}
-.page #LoginPage #hrOr {
-  display: flex;
-  align-items: center;
-  height: 0.5px;
-  margin: 20px;
-  background-color: black;
-  border: none;
-  margin-top: 4rem;
-}
-.page #LoginPage #hrOr p {
-  background-color: white;
-}
-.page #LoginPage form {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  margin-top: 2rem;
-}
-.page #LoginPage form label {
-  font-size: 1rem;
-  /* 調整label的位置 */
-}
-.page #LoginPage form input {
-  position: relative;
-  margin: 0 auto;
-  width: 50%;
-  height: 20px;
-  margin-top: 5px;
-}
-.page #LoginPage form input[type=submit] {
-  margin-top: 30px;
-  display: block;
-  margin: 0 auto;
-  display: flex;
-  width: 40%;
-  height: 30px;
-  border-radius: 5px;
-  justify-content: center;
-  background-color: white;
-  font-size: 1rem;
-  border: 1px solid #b2d5ce;
-  margin-top: 15px;
-}
-.page #LoginPage form input[type=submit]:active {
-  background-color: #b2d5ce;
-}
-.page #LoginPage form input[type=submit]:hover {
-  background-color: #e3f1ef;
-}
-.page #LoginPage form a {
-  font-size: 1rem;
-  color: #b2d5ce;
-}
-
-@media screen and (max-width: 1440px) {
-  #RegisterPage {
-    max-width: 20rem;
-  }
-}
-.page #RegisterPage {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  background-color: white;
-  padding: 3rem;
-  text-align: center;
-  align-items: center;
-  max-width: 30rem;
-  transform: translate(-50%, -50%);
-  border-radius: 10px;
-  height: fit-content;
-  width: 100%;
-}
+.page #LoginPage input[type=button],
 .page #RegisterPage input[type=button] {
   display: block;
   margin: 0 auto;
@@ -1790,12 +1700,15 @@ nav {
   border: 1px solid #b2d5ce;
   margin-top: 15px;
 }
+.page #LoginPage input[type=button]:active,
 .page #RegisterPage input[type=button]:active {
   background-color: #92b9b4;
 }
+.page #LoginPage input[type=button]:hover,
 .page #RegisterPage input[type=button]:hover {
   background-color: #e3f1ef;
 }
+.page #LoginPage #hrOr,
 .page #RegisterPage #hrOr {
   display: flex;
   align-items: center;
@@ -1803,51 +1716,67 @@ nav {
   margin: 20px;
   background-color: black;
   border: none;
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
+.page #LoginPage #hrOr p,
 .page #RegisterPage #hrOr p {
   background-color: white;
 }
+.page #LoginPage form,
 .page #RegisterPage form {
   display: flex;
   flex-direction: column;
   position: relative;
   margin-top: 2rem;
 }
+.page #LoginPage form label,
 .page #RegisterPage form label {
   font-size: 1rem;
-  /* 調整label的位置 */
 }
+.page #LoginPage form input,
 .page #RegisterPage form input {
   position: relative;
   margin: 0 auto;
-  width: 50%;
-  height: 20px;
-  margin-top: 5px;
-}
-.page #RegisterPage form input[type=submit] {
-  margin-top: 30px;
-  display: block;
-  margin: 0 auto;
-  display: flex;
-  width: 40%;
-  height: 30px;
-  border-radius: 5px;
-  justify-content: center;
-  background-color: white;
   font-size: 1rem;
-  border: 1px solid #b2d5ce;
-  margin-top: 15px;
+  width: 60%;
+  padding-left: 1rem;
+  border: 1.5px #b2d5ce solid;
+  border-radius: 50px;
+  padding-left: 1rem;
 }
-.page #RegisterPage form input[type=submit]:active {
-  background-color: #b2d5ce;
+.page #LoginPage form input:hover, .page #LoginPage form input:focus,
+.page #RegisterPage form input:hover,
+.page #RegisterPage form input:focus {
+  border: 1.5px #b2d5ce solid;
+  border-radius: 50px;
+  padding-left: 1rem;
 }
-.page #RegisterPage form input[type=submit]:hover {
-  background-color: #e3f1ef;
+.page #LoginPage form button,
+.page #RegisterPage form button {
+  padding: 0.25rem 0.85rem;
+  border-radius: 50px;
+  border: #65c6c6 2px solid;
+  background: #65c6c6;
+  color: #ffffff;
+  width: 30%;
+  margin: 1rem auto;
 }
+.page #LoginPage form button:hover,
+.page #RegisterPage form button:hover {
+  color: #65c6c6;
+  background: #ffffff;
+  border: #65c6c6 2px solid;
+}
+.page #LoginPage form a,
 .page #RegisterPage form a {
   font-size: 1rem;
   color: #b2d5ce;
+}
+.page #LoginPage form span,
+.page #RegisterPage form span {
+  color: red;
+  font-size: 0.75rem;
+  height: 1rem;
 }
 
 * {

@@ -74,24 +74,22 @@ const Login = ({ setCurrentUser, setavatarImg, currentUser }) => {
               setEmailOK(Boolean(id));
             }}
           />
-          <span style={{ color: "red" }} className={ifEmailOK ? "postBtn" : ""}>
-            *請輸入Email
-          </span>
           {/* 回傳資料 */}
+          <span>{ifEmailOK ? "" : "*請輸入Email"}</span>
           <label htmlFor="password">密碼</label>
           <input
             name="password"
-            type="text"
+            type="password"
             onChange={(e) => setPwd(e.target.value)}
             onBlur={() => {
               setPwdOK(Boolean(password));
             }}
           />
           {/* 回傳資料 */}
-          <span style={{ color: "red" }} className={ifPwdOK ? "postBtn" : ""}>
-            *請輸入密碼
-          </span>
-          <input type="button" value="登入" onClick={handleSubmit} />
+          <span>{ifPwdOK ? "" : "*請輸入密碼"}</span>
+          <button type="button" onClick={handleSubmit}>
+            登入
+          </button>
           <p>沒有Tripals帳號?</p>
           <Link to="/registertest">Sign Up</Link>
         </form>

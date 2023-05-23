@@ -61,9 +61,7 @@ const Register = (props) => {
             }}
           />
           {/* 回傳資料 */}
-          {id && !ifEmailOK && (
-            <span style={{ color: "red" }}>*請輸入正確格式</span>
-          )}
+          <span>{id && !ifEmailOK && "*請輸入正確格式"}</span>
           <label htmlFor="password">密碼</label>
           <input
             name="password"
@@ -75,11 +73,9 @@ const Register = (props) => {
             }}
           />
           {/* 回傳資料 */}
-          {password && !ifPwdOK && (
-            <span style={{ color: "red" }}>
-              *密碼長度6以上，並包含至少一個英數字
-            </span>
-          )}
+          <span>
+            {password && !ifPwdOK && "*密碼長度6以上，並包含至少一個英數字"}
+          </span>
           <label htmlFor="password2">再次輸入</label>
           <input
             name="password2"
@@ -90,10 +86,10 @@ const Register = (props) => {
               setPwd2OK(event.target.value === password);
             }}
           />
-          {password2 && !ifPwd2OK && (
-            <span style={{ color: "red" }}>*密碼輸入不一致</span>
-          )}
-          <input type="button" value="註冊" onClick={handleSubmit} />
+          <span>{password2 && !ifPwd2OK && "*密碼輸入不一致"}</span>
+          <button type="button" onClick={handleSubmit}>
+            註冊
+          </button>
 
           <p>已有Tripals帳號?</p>
           <Link to="/logintest">Log In</Link>
