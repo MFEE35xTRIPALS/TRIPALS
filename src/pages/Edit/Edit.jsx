@@ -159,9 +159,10 @@ const Edit = ({ currentUser, setCurrentUser, avatarImg }) => {
 					const updatedSpots = spots.filter(
 						(spot) => spot.contentno !== contentno
 					);
+					// console.log("deleteSpot:", updatedSpots);
 					setSpots(updatedSpots);
 					// 一併刪除olddata的spots
-					setOldData({ ...oldData, spots: [...updatedSpots] });
+					// setOldData({ ...oldData, spots: [...updatedSpots] });
 				})
 				.catch((error) => {
 					// 刪除失敗
@@ -224,6 +225,7 @@ const Edit = ({ currentUser, setCurrentUser, avatarImg }) => {
 		// console.log("olddata:", oldData);
 		// console.log("newdata:", updatedMainData);
 		const finalData = compareData(oldData, updatedMainData);
+		// console.log("finaldata:", finalData);
 		patchData(finalData, "草稿儲存成功");
 		// 解構賦值讓oldData也是更新後的資料
 		setOldData({ ...updatedMainData });
