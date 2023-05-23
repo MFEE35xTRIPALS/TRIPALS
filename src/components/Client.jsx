@@ -33,6 +33,7 @@ function Client({ currentUser, setCurrentUser, setavatarImg }) {
   let [ifOpenBanner, setifOpenBanner] = useState(false);
   let [ifOpenavatar, setifOpenavatar] = useState(false);
   let [file, setfile] = useState({});
+
   //讀取中...
   let [apple, setapple] = useState(null);
 

@@ -8,7 +8,7 @@ function Card(props) {
   const swaAlert = useSwaAlert();
   const swaConfirm = useSwaConfirm();
   const [data] = useState({ ...props.data });
-  console.log(props)
+  // console.log(props)
 
   var url = "http://localhost:8000";
   var image = props.data.image ? url + props.data.image : "/images/sunrise.jpg";

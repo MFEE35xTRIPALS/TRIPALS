@@ -95,7 +95,8 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg, setavatarImg }) =>
 		localStorage.removeItem("user");
 		setCurrentUser(null);
 	};
-	if (currentUser) {
+
+	useEffect(() => {
 		async function nav() {
 			let result = await axios.get('http://localhost:8000/nav', {
 				params: { userno: JSON.parse(currentUser)[0].userno }
@@ -104,9 +105,11 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg, setavatarImg }) =>
 			setavatarImg(result.data.avatar ? (url + result.data.avatar + "?temp=" + Math.random()) : url + "/useravatar/pre.png")
 
 		}
-		nav();
-	}
+		if (currentUser) {
+			nav();
+		}
 
+	}, [])
 	// 暫時寫法
 	const handleWriteClick = async (e) => {
 		e.preventDefault();
