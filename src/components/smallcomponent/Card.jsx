@@ -92,7 +92,6 @@ function Card(props) {
         }
       );
       // console.log(result.data.likesCount);
-      swaAlert('收藏成功', '', 'success', 1500)
       setuserlikes(!userlikes);
       if (userlikes) {
         swaAlert('已取消收藏', '', '', 1500)

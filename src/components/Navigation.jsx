@@ -12,7 +12,6 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg, setavatarImg }) =>
 
 	const history = useHistory();
 	const url = 'http://localhost:8000';
-	const [avatarready, setavatarready] = useState(null)
 
 	useEffect(() => {
 		const handleNavMouseOver = (event) => {
