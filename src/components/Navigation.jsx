@@ -101,7 +101,7 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg, setavatarImg }) =>
 				params: { userno: JSON.parse(currentUser)[0].userno }
 			})
 			// console.log(result.data.avatar)
-			setavatarImg(result.data.avatar ? (url + result.data.avatar) : url + "/useravatar/pre.png")
+			setavatarImg(result.data.avatar ? (url + result.data.avatar + "?temp=" + Math.random()) : url + "/useravatar/pre.png")
 
 		}
 		nav();

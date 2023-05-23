@@ -1,5 +1,6 @@
 import styles from "./EditNavbar.module.scss";
 
+
 const EditNavbar = ({
 	currentUser,
 	setCurrentUser,
@@ -8,6 +9,7 @@ const EditNavbar = ({
 	onSaveDraft,
 	onSaveShow,
 	onDeleteAll,
+	history
 }) => {
 	const logout = () => {
 		localStorage.removeItem("user");
@@ -80,7 +82,7 @@ const EditNavbar = ({
 										<li>
 											<a
 												className={`dropdown-item ${styles["edit-dropdown-item"]}`}
-												href="/client"
+												href="#" onClick={() => { history.push("/client") }}
 											>
 												<i className="fa-solid fa-user"></i>個人資料
 											</a>
@@ -88,7 +90,7 @@ const EditNavbar = ({
 										<li>
 											<a
 												className={`dropdown-item ${styles["edit-dropdown-item"]}`}
-												href="/client/Mylikes"
+												href="#" onClick={() => { history.push("/client/Mylikes") }}
 											>
 												<i className="fa-solid fa-heart"></i>我的收藏
 											</a>
@@ -96,7 +98,7 @@ const EditNavbar = ({
 										<li>
 											<a
 												className={`dropdown-item ${styles["edit-dropdown-item"]}`}
-												href="/client/Myarticles"
+												href="#" onClick={() => { history.push("/client/Myarticles") }}
 											>
 												<i className="fa-solid fa-pen-to-square"></i>我的文章
 											</a>
