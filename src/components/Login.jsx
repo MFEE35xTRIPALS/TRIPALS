@@ -11,7 +11,6 @@ const Login = ({ setCurrentUser, setavatarImg, currentUser }) => {
   const [id, setId] = useState("");
   const [password, setPwd] = useState("");
   const history = useHistory();
-  // const location = useLocation();
   const params = useParams();
   // alert美化
   const swaAlert = useSwaAlert();

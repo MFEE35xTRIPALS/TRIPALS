@@ -95,7 +95,7 @@ function Card(props) {
     } else {
       // let ifSingin = window.confirm("登入後才可收藏文章,是否要前往登入？");
       swaConfirm("登入後才可收藏文章", '是否要前往登入？', "warning", () => {
-        props.history.push("/login")
+        props.history.push("/login/else")
       })
       // if (ifSingin) {
       //   props.history.push("/login")
