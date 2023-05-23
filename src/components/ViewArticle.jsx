@@ -421,7 +421,7 @@ function ViewArticle({ currentUser, setCurrentUser }) {
 															<figure>
 																<img
 																	src={
-																		Mimage
+																		el.image
 																			? `${url + el.image}`
 																			: "https://fakeimg.pl/600x400/ffffff/?text=No Pictures&font=noto"
 																	}
