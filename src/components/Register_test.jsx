@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import useSwaAlert from "./swaAlert";
 
 const Register = (props) => {
   var url = "http://localhost:8000";
   const [id, setId] = useState("");
   const [password, setPwd] = useState("");
   const [password2, setPwd2] = useState("");
+
+  // alert美化
+  const swaAlert = useSwaAlert();
 
   // ifEmailOK
   const [ifEmailOK, setEmailOK] = useState(false);
@@ -23,13 +27,17 @@ const Register = (props) => {
       });
       var message = result.data.message;
       if (message === "EmailExist") {
-        alert("此帳戶已存在");
+        // alert("此帳戶已存在");
+        swaAlert("此帳戶已存在", "", "warning", 1500);
       } else if (message === "Success") {
-        alert("註冊成功");
+        // alert("註冊成功");
+        swaAlert("註冊成功", "", "success", 1500);
+
         window.location = "/logintest";
       }
     } else {
-      alert("請確實輸入資料");
+      // alert("請確實輸入資料");
+      swaAlert("請確實輸入資料", "", "warning", 1500);
     }
   }
 

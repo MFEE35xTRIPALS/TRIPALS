@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import useSwaAlert from "./swaAlert";
 
 const Login = ({ setCurrentUser, setavatarImg, currentUser }) => {
   var url = "http://localhost:8000";
@@ -9,6 +10,8 @@ const Login = ({ setCurrentUser, setavatarImg, currentUser }) => {
   const [id, setId] = useState("");
   const [password, setPwd] = useState("");
   const history = useHistory();
+  // alert美化
+  const swaAlert = useSwaAlert();
 
   // ifEmailOK
   const [ifEmailOK, setEmailOK] = useState(true);
@@ -23,11 +26,14 @@ const Login = ({ setCurrentUser, setavatarImg, currentUser }) => {
       });
       var message = result.data.message;
       if (message === "NoUser") {
-        alert("Email尚未註冊，請重新輸入");
+        // alert("Email尚未註冊，請重新輸入");
+        swaAlert("Email尚未註冊，請重新輸入", "", "error", 1500);
       } else if (message === "WrongPwd") {
-        alert("密碼輸入錯誤，請重新輸入");
+        // alert("密碼輸入錯誤，請重新輸入");
+        swaAlert("密碼輸入錯誤，請重新輸入", "", "error", 1500);
       } else if (message === "Success") {
-        alert("登入成功");
+        // alert("登入成功");
+        swaAlert("登入成功", "", "success", 1500);
         localStorage.setItem("user", JSON.stringify(result.data.currentuser));
         setCurrentUser(localStorage.getItem("user"));
         setavatarImg(
@@ -41,7 +47,8 @@ const Login = ({ setCurrentUser, setavatarImg, currentUser }) => {
         }, 3 * 1000);
       }
     } else {
-      alert("請確實輸入資料");
+      // alert("請確實輸入資料");
+      swaAlert("請確實輸入資料", "", "error", 1500);
     }
   }
 
