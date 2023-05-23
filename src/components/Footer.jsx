@@ -8,6 +8,8 @@ const Footer = () => {
 				<div id="footerLogo">
 					<img src="/images/LOGO.svg" alt="" />
 					<h5>Copyright@Tripals All Rights Reserved.</h5>
+				<h5>僅供學習用途，如有侵權請來信告知。</h5>
+
 				</div>
 				<div id="footerNav">
 					<ul className="footer_nav nav">
@@ -62,6 +64,7 @@ const Footer = () => {
 					</ul>
 				</div>
 			</div>
+			
 		</footer>
 	);
 };
