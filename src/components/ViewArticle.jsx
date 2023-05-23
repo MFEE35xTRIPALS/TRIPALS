@@ -172,7 +172,7 @@ function ViewArticle({ currentUser, setCurrentUser }) {
 				})
 				.catch((error) => console.error(error));
 		} else {
-			alert("已檢舉此篇文章");
+			swaAlert("已檢舉此篇文章", "", "warning", 1500);
 		}
 	};
 
