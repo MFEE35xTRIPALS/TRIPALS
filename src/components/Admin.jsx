@@ -440,7 +440,7 @@ function Admin({ currentUser, setCurrentUser }) {
                               <tr key={i}>
                                 <td>{value.articleno}</td>
                                 <td>
-                                  <a href={`/${value.articleno}`}>{value.title}</a>
+                                  <a href={`/view${value.articleno}`}>{value.title}</a>
                                 </td>
                                 <td>
                                   <i className="fas fa-exclamation-triangle"></i>{" "}
@@ -484,7 +484,7 @@ function Admin({ currentUser, setCurrentUser }) {
                               <tr key={i}>
                                 <td>{value.articleno}</td>
                                 <td>
-                                  <a href={`/${value.articleno}`}>{value.title}</a>
+                                  <a href={`/view${value.articleno}`}>{value.title}</a>
                                 </td>
                                 <td>
                                   <i className="fas fa-exclamation-triangle"></i>{" "}
