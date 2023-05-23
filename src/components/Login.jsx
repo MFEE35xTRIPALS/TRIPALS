@@ -48,21 +48,21 @@ const Login = ({ setCurrentUser, setavatarImg, currentUser }) => {
         if (params.from === "register") {
           history.push('/')
         } else if (params.from === "write") {
-          history.goBack();
-          // axios
-          //   .post(`${baseUrl}/guide/`, {
-          //     userno: localStorage.getItem("user")[0].userno,
-          //   })
-          //   .then((response) => {
-          //     console.log("新增文章");
-          //     // window.location = `/edit/${response.data.main_articleno}`;
-          //     history.push(`/edit/${response.data.main_articleno}`);
-          //   })
-          //   .catch((error) => {
-          //     // 新增失敗
-          //     alert("新增失敗");
-          //     console.error("新增失敗:", error);
-          //   });
+          // history.goBack();
+          axios
+            .post(`${baseUrl}/guide/`, {
+              userno: JSON.parse(localStorage.getItem("user"))[0].userno,
+            })
+            .then((response) => {
+              console.log("新增文章");
+              // window.location = `/edit/${response.data.main_articleno}`;
+              history.push(`/edit/${response.data.main_articleno}`);
+            })
+            .catch((error) => {
+              // 新增失敗
+              alert("新增失敗");
+              console.error("新增失敗:", error);
+            });
         } else {
           history.goBack();
         }
