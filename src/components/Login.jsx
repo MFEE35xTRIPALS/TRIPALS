@@ -40,8 +40,8 @@ const Login = ({ setCurrentUser, setavatarImg, currentUser }) => {
         localStorage.setItem("user", JSON.stringify(result.data.currentuser));
         setCurrentUser(localStorage.getItem("user"));
         setavatarImg(
-          localStorage.getItem("user")[0].avatar
-            ? url + localStorage.getItem("user")[0].avatar
+          JSON.parse(localStorage.getItem("user"))[0].avatar
+            ? url + JSON.parse(localStorage.getItem("user"))[0].avatar
             : url + "/useravatar/pre.png"
         );
         console.log(params.from)
