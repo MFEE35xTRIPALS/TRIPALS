@@ -193,7 +193,21 @@ button.camera {
         padding-left: 1rem;
       }
     }
+    //button
+    .changePwd {
+      padding: 0.25rem 0.85rem;
+      border-radius: 50px;
+      border: $ButtonColor 2px solid;
+      background: $ButtonColor;
+      color: $HoverBg;
 
+      &:hover {
+        color: $ButtonColor;
+        background: $HoverBg;
+        border: $ButtonColor 2px solid;
+      }
+    }
+    //input
     #m-pwd {
       color: $Heart;
 
@@ -204,7 +218,7 @@ button.camera {
       }
     }
 
-    button {
+    .button {
       padding: 0.25rem 0.85rem;
       border-radius: 50px;
       position: absolute;
@@ -362,8 +376,6 @@ button.camera {
   }
 }
 
-
-
 .flexBtn {
   display: flex;
 }
@@ -371,7 +383,6 @@ button.camera {
 @media (max-width: 992px) {
   div.bannerModal {
     z-index: 20;
-
 
     button {
       padding: 0.2rem 1rem;

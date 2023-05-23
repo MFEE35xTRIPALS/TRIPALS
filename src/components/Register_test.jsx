@@ -1,33 +1,36 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
 const Register = (props) => {
   var url = "http://localhost:8000";
   const [id, setId] = useState("");
-  const [password, setpassword] = useState("");
-  const [password2, setpassword2] = useState("");
-  const [labelText, setLabelText] = useState("");
+  const [password, setPwd] = useState("");
+  const [password2, setPwd2] = useState("");
 
   // ifEmailOK
   const [ifEmailOK, setEmailOK] = useState(false);
   const [ifPwdOK, setPwdOK] = useState(false);
+  const [ifPwd2OK, setPwd2OK] = useState(true);
 
   // 是否有相同Email
   async function handleSubmit(e) {
-    setPwdOK(/^(?=.*[a-zA-Z])(?=.*\d).{6,}$/.test(password));
-
-    // console.log(e.currentTarget.value);
-    if (ifEmailOK) {
+    if (ifEmailOK && ifPwdOK && ifPwd2OK) {
       var result = await axios.post(url + "/registertest", {
         id,
         password,
         password2,
       });
+      var message = result.data.message;
+      if (message === "EmailExist") {
+        alert("此帳戶已存在");
+      } else if (message === "Success") {
+        alert("註冊成功");
+        window.location = "/logintest";
+      }
+    } else {
+      alert("請確實輸入資料");
     }
-    // console.log(result.data[0].userno);
-    console.log(result.data.message);
-    // var userno = result.data[0].userno;
   }
 
   return (
@@ -48,40 +51,50 @@ const Register = (props) => {
             name="id"
             type="email"
             // value={id}
-            onBlur={(event) => {
-              setId(event.target.value);
+            onChange={(e) => {
+              setId(e.target.value);
               setEmailOK(
-                /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(id)
+                /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(
+                  e.target.value
+                )
               );
             }}
           />
           {/* 回傳資料 */}
-          {useEffect(() => {
-            console.log(ifEmailOK);
-
-            id && !ifEmailOK && (
-              <span style={{ color: "red" }}>*請輸入正確格式</span>
-            );
-          }, [ifEmailOK])}
+          {id && !ifEmailOK && (
+            <span style={{ color: "red" }}>*請輸入正確格式</span>
+          )}
           <label htmlFor="password">密碼</label>
           <input
             name="password"
-            type="text"
-            value={password}
-            onChange={(event) => setpassword(event.target.value)}
+            type="password"
+            // value={password}
+            onChange={(e) => {
+              setPwd(e.target.value);
+              setPwdOK(/^(?=.*[a-zA-Z])(?=.*\d).{6,}$/.test(e.target.value));
+            }}
           />
+          {/* 回傳資料 */}
           {password && !ifPwdOK && (
-            <span id="m-pwd">*密碼長度6以上，並包含至少一個英數字</span>
+            <span style={{ color: "red" }}>
+              *密碼長度6以上，並包含至少一個英數字
+            </span>
           )}
           <label htmlFor="password2">再次輸入</label>
           <input
             name="password2"
             type="password"
-            value={password2}
-            onChange={(event) => setpassword2(event.target.value)}
+            // value={password2}
+            onChange={(event) => {
+              setPwd2(event.target.value);
+              setPwd2OK(event.target.value === password);
+            }}
           />
-          <label htmlFor="">{labelText}</label>
+          {password2 && !ifPwd2OK && (
+            <span style={{ color: "red" }}>*密碼輸入不一致</span>
+          )}
           <input type="button" value="註冊" onClick={handleSubmit} />
+
           <p>已有Tripals帳號?</p>
           <Link to="/logintest">Log In</Link>
         </form>
