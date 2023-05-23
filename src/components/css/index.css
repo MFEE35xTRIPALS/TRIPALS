@@ -2027,14 +2027,14 @@ nav {
   width: 412px;
   height: 338px;
   stroke-dasharray: 1724;
-  animation: 7s fillSvg linear infinite;
+  animation: 7s cloud linear infinite;
 }
 @media (max-width: 1835px) {
   #about #cloud {
     display: none;
   }
 }
-@keyframes fillSvg {
+@keyframes cloud {
   0% {
     stroke-dashoffset: 1724;
   }
@@ -2042,35 +2042,12 @@ nav {
     stroke-dashoffset: 0;
   }
 }
-#about #hat {
-  stroke-dasharray: 900;
-  animation: 8s fillSvg linear infinite;
-}
-@media (max-width: 1835px) {
-  #about #hat {
-    display: none;
-  }
-}
-@keyframes fillSvg {
+@keyframes kite {
   0% {
-    stroke-dashoffset: 2045;
+    stroke-dashoffset: 682;
   }
-  100% {
+  50% {
     stroke-dashoffset: 0;
-  }
-}
-#about #flower {
-  stroke-dasharray: 1841;
-  animation: 8s fillSvg linear infinite;
-}
-@media (max-width: 1835px) {
-  #about #flower {
-    display: none;
-  }
-}
-@keyframes fillSvg {
-  0% {
-    stroke-dashoffset: 1841;
   }
   100% {
     stroke-dashoffset: 0;
@@ -2078,20 +2055,7 @@ nav {
 }
 #about #kite {
   stroke-dasharray: 682;
-  animation: 8s fillSvg linear infinite;
-}
-@media (max-width: 1835px) {
-  #about #kite {
-    display: none;
-  }
-}
-@keyframes fillSvg {
-  0% {
-    stroke-dashoffset: 682;
-  }
-  100% {
-    stroke-dashoffset: 0;
-  }
+  animation: 12s kite linear infinite;
 }
 
 #popular {
@@ -2436,16 +2400,19 @@ nav {
   width: 171px;
   height: 308px;
   stroke-dasharray: 1150;
-  animation: 8s fillSvg linear;
+  animation: 10s ship linear infinite;
 }
 @media (max-width: 1835px) {
   #recommend #ship {
     display: none;
   }
 }
-@keyframes fillSvg {
+@keyframes ship {
   0% {
     stroke-dashoffset: 1150;
+  }
+  80% {
+    stroke-dashoffset: 0;
   }
   100% {
     stroke-dashoffset: 0;
@@ -2455,16 +2422,19 @@ nav {
   width: 1267px;
   height: 78px;
   stroke-dasharray: 1270;
-  animation: 8s fillSvg linear;
+  animation: 10s wave linear infinite;
 }
 @media (max-width: 1835px) {
   #recommend #wave {
     display: none;
   }
 }
-@keyframes fillSvg {
+@keyframes wave {
   0% {
     stroke-dashoffset: 1270;
+  }
+  80% {
+    stroke-dashoffset: 0;
   }
   100% {
     stroke-dashoffset: 0;
@@ -2559,21 +2529,68 @@ nav {
   text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.9);
 }
 #recommend #coffee {
-  stroke-dasharray: 2006;
-  animation: 8s fillSvg linear infinite;
+  stroke-dasharray: 3294;
+  animation: 6s coffee linear infinite;
 }
 @media (max-width: 1835px) {
   #recommend #coffee {
     display: none;
   }
 }
-@keyframes fillSvg {
+@keyframes coffee {
   0% {
-    stroke-dashoffset: 2006;
+    stroke-dashoffset: 3294;
   }
   100% {
     stroke-dashoffset: 0;
   }
+}
+#recommend #airplane {
+  stroke-dasharray: 2447;
+  animation: 6s airpalne linear infinite;
+}
+@media (max-width: 1835px) {
+  #recommend #airplane {
+    display: none;
+  }
+}
+@keyframes airpalne {
+  0% {
+    stroke-dashoffset: 2447;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes hat {
+  0% {
+    stroke-dashoffset: 2976;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+#recommend #hat {
+  stroke-dasharray: 2976;
+  animation: 10s hat linear infinite;
+}
+@keyframes tulip {
+  0% {
+    stroke-dashoffset: 4362;
+  }
+  80% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+#recommend #tulip {
+  stroke-dasharray: 4362;
+  animation: 12s tulip linear infinite;
 }
 
 #bear {

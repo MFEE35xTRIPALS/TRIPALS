@@ -253,7 +253,7 @@
         width: 412px;
         height: 338px;
         stroke-dasharray: 1724;
-        animation: 7s fillSvg linear infinite;
+        animation: 7s cloud linear infinite;
 
         @media (max-width: 1835px) {
             display: none;
@@ -261,7 +261,7 @@
 
     }
 
-    @keyframes fillSvg {
+    @keyframes cloud {
         0% {
             stroke-dashoffset: 1724;
         }
@@ -271,64 +271,104 @@
         }
     }
 
-    #hat {
-        stroke-dasharray: 900;
-        animation: 8s fillSvg linear infinite;
+    // #tulip {
+    //     stroke-dasharray: 4362;
+    //     animation: 8s tulip linear infinite;
 
-        @media (max-width: 1835px) {
-            display: none;
-        }
+    //     @media (max-width: 1835px) {
+    //         display: none;
+    //     }
 
-    }
+    // }
 
-    @keyframes fillSvg {
+    // @keyframes tulip {
+    //     0% {
+    //         stroke-dashoffset: 4362;
+    //     }
+
+    //     100% {
+    //         stroke-dashoffset: 0;
+    //     }
+    // }
+  
+
+    // #hat {
+    //     stroke-dasharray: 900;
+    //     animation: 8s fillSvg linear infinite;
+
+    //     @media (max-width: 1835px) {
+    //         display: none;
+    //     }
+
+    // }
+
+    // @keyframes fillSvg {
+    //     0% {
+    //         stroke-dashoffset: 2045;
+    //     }
+
+    //     100% {
+    //         stroke-dashoffset: 0;
+    //     }
+    // }
+    // #flower {
+    //     stroke-dasharray: 1841;
+    //     animation: 8s fillSvg linear infinite;
+
+    //     @media (max-width: 1835px) {
+    //         display: none;
+    //     }
+
+    // }
+
+    // @keyframes fillSvg {
+    //     0% {
+    //         stroke-dashoffset: 1841;
+    //     }
+
+    //     100% {
+    //         stroke-dashoffset: 0;
+    //     }
+    // }
+
+    // #kite {
+    //     stroke-dasharray: 682;
+    //     animation: 8s kite linear infinite;
+
+    //     @media (max-width: 1835px) {
+    //         display: none;
+    //     }
+
+    // }
+
+    // @keyframes kite {
+    //     0% {
+    //         stroke-dashoffset: 682;
+    //     }
+
+    //     100% {
+    //         stroke-dashoffset: 0;
+    //     }
+    // }
+    
+    @keyframes kite {
         0% {
-            stroke-dashoffset: 2045;
+          stroke-dashoffset: 682;
         }
-
+      
+        50% {
+          stroke-dashoffset: 0;
+        }
+      
         100% {
-            stroke-dashoffset: 0;
+          stroke-dashoffset: 0;
         }
-    }
-    #flower {
-        stroke-dasharray: 1841;
-        animation: 8s fillSvg linear infinite;
-
-        @media (max-width: 1835px) {
-            display: none;
-        }
-
-    }
-
-    @keyframes fillSvg {
-        0% {
-            stroke-dashoffset: 1841;
-        }
-
-        100% {
-            stroke-dashoffset: 0;
-        }
-    }
-
-    #kite {
+      }
+      
+      #kite {
         stroke-dasharray: 682;
-        animation: 8s fillSvg linear infinite;
-
-        @media (max-width: 1835px) {
-            display: none;
-        }
-
-    }
-
-    @keyframes fillSvg {
-        0% {
-            stroke-dashoffset: 682;
-        }
-
-        100% {
-            stroke-dashoffset: 0;
-        }
-    }
+        animation: 12s kite linear infinite;
+      }
 
 
     
@@ -744,7 +784,7 @@
         width: 171px;
         height: 308px;
         stroke-dasharray: 1150;
-        animation: 8s fillSvg linear;
+        animation: 10s ship linear infinite;
     
         @media (max-width: 1835px) {
           display: none;
@@ -752,10 +792,13 @@
     
       }
     
-      @keyframes fillSvg {
+      @keyframes ship {
         0% {
           stroke-dashoffset: 1150;
         }
+        80% {
+            stroke-dashoffset: 0;
+          }
     
         100% {
           stroke-dashoffset: 0;
@@ -766,22 +809,31 @@
         width: 1267px;
         height: 78px;
         stroke-dasharray: 1270;
-        animation: 8s fillSvg linear ;
+        animation: 10s wave linear infinite ;
     
         @media (max-width: 1835px) {
           display: none;
         }
       }
     
-      @keyframes fillSvg {
+      @keyframes wave {
         0% {
           stroke-dashoffset: 1270;
         }
+
+        80% {
+            stroke-dashoffset: 0;
+          }
     
         100% {
           stroke-dashoffset: 0;
         }
       }
+      
+   
+
+    
+
     
 
    
@@ -889,9 +941,28 @@
 
         }
     }
+    // #coffee {
+    //     stroke-dasharray: 2006;
+    //     animation: 8s fillSvg linear infinite;
+
+    //     @media (max-width: 1835px) {
+    //         display: none;
+    //     }
+
+    // }
+
+    // @keyframes fillSvg {
+    //     0% {
+    //         stroke-dashoffset: 2006;
+    //     }
+
+    //     100% {
+    //         stroke-dashoffset: 0;
+    //     }
+    // }
     #coffee {
-        stroke-dasharray: 2006;
-        animation: 8s fillSvg linear infinite;
+        stroke-dasharray: 3294;
+        animation: 6s coffee linear infinite;
 
         @media (max-width: 1835px) {
             display: none;
@@ -899,9 +970,29 @@
 
     }
 
-    @keyframes fillSvg {
+    @keyframes coffee {
         0% {
-            stroke-dashoffset: 2006;
+            stroke-dashoffset: 3294;
+        }
+
+        100% {
+            stroke-dashoffset: 0;
+        }
+    }
+    
+    #airplane {
+        stroke-dasharray: 2447;
+        animation: 6s airpalne linear infinite;
+
+        @media (max-width: 1835px) {
+            display: none;
+        }
+
+    }
+
+    @keyframes airpalne {
+        0% {
+            stroke-dashoffset: 2447;
         }
 
         100% {
@@ -909,6 +1000,43 @@
         }
     }
 
+    @keyframes hat {
+        0% {
+          stroke-dashoffset: 2976;
+        }
+      
+        50% {
+          stroke-dashoffset: 0;
+        }
+      
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+      
+      #hat {
+        stroke-dasharray: 2976;
+        animation: 10s hat linear infinite;
+      }
+
+      @keyframes tulip {
+        0% {
+          stroke-dashoffset: 4362;
+        }
+      
+        80% {
+          stroke-dashoffset: 0;
+        }
+      
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+      
+      #tulip {
+        stroke-dasharray: 4362;
+        animation: 12s tulip linear infinite;
+      }
 
 
 }
