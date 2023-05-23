@@ -1,8 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import BearLogo from "./smallcomponent/BearLogo";
+import useSwaConfirm from "../components/swaConfirm";
+import useSwaAlert from "../components/swaAlert";
 
 function Admin({ currentUser, setCurrentUser }) {
+  const swaConfirm = useSwaConfirm();
+  const swaAlert = useSwaAlert();
   var url = "http://localhost:8000";
   let [userno, setuserno] = useState(currentUser ? JSON.parse(currentUser)[0].userno : 0); //管理員
   var [username, setUsername] = useState();
@@ -96,7 +100,7 @@ function Admin({ currentUser, setCurrentUser }) {
         setNews(result.data);
       }
     } else {
-      alert("請填寫必要內容");
+      swaAlert("請填寫必要內容", '', 'warning', 1500)
     }
   }
 
@@ -114,44 +118,44 @@ function Admin({ currentUser, setCurrentUser }) {
         setNews(result.data);
       }
     } else {
-      alert("請填寫必要內容");
+      swaAlert("請填寫必要內容", '', 'warning', 1500)
     }
   }
 
   /* ------- 最新消息-Takeoff ------- */
-  async function NewsTakeoff(e) {
-    var ifOK = window.confirm("公告下架後則不得重新上架唷！確定要下架嗎？");
-    if (ifOK) {
-      var result = await axios.delete(url + "/admin/news/delete", {
+  function NewsTakeoff(e) {
+    swaConfirm('公告下架後則不得重新上架唷！', '確定要下架嗎？', 'warning', async () => {
+      await axios.delete(url + "/admin/news/delete", {
         data: {
           newsno: showNew.newsno,
           status: "F",
         },
-      });
-      if (result) {
-        alert("公告下架成功");
-        var show = { title: "", content: "", release: "", newsno: "" };
-        setShowNew(show);
-        setIfChange(false);
-        setIfPost(true);
-        setIfSubmit(false);
-        setNews(result.data);
-      }
-    }
+      })
+        .then((result) => {
+          swaAlert("公告下架成功", '', 'success', 1500)
+          var show = { title: "", content: "", release: "", newsno: "" };
+          setShowNew(show);
+          setIfChange(false);
+          setIfPost(true);
+          setIfSubmit(false);
+          setNews(result.data);
+        })
+    })
+
   }
 
   /* ------- 文章管理-Takeoff ------- */
-  async function ArticlesTakeoff(e) {
-    let makesure = window.confirm("文章下架後即不得重新上架，確定要下架嗎？");
-    if (makesure) {
-      var result = await axios.put(url + "/admin/takeOf", {
-        articleno: e.currentTarget.dataset.takeof,
-      });
-      if (result) {
-        alert(result.data.myalert);
-        setArticles(result.data.myresult);
-      }
-    }
+  function ArticlesTakeoff(e) {
+    swaConfirm('文章下架後即不得重新上架', '確定要下架嗎？', 'warning', async () => {
+      await axios.put(url + "/admin/takeOf", {
+        articleno: e.target.dataset.takeof,
+      })
+        .then((result) => {
+          swaAlert(result.data.myalert, '', 'success', 1500)
+          setArticles(result.data.myresult);
+        })
+    })
+
   }
 
   return (

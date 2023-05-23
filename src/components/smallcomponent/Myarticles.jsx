@@ -1,28 +1,30 @@
 import { useState } from "react";
 import axios from "axios";
 
-function Myarticles({ currentUser, selfarticles, setselfarticles }) {
+function Myarticles({ currentUser, selfarticles, setselfarticles, swaConfirm, swaAlert }) {
   // console.log(JSON.parse(currentUser)[0].userno)
   // console.log(setCurrentUser)
   let url = "http://localhost:8000";
 
 
   // ---------刪除文章-----------------
-  let trashcan = async (e) => {
-    let makesrue = window.confirm("文章刪除後即無法復原，確定要刪除嗎？");
-    if (makesrue) {
-      var trashcan = await axios.delete(url + "/guide", {
+  let trashcan = (e) => {
+    // let makesrue = window.confirm("文章刪除後即無法復原，確定要刪除嗎？");
+    swaConfirm("文章刪除後即無法復原", '確定要刪除嗎？', 'warning', async () => {
+      await axios.delete(url + "/guide", {
         data: JSON.stringify({ main_articleno: e.target.dataset.articleno }),
         headers: { "Content-Type": "application/json" },
-      });
+      })
+        .then((trashcanresult) => {
+          swaAlert(trashcanresult.data, '', 'success', 1500);
+          let arrtest = selfarticles.filter(
+            (articles) =>
+              articles.articleno !== parseInt(e.target.dataset.articleno)
+          );
+          setselfarticles(arrtest);
+        })
+    })
 
-      alert(trashcan.data);
-      let arrtest = selfarticles.filter(
-        (articles) =>
-          articles.articleno !== parseInt(e.target.dataset.articleno)
-      );
-      setselfarticles(arrtest);
-    }
   };
 
   return (

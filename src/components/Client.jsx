@@ -121,7 +121,6 @@ function Client({ currentUser, setCurrentUser, setavatarImg }) {
       formData.append("userno", userno);
       // console.log(photoUrl)
       let resultImages = await axios.post(photoUrl, formData);
-      // alert(resultImages.data.myPhotoAlert);
       swaAlert(resultImages.data.myPhotoAlert, '', 'success', 1500)
       setifOpenBanner(false);
       setifOpenavatar(false);
@@ -145,7 +144,7 @@ function Client({ currentUser, setCurrentUser, setavatarImg }) {
         setuseravatar(useravatartemp);
       }
     } else {
-      alert("請至少選擇一個圖檔上傳,限制圖檔格式為：.jpg, .jpeg, .png, .gif");
+      swaAlert("請至少選擇一個圖檔上傳,限制圖檔格式為：.jpg, .jpeg, .png, .gif", '', "error", 1500)
     }
   };
 
@@ -310,6 +309,8 @@ function Client({ currentUser, setCurrentUser, setavatarImg }) {
                         currentUser={currentUser}
                         selfarticles={selfarticles}
                         setselfarticles={setselfarticles}
+                        swaAlert={swaAlert}
+                        swaConfirm={swaConfirm}
                       />
                     )}
                   />
@@ -336,6 +337,7 @@ function Client({ currentUser, setCurrentUser, setavatarImg }) {
                         setavaUsername={setavaUsername}
                         ifPwdOK={ifPwdOK}
                         setIfPwdOK={setIfPwdOK}
+                        swaAlert={swaAlert}
                       />
                     )}
                   />

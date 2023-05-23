@@ -9,6 +9,7 @@ function Memberinfo({
   setavaUsername,
   ifPwdOK,
   setIfPwdOK,
+  swaAlert
 }) {
   // console.log(JSON.parse(currentUser)[0].userno)
   // console.log(setCurrentUser)
@@ -32,7 +33,7 @@ function Memberinfo({
         });
         if (resultInfo2) {
           // console.log(resultInfo.data[0])
-          alert("修改成功");
+          swaAlert("修改成功", '', 'success', 1500)
           console.log(resultInfo2);
           setUserMessage(resultInfo2.data[0]);
           setavaUsername(
@@ -43,7 +44,7 @@ function Memberinfo({
           setChangePwd(false);
         }
       } else {
-        alert("請填寫必要內容");
+        swaAlert("請填寫必要內容", '', 'error', 1500)
       }
     } else {
       var resultInfo1 = await axios.post(url + "/client/identity/update1", {
@@ -54,7 +55,7 @@ function Memberinfo({
       });
       if (resultInfo1) {
         // console.log(resultInfo.data[0])
-        alert("修改成功");
+        swaAlert("修改成功", '', 'success', 1500)
         setUserMessage(resultInfo1.data[0]);
         setavaUsername(
           resultInfo1.data[0].nickname
@@ -102,7 +103,7 @@ function Memberinfo({
               }));
               setIfPwdOK(/^(?=.*[a-zA-Z])(?=.*\d).{6,}$/.test(e.target.value));
             }}
-            // value={userMessage.password}
+          // value={userMessage.password}
           />
           {!userMessage.password && (
             <span id="m-pwd" className={ifChangePwd ? "" : "postBtn"}>
