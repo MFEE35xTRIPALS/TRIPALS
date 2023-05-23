@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import useSwaAlert from "./swaAlert";
+import { baseUrl } from "../assets/config";
 
 const Login = ({ setCurrentUser, setavatarImg, currentUser }) => {
   var url = "http://localhost:8000";
@@ -10,6 +11,7 @@ const Login = ({ setCurrentUser, setavatarImg, currentUser }) => {
   const [id, setId] = useState("");
   const [password, setPwd] = useState("");
   const history = useHistory();
+  const params = useParams();
   // alert美化
   const swaAlert = useSwaAlert();
 
@@ -37,14 +39,33 @@ const Login = ({ setCurrentUser, setavatarImg, currentUser }) => {
         localStorage.setItem("user", JSON.stringify(result.data.currentuser));
         setCurrentUser(localStorage.getItem("user"));
         setavatarImg(
-          localStorage.getItem("user")[0].avatar
-            ? url + localStorage.getItem("user")[0].avatar
+          JSON.parse(localStorage.getItem("user"))[0].avatar
+            ? url + JSON.parse(localStorage.getItem("user"))[0].avatar
             : url + "/useravatar/pre.png"
         );
-
-        setTimeout(() => {
+        console.log(params.from)
+        if (params.from === "register") {
+          history.push('/')
+        } else if (params.from === "write") {
+          // history.goBack();
+          axios
+            .post(`${baseUrl}/guide/`, {
+              userno: JSON.parse(localStorage.getItem("user"))[0].userno,
+            })
+            .then((response) => {
+              console.log("新增文章");
+              // window.location = `/edit/${response.data.main_articleno}`;
+              history.push(`/edit/${response.data.main_articleno}`);
+            })
+            .catch((error) => {
+              // 新增失敗
+              alert("新增失敗");
+              console.error("新增失敗:", error);
+            });
+        } else {
           history.goBack();
-        }, 3 * 1000);
+        }
+
       }
     } else {
       // alert("請確實輸入資料");

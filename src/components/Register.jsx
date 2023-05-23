@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import useSwaAlert from "./swaAlert";
+import { useHistory } from 'react-router-dom';
 
 const Register = (props) => {
+  const history = useHistory();
   var url = "http://localhost:8000";
   const [id, setId] = useState("");
   const [password, setPwd] = useState("");
@@ -31,9 +33,8 @@ const Register = (props) => {
         swaAlert("此帳戶已存在", "", "warning", 1500);
       } else if (message === "Success") {
         // alert("註冊成功");
-        swaAlert("註冊成功", "", "success", 1500);
-
-        window.location = "/logintest";
+        swaAlert("註冊成功", "請再次輸入帳號密碼進行登入", "success", 1500);
+        history.push("/login/register")
       }
     } else {
       // alert("請確實輸入資料");
@@ -100,7 +101,7 @@ const Register = (props) => {
           </button>
 
           <p>已有Tripals帳號?</p>
-          <Link to="/login">Log In</Link>
+          <Link to={"/login/register"}>Log In</Link>
         </form>
       </div>
     </div>

@@ -102,7 +102,7 @@ function App() {
           />
 
           <Route
-            path="/login"
+            path="/login/:from"
             render={(props) => (
               <Login
                 {...props}

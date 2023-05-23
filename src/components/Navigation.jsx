@@ -123,7 +123,7 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg }) => {
 		if (!currentUser) {
 			// console.log("沒登入");
 			// window.location = "/login";
-			history.push(`/login`);
+			history.push(`/login/write`);
 			return false;
 		} else {
 			return true;
@@ -200,7 +200,7 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg }) => {
 							</button>
 							<button
 								onClick={() => {
-									history.push("/login")
+									history.push("/login/else")
 									// window.location = "/login";
 								}}
 								className="btn  logInBtn"
