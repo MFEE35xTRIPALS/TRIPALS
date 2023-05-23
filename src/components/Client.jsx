@@ -144,7 +144,7 @@ function Client({ currentUser, setCurrentUser, setavatarImg }) {
         setuseravatar(useravatartemp);
       }
     } else {
-      swaAlert("請至少選擇一個圖檔上傳,限制圖檔格式為：.jpg, .jpeg, .png, .gif", '', "error", 1500)
+      swaAlert("請至少選擇一個圖檔上傳,限制圖檔格式為：.jpg, .jpeg, .png, .gif", '', "warning", 1500)
     }
   };
 

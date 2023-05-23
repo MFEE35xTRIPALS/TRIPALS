@@ -10,13 +10,13 @@ import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 // YuTing
 import Destination from "./components/Destination";
-import Login from "./components/Login";
-import Register from "./components/Register";
+// import Login from "./components/Login";
+// import Register from "./components/Register";
 // Tina
 import Guides from "./components/Guides";
 import Admin from "./components/Admin";
-import Register_test from "./components/Register_test.jsx";
-import Login_test from "./components/Login_test.jsx";
+import Register from "./components/Register.jsx";
+import Login from "./components/Login.jsx";
 // Xin
 import Selfpage from "./components/Selfpage";
 import Client from "./components/Client";
@@ -100,35 +100,7 @@ function App() {
               </Register>
             )}
           />
-          <Route
-            path="/registertest"
-            render={() => (
-              <Register_test>
-                <Navigation
-                  avatarImg={avatarImg}
-                  currentUser={currentUser}
-                  setCurrentUser={setCurrentUser}
-                />
-              </Register_test>
-            )}
-          />
-          <Route
-            path="/logintest"
-            render={(props) => (
-              <Login_test
-                {...props}
-                setCurrentUser={setCurrentUser}
-                setavatarImg={setavatarImg}
-                currentUser={currentUser}
-              >
-                <Navigation
-                  avatarImg={avatarImg}
-                  currentUser={currentUser}
-                  setCurrentUser={setCurrentUser}
-                />
-              </Login_test>
-            )}
-          />
+
           <Route
             path="/login"
             render={(props) => (

@@ -1,65 +1,56 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
+import useSwaAlert from "./swaAlert";
 
 const Login = ({ setCurrentUser, setavatarImg, currentUser }) => {
+  var url = "http://localhost:8000";
+
   const [id, setId] = useState("");
-  const [password, setpassword] = useState("");
-  const [labelText, setLabelText] = useState("");
+  const [password, setPwd] = useState("");
   const history = useHistory();
+  // alert美化
+  const swaAlert = useSwaAlert();
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  // ifEmailOK
+  const [ifEmailOK, setEmailOK] = useState(true);
+  const [ifPwdOK, setPwdOK] = useState(true);
 
-    try {
-      const response = await axios.post(
-        "http://localhost:8000/login2",
-        {
-          id: id,
-          password: password,
-        },
-        {
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-        }
-      );
-
-      console.log(response);
-      console.log(id, password);
-      const { status } = response.data;
-      if (status === "notEnter") {
-        setLabelText("尚未輸入");
-      } else if (status === "success") {
-        setLabelText("登入成功");
-        localStorage.setItem('user', JSON.stringify(response.data.currentuser))
-        setCurrentUser(localStorage.getItem("user"))
-        setavatarImg(response.data.currentuser[0].avatar
-          ? "http://localhost:8000" + response.data.currentuser[0].avatar
-          : "http://localhost:8000/useravatar/pre.png")
+  // 是否有相同Email
+  async function handleSubmit(e) {
+    if (id && password) {
+      var result = await axios.post(url + "/logintest", {
+        id,
+        password,
+      });
+      var message = result.data.message;
+      if (message === "NoUser") {
+        // alert("Email尚未註冊，請重新輸入");
+        swaAlert("Email尚未註冊，請重新輸入", "", "error", 1500);
+      } else if (message === "WrongPwd") {
+        // alert("密碼輸入錯誤，請重新輸入");
+        swaAlert("密碼輸入錯誤，請重新輸入", "", "error", 1500);
+      } else if (message === "Success") {
+        // alert("登入成功");
+        swaAlert("登入成功", "", "success", 1500);
+        localStorage.setItem("user", JSON.stringify(result.data.currentuser));
+        setCurrentUser(localStorage.getItem("user"));
+        setavatarImg(
+          localStorage.getItem("user")[0].avatar
+            ? url + localStorage.getItem("user")[0].avatar
+            : url + "/useravatar/pre.png"
+        );
 
         setTimeout(() => {
           history.goBack();
-        }, 3 * 1000)
-
-
-      } else if (status === "notExist") {
-        setLabelText("尚未註冊");
-      } else if (status === "fail") {
-        setLabelText("密碼錯誤");
+        }, 3 * 1000);
       }
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        // 處理 AxiosError
-        console.log('Axios error:', error.message);
-        console.log('HTTP status:', error.response);
-      } else {
-        // 處理其他錯誤
-        console.log('其他錯誤:', error.message);
-      }
+    } else {
+      // alert("請確實輸入資料");
+      swaAlert("請確實輸入資料", "", "error", 1500);
     }
-  };
+  }
 
   const google = () => {
     window.open("http://localhost:8000/auth/google", "_self");
@@ -80,25 +71,32 @@ const Login = ({ setCurrentUser, setavatarImg, currentUser }) => {
           <p>OR</p>
           <hr />
         </div>
-        <form id="Loginform" onSubmit={handleSubmit}>
+        <form id="Loginform">
           <label htmlFor="id">信箱</label>
           <input
             name="id"
             type="text"
-            value={id}
-            onChange={(event) => setId(event.target.value)}
+            onChange={(e) => setId(e.target.value)}
+            onBlur={(e) => {
+              setEmailOK(Boolean(id));
+            }}
           />
+          {/* 回傳資料 */}
+          <span>{ifEmailOK ? "" : "*請輸入Email"}</span>
           <label htmlFor="password">密碼</label>
           <input
             name="password"
-            type="text"
-            value={password}
-            onChange={(event) => setpassword(event.target.value)}
+            type="password"
+            onChange={(e) => setPwd(e.target.value)}
+            onBlur={() => {
+              setPwdOK(Boolean(password));
+            }}
           />
-          <label id="checkLabel" htmlFor="">
-            {labelText}
-          </label>
-          <input type="submit" value="登入" />
+          {/* 回傳資料 */}
+          <span>{ifPwdOK ? "" : "*請輸入密碼"}</span>
+          <button type="button" onClick={handleSubmit}>
+            登入
+          </button>
           <p>沒有Tripals帳號?</p>
           <Link to="/register">Sign Up</Link>
         </form>
