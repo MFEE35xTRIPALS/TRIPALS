@@ -17,6 +17,7 @@ function Home() {
   var [showdiv3, setShowdiv3] = useState("");
   var [showdiv4, setShowdiv4] = useState("");
   // var [showdiv5, setShowdiv5] = useState("");
+  // 動畫
   const [scrollY, setScrollY] = useState(0);
  
 
@@ -87,69 +88,69 @@ function Home() {
   }, [ifFirst]);
 
   //監聽手繪動畫開始
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     setScrollY(window.scrollY);
+  //   };
 
-    window.addEventListener('scroll', handleScroll);
+  //   window.addEventListener('scroll', handleScroll);
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll);
+  //   };
+  // }, []);
 
-  useEffect(() => {
-    const shipElement = document.getElementById('ship');
-    // const waveElement = document.getElementById('wave');
+  // useEffect(() => {
+  //   const shipElement = document.getElementById('ship');
+  //   // const waveElement = document.getElementById('wave');
 
-    const shipAnimation = shipElement.animate(
-      [
-        { transform: 'translate(700px, 50px)' },
-        { transform: 'translate(0px, 50px)' }
-      ],
-      {
-        duration: 2000,
-        easing: 'ease-in-out',
-        fill: 'forwards'
-      }
-    );
+  //   const shipAnimation = shipElement.animate(
+  //     [
+  //       { transform: 'translate(700px, 50px)' },
+  //       { transform: 'translate(0px, 50px)' }
+  //     ],
+  //     {
+  //       duration: 2000,
+  //       easing: 'ease-in-out',
+  //       fill: 'forwards'
+  //     }
+  //   );
 
-    // const waveAnimation = waveElement.animate(
-    //   [
-    //     { transform: 'translate(550px, -5px)' },
-    //     { transform: 'translate(0px, 0px)' }
-    //   ],
-    //   {
-    //     duration: 1500,
-    //     easing: 'ease-in-out',
-    //     fill: 'forwards'
-    //   }
-    // );
+  //   // const waveAnimation = waveElement.animate(
+  //   //   [
+  //   //     { transform: 'translate(550px, -5px)' },
+  //   //     { transform: 'translate(0px, 0px)' }
+  //   //   ],
+  //   //   {
+  //   //     duration: 1500,
+  //   //     easing: 'ease-in-out',
+  //   //     fill: 'forwards'
+  //   //   }
+  //   // );
 
-    const handleAnimation = () => {
-      const shipTop = shipElement.getBoundingClientRect().top;
-      // const waveTop = waveElement.getBoundingClientRect().top;
-      const windowHeight = window.innerHeight;
+  //   const handleAnimation = () => {
+  //     const shipTop = shipElement.getBoundingClientRect().top;
+  //     // const waveTop = waveElement.getBoundingClientRect().top;
+  //     const windowHeight = window.innerHeight;
 
-      // 設定觸發動畫的閾值，根據需要進行調整
-      const threshold = windowHeight * 0.75;
+  //     // 設定觸發動畫的閾值，根據需要進行調整
+  //     const threshold = windowHeight * 0.75;
 
-      if (shipTop < threshold) {
-        shipAnimation.play();
-      }
+  //     if (shipTop < threshold) {
+  //       shipAnimation.play();
+  //     }
 
-      // if (waveTop < threshold) {
-      //   waveAnimation.play();
-      // }
-    };
+  //     // if (waveTop < threshold) {
+  //     //   waveAnimation.play();
+  //     // }
+  //   };
 
-    window.addEventListener('scroll', handleAnimation);
+  //   window.addEventListener('scroll', handleAnimation);
 
-    return () => {
-      window.removeEventListener('scroll', handleAnimation);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener('scroll', handleAnimation);
+  //   };
+  // }, []);
 
 
 
