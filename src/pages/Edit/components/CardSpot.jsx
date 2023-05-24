@@ -30,7 +30,7 @@ const CardSpot = ({
 			className={`accordion-item border-0 ${styles["accordion-item-color"]} ${styles["N-spot-card-animation"]}`}
 		>
 			<h2 className="accordion-header">
-				<hr />
+				{/* <hr /> */}
 				<div className={styles["content-title"]}>
 					<button
 						className={styles["btn-delete"]}
@@ -51,6 +51,7 @@ const CardSpot = ({
 						aria-controls={`card-content-${spot.contentno}`}
 					></button>
 				</div>
+				<hr />
 			</h2>
 			<div
 				id={`card-content-${spot.contentno}`}
