@@ -301,6 +301,7 @@ a {
   overflow: hidden;
   padding: 0.5rem;
   font-size: 1.25rem;
+  width: -moz-fit-content;
   width: fit-content;
   text-align: center;
 }
@@ -505,6 +506,10 @@ section.hashtag div.sort button.hots:hover {
   transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1), padding 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s linear;
   width: 0;
 }
+.search__input::-moz-placeholder {
+  color: #27a2b8;
+  opacity: 0.75;
+}
 .search__input::placeholder {
   color: #27a2b8;
   opacity: 0.75;
@@ -584,7 +589,8 @@ section.c-head div.img2 {
   background: url(/public/images/raiway.jpg) no-repeat bottom;
   background-size: cover;
   overflow: hidden;
-  clip-path: ellipse(75% 50% at 50% 30%);
+  -webkit-clip-path: ellipse(75% 50% at 50% 30%);
+          clip-path: ellipse(75% 50% at 50% 30%);
   position: relative;
 }
 
@@ -646,7 +652,8 @@ section.c-head div.img2 {
 .c-left .c-head div.h-img img.shot {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .c-left .c-select ul {
   padding: 1.5rem;
@@ -738,6 +745,7 @@ div.bannerModal {
   top: 22rem;
   z-index: 10;
   width: 100vw;
+  height: -moz-fit-content;
   height: fit-content;
   padding: 1.75rem;
   justify-content: end;
@@ -762,12 +770,15 @@ div.bannerModal button:hover {
 img.selfbanner {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: bottom;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: bottom;
+     object-position: bottom;
 }
 
 .edit_cover {
   position: absolute;
+  height: -moz-fit-content;
   height: fit-content;
   padding: 0.25rem 1.5rem;
   right: 8%;
@@ -844,7 +855,8 @@ button.camera {
 .mymodal div.modalContent div.imgPreviewBorder img.imgPreview {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .mymodal div.modalContent button.uploadShot,
 .mymodal div.modalContent .uploadShotDone {
@@ -1051,18 +1063,23 @@ body section.selftop {
   height: 55vh;
   background-size: cover;
   overflow: hidden;
-  clip-path: ellipse(75% 50% at 50% 30%);
+  -webkit-clip-path: ellipse(75% 50% at 50% 30%);
+          clip-path: ellipse(75% 50% at 50% 30%);
   position: relative;
 }
 body section.selftop img.selfCover {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: bottom;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: bottom;
+     object-position: bottom;
 }
 body section.selftop div.selfMessage {
   position: absolute;
+  height: -moz-fit-content;
   height: fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   left: 8%;
   bottom: 30%;
@@ -1076,7 +1093,8 @@ body section.selftop div.selfMessage img.selfShot {
   min-height: 75px;
   max-width: 110px;
   max-height: 110px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 50%;
   margin: 1rem;
   border: 2px white solid;
@@ -1109,6 +1127,7 @@ section.selfArticles .c-mylikes {
 
 div.onecard {
   width: 280px;
+  height: -moz-fit-content;
   height: fit-content;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   margin: 1rem 0.5rem;
@@ -1139,6 +1158,7 @@ div.onecard a.c-cardImg div.c-imgCover span {
   left: 5.5rem;
   font-size: 1.25rem;
   padding: 2.25rem 1.5rem;
+  width: -moz-fit-content;
   width: fit-content;
   filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.5));
   font-weight: 700;
@@ -1146,7 +1166,8 @@ div.onecard a.c-cardImg div.c-imgCover span {
 div.onecard a.c-cardImg img.Img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 div.onecard div.card_body {
   margin: 1rem;
@@ -1185,7 +1206,8 @@ div.onecard div.card_body h6 img.head {
   height: 40px;
   background-color: #27a2b8;
   border-radius: 50%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 div.onecard div.card_body div.viewsAndHeart {
   color: black;
@@ -1265,6 +1287,7 @@ nav {
   color: #49c4c4;
   margin-left: 10px;
   margin-bottom: 0rem;
+  font-weight: 800;
 }
 #content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #placeTitle .titlei {
   margin-left: auto;
@@ -1295,7 +1318,7 @@ nav {
   border: #65c6c6 2px solid;
   background: #65c6c6;
   color: white;
-  font-size: 1rem;
+  font-size: 1.25rem;
   cursor: pointer;
 }
 #content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #placeTag button:hover {
@@ -1332,6 +1355,7 @@ nav {
 }
 #content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #count {
   display: inline-flex;
+  align-items: center;
   float: right;
 }
 #content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #count i {
@@ -1364,6 +1388,7 @@ nav {
     min-width: 400px;
   }
   #content .section-guide-panel .section-panel-inner .accordion {
+    max-height: -moz-max-content;
     max-height: max-content;
   }
 }
@@ -1572,7 +1597,8 @@ nav {
   border-radius: 5px;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .wrapper #apple .CityNameContainer .CityList hr {
   border: 2px solid rgb(255, 255, 255);
@@ -1682,6 +1708,7 @@ nav {
   max-width: 30rem;
   transform: translate(-50%, -50%);
   border-radius: 10px;
+  height: -moz-fit-content;
   height: fit-content;
   width: 100%;
 }
@@ -1799,7 +1826,8 @@ nav {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 #main .divVideo .videoContent {
   display: flex;
@@ -2440,21 +2468,26 @@ nav {
 #recommend .container {
   width: 100%;
   margin: 5px auto;
-  column-count: 3;
-  column-gap: 5px;
+  -moz-column-count: 3;
+       column-count: 3;
+  -moz-column-gap: 5px;
+       column-gap: 5px;
 }
 @media (max-width: 1200px) {
   #recommend .container {
-    column-count: 2;
+    -moz-column-count: 2;
+         column-count: 2;
   }
 }
 @media (max-width: 700px) {
   #recommend .container {
-    column-count: 1;
+    -moz-column-count: 1;
+         column-count: 1;
   }
 }
 #recommend .container .recommemdCard {
-  break-inside: avoid;
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
 }
 #recommend .container .recommemdCard .card-img {
   filter: brightness(90%);
@@ -2462,7 +2495,8 @@ nav {
 #recommend .container .recommemdCard img.avatar {
   max-width: 100%;
   max-height: 540px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 #recommend .container .recommemdCard .card-img-overlay h5 {
   cursor: pointer;
@@ -2495,21 +2529,6 @@ nav {
   align-self: center;
   margin-left: 1rem;
   text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.9);
-}
-@keyframes hat {
-  0% {
-    stroke-dashoffset: 2976;
-  }
-  50% {
-    stroke-dashoffset: 0;
-  }
-  100% {
-    stroke-dashoffset: 0;
-  }
-}
-#recommend #hat {
-  stroke-dasharray: 2976;
-  animation: 10s hat linear infinite;
 }
 @keyframes tulip {
   0% {
@@ -2608,38 +2627,37 @@ footer .container #footerNav li .footer_ch {
   }
 }
 
-header {
-  position: sticky;
-  top: 100%;
+#headerNav {
+  top: 0;
   left: 0;
   transition: background-color 0.5s ease;
   background-color: rgba(205, 211, 190, 0.8);
 }
-header .navbar-toggler:focus {
+#headerNav .navbar-toggler:focus {
   box-shadow: unset;
 }
-header .hamburger .hamburger-box {
+#headerNav .hamburger .hamburger-box {
   height: 30px;
   width: 30px;
 }
-header .hamburger .hamburger-box .hamburger-inner {
+#headerNav .hamburger .hamburger-box .hamburger-inner {
   width: 30px;
   background-color: #00ff40;
 }
-header .hamburger .hamburger-box .hamburger-inner:before {
+#headerNav .hamburger .hamburger-box .hamburger-inner:before {
   width: 30px;
   background-color: #fbff00;
 }
-header .hamburger .hamburger-box .hamburger-inner:after {
+#headerNav .hamburger .hamburger-box .hamburger-inner:after {
   width: 30px;
   background-color: rgba(1, 196, 255, 0.7);
 }
 @media (max-width: 991px) {
-  header #navbarSupportedContent {
+  #headerNav #navbarSupportedContent {
     background-color: rgba(255, 255, 255, 0.6);
   }
 }
-header a {
+#headerNav a {
   text-decoration: none;
   height: 24px;
   left: 0px;
@@ -2654,10 +2672,10 @@ header a {
   color: #ffffff;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-header a:hover {
+#headerNav a:hover {
   color: white;
 }
-header .logInBtn {
+#headerNav .logInBtn {
   margin: 10px;
   padding: 8px 10px;
   font-family: "Sen", sans-serif;
@@ -2670,47 +2688,48 @@ header .logInBtn {
   border: 2px solid #ffffff;
   border-radius: 50px;
 }
-header .logInBtn:hover {
+#headerNav .logInBtn:hover {
   background-color: #ffffff;
   color: #58ff90;
 }
-header .nav-item:hover {
+#headerNav .nav-item:hover {
   border-bottom: 2px solid #ffffff;
 }
-header .dropdown .userImage {
+#headerNav .dropdown .userImage {
   width: 3rem;
   height: 3rem;
   margin-right: 1rem;
   overflow: hidden;
 }
-header .dropdown .userImage .avatar {
+#headerNav .dropdown .userImage .avatar {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
-header .dropdown .dropdown-toggle::after {
+#headerNav .dropdown .dropdown-toggle::after {
   display: none;
 }
-header .dropdown .dropdown-menu {
+#headerNav .dropdown .dropdown-menu {
   padding: 2rem;
   margin-left: -11rem;
 }
 @media (max-width: 991px) {
-  header .dropdown .dropdown-menu {
+  #headerNav .dropdown .dropdown-menu {
     margin-left: 1rem;
     padding: 0.5rem;
   }
 }
-header .dropdown .dropdown-menu a {
+#headerNav .dropdown .dropdown-menu a {
   font-family: "sen";
   font-style: normal;
   font-size: 1.5rem;
   color: #181818;
 }
-header .dropdown .dropdown-menu .dropdown-item:hover {
+#headerNav .dropdown .dropdown-menu .dropdown-item:hover {
   background-color: transparent;
 }
-header .dropdown .dropdown-menu .dropdown-item:focus,
-header .dropdown .dropdown-menu .dropdown-item.active {
+#headerNav .dropdown .dropdown-menu .dropdown-item:focus,
+#headerNav .dropdown .dropdown-menu .dropdown-item.active {
   color: #9faf7d;
 }/*# sourceMappingURL=index.css.map */
