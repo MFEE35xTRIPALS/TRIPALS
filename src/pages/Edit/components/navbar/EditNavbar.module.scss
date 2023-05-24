@@ -3,6 +3,7 @@
 // nav
 .edit-bar {
 	background-color: $colorRice;
+	padding: 1rem;
 	.edit-add-location-btn {
 		@include edit-btn(#f68d51);
 	}
