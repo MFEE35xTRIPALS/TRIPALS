@@ -3,6 +3,7 @@ body {
 
   /* 個人首圖 + username - 個人封面 */
   section.selftop {
+    margin-top: 5rem;
     height: 55vh;
     background-size: cover;
     overflow: hidden;
@@ -50,9 +51,12 @@ body {
 
   div {
     section.selfIntroduce {
-      text-align: center;
-      padding: 0 5rem;
-      font-size: 1.25rem;
+      p.intro {
+        text-align: center;
+        padding: 0 5rem;
+        font-size: 1.25rem;
+        font-weight: 800;
+      }
     }
   }
 }

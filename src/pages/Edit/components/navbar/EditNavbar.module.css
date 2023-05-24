@@ -24,7 +24,7 @@
 }
 .edit-bar .edit-draft-btn {
   color: white;
-  background-color: #65c6c6;
+  background-color: #00563b;
   border: none;
   border-radius: 0.5rem;
   font-size: 1.25rem;
@@ -33,12 +33,12 @@
 }
 .edit-bar .edit-draft-btn:hover {
   color: white;
-  background-color: #5bb2b2;
+  background-color: #004d35;
   border: none;
 }
 .edit-bar .edit-draft-btn:active {
   color: white !important;
-  background-color: #519e9e !important;
+  background-color: #00452f !important;
   border: none;
 }
 .edit-bar .edit-show-btn {

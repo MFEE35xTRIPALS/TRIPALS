@@ -581,7 +581,7 @@ body {
 
 /* 封面圖片 */
 section.c-head {
-  margin-top: 6rem;
+  margin-top: 5rem;
 }
 section.c-head div.img2 {
   width: 100%;
@@ -1060,6 +1060,7 @@ body {
   /* 個人首圖 + username - 個人封面 */
 }
 body section.selftop {
+  margin-top: 5rem;
   height: 55vh;
   background-size: cover;
   overflow: hidden;
@@ -1104,10 +1105,11 @@ body section.selftop div.selfMessage h4.userName {
   text-shadow: 4px 3px 2px rgba(0, 0, 0, 0.5);
   font-size: 1.75rem;
 }
-body div section.selfIntroduce {
+body div section.selfIntroduce p.intro {
   text-align: center;
   padding: 0 5rem;
   font-size: 1.25rem;
+  font-weight: 800;
 }
 
 section.selfArticles {

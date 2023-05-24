@@ -46,7 +46,7 @@ const CardMain = ({
 								className={styles["edit-status"]}
 								style={{
 									backgroundColor:
-										mainData.main_status === "draft" ? "#65c6c6" : "#fab10c",
+										mainData.main_status === "draft" ? "#00563B" : "#fab10c",
 								}}
 							>
 								{mainData.main_status === "draft" ? "草稿" : "公開"}

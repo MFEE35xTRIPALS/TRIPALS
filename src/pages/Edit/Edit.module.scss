@@ -50,8 +50,8 @@
 		// }
 	}
 	.edit-card-container {
-		border-radius: 1rem;
-		overflow: hidden;
+		// border-radius: 1rem;
+		// overflow: hidden;
 		//共用樣式
 		.accordion-item-color {
 			background-color: rgba(
@@ -137,6 +137,8 @@
 
 		// 主內容
 		.edit-card-main {
+			border-radius: 1rem;
+			overflow: hidden;
 			.edit-accordion-btn {
 				position: relative;
 				display: flex !important;
@@ -152,7 +154,7 @@
 			.edit-status {
 				position: absolute;
 				left: 1.2rem;
-				font-size: $editNormalSize;
+				font-size: 1.5rem;
 				// background-color: #65c6c6;
 				padding: 0.5rem 1rem;
 				border-radius: $inputRadius;
@@ -209,6 +211,19 @@
 		}
 		// 地點
 		.edit-card-content {
+			border-radius: 1rem;
+			overflow: hidden;
+			margin-top: 1.5rem;
+			h2 {
+				position: relative;
+				// 讓分隔線在正中央
+				hr {
+					width: calc(100% - 2.5rem);
+					margin: 0;
+					left: 1.25rem;
+					position: absolute;
+				}
+			}
 			// 標題 中間那一塊
 			.content-title {
 				display: flex;
