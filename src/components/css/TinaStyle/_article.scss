@@ -53,7 +53,6 @@ section.hashtag {
       padding-top: 1rem;
       width: 50%;
       flex: 3 1 350px;
-      font-weight: 800;
 
       // border: 3px orange solid;
       ul.tags {
@@ -66,6 +65,8 @@ section.hashtag {
           background: $tagsBg;
           color: $HoverBg;
           font-size: 1.5rem;
+          font-weight: 700;
+
           // text-shadow: 0 2px 0 rgb(0, 0, 0, 0.3);
 
           cursor: pointer;

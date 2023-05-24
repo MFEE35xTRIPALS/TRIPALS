@@ -394,7 +394,6 @@ section.hashtag div.tag-search .left {
   padding-top: 1rem;
   width: 50%;
   flex: 3 1 350px;
-  font-weight: 800;
 }
 section.hashtag div.tag-search .left ul.tags li {
   margin: 0.5rem 0.5rem;
@@ -405,6 +404,7 @@ section.hashtag div.tag-search .left ul.tags li {
   background: #98ab68;
   color: #ffffff;
   font-size: 1.5rem;
+  font-weight: 700;
   cursor: pointer;
 }
 section.hashtag div.tag-search .left ul.tags li:hover {
