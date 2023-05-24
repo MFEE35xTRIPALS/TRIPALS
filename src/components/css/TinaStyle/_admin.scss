@@ -305,9 +305,10 @@
       /* 文章管理 table */
       .a-myart {
         thead {
-          background-color: $Green;
+          background-color: $TableGreen;
           position: sticky;
           top: 0;
+          z-index: 10;
         }
 
         tr {

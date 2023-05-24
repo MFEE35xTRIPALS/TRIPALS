@@ -54,7 +54,7 @@ a {
 }
 .c-right .c-block .totalMember {
   padding: 2rem 2rem;
-  color: #27a2b8;
+  color: #73a083;
 }
 .c-right .c-block .a-news {
   margin: 2rem 2rem 0rem 3rem;
@@ -86,7 +86,7 @@ a {
   text-align: left;
 }
 .c-right .c-block .c-myart tr .icon {
-  color: #27a2b8;
+  color: #73a083;
   text-align: center;
 }
 .c-right .c-block .c-myart tr:hover {
@@ -105,7 +105,7 @@ a {
 }
 .c-right .c-block .c-myart .chose {
   background-color: rgba(178, 213, 206, 0.3);
-  color: #27a2b8;
+  color: #73a083;
 }
 .c-right .c-block .c-form {
   padding: 2rem 2.5rem 4rem 2.5rem;
@@ -156,15 +156,15 @@ a {
 .c-right .c-block .c-form .c-button .c-post,
 .c-right .c-block .c-form .c-button .c-change {
   right: 20px;
-  border: #65c6c6 2px solid;
-  background: #65c6c6;
+  border: #73a083 2px solid;
+  background: #73a083;
   color: #ffffff;
 }
 .c-right .c-block .c-form .c-button .c-post:hover,
 .c-right .c-block .c-form .c-button .c-change:hover {
-  color: #65c6c6;
+  color: #73a083;
   background: #ffffff;
-  border: #65c6c6 2px solid;
+  border: #73a083 2px solid;
 }
 .c-right .c-block .c-form .c-button .cancelBtn {
   right: 115px;
@@ -240,7 +240,7 @@ a {
 }
 .c-right .c-block .a-members dialog#m-change div.content input {
   border-radius: 20px;
-  border: 1.5px #27a2b8 solid;
+  border: 1.5px #73a083 solid;
   padding-left: 1rem;
   font-size: 1.25rem;
   width: 100%;
@@ -258,14 +258,14 @@ a {
   border-radius: 50px;
 }
 .c-right .c-block .a-members dialog#m-change div.content .d-button .d-change {
-  border: #65c6c6 2px solid;
-  background: #65c6c6;
+  border: #73a083 2px solid;
+  background: #73a083;
   color: #ffffff;
 }
 .c-right .c-block .a-members dialog#m-change div.content .d-button .d-change:hover {
-  color: #65c6c6;
+  color: #73a083;
   background: #ffffff;
-  border: #65c6c6 2px solid;
+  border: #73a083 2px solid;
 }
 .c-right .c-block .a-members dialog#m-change div.content .d-button .d-cancel {
   border: #fab10c 2px solid;
@@ -289,9 +289,10 @@ a {
   /* 文章管理 table */
 }
 .c-right .c-block .a-totalArt .a-myart thead {
-  background-color: #b2d5ce;
+  background-color: #eaf2f0;
   position: sticky;
   top: 0;
+  z-index: 10;
 }
 .c-right .c-block .a-totalArt .a-myart tr td {
   border: 0.3px #b2d5ce solid;
@@ -301,6 +302,7 @@ a {
   overflow: hidden;
   padding: 0.5rem;
   font-size: 1.25rem;
+  width: -moz-fit-content;
   width: fit-content;
   text-align: center;
 }
@@ -369,7 +371,7 @@ section.title div.img h1 {
   display: inline-block;
   position: relative;
   font-size: 3rem;
-  color: #27a2b8;
+  color: #73a083;
   padding: 0.5rem 0 0.5rem 1rem;
   width: 35vw;
   max-width: 500px;
@@ -506,6 +508,10 @@ section.hashtag div.sort button.hots:hover {
   transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1), padding 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s linear;
   width: 0;
 }
+.search__input::-moz-placeholder {
+  color: #73a083;
+  opacity: 0.75;
+}
 .search__input::placeholder {
   color: #73a083;
   opacity: 0.75;
@@ -585,7 +591,8 @@ section.c-head div.img2 {
   background: url(/public/images/raiway.jpg) no-repeat bottom;
   background-size: cover;
   overflow: hidden;
-  clip-path: ellipse(75% 50% at 50% 30%);
+  -webkit-clip-path: ellipse(75% 50% at 50% 30%);
+          clip-path: ellipse(75% 50% at 50% 30%);
   position: relative;
 }
 
@@ -618,7 +625,7 @@ section.c-head div.img2 {
   height: 250px;
   border-radius: 20px;
   text-align: center;
-  background-color: #27a2b8;
+  background-color: #73a083;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -647,12 +654,13 @@ section.c-head div.img2 {
 .c-left .c-head div.h-img img.shot {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .c-left .c-select ul {
   padding: 1.5rem;
   margin: 2.5rem 0 0 0;
-  border-top: 4px solid #27a2b8;
+  border-top: 4px solid #73a083;
   font-size: 1.75rem;
   display: flex;
   flex-direction: column;
@@ -666,7 +674,7 @@ section.c-head div.img2 {
   text-decoration: none;
 }
 .c-left .c-select ul .selectLi:hover {
-  border-bottom: 3px solid #27a2b8;
+  border-bottom: 3px solid #73a083;
 }
 
 /* 右邊隨選項變動的區塊 */
@@ -739,6 +747,7 @@ div.bannerModal {
   top: 22rem;
   z-index: 10;
   width: 100vw;
+  height: -moz-fit-content;
   height: fit-content;
   padding: 1.75rem;
   justify-content: end;
@@ -755,6 +764,7 @@ div.bannerModal button {
 }
 div.bannerModal button.cancel {
   background: rgba(255, 255, 255, 0.8);
+  color: black;
 }
 div.bannerModal button:hover {
   background-color: white;
@@ -763,12 +773,15 @@ div.bannerModal button:hover {
 img.selfbanner {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: bottom;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: bottom;
+     object-position: bottom;
 }
 
 .edit_cover {
   position: absolute;
+  height: -moz-fit-content;
   height: fit-content;
   padding: 0.25rem 1.5rem;
   right: 8%;
@@ -845,7 +858,8 @@ button.camera {
 .mymodal div.modalContent div.imgPreviewBorder img.imgPreview {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .mymodal div.modalContent button.uploadShot,
 .mymodal div.modalContent .uploadShotDone {
@@ -908,15 +922,15 @@ button.camera {
 .c-form .c-inbox .changePwd {
   padding: 0.25rem 0.85rem;
   border-radius: 50px;
-  border: #65c6c6 2px solid;
-  background: #65c6c6;
+  border: #73a083 2px solid;
+  background: #73a083;
   color: #ffffff;
   font-size: 1.25rem;
 }
 .c-form .c-inbox .changePwd:hover {
-  color: #65c6c6;
+  color: #73a083;
   background: #ffffff;
-  border: #65c6c6 2px solid;
+  border: #73a083 2px solid;
 }
 .c-form .c-inbox #m-pwd {
   color: #ff4848;
@@ -931,16 +945,16 @@ button.camera {
   border-radius: 50px;
   position: absolute;
   bottom: -40px;
-  border: #65c6c6 2px solid;
+  border: #73a083 2px solid;
   right: 20px;
-  background: #65c6c6;
+  background: #73a083;
   color: #ffffff;
   font-size: 1.25rem;
 }
 .c-form .c-inbox .button:hover {
-  color: #65c6c6;
+  color: #73a083;
   background: #ffffff;
-  border: #65c6c6 2px solid;
+  border: #73a083 2px solid;
 }
 .c-form .c-textarea {
   display: flex;
@@ -1010,7 +1024,7 @@ button.camera {
   text-decoration: none;
 }
 .c-mine .c-myart tr td a.c-editArt {
-  color: #27a2b8;
+  color: #73a083;
   margin: 0 0.5rem;
 }
 .c-mine .c-myart tr td i.trash {
@@ -1055,18 +1069,23 @@ body section.selftop {
   height: 55vh;
   background-size: cover;
   overflow: hidden;
-  clip-path: ellipse(75% 50% at 50% 30%);
+  -webkit-clip-path: ellipse(75% 50% at 50% 30%);
+          clip-path: ellipse(75% 50% at 50% 30%);
   position: relative;
 }
 body section.selftop img.selfCover {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: bottom;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: bottom;
+     object-position: bottom;
 }
 body section.selftop div.selfMessage {
   position: absolute;
+  height: -moz-fit-content;
   height: fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   left: 8%;
   bottom: 30%;
@@ -1080,7 +1099,8 @@ body section.selftop div.selfMessage img.selfShot {
   min-height: 75px;
   max-width: 110px;
   max-height: 110px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 50%;
   margin: 1rem;
   border: 2px white solid;
@@ -1114,6 +1134,7 @@ section.selfArticles .c-mylikes {
 
 div.onecard {
   width: 280px;
+  height: -moz-fit-content;
   height: fit-content;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   margin: 1rem 0.5rem;
@@ -1144,6 +1165,7 @@ div.onecard a.c-cardImg div.c-imgCover span {
   left: 5.5rem;
   font-size: 1.25rem;
   padding: 2.25rem 1.5rem;
+  width: -moz-fit-content;
   width: fit-content;
   filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.5));
   font-weight: 700;
@@ -1151,7 +1173,8 @@ div.onecard a.c-cardImg div.c-imgCover span {
 div.onecard a.c-cardImg img.Img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 div.onecard div.card_body {
   margin: 1rem;
@@ -1188,9 +1211,10 @@ div.onecard div.card_body h6 {
 div.onecard div.card_body h6 img.head {
   width: 40px;
   height: 40px;
-  background-color: #27a2b8;
+  background-color: #73a083;
   border-radius: 50%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 div.onecard div.card_body div.viewsAndHeart {
   color: black;
@@ -1373,6 +1397,7 @@ nav {
     min-width: 400px;
   }
   #content .section-guide-panel .section-panel-inner .accordion {
+    max-height: -moz-max-content;
     max-height: max-content;
   }
 }
@@ -1581,7 +1606,8 @@ nav {
   border-radius: 5px;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .wrapper #apple .CityNameContainer .CityList hr {
   border: 2px solid rgb(255, 255, 255);
@@ -1691,6 +1717,7 @@ nav {
   max-width: 30rem;
   transform: translate(-50%, -50%);
   border-radius: 10px;
+  height: -moz-fit-content;
   height: fit-content;
   width: 100%;
 }
@@ -1767,17 +1794,17 @@ nav {
 .page #RegisterPage form button {
   padding: 0.25rem 0.85rem;
   border-radius: 50px;
-  border: #65c6c6 2px solid;
-  background: #65c6c6;
+  border: #73a083 2px solid;
+  background: #73a083;
   color: #ffffff;
   width: 30%;
   margin: 1rem auto;
 }
 .page #LoginPage form button:hover,
 .page #RegisterPage form button:hover {
-  color: #65c6c6;
+  color: #73a083;
   background: #ffffff;
-  border: #65c6c6 2px solid;
+  border: #73a083 2px solid;
 }
 .page #LoginPage form a,
 .page #RegisterPage form a {
@@ -1808,7 +1835,8 @@ nav {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 #main .divVideo .videoContent {
   display: flex;
@@ -2449,21 +2477,26 @@ nav {
 #recommend .container {
   width: 100%;
   margin: 5px auto;
-  column-count: 3;
-  column-gap: 5px;
+  -moz-column-count: 3;
+       column-count: 3;
+  -moz-column-gap: 5px;
+       column-gap: 5px;
 }
 @media (max-width: 1200px) {
   #recommend .container {
-    column-count: 2;
+    -moz-column-count: 2;
+         column-count: 2;
   }
 }
 @media (max-width: 700px) {
   #recommend .container {
-    column-count: 1;
+    -moz-column-count: 1;
+         column-count: 1;
   }
 }
 #recommend .container .recommemdCard {
-  break-inside: avoid;
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
 }
 #recommend .container .recommemdCard .card-img {
   filter: brightness(90%);
@@ -2471,7 +2504,8 @@ nav {
 #recommend .container .recommemdCard img.avatar {
   max-width: 100%;
   max-height: 540px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 #recommend .container .recommemdCard .card-img-overlay h5 {
   cursor: pointer;
@@ -2679,7 +2713,8 @@ footer .container #footerNav li .footer_ch {
 #headerNav .dropdown .userImage .avatar {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 #headerNav .dropdown .dropdown-toggle::after {
   display: none;

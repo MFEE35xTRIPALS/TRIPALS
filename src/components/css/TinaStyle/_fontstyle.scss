@@ -1,9 +1,11 @@
 /* ----- color ----- */
 $Rice: #f0e8dc;
 $ButtonHover: #5db8a6;
-$Blue: #27a2b8;
+// $Blue: #27a2b8;
+$Blue: #73a083;
 $Green: #b2d5ce;
-$Green2: #65c6c6;
+// $Green2: #65c6c6;
+$Green2: #73a083;
 $TableGreen: #eaf2f0;
 $black: #000000;
 $white: white;
@@ -22,7 +24,7 @@ $tableText: 1.25rem; // -> 後臺table:最新消息，會員管理
 // 右邊block background -> #ffffff
 
 /* ----- font(CRUD-button) ----- */
-$ButtonColor: #65c6c6;
+$ButtonColor: #73a083;
 $TrashColor: #ff4848;
 $CancelColor: #fab10c;
 $HoverBg: #ffffff;
@@ -36,7 +38,7 @@ $ArticleText: 1.15rem; // -> 後台文章管理table
 
 $clientBtnfont: 1.25rem; //會員後台btn字大小
 $myarticles_atag: black; //我的文章超連結顏色
-$myarticlesEdit: #27a2b8; //我的文章編輯按鍵
+$myarticlesEdit: $Blue; //我的文章編輯按鍵
 $myarticlesBtnDisable: gray; //我的文章不能按的按鈕
 $myarticlesBtnDisablebg: rgb(182, 182, 182); //我的文章不能按的按鈕背景
 $myarticlesTakeof: rgb(221, 221, 221); //table 已下架顏色
@@ -104,10 +106,7 @@ a {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   font-style: normal;
-  src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.woff2)
-      format("woff2"),
-    url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.woff)
-      format("woff"),
-    url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.ttf)
-      format("truetype");
+  src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.woff2) format("woff2"),
+    url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.woff) format("woff"),
+    url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.ttf) format("truetype");
 }

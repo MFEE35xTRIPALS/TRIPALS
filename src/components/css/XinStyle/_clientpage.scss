@@ -20,12 +20,21 @@ div.bannerModal {
     border-radius: 50px;
     transition: all 0.2s ease;
 
+    // border: $ButtonColor 2px solid;
+    // background: $ButtonColor;
+    // color: $HoverBg;
+    // font-size: $changePwd;
+
     &.cancel {
       background: rgba($color: #ffffff, $alpha: 0.8);
+      color: black;
     }
 
     &:hover {
       background-color: $MessageBtnHover;
+      // color: $ButtonColor;
+      // background: $HoverBg;
+      // border: $ButtonColor 2px solid;
     }
   }
 }
