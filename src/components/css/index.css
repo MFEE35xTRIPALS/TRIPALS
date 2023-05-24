@@ -922,6 +922,7 @@ button.camera {
   border: #65c6c6 2px solid;
   background: #65c6c6;
   color: #ffffff;
+  font-size: 1.25rem;
 }
 .c-form .c-inbox .changePwd:hover {
   color: #65c6c6;
@@ -945,6 +946,7 @@ button.camera {
   right: 20px;
   background: #65c6c6;
   color: #ffffff;
+  font-size: 1.25rem;
 }
 .c-form .c-inbox .button:hover {
   color: #65c6c6;
@@ -1103,12 +1105,12 @@ body section.selftop div.selfMessage img.selfShot {
 body section.selftop div.selfMessage h4.userName {
   color: white;
   text-shadow: 4px 3px 2px rgba(0, 0, 0, 0.5);
-  font-size: 1.75rem;
+  font-size: 2rem;
 }
 body div section.selfIntroduce p.intro {
   text-align: center;
   padding: 0 5rem;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 800;
 }
 

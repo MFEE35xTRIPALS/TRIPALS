@@ -78,6 +78,7 @@ function App() {
                   avatarImg={avatarImg}
                   currentUser={currentUser}
                   setCurrentUser={setCurrentUser}
+                  setavatarImg={setavatarImg}
                 />
               </Home>
             )}
@@ -91,6 +92,7 @@ function App() {
                   avatarImg={avatarImg}
                   currentUser={currentUser}
                   setCurrentUser={setCurrentUser}
+                  setavatarImg={setavatarImg}
                 />
               </Register>
             )}
@@ -109,6 +111,7 @@ function App() {
                   avatarImg={avatarImg}
                   currentUser={currentUser}
                   setCurrentUser={setCurrentUser}
+                  setavatarImg={setavatarImg}
                 />
               </Login>
             )}
@@ -125,6 +128,7 @@ function App() {
                   avatarImg={avatarImg}
                   currentUser={currentUser}
                   setCurrentUser={setCurrentUser}
+                  setavatarImg={setavatarImg}
                 />
               </Guides>
             )}
@@ -137,6 +141,7 @@ function App() {
                   avatarImg={avatarImg}
                   currentUser={currentUser}
                   setCurrentUser={setCurrentUser}
+                  setavatarImg={setavatarImg}
                 />
               </Destination>
             )}
@@ -154,6 +159,7 @@ function App() {
                   avatarImg={avatarImg}
                   currentUser={currentUser}
                   setCurrentUser={setCurrentUser}
+                  setavatarImg={setavatarImg}
                 />
               </Selfpage>
             )}
@@ -170,6 +176,7 @@ function App() {
                   avatarImg={avatarImg}
                   currentUser={currentUser}
                   setCurrentUser={setCurrentUser}
+                  setavatarImg={setavatarImg}
                 />
               </ViewArticle>
             )}
@@ -186,6 +193,7 @@ function App() {
                   avatarImg={avatarImg}
                   currentUser={currentUser}
                   setCurrentUser={setCurrentUser}
+                  setavatarImg={setavatarImg}
                 />
               </Admin>
             )}
@@ -203,6 +211,7 @@ function App() {
                   avatarImg={avatarImg}
                   currentUser={currentUser}
                   setCurrentUser={setCurrentUser}
+                  setavatarImg={setavatarImg}
                 />
               </Client>
             )}
