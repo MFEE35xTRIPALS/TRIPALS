@@ -249,27 +249,27 @@
         display: none;
     }
 
-    #cloud {
-        width: 412px;
-        height: 338px;
-        stroke-dasharray: 1724;
-        animation: 7s cloud linear infinite;
+    // #cloud {
+    //     width: 412px;
+    //     height: 338px;
+    //     stroke-dasharray: 1724;
+    //     animation: 7s cloud linear infinite;
 
-        @media (max-width: 1835px) {
-            display: none;
-        }
+    //     @media (max-width: 1835px) {
+    //         display: none;
+    //     }
 
-    }
+    // }
 
-    @keyframes cloud {
-        0% {
-            stroke-dashoffset: 1724;
-        }
+    // @keyframes cloud {
+    //     0% {
+    //         stroke-dashoffset: 1724;
+    //     }
 
-        100% {
-            stroke-dashoffset: 0;
-        }
-    }
+    //     100% {
+    //         stroke-dashoffset: 0;
+    //     }
+    // }
 
     // #tulip {
     //     stroke-dasharray: 4362;
@@ -960,45 +960,45 @@
     //         stroke-dashoffset: 0;
     //     }
     // }
-    #coffee {
-        stroke-dasharray: 3294;
-        animation: 6s coffee linear infinite;
+    // #coffee {
+    //     stroke-dasharray: 3294;
+    //     animation: 6s coffee linear infinite;
 
-        @media (max-width: 1835px) {
-            display: none;
-        }
+    //     @media (max-width: 1835px) {
+    //         display: none;
+    //     }
 
-    }
+    // }
 
-    @keyframes coffee {
-        0% {
-            stroke-dashoffset: 3294;
-        }
+    // @keyframes coffee {
+    //     0% {
+    //         stroke-dashoffset: 3294;
+    //     }
 
-        100% {
-            stroke-dashoffset: 0;
-        }
-    }
+    //     100% {
+    //         stroke-dashoffset: 0;
+    //     }
+    // }
     
-    #airplane {
-        stroke-dasharray: 2447;
-        animation: 6s airpalne linear infinite;
+    // #airplane {
+    //     stroke-dasharray: 2447;
+    //     animation: 6s airpalne linear infinite;
 
-        @media (max-width: 1835px) {
-            display: none;
-        }
+    //     @media (max-width: 1835px) {
+    //         display: none;
+    //     }
 
-    }
+    // }
 
-    @keyframes airpalne {
-        0% {
-            stroke-dashoffset: 2447;
-        }
+    // @keyframes airpalne {
+    //     0% {
+    //         stroke-dashoffset: 2447;
+    //     }
 
-        100% {
-            stroke-dashoffset: 0;
-        }
-    }
+    //     100% {
+    //         stroke-dashoffset: 0;
+    //     }
+    // }
 
     @keyframes hat {
         0% {
