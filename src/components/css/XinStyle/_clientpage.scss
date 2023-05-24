@@ -34,6 +34,7 @@ img.selfbanner {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: bottom;
 }
 
 .edit_cover {
@@ -193,6 +194,7 @@ button.camera {
         padding-left: 1rem;
       }
     }
+
     //button
     .changePwd {
       padding: 0.25rem 0.85rem;
@@ -207,6 +209,7 @@ button.camera {
         border: $ButtonColor 2px solid;
       }
     }
+
     //input
     #m-pwd {
       color: $Heart;

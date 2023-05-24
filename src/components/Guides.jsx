@@ -155,8 +155,8 @@ function Guides({ currentUser, setCurrentUser }) {
                       id="searchInput"
                       onChange={saveInput}
                       onClick={(e) => {
-                        e.target.value = "美食";
-                        setSearch("美食");
+                        e.target.value = "風景";
+                        setSearch("風景");
                       }}
                     />
 
@@ -232,11 +232,11 @@ function Guides({ currentUser, setCurrentUser }) {
                 </select>
               </form>
 
+              <button className="hots" onClick={doHeartSort}>
+                <i className="fa-solid fa-heart"></i> 收藏數
+              </button>
               <button className="views" onClick={doViewsSort}>
                 <i className="fa-regular fa-eye"></i> 瀏覽數
-              </button>
-              <button className="hots" onClick={doHeartSort}>
-                <i className="fa-solid fa-heart"></i> 熱門度
               </button>
             </div>
           </section>
