@@ -1609,7 +1609,7 @@ nav {
   white-space: nowrap;
 }
 .wrapper #apple .CityNameContainer .CityList .CityWeather i {
-  color: white;
+  color: #39685f;
 }
 .wrapper #apple .CityNameContainer .CityList .CityWeather p {
   font-weight: bolder;
@@ -2021,25 +2021,6 @@ nav {
 @media (max-width: 750px) {
   #about {
     display: none;
-  }
-}
-#about #cloud {
-  width: 412px;
-  height: 338px;
-  stroke-dasharray: 1724;
-  animation: 7s cloud linear infinite;
-}
-@media (max-width: 1835px) {
-  #about #cloud {
-    display: none;
-  }
-}
-@keyframes cloud {
-  0% {
-    stroke-dashoffset: 1724;
-  }
-  100% {
-    stroke-dashoffset: 0;
   }
 }
 @keyframes kite {
@@ -2527,40 +2508,6 @@ nav {
   align-self: center;
   margin-left: 1rem;
   text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.9);
-}
-#recommend #coffee {
-  stroke-dasharray: 3294;
-  animation: 6s coffee linear infinite;
-}
-@media (max-width: 1835px) {
-  #recommend #coffee {
-    display: none;
-  }
-}
-@keyframes coffee {
-  0% {
-    stroke-dashoffset: 3294;
-  }
-  100% {
-    stroke-dashoffset: 0;
-  }
-}
-#recommend #airplane {
-  stroke-dasharray: 2447;
-  animation: 6s airpalne linear infinite;
-}
-@media (max-width: 1835px) {
-  #recommend #airplane {
-    display: none;
-  }
-}
-@keyframes airpalne {
-  0% {
-    stroke-dashoffset: 2447;
-  }
-  100% {
-    stroke-dashoffset: 0;
-  }
 }
 @keyframes hat {
   0% {
