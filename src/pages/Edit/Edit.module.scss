@@ -23,7 +23,7 @@
 	// height: 100vh; // 先給100vh佔位
 	background-color: $colorRice;
 	padding-top: 6rem; // navbar 是fixed-top 所以要向上推
-	margin-bottom: 5rem;
+	margin-bottom: 1rem;
 	// overflow: auto;
 	// 卡片容器
 	.edit-card-wrapper {
@@ -292,6 +292,7 @@
 
 					.edit-add-location-btn {
 						@include edit-btn(#578f52);
+						font-size: 1.25rem;
 						margin: 0;
 					}
 				}

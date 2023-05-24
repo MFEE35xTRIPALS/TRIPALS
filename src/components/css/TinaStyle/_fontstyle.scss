@@ -65,11 +65,11 @@ $pageTitle: 3rem;
 $pageColor: $Blue;
 // hashtags
 $tagsText: 1.5rem;
-$tagsBg: $Green2;
+$tagsBg: #98ab68;
 $tagsHover: $Green2;
 // 地區｜觀看數｜熱門度
 $inputText: 1.75rem;
-$inputBgColor1: $Green2;
+$inputBgColor1: #98ab68;
 $inputBgColor2: white;
 
 /* -------- 全域設定 -------- */
@@ -100,7 +100,10 @@ a {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   font-style: normal;
-  src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.woff2) format("woff2"),
-    url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.woff) format("woff"),
-    url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.ttf) format("truetype");
+  src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.woff2)
+      format("woff2"),
+    url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.woff)
+      format("woff"),
+    url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/webfonts/fa-solid-900.ttf)
+      format("truetype");
 }
