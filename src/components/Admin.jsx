@@ -98,6 +98,8 @@ function Admin({ currentUser, setCurrentUser }) {
       if (result) {
         setIfSubmit(false);
         setNews(result.data);
+        NewsCancel()
+        swaAlert("更新完成", '', 'success', 1500)
       }
     } else {
       swaAlert("請填寫必要內容", '', 'warning', 1500)
@@ -116,6 +118,8 @@ function Admin({ currentUser, setCurrentUser }) {
       if (result) {
         setIfSubmit(false);
         setNews(result.data);
+        NewsCancel();
+        swaAlert("成功發布", '', 'success', 1500)
       }
     } else {
       swaAlert("請填寫必要內容", '', 'warning', 1500)
