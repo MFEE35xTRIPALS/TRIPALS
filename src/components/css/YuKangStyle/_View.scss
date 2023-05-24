@@ -82,6 +82,8 @@ nav {
 								color: #49c4c4;
 								margin-left: 10px;
 								margin-bottom: 0rem;
+								font-weight: 800;
+								// text-shadow: 0 1px 1px rgb(0, 0, 0,0.3);
 							}
 
 							.titlei {
@@ -118,7 +120,7 @@ nav {
 								border: #65c6c6 2px solid;
 								background: #65c6c6;
 								color: white;
-								font-size: 1rem;
+								font-size: 1.25rem;
 								cursor: pointer;
 
 								&:hover {
@@ -163,6 +165,7 @@ nav {
 
 						#count {
 							display: inline-flex;
+							align-items: center;
 							float: right;
 
 							i {
