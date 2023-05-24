@@ -65,6 +65,8 @@ section.hashtag {
           background: $tagsBg;
           color: $HoverBg;
           font-size: 1.5rem;
+          font-weight: 700;
+
           // text-shadow: 0 2px 0 rgb(0, 0, 0, 0.3);
 
           cursor: pointer;
@@ -207,7 +209,7 @@ section.hashtag {
   &__input {
     background: transparent;
     border: none;
-    color: #27a2b8;
+    color: #98ab68;
     font-size: 2rem;
     opacity: 0;
     outline: none;
@@ -217,7 +219,7 @@ section.hashtag {
     width: 0;
 
     &::placeholder {
-      color: #27a2b8;
+      color: #98ab68;
       opacity: 0.75;
     }
   }
@@ -231,7 +233,7 @@ section.hashtag {
   // 放大鏡
   &__label,
   &__submit {
-    color: #27a2b8;
+    color: #98ab68;
     cursor: pointer;
     display: block;
     height: 100%;
@@ -242,7 +244,7 @@ section.hashtag {
     &:hover,
     &:focus,
     &:active {
-      color: #27a2b8;
+      color: #98ab68;
     }
   }
 
@@ -264,12 +266,12 @@ section.hashtag {
     }
 
     &:focus {
-      box-shadow: 0 0 0 4px inset #27a2b8;
+      box-shadow: 0 0 0 4px inset #98ab68;
     }
   }
 
   &:focus-within {
-    border-color: #27a2b8;
+    border-color: #98ab68;
 
     #{$root} {
       &__input {
