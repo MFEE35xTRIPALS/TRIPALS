@@ -222,7 +222,7 @@ function ViewArticle({ currentUser, setCurrentUser }) {
 			// 更改中心點
 			const latLng = new window.google.maps.LatLng(
 				center.lat(),
-				center.lng() - 0.03
+				center.lng() - 0.02
 			);
 			center = latLng;
 		}
