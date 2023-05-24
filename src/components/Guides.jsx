@@ -18,7 +18,7 @@ function Guides({ currentUser, setCurrentUser }) {
   var [articles, setArticles] = useState([]);
   var [likes, setlikes] = useState();
   var [cards, setCards] = useState();
-  var [search, setSearch] = useState();
+  var [search, setSearch] = useState("");
   let [apple, setapple] = useState(null);
 
   /* ------- 初始化頁面 ------- */
@@ -155,8 +155,8 @@ function Guides({ currentUser, setCurrentUser }) {
                       id="searchInput"
                       onChange={saveInput}
                       onClick={(e) => {
-                        e.target.value = "風景";
-                        setSearch("風景");
+                        e.target.value = "台中";
+                        setSearch("台中");
                       }}
                     />
 

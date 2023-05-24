@@ -403,8 +403,7 @@ section.hashtag div.tag-search .left ul.tags li {
   border: #65c6c6 2px solid;
   background: #65c6c6;
   color: #ffffff;
-  font-size: 1.75rem;
-  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.3);
+  font-size: 1.5rem;
   cursor: pointer;
 }
 section.hashtag div.tag-search .left ul.tags li:hover {
