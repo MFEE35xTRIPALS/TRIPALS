@@ -43,7 +43,7 @@ const Login = ({ setCurrentUser, setavatarImg, currentUser }) => {
             ? url + JSON.parse(localStorage.getItem("user"))[0].avatar
             : url + "/useravatar/pre.png"
         );
-        console.log(params.from)
+        // console.log(params.from)
         if (params.from === "register") {
           history.push('/')
         } else if (params.from === "write") {

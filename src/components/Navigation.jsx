@@ -3,6 +3,7 @@ import "./css/HenryStyle/hamburgers.css";
 import axios from "axios";
 import { baseUrl } from "../assets/config";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
+import useSwaAlert from "../components/swaAlert";
 
 const Navigation = ({ currentUser, setCurrentUser, avatarImg, setavatarImg }) => {
 	setTimeout(() => {
@@ -11,6 +12,7 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg, setavatarImg }) =>
 	// console.log(avatarImg)
 
 	const history = useHistory();
+	const swaAlert = useSwaAlert();
 	const url = 'http://localhost:8000';
 
 	useEffect(() => {
@@ -92,20 +94,23 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg, setavatarImg }) =>
 
 	}, []);
 	const logout = () => {
+		// swaAlert('您已登出，歡迎再次登入使用', '', '', 2000);
 		localStorage.removeItem("user");
 		setCurrentUser(null);
+		history.push('/login/else')
 	};
 
 	useEffect(() => {
-		async function nav() {
-			let result = await axios.get('http://localhost:8000/nav', {
-				params: { userno: JSON.parse(currentUser)[0].userno }
-			})
-			// console.log(result.data.avatar)
-			setavatarImg(result.data.avatar ? (url + result.data.avatar + "?temp=" + Math.random()) : url + "/useravatar/pre.png")
-
-		}
 		if (currentUser) {
+			async function nav() {
+				let result = await axios.get('http://localhost:8000/nav', {
+					params: { userno: JSON.parse(currentUser)[0].userno }
+				})
+				// console.log(result.data.avatar)
+				setavatarImg(result.data.avatar ? (url + result.data.avatar + "?temp=" + Math.random()) : url + "/useravatar/pre.png")
+
+			}
+
 			nav();
 		}
 
@@ -272,7 +277,7 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg, setavatarImg }) =>
 									</li>
 								)}
 								<li>
-									<a className="dropdown-item" onClick={logout} href="/">
+									<a className="dropdown-item" onClick={logout} href="">
 										登出
 									</a>
 								</li>

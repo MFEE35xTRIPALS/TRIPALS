@@ -45,7 +45,7 @@ const Register = (props) => {
   return (
     <div className="page">
       <div id="RegisterPage">
-        <h1>測試版註冊Tripals</h1>
+        <h1>註冊Tripals</h1>
         <input type="button" value="透過Google繼續" />
         <input type="button" value="透過Facebook繼續" />
 
