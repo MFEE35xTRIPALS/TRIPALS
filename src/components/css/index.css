@@ -1290,6 +1290,7 @@ nav {
   margin-left: 10px;
   margin-bottom: 0rem;
   font-weight: 800;
+  font-size: 22px;
 }
 #content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #placeTitle .titlei {
   margin-left: auto;
@@ -1314,7 +1315,7 @@ nav {
 }
 #content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #placeTag button {
   margin: 0.5rem 0.25rem;
-  padding: 0.25rem 0.75rem;
+  padding: c 0.75rem;
   display: inline-block;
   border-radius: 50px;
   border: #65c6c6 2px solid;
@@ -1367,7 +1368,8 @@ nav {
 }
 #content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #count p {
   color: #5db8a6;
-  font-size: 16px;
+  font-size: 22px;
+  font-weight: 800;
   margin-left: 5px;
   margin-right: 10px;
 }

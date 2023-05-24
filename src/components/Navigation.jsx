@@ -15,84 +15,84 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg, setavatarImg }) =>
 	const swaAlert = useSwaAlert();
 	const url = 'http://localhost:8000';
 
-	// useEffect(() => {
-	// 	const handleNavMouseOver = (event) => {
-	// 		event.target.textContent = event.target.getAttribute("data-zh");
-	// 	};
+	useEffect(() => {
+		const handleNavMouseOver = (event) => {
+			event.target.textContent = event.target.getAttribute("data-zh");
+		};
 
-	// 	const handleNavMouseOut = (event) => {
-	// 		event.target.textContent = event.target.getAttribute("data-en");
-	// 	};
+		const handleNavMouseOut = (event) => {
+			event.target.textContent = event.target.getAttribute("data-en");
+		};
 
-	// 	const handleScroll = () => {
-	// 		const navLinks = document.querySelectorAll(".navWord");
-	// 		const scrollY = window.scrollY;
+		// const handleScroll = () => {
+		// 	const navLinks = document.querySelectorAll(".navWord");
+		// 	const scrollY = window.scrollY;
 
-	// 		if (scrollY > 900 && scrollY < 3400) {
-	// 			navLinks.forEach((link) => {
-	// 				link.style.color = "#578F52";
-	// 			});
-	// 		} else {
-	// 			navLinks.forEach((link) => {
-	// 				link.style.color = "#ffffff";
-	// 			});
-	// 		}
-	// 	};
+		// 	if (scrollY > 900 && scrollY < 3400) {
+		// 		navLinks.forEach((link) => {
+		// 			link.style.color = "#578F52";
+		// 		});
+		// 	} else {
+		// 		navLinks.forEach((link) => {
+		// 			link.style.color = "#ffffff";
+		// 		});
+		// 	}
+		// };
 
-	// 	const handleHamburgerClick = () => {
-	// 		const hamburger = document.querySelector(".hamburger");
-	// 		hamburger.classList.toggle("is-active");
-	// 	};
+		const handleHamburgerClick = () => {
+			const hamburger = document.querySelector(".hamburger");
+			hamburger.classList.toggle("is-active");
+		};
 
-	// 	const handleNavLinkClick = () => {
-	// 		const navContent = document.querySelector("#navbarContent");
-	// 		const navToggler = document.querySelector(".navbar-toggler");
-	// 		if (navContent.classList.contains("show")) {
-	// 			navContent.classList.remove("show");
-	// 		}
-	// 		if (navToggler.classList.contains("is-active")) {
-	// 			navToggler.classList.remove("is-active");
-	// 		}
-	// 	};
+		const handleNavLinkClick = () => {
+			const navContent = document.querySelector("#navbarContent");
+			const navToggler = document.querySelector(".navbar-toggler");
+			if (navContent.classList.contains("show")) {
+				navContent.classList.remove("show");
+			}
+			if (navToggler.classList.contains("is-active")) {
+				navToggler.classList.remove("is-active");
+			}
+		};
 
-	// 	const navItems = document.querySelectorAll("ul a[data-en]");
-	// 	navItems.forEach((item) => {
-	// 		item.addEventListener("mouseover", handleNavMouseOver);
-	// 		item.addEventListener("mouseout", handleNavMouseOut);
-	// 	});
+		const navItems = document.querySelectorAll("ul a[data-en]");
+		navItems.forEach((item) => {
+			item.addEventListener("mouseover", handleNavMouseOver);
+			item.addEventListener("mouseout", handleNavMouseOut);
+		});
 
-	// 	window.addEventListener("scroll", handleScroll);
+		// window.addEventListener("scroll", handleScroll);
 
-	// 	const hamburger = document.querySelector(".hamburger");
-	// 	if (hamburger) {
-	// 		hamburger.addEventListener("click", handleHamburgerClick);
-	// 	}
+		const hamburger = document.querySelector(".hamburger");
+		if (hamburger) {
+			hamburger.addEventListener("click", handleHamburgerClick);
+		}
 
-	// 	const navToggles = document.querySelectorAll(".nav-link");
-	// 	navToggles.forEach((element) => {
-	// 		element.addEventListener("click", handleNavLinkClick);
-	// 	});
-	// 	// const logout = () => {
-	// 	// 	localStorage.removeItem("user");
-	// 	// 	setCurrentUser(null);
-	// 	// };
+		const navToggles = document.querySelectorAll(".nav-link");
+		navToggles.forEach((element) => {
+			element.addEventListener("click", handleNavLinkClick);
+		});
+		// const logout = () => {
+		// 	localStorage.removeItem("user");
+		// 	setCurrentUser(null);
+		// };
 
 
-	// 	return () => {
-	// 		navItems.forEach((item) => {
-	// 			item.removeEventListener("mouseover", handleNavMouseOver);
-	// 			item.removeEventListener("mouseout", handleNavMouseOut);
-	// 		});
-	// 		window.removeEventListener("scroll", handleScroll);
-	// 		if (hamburger) {
-	// 			hamburger.removeEventListener("click", handleHamburgerClick);
-	// 		}
-	// 		navToggles.forEach((element) => {
-	// 			element.removeEventListener("click", handleNavLinkClick);
-	// 		});
-	// 	};
+		return () => {
+			navItems.forEach((item) => {
+				item.removeEventListener("mouseover", handleNavMouseOver);
+				item.removeEventListener("mouseout", handleNavMouseOut);
+			});
+			// window.removeEventListener("scroll", handleScroll);
+			if (hamburger) {
+				hamburger.removeEventListener("click", handleHamburgerClick);
+			}
+			navToggles.forEach((element) => {
+				element.removeEventListener("click", handleNavLinkClick);
+			});
+		};
 
-	// }, []);
+	}, []);
 	const logout = () => {
 		// swaAlert('您已登出，歡迎再次登入使用', '', '', 2000);
 		localStorage.removeItem("user");
