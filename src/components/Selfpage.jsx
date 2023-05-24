@@ -56,7 +56,7 @@ function Selfpage({ currentUser, setCurrentUser }) {
 
         <div className="container">
           <section className="selfIntroduce">
-            <p>{selfIntroduce}</p>
+            <p className="intro">{selfIntroduce}</p>
           </section>
           <section className="selfArticles">
             <h6 className="articles">ARTICLES</h6>
