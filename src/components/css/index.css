@@ -1296,13 +1296,13 @@ nav {
 }
 #content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #placeTag button {
   margin: 0.5rem 0.25rem;
-  padding: c 0.75rem;
+  padding: 0.25rem 0.75rem;
   display: inline-block;
   border-radius: 50px;
   border: #73a083 2px solid;
   background: #73a083;
   color: white;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   cursor: pointer;
 }
 #content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #placeTag button:hover {
@@ -1312,7 +1312,7 @@ nav {
 }
 #content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #placeTag .fa {
   font-size: 36px;
-  margin-right: 10px;
+  margin-left: 0.5rem;
   color: #73a083;
   background-color: transparent;
   border: none;
@@ -1334,7 +1334,7 @@ nav {
 }
 #content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #author #authorName {
   margin: 0 5px;
-  font-size: 16px;
+  font-size: 1.5rem;
   font-weight: 800;
 }
 #content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #count {
@@ -1344,12 +1344,12 @@ nav {
 }
 #content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #count i {
   color: #73a083;
-  font-size: 18px;
-  margin-right: 10px;
+  font-size: 1.35rem;
+  margin-right: 0.75rem;
 }
 #content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #count p {
   color: #73a083;
-  font-size: 22px;
+  font-size: 1.35rem;
   font-weight: 800;
   margin-left: 5px;
   margin-right: 10px;
