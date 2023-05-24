@@ -13,7 +13,7 @@
 .edit-container {
   position: relative;
   background-color: #f0e8dc;
-  padding-top: 5rem;
+  padding-top: 6rem;
   margin-bottom: 1rem;
 }
 .edit-container .edit-card-wrapper {
@@ -207,7 +207,7 @@
   transform: scale(1.2);
 }
 .edit-container .edit-card-container .edit-card-content .content-title span {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 }
 .edit-container .edit-card-container .edit-card-content .content-title .edit-accordion-btn {
   display: flex !important;
@@ -248,9 +248,10 @@
   background-color: #578f52;
   border: none;
   border-radius: 0.5rem;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   margin: 0 0.5rem;
   transition: all 0.1s ease; /* 添加過渡效果以平滑過渡 */
+  font-size: 1.25rem;
   margin: 0;
 }
 .edit-container .edit-card-container .edit-card-content .edit-content-info .content-info-location .edit-add-location-btn:hover {

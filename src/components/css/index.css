@@ -400,8 +400,8 @@ section.hashtag div.tag-search .left ul.tags li {
   padding: 0.5rem 1rem;
   display: inline-block;
   border-radius: 50px;
-  border: #98ab68 2px solid;
-  background: #98ab68;
+  border: #73a083 2px solid;
+  background: #73a083;
   color: #ffffff;
   font-size: 1.5rem;
   font-weight: 700;
@@ -409,8 +409,8 @@ section.hashtag div.tag-search .left ul.tags li {
 }
 section.hashtag div.tag-search .left ul.tags li:hover {
   background: #ffffff;
-  color: #98ab68;
-  border: #98ab68 2px solid;
+  color: #73a083;
+  border: #73a083 2px solid;
 }
 section.hashtag div.tag-search .right {
   flex: 1 1 400px;
@@ -440,15 +440,15 @@ section.hashtag div.sort select.city {
   border: none;
   font-family: "Font Awesome 5 Free", "Sen", sans-serif;
   background-color: white;
-  color: #98ab68;
-  border: #98ab68 2px solid;
+  color: #73a083;
+  border: #73a083 2px solid;
   font-weight: 500;
 }
 section.hashtag div.sort select.city option {
   font-family: "Font Awesome 5 Free", "Sen";
 }
 section.hashtag div.sort select.city:hover {
-  background-color: #98ab68;
+  background-color: #73a083;
   color: white;
 }
 section.hashtag div.sort button.views {
@@ -456,12 +456,12 @@ section.hashtag div.sort button.views {
   width: 300px;
   display: inline-block;
   background-color: white;
-  color: #98ab68;
-  border: #98ab68 2px solid;
+  color: #73a083;
+  border: #73a083 2px solid;
   font-weight: 500;
 }
 section.hashtag div.sort button.views:hover {
-  background-color: #98ab68;
+  background-color: #73a083;
   color: white;
 }
 section.hashtag div.sort button.hots {
@@ -471,11 +471,11 @@ section.hashtag div.sort button.hots {
   display: inline-block;
   border: none;
   background-color: white;
-  color: #98ab68;
-  border: #98ab68 2px solid;
+  color: #73a083;
+  border: #73a083 2px solid;
 }
 section.hashtag div.sort button.hots:hover {
-  background-color: #98ab68;
+  background-color: #73a083;
   color: white;
 }
 
@@ -498,7 +498,7 @@ section.hashtag div.sort button.hots:hover {
 .search__input {
   background: transparent;
   border: none;
-  color: #98ab68;
+  color: #73a083;
   font-size: 2rem;
   opacity: 0;
   outline: none;
@@ -507,7 +507,7 @@ section.hashtag div.sort button.hots:hover {
   width: 0;
 }
 .search__input::placeholder {
-  color: #98ab68;
+  color: #73a083;
   opacity: 0.75;
 }
 .search__icon-container {
@@ -516,7 +516,7 @@ section.hashtag div.sort button.hots:hover {
   width: 4rem;
 }
 .search__label, .search__submit {
-  color: #98ab68;
+  color: #73a083;
   cursor: pointer;
   display: block;
   height: 100%;
@@ -525,7 +525,7 @@ section.hashtag div.sort button.hots:hover {
   width: 100%;
 }
 .search__label:hover, .search__label:focus, .search__label:active, .search__submit:hover, .search__submit:focus, .search__submit:active {
-  color: #98ab68;
+  color: #73a083;
 }
 .search__label {
   transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.1s;
@@ -546,7 +546,7 @@ section.hashtag div.sort button.hots:hover {
   box-shadow: 0 0 0 4px inset #98ab68;
 }
 .search:focus-within {
-  border-color: #98ab68;
+  border-color: #73a083;
 }
 .search:focus-within .search__input {
   opacity: 1;
@@ -1223,7 +1223,7 @@ nav {
 }
 #content hr {
   border-width: 2px;
-  color: #65c6c6;
+  color: #73a083;
 }
 #content .section-guide-panel {
   position: relative;
@@ -1267,7 +1267,7 @@ nav {
   margin: 0;
 }
 #content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #placeTitle p {
-  color: #49c4c4;
+  color: #73a083;
   margin-left: 10px;
   margin-bottom: 0rem;
   font-weight: 800;
@@ -1299,21 +1299,21 @@ nav {
   padding: c 0.75rem;
   display: inline-block;
   border-radius: 50px;
-  border: #65c6c6 2px solid;
-  background: #65c6c6;
+  border: #73a083 2px solid;
+  background: #73a083;
   color: white;
   font-size: 1.25rem;
   cursor: pointer;
 }
 #content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #placeTag button:hover {
   background: white;
-  color: #65c6c6;
-  border: #65c6c6 2px solid;
+  color: #73a083;
+  border: #73a083 2px solid;
 }
 #content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #placeTag .fa {
   font-size: 36px;
   margin-right: 10px;
-  color: #5db8a6;
+  color: #73a083;
   background-color: transparent;
   border: none;
   outline: none;
@@ -1343,12 +1343,12 @@ nav {
   float: right;
 }
 #content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #count i {
-  color: #5db8a6;
+  color: #73a083;
   font-size: 18px;
   margin-right: 10px;
 }
 #content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #count p {
-  color: #5db8a6;
+  color: #73a083;
   font-size: 22px;
   font-weight: 800;
   margin-left: 5px;
@@ -1423,7 +1423,7 @@ nav {
   width: 13px;
   height: 13px;
   border-radius: 50%;
-  background: #65c6c6;
+  background: #73a083;
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
 .loader .lds-ellipsis div:nth-child(1) {
