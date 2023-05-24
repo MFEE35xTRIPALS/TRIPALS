@@ -350,6 +350,24 @@
     //         stroke-dashoffset: 0;
     //     }
     // }
+    @keyframes hat {
+        0% {
+          stroke-dashoffset: 2976;
+        }
+      
+        80% {
+          stroke-dashoffset: 0;
+        }
+      
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+      
+      #hat {
+        stroke-dasharray: 2976;
+        animation: 12s hat linear infinite;
+      }
     
     @keyframes kite {
         0% {
@@ -367,7 +385,7 @@
       
       #kite {
         stroke-dasharray: 682;
-        animation: 12s kite linear infinite;
+        animation: 8s kite linear infinite;
       }
 
 
@@ -377,7 +395,7 @@
 //熱門文章
 #popular {
     position: relative;
-    height: 1000px;
+    height: 100vh;
     background-size: cover;
     /* 調整圖片大小以符合元素大小 */
     background-position: center;
@@ -777,7 +795,7 @@
     height: 100%;
     width: 100%;
     background-color: #f0e8dc;
-    padding-bottom: 20rem;
+    // padding-bottom: 0rem;
 
     //手繪動畫
     #ship {
@@ -1000,24 +1018,24 @@
     //     }
     // }
 
-    @keyframes hat {
-        0% {
-          stroke-dashoffset: 2976;
-        }
+    // @keyframes hat {
+    //     0% {
+    //       stroke-dashoffset: 2976;
+    //     }
       
-        50% {
-          stroke-dashoffset: 0;
-        }
+    //     50% {
+    //       stroke-dashoffset: 0;
+    //     }
       
-        100% {
-          stroke-dashoffset: 0;
-        }
-      }
+    //     100% {
+    //       stroke-dashoffset: 0;
+    //     }
+    //   }
       
-      #hat {
-        stroke-dasharray: 2976;
-        animation: 10s hat linear infinite;
-      }
+    //   #hat {
+    //     stroke-dasharray: 2976;
+    //     animation: 10s hat linear infinite;
+    //   }
 
       @keyframes tulip {
         0% {
@@ -1035,7 +1053,10 @@
       
       #tulip {
         stroke-dasharray: 4362;
-        animation: 12s tulip linear infinite;
+        animation: 10s tulip linear infinite;
+        @media (max-width: 1835px) {
+            display: none;
+          }
       }
 
 
