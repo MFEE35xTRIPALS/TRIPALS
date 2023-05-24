@@ -94,7 +94,7 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg, setavatarImg }) =>
 
 	}, []);
 	const logout = () => {
-		swaAlert('您已登出，歡迎再次登入使用', '', '', 2000);
+		// swaAlert('您已登出，歡迎再次登入使用', '', '', 2000);
 		localStorage.removeItem("user");
 		setCurrentUser(null);
 		history.push('/login/else')
