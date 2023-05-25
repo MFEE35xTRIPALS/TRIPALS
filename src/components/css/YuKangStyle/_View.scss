@@ -115,13 +115,13 @@ nav {
 
               button {
                 margin: 0.5rem 0.25rem;
-                padding: c 0.75rem;
+                padding: 0.25rem 0.75rem;
                 display: inline-block;
                 border-radius: 50px;
                 border: $tagsBg 2px solid;
                 background: $tagsBg;
                 color: white;
-                font-size: 1.25rem;
+                font-size: 1.5rem;
                 cursor: pointer;
 
                 &:hover {
@@ -133,7 +133,7 @@ nav {
 
               .fa {
                 font-size: 36px;
-                margin-right: 10px;
+                margin-left: 0.5rem;
                 color: $tagsBg;
                 background-color: transparent;
                 border: none;
@@ -159,7 +159,7 @@ nav {
 
               #authorName {
                 margin: 0 5px;
-                font-size: 16px;
+                font-size: 1.5rem;
                 font-weight: 800;
               }
             }
@@ -171,13 +171,13 @@ nav {
 
               i {
                 color: $tagsBg;
-                font-size: 18px;
-                margin-right: 10px;
+                font-size: 1.35rem;
+                margin-right: 0.75rem;
               }
 
               p {
                 color: $tagsBg;
-                font-size: 22px;
+                font-size: 1.35rem;
                 font-weight: 800;
                 margin-left: 5px;
                 margin-right: 10px;

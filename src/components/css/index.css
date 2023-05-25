@@ -54,7 +54,7 @@ a {
 }
 .c-right .c-block .totalMember {
   padding: 2rem 2rem;
-  color: #27a2b8;
+  color: #73a083;
 }
 .c-right .c-block .a-news {
   margin: 2rem 2rem 0rem 3rem;
@@ -86,7 +86,7 @@ a {
   text-align: left;
 }
 .c-right .c-block .c-myart tr .icon {
-  color: #27a2b8;
+  color: #73a083;
   text-align: center;
 }
 .c-right .c-block .c-myart tr:hover {
@@ -105,7 +105,7 @@ a {
 }
 .c-right .c-block .c-myart .chose {
   background-color: rgba(178, 213, 206, 0.3);
-  color: #27a2b8;
+  color: #73a083;
 }
 .c-right .c-block .c-form {
   padding: 2rem 2.5rem 4rem 2.5rem;
@@ -156,15 +156,15 @@ a {
 .c-right .c-block .c-form .c-button .c-post,
 .c-right .c-block .c-form .c-button .c-change {
   right: 20px;
-  border: #65c6c6 2px solid;
-  background: #65c6c6;
+  border: #73a083 2px solid;
+  background: #73a083;
   color: #ffffff;
 }
 .c-right .c-block .c-form .c-button .c-post:hover,
 .c-right .c-block .c-form .c-button .c-change:hover {
-  color: #65c6c6;
+  color: #73a083;
   background: #ffffff;
-  border: #65c6c6 2px solid;
+  border: #73a083 2px solid;
 }
 .c-right .c-block .c-form .c-button .cancelBtn {
   right: 115px;
@@ -240,7 +240,7 @@ a {
 }
 .c-right .c-block .a-members dialog#m-change div.content input {
   border-radius: 20px;
-  border: 1.5px #27a2b8 solid;
+  border: 1.5px #73a083 solid;
   padding-left: 1rem;
   font-size: 1.25rem;
   width: 100%;
@@ -258,14 +258,14 @@ a {
   border-radius: 50px;
 }
 .c-right .c-block .a-members dialog#m-change div.content .d-button .d-change {
-  border: #65c6c6 2px solid;
-  background: #65c6c6;
+  border: #73a083 2px solid;
+  background: #73a083;
   color: #ffffff;
 }
 .c-right .c-block .a-members dialog#m-change div.content .d-button .d-change:hover {
-  color: #65c6c6;
+  color: #73a083;
   background: #ffffff;
-  border: #65c6c6 2px solid;
+  border: #73a083 2px solid;
 }
 .c-right .c-block .a-members dialog#m-change div.content .d-button .d-cancel {
   border: #fab10c 2px solid;
@@ -289,9 +289,10 @@ a {
   /* 文章管理 table */
 }
 .c-right .c-block .a-totalArt .a-myart thead {
-  background-color: #b2d5ce;
+  background-color: #eaf2f0;
   position: sticky;
   top: 0;
+  z-index: 10;
 }
 .c-right .c-block .a-totalArt .a-myart tr td {
   border: 0.3px #b2d5ce solid;
@@ -370,7 +371,7 @@ section.title div.img h1 {
   display: inline-block;
   position: relative;
   font-size: 3rem;
-  color: #27a2b8;
+  color: #73a083;
   padding: 0.5rem 0 0.5rem 1rem;
   width: 35vw;
   max-width: 500px;
@@ -624,7 +625,7 @@ section.c-head div.img2 {
   height: 250px;
   border-radius: 20px;
   text-align: center;
-  background-color: #27a2b8;
+  background-color: #73a083;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -659,7 +660,7 @@ section.c-head div.img2 {
 .c-left .c-select ul {
   padding: 1.5rem;
   margin: 2.5rem 0 0 0;
-  border-top: 4px solid #27a2b8;
+  border-top: 4px solid #73a083;
   font-size: 1.75rem;
   display: flex;
   flex-direction: column;
@@ -673,7 +674,7 @@ section.c-head div.img2 {
   text-decoration: none;
 }
 .c-left .c-select ul .selectLi:hover {
-  border-bottom: 3px solid #27a2b8;
+  border-bottom: 3px solid #73a083;
 }
 
 /* 右邊隨選項變動的區塊 */
@@ -763,6 +764,7 @@ div.bannerModal button {
 }
 div.bannerModal button.cancel {
   background: rgba(255, 255, 255, 0.8);
+  color: black;
 }
 div.bannerModal button:hover {
   background-color: white;
@@ -920,15 +922,15 @@ button.camera {
 .c-form .c-inbox .changePwd {
   padding: 0.25rem 0.85rem;
   border-radius: 50px;
-  border: #65c6c6 2px solid;
-  background: #65c6c6;
+  border: #73a083 2px solid;
+  background: #73a083;
   color: #ffffff;
   font-size: 1.25rem;
 }
 .c-form .c-inbox .changePwd:hover {
-  color: #65c6c6;
+  color: #73a083;
   background: #ffffff;
-  border: #65c6c6 2px solid;
+  border: #73a083 2px solid;
 }
 .c-form .c-inbox #m-pwd {
   color: #ff4848;
@@ -943,16 +945,16 @@ button.camera {
   border-radius: 50px;
   position: absolute;
   bottom: -40px;
-  border: #65c6c6 2px solid;
+  border: #73a083 2px solid;
   right: 20px;
-  background: #65c6c6;
+  background: #73a083;
   color: #ffffff;
   font-size: 1.25rem;
 }
 .c-form .c-inbox .button:hover {
-  color: #65c6c6;
+  color: #73a083;
   background: #ffffff;
-  border: #65c6c6 2px solid;
+  border: #73a083 2px solid;
 }
 .c-form .c-textarea {
   display: flex;
@@ -1022,7 +1024,7 @@ button.camera {
   text-decoration: none;
 }
 .c-mine .c-myart tr td a.c-editArt {
-  color: #27a2b8;
+  color: #73a083;
   margin: 0 0.5rem;
 }
 .c-mine .c-myart tr td i.trash {
@@ -1209,7 +1211,7 @@ div.onecard div.card_body h6 {
 div.onecard div.card_body h6 img.head {
   width: 40px;
   height: 40px;
-  background-color: #27a2b8;
+  background-color: #73a083;
   border-radius: 50%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -1318,13 +1320,13 @@ nav {
 }
 #content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #placeTag button {
   margin: 0.5rem 0.25rem;
-  padding: c 0.75rem;
+  padding: 0.25rem 0.75rem;
   display: inline-block;
   border-radius: 50px;
   border: #73a083 2px solid;
   background: #73a083;
   color: white;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   cursor: pointer;
 }
 #content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #placeTag button:hover {
@@ -1334,7 +1336,7 @@ nav {
 }
 #content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #placeTag .fa {
   font-size: 36px;
-  margin-right: 10px;
+  margin-left: 0.5rem;
   color: #73a083;
   background-color: transparent;
   border: none;
@@ -1356,7 +1358,7 @@ nav {
 }
 #content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #author #authorName {
   margin: 0 5px;
-  font-size: 16px;
+  font-size: 1.5rem;
   font-weight: 800;
 }
 #content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #count {
@@ -1366,12 +1368,12 @@ nav {
 }
 #content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #count i {
   color: #73a083;
-  font-size: 18px;
-  margin-right: 10px;
+  font-size: 1.35rem;
+  margin-right: 0.75rem;
 }
 #content .section-guide-panel .section-panel-inner .section-panel-intro .image-intro #mainArticle #count p {
   color: #73a083;
-  font-size: 22px;
+  font-size: 1.35rem;
   font-weight: 800;
   margin-left: 5px;
   margin-right: 10px;
@@ -1792,17 +1794,17 @@ nav {
 .page #RegisterPage form button {
   padding: 0.25rem 0.85rem;
   border-radius: 50px;
-  border: #65c6c6 2px solid;
-  background: #65c6c6;
+  border: #73a083 2px solid;
+  background: #73a083;
   color: #ffffff;
   width: 30%;
   margin: 1rem auto;
 }
 .page #LoginPage form button:hover,
 .page #RegisterPage form button:hover {
-  color: #65c6c6;
+  color: #73a083;
   background: #ffffff;
-  border: #65c6c6 2px solid;
+  border: #73a083 2px solid;
 }
 .page #LoginPage form a,
 .page #RegisterPage form a {
