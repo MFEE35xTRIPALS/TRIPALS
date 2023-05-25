@@ -13,6 +13,7 @@
     .totalMember {
       padding: 2rem 2rem;
       color: $Blue;
+      font-size: 1.75rem;
     }
 
     /* 最新消息區塊 */
@@ -329,7 +330,7 @@
 
             a {
               color: $black;
-              font-size: $ArticleText;
+              font-size: $tableText;
               text-decoration: none;
             }
 

@@ -55,6 +55,7 @@ a {
 .c-right .c-block .totalMember {
   padding: 2rem 2rem;
   color: #73a083;
+  font-size: 1.75rem;
 }
 .c-right .c-block .a-news {
   margin: 2rem 2rem 0rem 3rem;
@@ -78,7 +79,7 @@ a {
   text-overflow: ellipsis;
   overflow: hidden;
   padding: 0.5rem;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   border: 0.3px #b2d5ce solid;
   text-align: center;
 }
@@ -301,7 +302,7 @@ a {
   text-overflow: ellipsis;
   overflow: hidden;
   padding: 0.5rem;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   width: -moz-fit-content;
   width: fit-content;
   text-align: center;
@@ -311,7 +312,7 @@ a {
 }
 .c-right .c-block .a-totalArt .a-myart tr td a {
   color: #000000;
-  font-size: 1.15rem;
+  font-size: 1.5rem;
   text-decoration: none;
 }
 .c-right .c-block .a-totalArt .a-myart tr td i {
