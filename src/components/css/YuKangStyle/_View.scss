@@ -7,229 +7,237 @@ $white: #ffffff;
 
 html,
 body {
-  height: auto;
-  margin: 0;
-  padding: 0;
-  background-color: #f0e8dc;
+	height: auto;
+	margin: 0;
+	padding: 0;
+	background-color: #f0e8dc;
 }
 
 nav {
-  position: fixed;
+	position: fixed;
 }
 
 #content {
-  padding-top: 56px;
-  position: relative;
-  // width: 600px;
-  display: inline-block;
+	padding-top: 56px;
+	position: relative;
+	// width: 600px;
+	display: inline-block;
 
-  hr {
-    border-width: 2px;
-    color: $tagsBg;
-  }
+	hr {
+		border-width: 2px;
+		color: $tagsBg;
+	}
 
-  .section-guide-panel {
-    position: relative;
-    top: 0;
-    left: 0;
-    z-index: 200;
-    // overflow-y: scroll;
-    // pointer-events: none;
-    padding: 20px 0 0 20px;
+	.section-guide-panel {
+		position: relative;
+		top: 0;
+		left: 0;
+		z-index: 200;
+		// overflow-y: scroll;
+		// pointer-events: none;
+		padding: 20px 0 0 20px;
 
-    .section-panel-inner {
-      position: relative;
-      top: 0;
-      left: 0;
+		.view_pre {
+			// white-space: "pre-line";
+			margin: 0;
+			font-size: 1.25rem;
+			white-space: pre-wrap;
+			word-wrap: break-word;
+		}
 
-      > div {
-        // margin: 10px 0 0 10px;
-        border-radius: 8px;
-        padding: 20px;
-        background-color: $white;
-        box-shadow: 0 4px 24px rgba(0, 0, 0, 1);
-        margin-bottom: 60px;
-      }
+		.section-panel-inner {
+			position: relative;
+			top: 0;
+			left: 0;
 
-      .mainCard {
-        padding-bottom: 10px;
-      }
+			> div {
+				// margin: 10px 0 0 10px;
+				border-radius: 8px;
+				padding: 20px;
+				background-color: $white;
+				box-shadow: 0 4px 24px rgba(0, 0, 0, 1);
+				margin-bottom: 60px;
+			}
 
-      .section-panel-intro {
-        position: relative;
-        top: 0;
-        left: 0;
-        max-width: 590px;
+			.mainCard {
+				padding-bottom: 10px;
+			}
 
-        .image-intro {
-          .image-placeholder {
-            border-radius: 8px;
-            height: 100%;
-            width: 100%;
-          }
+			.section-panel-intro {
+				position: relative;
+				top: 0;
+				left: 0;
+				max-width: 590px;
 
-          #mainArticle {
-            #placeTitle {
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
+				.image-intro {
+					.image-placeholder {
+						border-radius: 8px;
+						height: 100%;
+						width: 100%;
+					}
 
-              h3 {
-                margin: 0;
-              }
+					#mainArticle {
+						#placeTitle {
+							display: flex;
+							justify-content: space-between;
+							align-items: center;
 
-              p {
-                color: $tagsBg;
-                margin-left: 10px;
-                margin-bottom: 0rem;
-                font-weight: 800;
-                font-size: 22px;
-                // text-shadow: 0 1px 1px rgb(0, 0, 0,0.3);
-              }
+							h3 {
+								margin: 0;
+							}
 
-              .titlei {
-                margin-left: auto;
-                font-size: 1.5em;
-                display: flex;
-                justify-content: space-between;
+							p {
+								color: $tagsBg;
+								margin-left: 10px;
+								margin-bottom: 0rem;
+								font-weight: 800;
+								font-size: 22px;
+								// text-shadow: 0 1px 1px rgb(0, 0, 0,0.3);
+							}
 
-                &:hover {
-                  cursor: pointer;
-                }
+							.titlei {
+								margin-left: auto;
+								font-size: 1.5em;
+								display: flex;
+								justify-content: space-between;
 
-                #likepost {
-                  color: red;
-                  margin-right: 10px;
-                }
+								&:hover {
+									cursor: pointer;
+								}
 
-                #reportPost {
-                  color: rgb(238, 219, 45);
-                }
-              }
-            }
+								#likepost {
+									color: red;
+									margin-right: 10px;
+								}
 
-            #placeTag {
-              display: flex;
-              flex-wrap: wrap;
-              align-items: center;
+								#reportPost {
+									color: rgb(238, 219, 45);
+								}
+							}
+						}
 
-              button {
-                margin: 0.5rem 0.25rem;
-                padding: 0.25rem 0.75rem;
-                display: inline-block;
-                border-radius: 50px;
-                border: $tagsBg 2px solid;
-                background: $tagsBg;
-                color: white;
-                font-size: 1.5rem;
-                cursor: pointer;
+						#placeTag {
+							display: flex;
+							flex-wrap: wrap;
+							align-items: center;
 
-                &:hover {
-                  background: white;
-                  color: $tagsBg;
-                  border: $tagsBg 2px solid;
-                }
-              }
+							button {
+								margin: 0.5rem 0.25rem;
+								padding: 0.25rem 0.75rem;
+								display: inline-block;
+								border-radius: 50px;
+								border: $tagsBg 2px solid;
+								background: $tagsBg;
+								color: white;
+								font-size: 1.5rem;
+								cursor: pointer;
 
-              .fa {
-                font-size: 36px;
-                margin-left: 0.5rem;
-                color: $tagsBg;
-                background-color: transparent;
-                border: none;
-                outline: none;
-                align-items: center;
+								&:hover {
+									background: white;
+									color: $tagsBg;
+									border: $tagsBg 2px solid;
+								}
+							}
 
-                &:hover {
-                  cursor: pointer;
-                }
-              }
-            }
+							.fa {
+								font-size: 36px;
+								margin-left: 0.5rem;
+								color: $tagsBg;
+								background-color: transparent;
+								border: none;
+								outline: none;
+								align-items: center;
 
-            #author {
-              display: flex;
-              align-items: center;
+								&:hover {
+									cursor: pointer;
+								}
+							}
+						}
 
-              #authorPhoto {
-                border-radius: 50%;
-                height: 50px;
-                width: 50px;
-                margin: 0 5px;
-              }
+						#author {
+							display: flex;
+							align-items: center;
 
-              #authorName {
-                margin: 0 5px;
-                font-size: 1.5rem;
-                font-weight: 800;
-              }
-            }
+							#authorPhoto {
+								border-radius: 50%;
+								height: 50px;
+								width: 50px;
+								margin: 0 5px;
+							}
 
-            #count {
-              display: inline-flex;
-              align-items: center;
-              float: right;
+							#authorName {
+								margin: 0 5px;
+								font-size: 1.5rem;
+								font-weight: 800;
+							}
+						}
 
-              i {
-                color: $tagsBg;
-                font-size: 1.35rem;
-                margin-right: 0.75rem;
-              }
+						#count {
+							display: inline-flex;
+							align-items: center;
+							float: right;
 
-              p {
-                color: $tagsBg;
-                font-size: 1.35rem;
-                font-weight: 800;
-                margin-left: 5px;
-                margin-right: 10px;
-              }
-            }
-          }
-        }
-      }
+							i {
+								color: $tagsBg;
+								font-size: 1.35rem;
+								margin-right: 0.75rem;
+							}
 
-      @media (max-width: 767px) {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+							p {
+								color: $tagsBg;
+								font-size: 1.35rem;
+								font-weight: 800;
+								margin-left: 5px;
+								margin-right: 10px;
+							}
+						}
+					}
+				}
+			}
 
-        /* 隱藏區塊標題 */
-        .accordion-header.d-md-none {
-          display: block;
-        }
+			@media (max-width: 767px) {
+				display: flex;
+				justify-content: center;
+				align-items: center;
 
-        /* 顯示展開的區塊內容 */
-        .accordion-collapse.collapse.show {
-          display: block;
-        }
+				/* 隱藏區塊標題 */
+				.accordion-header.d-md-none {
+					display: block;
+				}
 
-        > div {
-          box-shadow: none;
-          min-width: 400px;
-        }
+				/* 顯示展開的區塊內容 */
+				.accordion-collapse.collapse.show {
+					display: block;
+				}
 
-        .accordion {
-          max-height: max-content;
-        }
-      }
-    }
-  }
+				> div {
+					box-shadow: none;
+					min-width: 400px;
+				}
 
-  .section-map-wapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 100;
+				.accordion {
+					max-height: max-content;
+				}
+			}
+		}
+	}
 
-    @media (max-width: 767px) {
-      position: relative;
-      width: 95%;
-      height: 300px;
-      margin: 0 auto;
-      // margin-left: 20px;
-    }
-  }
+	.section-map-wapper {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+		z-index: 100;
+
+		@media (max-width: 767px) {
+			position: relative;
+			width: 95%;
+			height: 300px;
+			margin: 0 auto;
+			// margin-left: 20px;
+		}
+	}
 }
 
 // footer
@@ -298,88 +306,88 @@ nav {
 // }
 
 .markerLabel {
-  position: relative;
-  top: -25px;
-  left: -1px;
-  color: #ffffff;
+	position: relative;
+	top: -25px;
+	left: -1px;
+	color: #ffffff;
 }
 
 // loader
 .loader {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #f0e8dc;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #f0e8dc;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
 
-  .lds-ellipsis {
-    display: inline-block;
-    position: relative;
-    width: 80px;
-    height: 80px;
-    align-self: center;
-  }
+	.lds-ellipsis {
+		display: inline-block;
+		position: relative;
+		width: 80px;
+		height: 80px;
+		align-self: center;
+	}
 
-  .lds-ellipsis div {
-    position: absolute;
-    top: 33px;
-    width: 13px;
-    height: 13px;
-    border-radius: 50%;
-    background: $tagsBg;
-    animation-timing-function: cubic-bezier(0, 1, 1, 0);
-  }
+	.lds-ellipsis div {
+		position: absolute;
+		top: 33px;
+		width: 13px;
+		height: 13px;
+		border-radius: 50%;
+		background: $tagsBg;
+		animation-timing-function: cubic-bezier(0, 1, 1, 0);
+	}
 
-  .lds-ellipsis div:nth-child(1) {
-    left: 8px;
-    animation: lds-ellipsis1 0.6s infinite;
-  }
+	.lds-ellipsis div:nth-child(1) {
+		left: 8px;
+		animation: lds-ellipsis1 0.6s infinite;
+	}
 
-  .lds-ellipsis div:nth-child(2) {
-    left: 8px;
-    animation: lds-ellipsis2 0.6s infinite;
-  }
+	.lds-ellipsis div:nth-child(2) {
+		left: 8px;
+		animation: lds-ellipsis2 0.6s infinite;
+	}
 
-  .lds-ellipsis div:nth-child(3) {
-    left: 32px;
-    animation: lds-ellipsis2 0.6s infinite;
-  }
+	.lds-ellipsis div:nth-child(3) {
+		left: 32px;
+		animation: lds-ellipsis2 0.6s infinite;
+	}
 
-  .lds-ellipsis div:nth-child(4) {
-    left: 56px;
-    animation: lds-ellipsis3 0.6s infinite;
-  }
+	.lds-ellipsis div:nth-child(4) {
+		left: 56px;
+		animation: lds-ellipsis3 0.6s infinite;
+	}
 
-  @keyframes lds-ellipsis1 {
-    0% {
-      transform: scale(0);
-    }
+	@keyframes lds-ellipsis1 {
+		0% {
+			transform: scale(0);
+		}
 
-    100% {
-      transform: scale(1);
-    }
-  }
+		100% {
+			transform: scale(1);
+		}
+	}
 
-  @keyframes lds-ellipsis3 {
-    0% {
-      transform: scale(1);
-    }
+	@keyframes lds-ellipsis3 {
+		0% {
+			transform: scale(1);
+		}
 
-    100% {
-      transform: scale(0);
-    }
-  }
+		100% {
+			transform: scale(0);
+		}
+	}
 
-  @keyframes lds-ellipsis2 {
-    0% {
-      transform: translate(0, 0);
-    }
+	@keyframes lds-ellipsis2 {
+		0% {
+			transform: translate(0, 0);
+		}
 
-    100% {
-      transform: translate(24px, 0);
-    }
-  }
+		100% {
+			transform: translate(24px, 0);
+		}
+	}
 }
