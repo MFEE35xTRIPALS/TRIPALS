@@ -410,6 +410,9 @@
         z-index: 2;
         left: 5%;
         top: 10rem;
+        @media (max-width: 450px) {
+            top: 6rem;
+        }
 
         h1 {
             font-family: "Sen";
@@ -542,6 +545,7 @@
                 @media (max-width: 375px) {
                     width: 76.5%;
                     min-width: 260px;
+                   
                 }
 
                 .swiper-wrapper {
@@ -554,10 +558,13 @@
                         color: white;
                         font-weight: bold;
 
-
+                        @media (max-width: 500px) {
+                            height: 470px;
+                        }
                         @media (max-width: 375px) {
                             width: 70vw;
                             min-width: 260px;
+                           
                         }
                     }
 
