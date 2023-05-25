@@ -673,6 +673,7 @@ section.c-head div.img2 {
   transition: all 0.2s;
   color: black;
   text-decoration: none;
+  cursor: pointer;
 }
 .c-left .c-select ul .selectLi:hover {
   border-bottom: 3px solid #73a083;
