@@ -1630,6 +1630,9 @@ nav {
 .wrapper #apple .CityNameContainer .CityList .CityWeather p {
   font-weight: bolder;
 }
+.wrapper #apple .CityNameContainer .CityList .WeatherDiv {
+  margin-top: 35px;
+}
 
 @media screen and (max-width: 700px) {
   .cityName {

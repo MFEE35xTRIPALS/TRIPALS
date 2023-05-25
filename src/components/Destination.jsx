@@ -589,7 +589,7 @@ const Destination = (props) => {
             )}
 
             {showImageWeather && (
-              <div>
+              <div className="WeatherDiv">
                 <ImageWeather
                   ID={ID}
                   svgRef={svgRef}
