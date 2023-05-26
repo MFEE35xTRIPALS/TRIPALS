@@ -116,24 +116,28 @@ const Edit = ({ currentUser, setCurrentUser, avatarImg }) => {
 	// 新增地點
 	const handleAddSpot = async () => {
 		// console.log("articleno:" + mainData.main_articleno);
+		const prevSpotsLength = spots.length; // 存儲 spots 的長度
 
 		axios
 			.post(`${baseUrl}/guide/content`, {
 				main_articleno: mainData.main_articleno,
+				location_index: prevSpotsLength, //這邊這樣有問題，先記錄 會有相同的location_index紀錄產生
 			})
 			.then((response) => {
 				// 新增成功
 				swaAlert("地點新增成功", "", "success", 1500);
 				// 執行相應的更新操作
 				const newSpot = response.data; // 從回傳的資料中取得新增的地點
+				newSpot.location_index = prevSpotsLength + 1; // 設定 location_index
 				// 從舊資料解構賦值
 				setSpots((prevSpots) => [...prevSpots, newSpot]);
+				console.log(spots);
 				// 一併新增 olddata
 				// setOldData({ ...oldData, spots: [...newSpot] });
 			})
 			.catch((error) => {
 				// 新增失敗
-				swaAlert("刪除失敗:" + error, "", "error", 1500);
+				swaAlert("新增失敗:" + error, "", "error", 1500);
 				console.error("新增失敗:", error);
 			});
 	};
@@ -159,8 +163,15 @@ const Edit = ({ currentUser, setCurrentUser, avatarImg }) => {
 					const updatedSpots = spots.filter(
 						(spot) => spot.contentno !== contentno
 					);
+
+					// 重新計算 location_index
+					const updatedSpotsWithIndex = updatedSpots.map((spot, index) => ({
+						...spot,
+						location_index: index + 1,
+					}));
+
 					// console.log("deleteSpot:", updatedSpots);
-					setSpots(updatedSpots);
+					setSpots(updatedSpotsWithIndex);
 					// 一併刪除olddata的spots
 					// setOldData({ ...oldData, spots: [...updatedSpots] });
 				})
