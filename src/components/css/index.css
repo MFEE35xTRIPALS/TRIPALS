@@ -303,7 +303,6 @@ a {
   overflow: hidden;
   padding: 0.5rem;
   font-size: 1.5rem;
-  width: -moz-fit-content;
   width: fit-content;
   text-align: center;
 }
@@ -509,10 +508,6 @@ section.hashtag div.sort button.hots:hover {
   transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1), padding 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s linear;
   width: 0;
 }
-.search__input::-moz-placeholder {
-  color: #73a083;
-  opacity: 0.75;
-}
 .search__input::placeholder {
   color: #73a083;
   opacity: 0.75;
@@ -592,8 +587,7 @@ section.c-head div.img2 {
   background: url(/public/images/raiway.jpg) no-repeat bottom;
   background-size: cover;
   overflow: hidden;
-  -webkit-clip-path: ellipse(75% 50% at 50% 30%);
-          clip-path: ellipse(75% 50% at 50% 30%);
+  clip-path: ellipse(75% 50% at 50% 30%);
   position: relative;
 }
 
@@ -655,8 +649,7 @@ section.c-head div.img2 {
 .c-left .c-head div.h-img img.shot {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .c-left .c-select ul {
   padding: 1.5rem;
@@ -749,7 +742,6 @@ div.bannerModal {
   top: 22rem;
   z-index: 10;
   width: 100vw;
-  height: -moz-fit-content;
   height: fit-content;
   padding: 1.75rem;
   justify-content: end;
@@ -775,15 +767,12 @@ div.bannerModal button:hover {
 img.selfbanner {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: bottom;
-     object-position: bottom;
+  object-fit: cover;
+  object-position: bottom;
 }
 
 .edit_cover {
   position: absolute;
-  height: -moz-fit-content;
   height: fit-content;
   padding: 0.25rem 1.5rem;
   right: 8%;
@@ -860,8 +849,7 @@ button.camera {
 .mymodal div.modalContent div.imgPreviewBorder img.imgPreview {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .mymodal div.modalContent button.uploadShot,
 .mymodal div.modalContent .uploadShotDone {
@@ -1071,23 +1059,18 @@ body section.selftop {
   height: 55vh;
   background-size: cover;
   overflow: hidden;
-  -webkit-clip-path: ellipse(75% 50% at 50% 30%);
-          clip-path: ellipse(75% 50% at 50% 30%);
+  clip-path: ellipse(75% 50% at 50% 30%);
   position: relative;
 }
 body section.selftop img.selfCover {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: bottom;
-     object-position: bottom;
+  object-fit: cover;
+  object-position: bottom;
 }
 body section.selftop div.selfMessage {
   position: absolute;
-  height: -moz-fit-content;
   height: fit-content;
-  width: -moz-fit-content;
   width: fit-content;
   left: 8%;
   bottom: 30%;
@@ -1101,8 +1084,7 @@ body section.selftop div.selfMessage img.selfShot {
   min-height: 75px;
   max-width: 110px;
   max-height: 110px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border-radius: 50%;
   margin: 1rem;
   border: 2px white solid;
@@ -1136,7 +1118,6 @@ section.selfArticles .c-mylikes {
 
 div.onecard {
   width: 280px;
-  height: -moz-fit-content;
   height: fit-content;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   margin: 1rem 0.5rem;
@@ -1167,7 +1148,6 @@ div.onecard a.c-cardImg div.c-imgCover span {
   left: 5.5rem;
   font-size: 1.25rem;
   padding: 2.25rem 1.5rem;
-  width: -moz-fit-content;
   width: fit-content;
   filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.5));
   font-weight: 700;
@@ -1175,8 +1155,7 @@ div.onecard a.c-cardImg div.c-imgCover span {
 div.onecard a.c-cardImg img.Img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 div.onecard div.card_body {
   margin: 1rem;
@@ -1215,8 +1194,7 @@ div.onecard div.card_body h6 img.head {
   height: 40px;
   background-color: #73a083;
   border-radius: 50%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 div.onecard div.card_body div.viewsAndHeart {
   color: black;
@@ -1405,7 +1383,6 @@ nav {
     min-width: 400px;
   }
   #content .section-guide-panel .section-panel-inner .accordion {
-    max-height: -moz-max-content;
     max-height: max-content;
   }
 }
@@ -1614,8 +1591,7 @@ nav {
   border-radius: 5px;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .wrapper #apple .CityNameContainer .CityList hr {
   border: 2px solid rgb(255, 255, 255);
@@ -1728,7 +1704,6 @@ nav {
   max-width: 30rem;
   transform: translate(-50%, -50%);
   border-radius: 10px;
-  height: -moz-fit-content;
   height: fit-content;
   width: 100%;
 }
@@ -1846,8 +1821,7 @@ nav {
   left: 0;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 #main .divVideo .videoContent {
   display: flex;
@@ -2498,26 +2472,21 @@ nav {
 #recommend .container {
   width: 100%;
   margin: 5px auto;
-  -moz-column-count: 3;
-       column-count: 3;
-  -moz-column-gap: 5px;
-       column-gap: 5px;
+  column-count: 3;
+  column-gap: 5px;
 }
 @media (max-width: 1200px) {
   #recommend .container {
-    -moz-column-count: 2;
-         column-count: 2;
+    column-count: 2;
   }
 }
 @media (max-width: 700px) {
   #recommend .container {
-    -moz-column-count: 1;
-         column-count: 1;
+    column-count: 1;
   }
 }
 #recommend .container .recommemdCard {
-  -moz-column-break-inside: avoid;
-       break-inside: avoid;
+  break-inside: avoid;
 }
 #recommend .container .recommemdCard .card-img {
   filter: brightness(90%);
@@ -2525,8 +2494,7 @@ nav {
 #recommend .container .recommemdCard img.avatar {
   max-width: 100%;
   max-height: 540px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 #recommend .container .recommemdCard .card-img-overlay h5 {
   cursor: pointer;
@@ -2734,8 +2702,7 @@ footer .container #footerNav li .footer_ch {
 #headerNav .dropdown .userImage .avatar {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 #headerNav .dropdown .dropdown-toggle::after {
   display: none;
