@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./css/HenryStyle/hamburgers.css";
+import "./CSS/HenryStyle/hamburgers.css";
 import axios from "axios";
 import { baseUrl } from "../assets/config";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
