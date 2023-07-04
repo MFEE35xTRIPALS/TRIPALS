@@ -1,11 +1,16 @@
 import { useState, useEffect } from "react";
-import "./CSS/HenryStyle/hamburgers.css";
+import "./css/HenryStyle/hamburgers.css";
 import axios from "axios";
 import { baseUrl } from "../assets/config";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
 import useSwaAlert from "../components/swaAlert";
 
-const Navigation = ({ currentUser, setCurrentUser, avatarImg, setavatarImg }) => {
+const Navigation = ({
+	currentUser,
+	setCurrentUser,
+	avatarImg,
+	setavatarImg,
+}) => {
 	setTimeout(() => {
 		localStorage.removeItem("user");
 	}, 60 * 60 * 1000);
@@ -13,7 +18,7 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg, setavatarImg }) =>
 
 	const history = useHistory();
 	const swaAlert = useSwaAlert();
-	const url = 'http://localhost:8000';
+	const url = "http://localhost:8000";
 
 	useEffect(() => {
 		const handleNavMouseOver = (event) => {
@@ -77,7 +82,6 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg, setavatarImg }) =>
 		// 	setCurrentUser(null);
 		// };
 
-
 		return () => {
 			navItems.forEach((item) => {
 				item.removeEventListener("mouseover", handleNavMouseOver);
@@ -91,30 +95,31 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg, setavatarImg }) =>
 				element.removeEventListener("click", handleNavLinkClick);
 			});
 		};
-
 	}, []);
 	const logout = () => {
 		// swaAlert('您已登出，歡迎再次登入使用', '', '', 2000);
 		localStorage.removeItem("user");
 		setCurrentUser(null);
-		history.push('/login/else')
+		history.push("/login/else");
 	};
 
 	useEffect(() => {
 		if (currentUser) {
 			async function nav() {
-				let result = await axios.get('http://localhost:8000/nav', {
-					params: { userno: JSON.parse(currentUser)[0].userno }
-				})
+				let result = await axios.get("http://localhost:8000/nav", {
+					params: { userno: JSON.parse(currentUser)[0].userno },
+				});
 				// console.log(result.data.avatar)
-				setavatarImg(result.data.avatar ? (url + result.data.avatar + "?temp=" + Math.random()) : url + "/useravatar/pre.png")
-
+				setavatarImg(
+					result.data.avatar
+						? url + result.data.avatar + "?temp=" + Math.random()
+						: url + "/useravatar/pre.png"
+				);
 			}
 
 			nav();
 		}
-
-	}, [])
+	}, []);
 	// 暫時寫法
 	const handleWriteClick = async (e) => {
 		e.preventDefault();
@@ -174,7 +179,9 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg, setavatarImg }) =>
 								<a
 									className="navWord"
 									href="#"
-									onClick={() => { history.push("/guides") }}
+									onClick={() => {
+										history.push("/guides");
+									}}
 									data-en="GUIDE"
 									data-zh="旅遊導覽"
 								>
@@ -197,7 +204,9 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg, setavatarImg }) =>
 								<a
 									className="navWord"
 									href="#"
-									onClick={() => { history.push("/destination") }}
+									onClick={() => {
+										history.push("/destination");
+									}}
 									data-en="DESTINATIONS"
 									data-zh="目的地"
 								>
@@ -214,7 +223,7 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg, setavatarImg }) =>
 
 							<button
 								onClick={() => {
-									history.push("/register")
+									history.push("/register");
 									// window.location = "/register";
 								}}
 								className="btn  logInBtn"
@@ -223,7 +232,7 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg, setavatarImg }) =>
 							</button>
 							<button
 								onClick={() => {
-									history.push("/login/else")
+									history.push("/login/else");
 									// window.location = "/login";
 								}}
 								className="btn  logInBtn"
@@ -241,7 +250,9 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg, setavatarImg }) =>
 								aria-expanded="false"
 							>
 								<div className="userImage rounded-circle">
-									{avatarImg && <img className="avatar" src={avatarImg} alt="UserImage" />}
+									{avatarImg && (
+										<img className="avatar" src={avatarImg} alt="UserImage" />
+									)}
 								</div>
 							</button>
 							<ul className="dropdown-menu">
@@ -253,17 +264,35 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg, setavatarImg }) =>
 								{JSON.parse(currentUser)[0].permission === 1 && (
 									<div>
 										<li>
-											<a className="dropdown-item" href="#" onClick={() => { history.push("/client") }}>
+											<a
+												className="dropdown-item"
+												href="#"
+												onClick={() => {
+													history.push("/client");
+												}}
+											>
 												<i className="fa-solid fa-user"></i>個人資料
 											</a>
 										</li>
 										<li>
-											<a className="dropdown-item" href="#" onClick={() => { history.push("/client/Mylikes") }}>
+											<a
+												className="dropdown-item"
+												href="#"
+												onClick={() => {
+													history.push("/client/Mylikes");
+												}}
+											>
 												<i className="fa-solid fa-heart"></i>我的收藏
 											</a>
 										</li>
 										<li>
-											<a className="dropdown-item" href="#" onClick={() => { history.push("/client/Myarticles") }}>
+											<a
+												className="dropdown-item"
+												href="#"
+												onClick={() => {
+													history.push("/client/Myarticles");
+												}}
+											>
 												<i className="fa-solid fa-pen-to-square"></i>我的文章
 											</a>
 										</li>
@@ -271,7 +300,13 @@ const Navigation = ({ currentUser, setCurrentUser, avatarImg, setavatarImg }) =>
 								)}
 								{JSON.parse(currentUser)[0].permission === 0 && (
 									<li>
-										<a className="dropdown-item" href="#" onClick={() => { history.push("/admin") }} >
+										<a
+											className="dropdown-item"
+											href="#"
+											onClick={() => {
+												history.push("/admin");
+											}}
+										>
 											<i className="fa-solid fa-pen-to-square"></i>管理員後台
 										</a>
 									</li>
